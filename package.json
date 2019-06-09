@@ -1,0 +1,17 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "Ziro App",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode=development --open",
+    "build": "webpack --mode=production -p"
+  },
+  "keywords": [],
+  "author": "Vitor Barbosa",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
