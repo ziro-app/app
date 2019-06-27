@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connectDb } from './utils/connectDb'
 
 export const App = () => {
-	return (
-		<div>App</div>
-	)
+	useEffect(() => connectDb())
+	return <div>App</div>
 }
