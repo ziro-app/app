@@ -1,10 +1,11 @@
+import { primaryColor, fontWeightBold } from '../../Theme/styleVariables'
 export const 
 
 container = {
 	maxWidth: '400px',
-	color: 'rgba(48,62,77,0.8)',
+	color: primaryColor,
 	margin: '40px auto 60px',
 	padding: '0 10%',
 	textAlign: 'center',
-	fontWeight: '700'
+	fontWeight: fontWeightBold
 }
