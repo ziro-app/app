@@ -15,6 +15,7 @@ successColor = '#4BCA81',
 otherColor = '#2D9CDB',
 
 /*FONTS*/
-fontWeightPrimary = '400',
-fontWeightBold = '600',
+fontTitle = 'Rubik',
+fontWeightTitle = '500',
+fontWeightBody = '400',
 fontWeightMuted = '300'

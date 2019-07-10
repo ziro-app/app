@@ -1,4 +1,4 @@
-import { primaryColor, fontWeightBold } from '../../Theme/styleVariables'
+import { primaryColor, fontWeightTitle } from '../../Theme/styleVariables'
 export const 
 
 container = {
@@ -7,5 +7,5 @@ container = {
 	margin: '40px auto 60px',
 	padding: '0 10%',
 	textAlign: 'center',
-	fontWeight: fontWeightBold
+	fontWeight: fontWeightTitle
 }
