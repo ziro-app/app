@@ -1,7 +1,5 @@
-const WebpackPwaManifest = require('webpack-pwa-manifest')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const webpack = require('webpack')
+// const webpack = require('webpack')
 
 module.exports = (env, { mode }) => {
 	const config = {
@@ -13,8 +11,7 @@ module.exports = (env, { mode }) => {
 					use: {
 						loader: 'babel-loader',
 						options: {
-							presets: ['@babel/preset-env', '@babel/preset-react'],
-							plugins: ['@babel/plugin-transform-runtime']
+							presets: ['@babel/preset-env', '@babel/preset-react']
 						}
 					}
 				},
@@ -28,29 +25,29 @@ module.exports = (env, { mode }) => {
 	}
 	if (mode === 'development') {
 		config.devtool = 'cheap-module-eval-source-map'
-		config.output = { publicPath: '/' }
-		config.devServer = { historyApiFallback: true }
+		// config.output = { publicPath: '/' }
+		// config.devServer = { historyApiFallback: true }
 	}
 	if (mode === 'production') {
 		config.devtool = 'cheap-module-source-map'
-		config.plugins.push(
-			new WebpackPwaManifest({
-				name: 'Ziro App',
-				short_name: 'Ziro',
-				start_url: '/',
-				background_color: '#FFF',
-				theme_color: '#FFF',
-				display: 'standalone',
-				icons: [{ src: './logo.png', sizes: [96, 128, 192, 256, 384, 512] }]
-			}),
-			new CopyWebpackPlugin([{ from: './_redirects', to: '_redirects', toType: 'file' }])
+		// config.plugins.push(
+		// 	new WebpackPwaManifest({
+		// 		name: 'Ziro App',
+		// 		short_name: 'Ziro',
+		// 		start_url: '/',
+		// 		background_color: '#FFF',
+		// 		theme_color: '#FFF',
+		// 		display: 'standalone',
+		// 		icons: [{ src: './logo.png', sizes: [96, 128, 192, 256, 384, 512] }]
+		// 	}),
+		// 	new CopyWebpackPlugin([{ from: './_redirects', to: '_redirects', toType: 'file' }])
 			// new webpack.DefinePlugin({
 			// 	'process.env': {
 			// 		DATA_SHEET_URL: JSON.stringify(process.env.DATA_SHEET_URL),
 			// 		API_URL: JSON.stringify(process.env.API_URL)
 			// 	}
 			// })
-		)
+		// )
 	}
 	return config
 }

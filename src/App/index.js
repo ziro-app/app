@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export const App = () => {
+	const [state, setState] = useState('hello app')
 	useEffect(() => {
-		window.title = 'Hello'
+		document.title = state
 	}, [])
-	return <div>App</div>
+	return <div>{state}</div>
 }
