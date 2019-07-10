@@ -30,16 +30,6 @@ module.exports = (env, { mode }) => {
 		config.devtool = 'cheap-module-eval-source-map'
 		config.output = { publicPath: '/' }
 		config.devServer = { historyApiFallback: true }
-		const { app_id, service_name, db_name } = require('./credentials')
-		config.plugins.push(
-			new webpack.DefinePlugin({
-				'process.env': {
-					APP_ID: JSON.stringify(app_id),
-					SERVICE_NAME: JSON.stringify(service_name),
-					DB_NAME: JSON.stringify(db_name)
-				}
-			})
-		)
 	}
 	if (mode === 'production') {
 		config.devtool = 'cheap-module-source-map'
