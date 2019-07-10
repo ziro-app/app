@@ -1,9 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { Router } from './Router/index'
 
-export const App = () => {
-	const [state, setState] = useState('hello app')
-	useEffect(() => {
-		document.title = state
-	}, [])
-	return <div>{state}</div>
-}
+export const App = () => <Router />

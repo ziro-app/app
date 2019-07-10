@@ -26,7 +26,7 @@ module.exports = (env, { mode }) => {
 	if (mode === 'development') {
 		config.devtool = 'cheap-module-eval-source-map'
 		// config.output = { publicPath: '/' }
-		// config.devServer = { historyApiFallback: true }
+		config.devServer = { historyApiFallback: true }
 	}
 	if (mode === 'production') {
 		config.devtool = 'cheap-module-source-map'
