@@ -1,5 +1,11 @@
 export const
 
+/* MAX-WIDTH */
+maxWidth = '400px',
+
+/* PADDING */
+standardPadding = '10%',
+
 /* COLORS */
 primaryColor = '#222222', // rgb(34,34,34)
 primaryAltColor = '#303E4F',
@@ -19,9 +25,6 @@ fontTitle = 'Rubik',
 fontWeightTitle = '500',
 fontWeightBody = '400',
 fontWeightMuted = '300',
-
-/* PADDING */
-standardPadding = '10%',
 
 /* SHADOW */
 shadow = `0px 5px 10px 1px rgba(34,34,34,0.25), 0px 5px 20px 1px rgba(34,34,34,0.20), 
