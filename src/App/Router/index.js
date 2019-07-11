@@ -1,8 +1,9 @@
 import React from 'react'
 import { useRoutes } from 'hookrouter'
+import { Login } from '../Login/index'
 
 const routes = {
-	'/': () => <div>Login component to be used</div>
+	'/': () => <Login />
 }
 
 export const Router = () => useRoutes(routes) || <div>Not found</div>
