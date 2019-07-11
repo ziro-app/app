@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    margin: 0 10px;
+    margin: 0;
 }
 
 h1 {
@@ -25,4 +25,13 @@ ul {
     font-size: 1.7rem;
     padding: 0;
     list-style: none;
+}
+
+label {
+    font-size: 1.7rem;
+}
+
+input {
+    font-size: 1.7rem;
+    font-family: 'work sans', 'system-ui', 'sans-serif';
 }

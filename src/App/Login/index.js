@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { container } from './styles'
+import { container, inputWrapper, input, submit } from './styles'
 
 export const Login = () => {
 	const inputEmail = useRef(null)
@@ -11,9 +11,15 @@ export const Login = () => {
 	}
 	return (
 		<form style={container} onSubmit={handleSubmit}>
-			<input type='text' name='email' ref={inputEmail} />
-			<input type='password' name='password' ref={inputPass} />
-			<input type='submit' />
+			<div style={inputWrapper}>
+				<label htmlFor='email'>Email</label>
+				<input ref={inputEmail} style={input} type='text' name='email' id='email' />
+			</div>
+			<div style={inputWrapper}>
+				<label htmlFor='password'>Senha</label>
+				<input ref={inputPass} style={input} type='password' name='password' id='password' />
+			</div>
+			<input style={submit} type='submit' value='Acessar' />
 		</form>
 	)
 }
