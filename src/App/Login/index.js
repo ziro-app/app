@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { validateForm } from './utils/validateForm'
 import { container, inputWrapper, input, forgotPass, submit } from './styles'
 
 export const Login = () => {
@@ -6,8 +7,13 @@ export const Login = () => {
 	const inputPass = useRef(null)
 	const handleSubmit = event => {
 		event.preventDefault()
+		const formIsValid = validateForm(inputEmail.current.value, inputPass.current.value)
 		console.log(inputEmail.current.value)
 		console.log(inputPass.current.value)
+		if (formIsValid)
+			console.log('is valid')
+		else
+			console.log('is NOT valid')
 	}
 	return (
 		<form style={container} onSubmit={handleSubmit}>
