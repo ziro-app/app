@@ -11,7 +11,7 @@ container = {
 	padding: standardPadding
 },
 
-inputWrapper = {
+wrapper = {
 	display: 'grid',
 	gridRowGap: '5px',
 	color: grayColor1,
@@ -28,8 +28,6 @@ input = {
 },
 
 forgotPass = {
-	marginTop: '-15px',
-	textAlign: 'center',
 	fontSize: fontSizeSmall,
 	color: primaryColor
 },
@@ -40,8 +38,13 @@ error = {
 	fontWeight: fontWeightBody
 },
 
+buttonWrapper = {
+	display: 'grid',
+	gridRowGap: '15px',
+	textAlign: 'center'
+},
+
 submit = {
-	marginTop: '30px',
 	WebkitAppearance: 'none',
 	WebkitTapHighlightColor: 'rgba(0,0,0,0)',
 	MozAppearance: 'none',
