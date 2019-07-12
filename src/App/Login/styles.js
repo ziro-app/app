@@ -5,7 +5,7 @@ export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '30px',
+	gridRowGap: '20px',
 	margin: '60px auto',
 	maxWidth: maxWidth,
 	padding: standardPadding
@@ -27,11 +27,6 @@ input = {
 	boxShadow: `0px 2px 0px ${grayColor3}`
 },
 
-forgotPass = {
-	fontSize: fontSizeSmall,
-	color: primaryColor
-},
-
 error = {
 	fontSize: fontSizeSmall,
 	color: alertColor,
@@ -41,7 +36,14 @@ error = {
 buttonWrapper = {
 	display: 'grid',
 	gridRowGap: '15px',
-	textAlign: 'center'
+	textAlign: 'center',
+	marginTop: '-10px'
+},
+
+loader = {
+	display: 'grid',
+	alignItems: 'center',
+	height: '30px'
 },
 
 submit = {
@@ -60,4 +62,10 @@ submit = {
 
 scaleButton = {
 	scale: 0.95
+},
+
+
+forgotPass = {
+	fontSize: fontSizeSmall,
+	color: primaryColor
 }

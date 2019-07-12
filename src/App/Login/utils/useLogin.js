@@ -3,12 +3,16 @@ import { db } from '../../../Firebase/db'
 
 export const useLogin = () => {
 	const [authError, setAuthError] = useState('')
+	const [isLoading, setIsLoading] = useState(false)
 	const login = async (email, password) => {
 		try {
+			setIsLoading(true)
 			const authResult = await db.auth().signInWithEmailAndPassword(email, password)
+			setIsLoading(false)
 			console.log(authResult)
 		} catch (error) {
 			console.log(error)
+			setIsLoading(false)
 			if (error.code) {
 				switch (error.code) {
 					case 'auth/invalid-email': setAuthError('Email não cadastrado'); break
@@ -19,5 +23,5 @@ export const useLogin = () => {
 			}
 		}
 	}
-	return { authError, login }
+	return { authError, isLoading, login }
 }
