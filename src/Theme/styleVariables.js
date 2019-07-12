@@ -20,6 +20,8 @@ alertColor = '#EB5757',
 successColor = '#4BCA81',
 otherColor = '#2D9CDB',
 
+// grab all colors: primaryColor, primaryAltColor, primaryAltColorLight1, primaryAltColorLight2, grayColor1, grayColor2, grayColor3, grayColor4, secondaryColor, alertColor, successColor, otherColor
+
 /* FONTS */
 fontTitle = 'Rubik',
 fontWeightTitle = '500',

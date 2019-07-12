@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useForm } from './utils/useForm'
 import { useLogin } from './utils/useLogin'
+import { Spinner } from '../../Spinner/index'
 import { container, wrapper, input, forgotPass, error, buttonWrapper, submit, scaleButton } from './styles'
 
 export const Login = () => {
