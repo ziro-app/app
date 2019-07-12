@@ -1,36 +1,20 @@
-import React, { useRef, useState } from 'react'
-import { validateForm } from './utils/validateForm'
+import React from 'react'
+import { useForm } from './utils/useForm'
 import { container, inputWrapper, input, forgotPass, error, submit } from './styles'
 
 export const Login = () => {
-	const inputEmail = useRef(null)
-	const [errorEmail, setErrorEmail] = useState('')
-	const inputPass = useRef(null)
-	const [errorPass, setErrorPass] = useState('')
-	const handleSubmit = event => {
-		event.preventDefault()
-		const { errorMsgEmail, errorMsgPassword, formIsValid } = validateForm(
-			inputEmail.current.value,
-			inputPass.current.value
-		)
-		setErrorEmail(errorMsgEmail)
-		setErrorPass(errorMsgPassword)
-		if (formIsValid)
-			console.log('is valid')
-		else
-			console.log('is NOT valid')
-	}
+	const { email, password, errorEmail, errorPassword, submitForm } = useForm()
 	return (
-		<form style={container} onSubmit={handleSubmit}>
+		<form style={container} onSubmit={submitForm}>
 			<div style={inputWrapper}>
 				<label htmlFor='email'>Email</label>
-				<input ref={inputEmail} style={input} type='text' name='email' id='email' />
+				<input style={input} ref={email} type='text' name='email' id='email' />
 				<label style={error}>{errorEmail}&nbsp;</label>
 			</div>
 			<div style={inputWrapper}>
 				<label htmlFor='password'>Senha</label>
-				<input ref={inputPass} style={input} type='password' name='password' id='password' />
-				<label style={error}>{errorPass}&nbsp;</label>
+				<input style={input} ref={password} type='password' name='password' id='password' />
+				<label style={error}>{errorPassword}&nbsp;</label>
 			</div>
 			<input style={submit} type='submit' value='Acessar' />
 			<label style={forgotPass}>Esqueci a senha</label>
