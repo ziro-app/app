@@ -28,6 +28,8 @@ input = {
 },
 
 error = {
+	display: 'flex',
+	alignItems: 'center',
 	fontSize: fontSizeSmall,
 	color: alertColor,
 	fontWeight: fontWeightBody
