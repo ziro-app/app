@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import { useForm } from './utils/useForm'
 import { login } from './utils/login'
 import { container, inputWrapper, input, forgotPass, error, submit } from './styles'
@@ -17,7 +18,7 @@ export const Login = () => {
 				<input style={input} ref={password} type='password' name='password' id='password' />
 				<label style={error}>{errorPassword}&nbsp;</label>
 			</div>
-			<input style={submit} type='submit' value='Acessar' />
+			<motion.input style={submit} type='submit' value='Acessar' whileTap={{ scale: 0.95 }} />
 			<label style={forgotPass}>Esqueci a senha</label>
 		</form>
 	)
