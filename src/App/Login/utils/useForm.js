@@ -9,7 +9,7 @@ export const useForm = () => {
 	const [errorEmail, setErrorEmail] = useState('')
 	const [errorPassword, setErrorPassword] = useState('')
 	// submit function
-	const submitForm = event => {
+	const submitForm = callback => event => {
 		event.preventDefault()
 		const { errorMsgEmail, errorMsgPassword, formIsValid } = validateForm(
 			email.current.value,
@@ -17,6 +17,8 @@ export const useForm = () => {
 		)
 		setErrorEmail(errorMsgEmail)
 		setErrorPassword(errorMsgPassword)
+		if (formIsValid)
+			callback()
 	}
 	return { email, password, errorEmail, errorPassword, submitForm }
 }

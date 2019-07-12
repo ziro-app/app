@@ -1,11 +1,12 @@
 import React from 'react'
 import { useForm } from './utils/useForm'
+import { login } from './utils/login'
 import { container, inputWrapper, input, forgotPass, error, submit } from './styles'
 
 export const Login = () => {
 	const { email, password, errorEmail, errorPassword, submitForm } = useForm()
 	return (
-		<form style={container} onSubmit={submitForm}>
+		<form style={container} onSubmit={submitForm(login)}>
 			<div style={inputWrapper}>
 				<label htmlFor='email'>Email</label>
 				<input style={input} ref={email} type='text' name='email' id='email' />
