@@ -43,6 +43,7 @@ error = {
 submit = {
 	marginTop: '30px',
 	WebkitAppearance: 'none',
+	WebkitTapHighlightColor: 'rgba(0,0,0,0)',
 	MozAppearance: 'none',
 	outline: 'none',
 	cursor: 'pointer',
@@ -52,4 +53,8 @@ submit = {
 	color: '#FFF',
 	backgroundColor: primaryColor,
 	boxShadow: `${shadow}`
+},
+
+scaleButton = {
+	scale: 0.95
 }
