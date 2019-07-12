@@ -1,10 +1,11 @@
-import { maxWidth, standardPadding, fontWeightMuted, primaryColor, grayColor1, grayColor3, shadow } from '../../Theme/styleVariables'
+import { maxWidth, standardPadding, fontWeightMuted, fontWeightBody, fontSizeSmall,
+	primaryColor, grayColor1, grayColor3, alertColor, shadow } from '../../Theme/styleVariables'
 
 export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '40px',
+	gridRowGap: '30px',
 	margin: '60px auto',
 	maxWidth: maxWidth,
 	padding: standardPadding
@@ -29,8 +30,14 @@ input = {
 forgotPass = {
 	marginTop: '-15px',
 	textAlign: 'center',
-	fontSize: '1.3rem',
+	fontSize: fontSizeSmall,
 	color: primaryColor
+},
+
+error = {
+	fontSize: fontSizeSmall,
+	color: alertColor,
+	fontWeight: fontWeightBody
 },
 
 submit = {

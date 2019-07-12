@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { validateForm } from './utils/validateForm'
-import { container, inputWrapper, input, forgotPass, submit } from './styles'
+import { container, inputWrapper, input, forgotPass, error, submit } from './styles'
 
 export const Login = () => {
 	const inputEmail = useRef(null)
@@ -15,8 +15,6 @@ export const Login = () => {
 		)
 		setErrorEmail(errorMsgEmail)
 		setErrorPass(errorMsgPassword)
-		console.log(inputEmail.current.value)
-		console.log(inputPass.current.value)
 		if (formIsValid)
 			console.log('is valid')
 		else
@@ -27,12 +25,12 @@ export const Login = () => {
 			<div style={inputWrapper}>
 				<label htmlFor='email'>Email</label>
 				<input ref={inputEmail} style={input} type='text' name='email' id='email' />
-				{errorEmail}
+				<label style={error}>{errorEmail}&nbsp;</label>
 			</div>
 			<div style={inputWrapper}>
 				<label htmlFor='password'>Senha</label>
 				<input ref={inputPass} style={input} type='password' name='password' id='password' />
-				{errorPass}
+				<label style={error}>{errorPass}&nbsp;</label>
 			</div>
 			<input style={submit} type='submit' value='Acessar' />
 			<label style={forgotPass}>Esqueci a senha</label>
