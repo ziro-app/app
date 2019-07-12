@@ -11,7 +11,9 @@
   "author": "Vitor Barbosa",
   "license": "ISC",
   "dependencies": {
+    "@babel/runtime": "^7.5.4",
     "cloudinary-react": "^1.1.1",
+    "firebase": "^6.3.0",
     "framer-motion": "^1.2.2",
     "hookrouter": "^1.2.3",
     "prop-types": "^15.7.2",
@@ -22,6 +24,7 @@
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.5.0",
+    "@babel/plugin-transform-runtime": "^7.5.0",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",

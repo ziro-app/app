@@ -18,7 +18,7 @@ export const useForm = () => {
 		setErrorEmail(errorMsgEmail)
 		setErrorPassword(errorMsgPassword)
 		if (formIsValid)
-			callback()
+			callback(email.current.value, password.current.value)
 	}
 	return { email, password, errorEmail, errorPassword, submitForm }
 }
