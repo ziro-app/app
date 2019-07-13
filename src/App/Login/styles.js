@@ -45,6 +45,7 @@ buttonWrapper = {
 loader = {
 	display: 'grid',
 	alignItems: 'center',
+	justifyItems: 'center',
 	height: '30px'
 },
 
