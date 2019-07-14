@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 import { useForm } from './utils/useForm'
 import { useLogin } from './utils/useLogin'
 import { Spinner } from '../../Spinner/index'
-import { AlertIcon } from '../../AlertIcon/index'
-import { container, wrapper, input, error, buttonWrapper, loader, submit, scaleButton, forgotPass } from './styles'
+import { Errors } from './Errors'
+import { container, wrapper, input, buttonWrapper, loader, submit, scaleButton, forgotPass } from './styles'
 
 export const Login = () => {
 	const { email, password, errorEmail, errorPassword, submitForm } = useForm()
@@ -14,16 +14,16 @@ export const Login = () => {
 			<div style={wrapper}>
 				<label htmlFor='email'>Email</label>
 				<input style={input} ref={email} type='text' name='email' id='email' />
-				<label style={error}>{errorEmail && <AlertIcon size={16} />}&nbsp;{errorEmail}</label>
+				<Errors message={errorEmail} />
 			</div>
 			<div style={wrapper}>
 				<label htmlFor='password'>Senha</label>
 				<input style={input} ref={password} type='password' name='password' id='password' />
-				<label style={error}>{errorPassword && <AlertIcon size={16} />}&nbsp;{errorPassword}</label>
+				<Errors message={errorPassword} />
 			</div>
 			<div style={buttonWrapper}>
 				<div style={loader}>
-					{isLoading ? <Spinner size={'4rem'} /> : <label style={error}>{authError && <AlertIcon size={16} />}&nbsp;{authError}</label>}
+					{isLoading ? <Spinner size={'4rem'} /> : <Errors message={authError} />}
 				</div>
 				<motion.input style={submit} type='submit' value='Acessar' whileTap={scaleButton} />
 				<label style={forgotPass}>Esqueci a senha</label>
