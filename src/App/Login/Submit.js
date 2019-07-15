@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import { motion } from 'framer-motion'
 import { Errors } from './Errors'
 import { Spinner } from '../../Spinner/index'
@@ -17,3 +18,8 @@ export const Submit = ({ submitting, authError }) =>
 		/>
 		<label style={forgotPass}>Esqueci a senha</label>
 	</div>
+
+Submit.propTypes = {
+	submitting: PropTypes.bool.isRequired,
+	authError: PropTypes.string.isRequired
+}

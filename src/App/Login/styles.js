@@ -64,6 +64,7 @@ submit = {
 },
 
 submitDisabled = Object.assign({}, submit, {
+	cursor: 'initial',
 	color: primaryColor,
 	backgroundColor: '#FFF',
 	boxShadow: 'none'
