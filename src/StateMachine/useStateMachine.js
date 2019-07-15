@@ -2,7 +2,12 @@ import { useState } from 'react'
 
 export const useStateMachine = (states, initialState) => {
 	const [uiState, setUiState] = useState(initialState)
-	const changeUiState = action => setUiState(states[uiState][action])
+	const changeUiState = action => {
+		console.log(uiState)
+		console.log(states[uiState])
+		console.log(uiState)
+		setUiState(states[uiState][action])
+	}
 	return { uiState, changeUiState }
 }
 
