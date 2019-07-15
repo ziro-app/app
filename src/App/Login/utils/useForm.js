@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { validateForm } from './validateForm'
 
-export const useForm = changeUiState => {	
+export const useForm = () => {	
 	// input ref variables
 	const email = useRef(null)
 	const password = useRef(null)
@@ -11,7 +11,6 @@ export const useForm = changeUiState => {
 	// submit function
 	const submitForm = callback => event => {
 		event.preventDefault()
-		changeUiState('INPUT_CREDENTIALS')
 		const { errorMsgEmail, errorMsgPassword, formIsValid } = validateForm(
 			email.current.value,
 			password.current.value

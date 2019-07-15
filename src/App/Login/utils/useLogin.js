@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import { db } from '../../../Firebase/db'
 
-export const useLogin = changeUiState => {
+export const useLogin = () => {
 	const [authError, setAuthError] = useState('')
+	const [submitting, setSubmitting] = useState(false)
 	const login = async (email, password) => {
 		try {
-			changeUiState('SUBMIT_CREDENTIALS')
+			setSubmitting(true)
 			const authResult = await db.auth().signInWithEmailAndPassword(email, password)
-			changeUiState('SUCCESS')
+			setSubmitting(false)
 			console.log(authResult)
 		} catch (error) {
-			console.log('hei')
-			changeUiState('ERROR')
+			setSubmitting(false)
 			console.log(error)
 			if (error.code) {
 				switch (error.code) {
@@ -23,5 +23,5 @@ export const useLogin = changeUiState => {
 			}
 		}
 	}
-	return { authError, login }
+	return { authError, submitting, login }
 }
