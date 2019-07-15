@@ -63,6 +63,8 @@ submit = {
 	boxShadow: `${shadow}`
 },
 
+submitDisabled = {},
+
 scaleButton = {
 	scale: 0.95
 },

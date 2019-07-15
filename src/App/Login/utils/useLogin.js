@@ -7,9 +7,10 @@ export const useLogin = () => {
 	const login = async (email, password) => {
 		try {
 			setSubmitting(true)
-			const authResult = await db.auth().signInWithEmailAndPassword(email, password)
+			await new Promise(resolve => setTimeout(resolve, 5000))
+			// const authResult = await db.auth().signInWithEmailAndPassword(email, password)
 			setSubmitting(false)
-			console.log(authResult)
+			// console.log(authResult)
 		} catch (error) {
 			setSubmitting(false)
 			console.log(error)

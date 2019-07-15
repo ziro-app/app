@@ -9,7 +9,7 @@ export const Login = () => {
 	const { email, password, errorEmail, errorPassword, submitForm } = useForm()
 	const { authError, submitting, login } = useLogin()
 	return (
-		<form style={container} onSubmit={submitForm(login)}>
+		<form style={container} onSubmit={submitForm(login, submitting)}>
 			<div style={wrapper}>
 				<label htmlFor='email'>Email</label>
 				<input style={input} ref={email} type='text' name='email' id='email' />
