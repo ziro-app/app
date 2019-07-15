@@ -1,10 +1,9 @@
 import React from 'react'
-import { motion } from 'framer-motion'
 import { useForm } from './utils/useForm'
 import { useLogin } from './utils/useLogin'
-import { Spinner } from '../../Spinner/index'
+import { Submit } from './Submit'
 import { Errors } from './Errors'
-import { container, wrapper, input, buttonWrapper, loader, submit, scaleButton, forgotPass } from './styles'
+import { container, wrapper, input } from './styles'
 
 export const Login = () => {
 	const { email, password, errorEmail, errorPassword, submitForm } = useForm()
@@ -21,13 +20,7 @@ export const Login = () => {
 				<input style={input} ref={password} type='password' name='password' id='password' />
 				<Errors message={errorPassword} />
 			</div>
-			<div style={buttonWrapper}>
-				<div style={loader}>
-					{submitting ? <Spinner size={'4rem'} /> : <Errors message={authError} />}
-				</div>
-				<motion.input style={submit} type='submit' value='Acessar' whileTap={scaleButton} />
-				<label style={forgotPass}>Esqueci a senha</label>
-			</div>
+			<Submit submitting={submitting} authError={authError} />
 		</form>
 	)
 }
