@@ -20,6 +20,7 @@ export const useLogin = () => {
 					case 'auth/user-disabled': setAuthError('Usuário bloqueado'); break
 					case 'auth/user-not-found': setAuthError('Usuário não cadastrado'); break
 					case 'auth/wrong-password': setAuthError('Senha incorreta'); break
+					case 'auth/too-many-requests': setAuthError('Muitas tentativas. Tente mais tarde'); break
 				}
 			}
 		}
