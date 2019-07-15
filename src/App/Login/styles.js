@@ -63,7 +63,11 @@ submit = {
 	boxShadow: `${shadow}`
 },
 
-submitDisabled = {},
+submitDisabled = Object.assign({}, submit, {
+	color: primaryColor,
+	backgroundColor: '#FFF',
+	boxShadow: 'none'
+}),
 
 scaleButton = {
 	scale: 0.95

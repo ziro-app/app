@@ -13,7 +13,7 @@ export const Submit = ({ submitting, authError }) =>
 			style={submitting ? submitDisabled : submit}
 			type='submit'
 			value='Acessar'
-			whileTap={scaleButton}
+			whileTap={submitting ? null : scaleButton}
 		/>
 		<label style={forgotPass}>Esqueci a senha</label>
 	</div>
