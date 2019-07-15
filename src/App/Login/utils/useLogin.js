@@ -4,6 +4,7 @@ import { db } from '../../../Firebase/db'
 export const useLogin = () => {
 	const [authError, setAuthError] = useState('')
 	const [submitting, setSubmitting] = useState(false)
+	const resetAuthError = () => setAuthError('')
 	const login = async (email, password) => {
 		try {
 			setSubmitting(true)
@@ -23,5 +24,5 @@ export const useLogin = () => {
 			}
 		}
 	}
-	return { authError, submitting, login }
+	return { authError, resetAuthError, submitting, login }
 }

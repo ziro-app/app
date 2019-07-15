@@ -9,8 +9,9 @@ export const useForm = () => {
 	const [errorEmail, setErrorEmail] = useState('')
 	const [errorPassword, setErrorPassword] = useState('')
 	// submit function
-	const submitForm = (callback, submitting) => event => {
+	const submitForm = (callback, resetAuthError, submitting) => event => {
 		event.preventDefault()
+		resetAuthError()
 		if (!submitting) {
 			const { errorMsgEmail, errorMsgPassword, formIsValid } = validateForm(
 				email.current.value,

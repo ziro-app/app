@@ -7,9 +7,9 @@ import { container, wrapper, input } from './styles'
 
 export const Login = () => {
 	const { email, password, errorEmail, errorPassword, submitForm } = useForm()
-	const { authError, submitting, login } = useLogin()
+	const { authError, resetAuthError, submitting, login } = useLogin()
 	return (
-		<form style={container} onSubmit={submitForm(login, submitting)}>
+		<form style={container} onSubmit={submitForm(login, resetAuthError, submitting)}>
 			<div style={wrapper}>
 				<label htmlFor='email'>Email</label>
 				<input style={input} ref={email} type='text' name='email' id='email' />
