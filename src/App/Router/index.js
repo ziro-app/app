@@ -4,16 +4,19 @@ import { Login } from '../Login/index'
 import { MyData } from '../MyData/index'
 
 const privateRoutes = {
-	'/': () => <MyData />,
-	'/meus-dados': () => <MyData />
+	'/': () => user => <MyData />,
+	'/meus-dados': () => user => <MyData />
 }
 
 const publicRoutes = {
-	'/*': () => <Login />
+	'/*': () => user => <Login />
 }
 
-const user = null
-
-const routes = user ? privateRoutes : publicRoutes
-
-export const Router = () => useRoutes(routes) || <div>Not found</div>
+export const Router = ({ user, setUser }) => {
+	const routes = user ? privateRoutes : publicRoutes
+	const match = useRoutes(routes)
+	console.log(match)
+	if (!match)
+		return <div>Not found</div>
+	return match(user)
+}
