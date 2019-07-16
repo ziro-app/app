@@ -9,14 +9,15 @@ const privateRoutes = {
 }
 
 const publicRoutes = {
-	'/*': () => user => <Login />
+	'/*': () => <Login />
 }
 
 export const Router = ({ user, setUser }) => {
-	const routes = user ? privateRoutes : publicRoutes
-	const match = useRoutes(routes)
-	console.log(match)
-	if (!match)
-		return <div>Not found</div>
-	return match(user)
+	if (user) {
+		const match = useRoutes(privateRoutes)
+		if (!match)
+			return <div>Not found</div>
+		return match(user)
+	}
+	return useRoutes(publicRoutes)
 }
