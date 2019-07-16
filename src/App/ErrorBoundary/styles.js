@@ -14,4 +14,9 @@ title = {
 	fontFamily: fontTitle,
 	fontWeight: fontWeightTitle,
 	textTransform: 'uppercase'
+},
+
+alert = {
+	display: 'grid',
+	placeItems: 'center'
 }
