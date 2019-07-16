@@ -5,8 +5,8 @@ import { Login } from '../Login/index'
 import { MyData } from '../MyData/index'
 
 const privateRoutes = {
-	'/': () => user => <MyData />,
-	'/meus-dados': () => user => <MyData />
+	'/': () => user => <MyData user={user} />,
+	'/meus-dados': () => user => <MyData user={user} />
 }
 
 const publicRoutes = {

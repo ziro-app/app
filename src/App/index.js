@@ -8,9 +8,9 @@ export const App = () => {
 	const [user, setUser] = useState(null)
 	const [isLoading, setIsLoading] = useState(true)
 	useEffect(() => db.auth().onAuthStateChanged(user => {
-		if (user)
-			setUser(user)
-		// setIsLoading(false)
+		if (user) setUser(user)
+		else setUser(null)
+		if (setIsLoading) setIsLoading(false)
 	}), [])
 	return (
 		<ErrorBoundary>

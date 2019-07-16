@@ -9,8 +9,6 @@ export const useLogin = () => {
 		try {
 			setSubmitting(true)
 			const authResult = await db.auth().signInWithEmailAndPassword(email, password)
-			setSubmitting(false)
-			console.log(authResult)
 		} catch (error) {
 			setSubmitting(false)
 			console.log(error)
