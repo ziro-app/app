@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { useRoutes } from 'hookrouter'
 import { Login } from '../Login/index'
 import { MyData } from '../MyData/index'
@@ -20,4 +21,9 @@ export const Router = ({ user, setUser }) => {
 		return match(user)
 	}
 	return useRoutes(publicRoutes)
+}
+
+Router.propTypes = {
+	user: PropTypes.object,
+	setUser: PropTypes.func.isRequired
 }
