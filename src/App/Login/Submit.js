@@ -2,7 +2,7 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import { motion } from 'framer-motion'
 import { Errors } from './Errors'
-import { Spinner } from '../../Spinner/index'
+import { Spinner } from '../../Assets/Spinner/index'
 import { buttonWrapper, loader, submit, submitDisabled, scaleButton, forgotPass } from './styles'
 
 export const Submit = ({ submitting, authError }) =>

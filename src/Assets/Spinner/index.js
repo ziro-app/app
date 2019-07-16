@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { svg } from './styles'
-import { primaryColor, grayColor2 } from '../Theme/styleVariables'
+import { primaryColor, grayColor2 } from '../../Theme/styleVariables'
 
 export const Spinner = ({ size }) =>
 	<svg style={svg} width={size} height={size} viewBox='0 0 24 24' strokeWidth='3' strokeLinecap='round'>

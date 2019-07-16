@@ -1,6 +1,6 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import { AlertIcon } from '../../AlertIcon/index'
+import { AlertIcon } from '../../Assets/AlertIcon/index'
 import { error } from './styles'
 
 export const Errors = ({ message }) =>

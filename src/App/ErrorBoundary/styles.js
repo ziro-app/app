@@ -1,4 +1,4 @@
-import { primaryColor, fontTitle, fontWeightTitle } from '../../Theme/styleVariables'
+import { primaryColor, alertColor, fontTitle, fontWeightTitle } from '../../Theme/styleVariables'
 export const 
 
 container = {
@@ -6,10 +6,11 @@ container = {
 	margin: '40px auto 60px',
 	padding: '0 10%',
 	textAlign: 'center',
-	color: primaryColor
+	color: alertColor
 },
 
 title = {
+	color: primaryColor,
 	fontFamily: fontTitle,
 	fontWeight: fontWeightTitle,
 	textTransform: 'uppercase'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Spinner } from '../../Spinner/index'
+import { Spinner } from '../../Assets/Spinner/index'
 import { loading } from './styles'
 
 export const InitialLoader = () =>

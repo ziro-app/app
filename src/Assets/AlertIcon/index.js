@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { alertColor } from '../Theme/styleVariables'
+import { alertColor } from '../../Theme/styleVariables'
 
 export const AlertIcon = ({ size, color }) =>
 	<svg width={size} height={size} viewBox='0 0 24 24' fill='none' stroke={color} strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
