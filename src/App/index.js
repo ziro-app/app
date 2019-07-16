@@ -10,7 +10,7 @@ export const App = () => {
 	useEffect(() => db.auth().onAuthStateChanged(user => {
 		if (user)
 			setUser(user)
-		setIsLoading(false)
+		// setIsLoading(false)
 	}), [])
 	return (
 		<ErrorBoundary>
