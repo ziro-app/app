@@ -15,10 +15,10 @@ const publicRoutes = {
 
 export const Router = ({ user, setUser }) => {
 	if (user) {
-		const match = useRoutes(privateRoutes)
-		if (!match)
+		const routeFound = useRoutes(privateRoutes)
+		if (!routeFound)
 			return <div>Not found</div>
-		return match(user)
+		return routeFound(user)
 	}
 	return useRoutes(publicRoutes)
 }

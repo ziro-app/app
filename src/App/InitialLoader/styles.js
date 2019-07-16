@@ -1,8 +1,12 @@
+import { maxWidth, standardPadding } from '../../Theme/styleVariables'
+
 export const
 
 loading = {
-	height: '100vh',
-	display: 'grid'
+	display: 'grid',
+	margin: '60px auto',
+	maxWidth: maxWidth,
+	padding: standardPadding
 },
 
 logo = {
