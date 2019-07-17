@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { db } from '../Firebase/db'
+import { usePath, navigate } from 'hookrouter'
 import ErrorBoundary from './ErrorBoundary/index'
 import { InitialLoader } from './InitialLoader/index'
 import { Router } from './Router/index'
@@ -7,8 +8,14 @@ import { Router } from './Router/index'
 export const App = () => {
 	const [user, setUser] = useState(null)
 	const [isLoading, setIsLoading] = useState(true)
+	const path = usePath()
 	useEffect(() => db.auth().onAuthStateChanged(user => {
-		if (user) setUser(user)
+		if (user) {
+			setUser(user)
+			if (/(^\/cadastrar$)|(^\/login$)/g.test(path)) 
+				navigate('/')
+			else navigate(path)
+		}
 		else setUser(null)
 		if (setIsLoading) setIsLoading(false)
 	}), [])
