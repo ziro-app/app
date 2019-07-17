@@ -18,6 +18,13 @@ wrapper = {
 	fontWeight: fontWeightMuted
 },
 
+label = {
+	display: 'grid',
+	gridTemplateColumns: 'auto 1fr',
+	gridColumnGap: '5px',
+	alignItems: 'center'
+},
+
 input = {
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
