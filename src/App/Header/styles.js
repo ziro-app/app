@@ -22,6 +22,7 @@ menu = {
 },
 
 tab = {
+	WebkitTapHighlightColor: 'rgba(0,0,0,0)',
 	width: '100%',
 	padding: '10px 0',
 	textAlign: 'center',
