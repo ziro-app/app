@@ -4,6 +4,7 @@ import { useLogin } from './utils/useLogin'
 import { Submit } from './Submit'
 import { Errors } from './Errors'
 import { PasswordIcon } from '../../Assets/PasswordIcon/index'
+import { EmailIcon } from '../../Assets/EmailIcon/index'
 import { container, wrapper, label, input } from './styles'
 
 export const Login = () => {
@@ -12,7 +13,7 @@ export const Login = () => {
 	return (
 		<form style={container} onSubmit={submitForm(login, resetAuthError, submitting)}>
 			<div style={wrapper}>
-				<label style={label} htmlFor='email'><PasswordIcon size={15} />Email</label>
+				<label style={label} htmlFor='email'><EmailIcon size={15} />Email</label>
 				<input style={input} ref={email} type='text' name='email' id='email' />
 				<Errors message={errorEmail} />
 			</div>

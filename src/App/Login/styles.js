@@ -21,7 +21,7 @@ wrapper = {
 label = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
-	gridColumnGap: '5px',
+	gridColumnGap: '8px',
 	alignItems: 'center'
 },
 
