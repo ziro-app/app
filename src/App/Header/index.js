@@ -1,4 +1,5 @@
 import React from 'react'
+import { A } from 'hookrouter'
 import { Logo } from '../../Assets/Logo/index'
 import { container, menu, tab, tabActive } from './styles'
 
@@ -7,8 +8,8 @@ export const Header = () => {
 		<div style={container}>
 			<Logo />
 			<div style={menu}>
-				<label style={tabActive}>Login</label>
-				<label style={tab}>Cadastrar</label>
+				<A style={tabActive} href='/login'>Login</A>
+				<A style={tab} href='/cadastrar'>Cadastrar</A>
 			</div>
 		</div>
 	)

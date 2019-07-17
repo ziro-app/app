@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { useRoutes } from 'hookrouter'
 import { Header } from '../Header/index'
 import { Login } from '../Login/index'
+import { Register } from '../Register/index'
 import { MyData } from '../MyData/index'
 
 
@@ -12,6 +13,8 @@ const privateRoutes = {
 }
 
 const publicRoutes = {
+	'/login': () => <div><Header /><Login /></div>,
+	'/cadastrar': () => <div><Header /><Register /></div>,
 	'/*': () => <div><Header /><Login /></div>
 }
 
