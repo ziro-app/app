@@ -1,11 +1,11 @@
-import { maxWidth, standardPadding } from '../../Theme/styleVariables'
+import { maxWidth, standardMargin, standardPadding } from '../../Theme/styleVariables'
 
 export const
 
 loading = {
 	display: 'grid',
-	margin: '60px auto',
 	maxWidth: maxWidth,
+	margin: standardMargin,
 	padding: standardPadding
 },
 

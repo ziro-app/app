@@ -1,13 +1,13 @@
-import { maxWidth, standardPadding, fontWeightMuted, fontWeightBody, fontSizeSmall,
-	primaryColor, grayColor1, grayColor3, alertColor, shadow } from '../../Theme/styleVariables'
+import { maxWidth, standardMargin, standardPadding, fontWeightMuted, fontWeightBody, fontSizeSmall,
+	primaryColor, grayColor1, grayColor2, alertColor, shadow } from '../../Theme/styleVariables'
 
 export const
 
 container = {
 	display: 'grid',
 	gridRowGap: '20px',
-	margin: '60px auto',
 	maxWidth: maxWidth,
+	margin: standardMargin,
 	padding: standardPadding
 },
 
@@ -23,8 +23,8 @@ input = {
 	MozAppearance: 'none',
 	outline: 'none',
 	border: 'none',
-	color: primaryColor,
-	boxShadow: `0px 2px 0px ${grayColor3}`
+	borderBottom: `2px solid ${grayColor2}`,
+	color: primaryColor
 },
 
 error = {
@@ -37,7 +37,7 @@ error = {
 
 buttonWrapper = {
 	display: 'grid',
-	gridRowGap: '15px',
+	gridRowGap: '30px',
 	textAlign: 'center',
 	marginTop: '-10px'
 },

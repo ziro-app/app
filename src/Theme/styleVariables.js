@@ -3,8 +3,9 @@ export const
 /* MAX-WIDTH */
 maxWidth = '400px',
 
-/* PADDING */
-standardPadding = '10%',
+/* MARGIN & PADDING */
+standardMargin = '40px auto 0',
+standardPadding = '0 10%',
 
 /* COLORS */
 primaryColor = '#222222', // rgb(34,34,34)
@@ -30,5 +31,5 @@ fontWeightMuted = '300',
 fontSizeSmall = '1.4rem',
 
 /* SHADOW */
-shadow = `0px 5px 10px 1px rgba(34,34,34,0.25), 0px 5px 20px 1px rgba(34,34,34,0.20), 
-	0px 5px 30px 1px rgba(34,34,34,0.15), 0px 5px 40px 1px rgba(34,34,34,0.10)`
+shadow = `0px 5px 15px -4px rgba(34,34,34,0.45), 0px 5px 15px -4px rgba(34,34,34,0.40), 
+	0px 5px 15px -4px rgba(34,34,34,0.35), 0px 5px 15px -4px rgba(34,34,34,0.30)`

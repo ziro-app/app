@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useRoutes } from 'hookrouter'
+import { Header } from '../Header/index'
 import { Login } from '../Login/index'
 import { MyData } from '../MyData/index'
+
 
 const privateRoutes = {
 	'/': () => user => <MyData user={user} />,
@@ -10,7 +12,7 @@ const privateRoutes = {
 }
 
 const publicRoutes = {
-	'/*': () => <Login />
+	'/*': () => <div><Header /><Login /></div>
 }
 
 export const Router = ({ user, setUser }) => {
