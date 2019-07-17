@@ -1,4 +1,5 @@
 import React from 'react'
+import { Submit } from './Submit'
 import { container, wrapper, label, input } from './styles'
 
 export const Register = () => {
@@ -8,7 +9,7 @@ export const Register = () => {
 				<label style={label} htmlFor='cnpj'>CNPJ</label>
 				<input style={input} type='text' name='cnpj' id='cnpj' />
 			</div>
-
+			<Submit />
 		</form>
 	)
 }
