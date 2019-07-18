@@ -14,14 +14,12 @@ export const Login = () => {
 		<form style={container} onSubmit={submitForm(login, resetAuthError, submitting)}>
 			<h1 style={welcome}><label style={{fontSize: '1.4rem'}}>BEM-VINDO</label><label style={{color: '#FFE401', fontSize: '2.1rem'}}>.</label><br/>Acesse sua conta,</h1>
 			<div style={wrapper}>
-				<label style={label} htmlFor='email'><EmailIcon size={14} />Email</label>
+				<label style={label} htmlFor='email'><EmailIcon size={13} />Email<Errors message={errorEmail} /></label>
 				<input style={input} ref={email} placeholder='nome@exemplo.com' type='text' name='email' id='email' />
-				<Errors message={errorEmail} />
 			</div>
 			<div style={wrapper}>
-				<label style={label} htmlFor='password'><PasswordIcon size={14} />Senha</label>
+				<label style={label} htmlFor='password'><PasswordIcon size={13} />Senha<Errors message={errorPassword} /></label>
 				<input style={input} ref={password} placeholder='mínimo 8 caracteres' type='password' name='password' id='password' />
-				<Errors message={errorPassword} />
 			</div>
 			<Submit submitting={submitting} authError={authError} />
 		</form>

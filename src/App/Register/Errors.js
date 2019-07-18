@@ -5,7 +5,7 @@ import { error } from './styles'
 
 export const Errors = ({ message }) =>
 	<label style={error}>
-		{message && <AlertIcon size={13} />}
+		{message && <AlertIcon size={12} />}
 		&nbsp;
 		{message}
 	</label>

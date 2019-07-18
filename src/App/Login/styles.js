@@ -24,7 +24,7 @@ wrapper = {
 
 label = {
 	display: 'grid',
-	gridTemplateColumns: 'auto 1fr',
+	gridTemplateColumns: 'auto 1fr auto',
 	gridColumnGap: '5px',
 	alignItems: 'center',
 	marginBottom: '-4px'
@@ -61,7 +61,8 @@ loader = {
 	display: 'grid',
 	alignItems: 'center',
 	justifyItems: 'center',
-	height: '30px'
+	height: '30px',
+	marginBottom: '-10px'
 },
 
 submit = {
