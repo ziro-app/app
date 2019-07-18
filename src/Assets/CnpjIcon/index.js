@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { grayColor1 } from '../../Theme/styleVariables'
+import { primaryColor } from '../../Theme/styleVariables'
 
 export const CnpjIcon = ({ size, color }) =>
 	<svg width={size} height={size} viewBox='0 0 24 24' fill='none' stroke={color} strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
-		<path d='M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z'></path>
-		<path d='M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z'></path>
+		<path d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'></path>
+		<polyline points='9 22 9 12 15 12 15 22'></polyline>
 	</svg>
 
 CnpjIcon.defaultProps = {
 	size: 24,
-	color: grayColor1
+	color: primaryColor
 }
 
 CnpjIcon.propTypes = {

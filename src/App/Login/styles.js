@@ -1,5 +1,5 @@
 import { maxWidth, standardMargin, standardPadding, fontWeightMuted, fontWeightBody, fontSizeSmall,
-	primaryColor, grayColor1, grayColor3, alertColor, shadow } from '../../Theme/styleVariables'
+	primaryColor, grayColor3, alertColor, shadow } from '../../Theme/styleVariables'
 
 export const
 
@@ -14,14 +14,13 @@ container = {
 wrapper = {
 	display: 'grid',
 	gridRowGap: '8px',
-	color: grayColor1,
-	fontWeight: fontWeightMuted
+	color: primaryColor
 },
 
 label = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
-	gridColumnGap: '8px',
+	gridColumnGap: '5px',
 	alignItems: 'center',
 	marginBottom: '-4px'
 },
@@ -74,12 +73,13 @@ submit = {
 	boxShadow: `${shadow}`
 },
 
-submitDisabled = Object.assign({}, submit, {
+submitDisabled = {
+	...submit,
 	cursor: 'initial',
 	color: primaryColor,
 	backgroundColor: '#FFF',
 	boxShadow: 'none'
-}),
+},
 
 scaleButton = {
 	scale: 0.95

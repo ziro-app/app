@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { grayColor1 } from '../../Theme/styleVariables'
+import { primaryColor } from '../../Theme/styleVariables'
 
 export const PasswordIcon = ({ size, color }) =>
 	<svg width={size} height={size} viewBox='0 0 24 24' fill='none' stroke={color} strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
@@ -10,7 +10,7 @@ export const PasswordIcon = ({ size, color }) =>
 
 PasswordIcon.defaultProps = {
 	size: 24,
-	color: grayColor1
+	color: primaryColor
 }
 
 PasswordIcon.propTypes = {

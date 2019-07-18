@@ -3,7 +3,7 @@ import { useForm } from './utils/useForm'
 import { Submit } from './Submit'
 import { Errors } from './Errors'
 import { CnpjIcon } from '../../Assets/CnpjIcon/index'
-import { container, instructions, text, cnae, form, wrapper, label, input } from './styles'
+import { container, instructions, text, cnae, form, wrapper, label, inputCnpj } from './styles'
 
 export const Register = () => {
 	const { cnpj, handleCnpj, submitForm } = useForm()
@@ -16,7 +16,7 @@ export const Register = () => {
 			<form style={form}>
 				<div style={wrapper}>
 					<label style={label} htmlFor='cnpj'><CnpjIcon size={14} />CNPJ</label>
-					<input style={input} onChange={handleCnpj} value={cnpj} placeholder='mínimo 13 caracteres' type='text' name='cnpj' id='cnpj' />
+					<input style={inputCnpj} onChange={handleCnpj} value={cnpj} placeholder='11.222.333/0001-44' type='text' name='cnpj' id='cnpj' />
 					<Errors message={'Mínimo 13 caracteres'} />
 				</div>
 				<Submit />

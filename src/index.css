@@ -53,4 +53,5 @@ input::placeholder, textarea::placeholder {
 
 input[type="text"]:focus, input[type="password"]:focus {
     border: 2px solid #828282 !important;
+    box-shadow: rgba(34, 34, 34, 0.3) 0px 3px 10px -2px !important;
 }

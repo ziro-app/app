@@ -1,5 +1,5 @@
 import { maxWidth, standardMargin, standardPadding, fontTitle, fontWeightMuted, fontWeightBody,
-	fontSizeSmall, primaryColor, grayColor1, grayColor3, alertColor, shadow } from '../../Theme/styleVariables'
+	fontSizeSmall, primaryColor, grayColor3, alertColor, shadow } from '../../Theme/styleVariables'
 
 export const
 
@@ -13,7 +13,7 @@ container = {
 
 instructions = {
 	display: 'grid',
-	gridRowGap: '15px',
+	gridRowGap: '30px',
 	textAlign: 'center',
 	color: primaryColor
 },
@@ -34,15 +34,15 @@ form = {
 
 wrapper = {
 	display: 'grid',
+	justifyItems: 'center',
 	gridRowGap: '8px',
-	color: grayColor1,
-	fontWeight: fontWeightMuted
+	color: primaryColor
 },
 
 label = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
-	gridColumnGap: '8px',
+	gridColumnGap: '5px',
 	alignItems: 'center',
 	marginBottom: '-4px'
 },
@@ -57,6 +57,11 @@ input = {
 	color: primaryColor,
 	backgroundColor: '#FDFDFD',
 	boxShadow: `rgba(34,34,34,0.3) 0px 3px 10px -3px`
+},
+
+inputCnpj = {
+	...input,
+	textAlign: 'center'
 },
 
 error = {
@@ -95,12 +100,13 @@ submit = {
 	boxShadow: `${shadow}`
 },
 
-submitDisabled = Object.assign({}, submit, {
+submitDisabled = {
+	...submit,
 	cursor: 'initial',
 	color: primaryColor,
 	backgroundColor: '#FFF',
 	boxShadow: 'none'
-}),
+},
 
 scaleButton = {
 	scale: 0.95

@@ -30,7 +30,8 @@ tab = {
 	borderBottom: `2px solid ${grayColor2}`
 },
 
-tabActive = Object.assign({}, tab, {
+tabActive = {
+	...tab,
 	color: primaryColor,
 	borderBottom: `2px solid ${primaryColor}`
-})
+}
