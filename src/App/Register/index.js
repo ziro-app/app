@@ -3,21 +3,22 @@ import { useForm } from './utils/useForm'
 import { Submit } from './Submit'
 import { Errors } from './Errors'
 import { CnpjIcon } from '../../Assets/CnpjIcon/index'
-import { container, instructions, text, cnae, form, wrapper, label, inputCnpj } from './styles'
+import { container, welcome, instructions, text, cnae, form, wrapper, labelCnpj, inputCnpj } from './styles'
 
 export const Register = () => {
 	const { cnpj, handleCnpj, submitForm } = useForm()
 	return (
-		<div style={container} onSubmit={submitForm}>
-			<div style={instructions}>
-				<p style={text}>Valide seu CNPJ, cuja atividade primária ou secundária deve conter:</p>
-				<p style={text}><label style={cnae}>4781-4/00</label> - Comércio varejista de artigos do vestuário e acessórios</p>
-			</div>
-			<form style={form}>
+		<div style={container}>
+			<h1 style={welcome}>Cadastre-se na Ziro</h1>
+			<form style={form} onSubmit={submitForm}>
 				<div style={wrapper}>
-					<label style={label} htmlFor='cnpj'><CnpjIcon size={14} />CNPJ</label>
+					<label style={labelCnpj} htmlFor='cnpj'><CnpjIcon size={14} />CNPJ</label>
 					<input style={inputCnpj} onChange={handleCnpj} value={cnpj} placeholder='11.222.333/0001-44' type='text' name='cnpj' id='cnpj' />
-					<Errors message={'Mínimo 13 caracteres'} />
+					<Errors message={false && 'Mínimo 13 caracteres'} />
+				</div>
+				<div style={instructions}>
+					<p style={text}>Seu CNPJ deve conter como atividade:</p>
+					<p style={text}><label style={cnae}>CNAE: 4781-4/00</label><br/>Comércio varejista de artigos do vestuário e acessórios</p>
 				</div>
 				<Submit />
 			</form>

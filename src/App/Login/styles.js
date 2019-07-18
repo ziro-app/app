@@ -1,5 +1,5 @@
-import { maxWidth, standardMargin, standardPadding, fontWeightMuted, fontWeightBody, fontSizeSmall,
-	primaryColor, grayColor3, alertColor, shadow } from '../../Theme/styleVariables'
+import { maxWidth, standardMargin, standardPadding, fontWeightMuted, fontWeightBody, fontTitle,
+	fontSizeSmall, primaryColor, grayColor3, alertColor, shadow } from '../../Theme/styleVariables'
 
 export const
 
@@ -9,6 +9,11 @@ container = {
 	maxWidth: maxWidth,
 	margin: standardMargin,
 	padding: standardPadding
+},
+
+welcome = {
+	fontFamily: fontTitle,
+	fontSize: '2.1rem'
 },
 
 wrapper = {

@@ -11,6 +11,12 @@ container = {
 	padding: standardPadding
 },
 
+welcome = {
+	fontFamily: fontTitle,
+	fontSize: '2.1rem',
+	textAlign: 'center'
+},
+
 instructions = {
 	display: 'grid',
 	gridRowGap: '30px',
@@ -34,7 +40,6 @@ form = {
 
 wrapper = {
 	display: 'grid',
-	justifyItems: 'center',
 	gridRowGap: '8px',
 	color: primaryColor
 },
@@ -45,6 +50,11 @@ label = {
 	gridColumnGap: '5px',
 	alignItems: 'center',
 	marginBottom: '-4px'
+},
+
+labelCnpj = {
+	...label,
+	justifySelf: 'center',
 },
 
 input = {
