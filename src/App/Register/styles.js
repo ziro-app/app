@@ -1,14 +1,35 @@
-import { maxWidth, standardMargin, standardPadding, fontWeightMuted, fontWeightBody, fontSizeSmall,
-	primaryColor, grayColor1, grayColor2, alertColor, shadow } from '../../Theme/styleVariables'
+import { maxWidth, standardMargin, standardPadding, fontTitle, fontWeightMuted, fontWeightBody,
+	fontSizeSmall, primaryColor, grayColor1, grayColor2, alertColor, shadow } from '../../Theme/styleVariables'
 
 export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '20px',
+	gridRowGap: '30px',
 	maxWidth: maxWidth,
 	margin: standardMargin,
 	padding: standardPadding
+},
+
+instructions = {
+	display: 'grid',
+	gridRowGap: '5px',
+	textAlign: 'center',
+	color: primaryColor
+},
+
+text = {
+	fontSize: fontSizeSmall
+},
+
+cnae = {
+	fontFamily: fontTitle,
+	fontSize: fontSizeSmall
+},
+
+form = {
+	display: 'grid',
+	gridRowGap: '20px'
 },
 
 wrapper = {
