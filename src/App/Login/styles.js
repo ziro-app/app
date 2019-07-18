@@ -16,6 +16,16 @@ welcome = {
 	fontSize: '2.1rem'
 },
 
+subtitle = {
+	fontSize: '1.4rem',
+	textTransform: 'uppercase'
+},
+
+dot = {
+	color: '#FFE401',
+	fontSize: '2.1rem'
+},
+
 wrapper = {
 	display: 'grid',
 	gridRowGap: '8px',

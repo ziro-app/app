@@ -5,7 +5,7 @@ export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '30px',
+	gridRowGap: '20px',
 	maxWidth: maxWidth,
 	margin: standardMargin,
 	padding: standardPadding
@@ -17,9 +17,19 @@ welcome = {
 	textAlign: 'center'
 },
 
+subtitle = {
+	fontSize: '1.4rem',
+	textTransform: 'uppercase'
+},
+
+dot = {
+	color: '#FFE401',
+	fontSize: '2.1rem'
+},
+
 instructions = {
 	display: 'grid',
-	gridRowGap: '30px',
+	gridRowGap: '15px',
 	textAlign: 'center',
 	color: primaryColor
 },
@@ -46,7 +56,7 @@ wrapper = {
 
 label = {
 	display: 'grid',
-	gridTemplateColumns: 'auto 1fr',
+	gridTemplateColumns: 'auto 1fr auto',
 	gridColumnGap: '5px',
 	alignItems: 'center',
 	marginBottom: '-4px'
@@ -93,7 +103,8 @@ loader = {
 	display: 'grid',
 	alignItems: 'center',
 	justifyItems: 'center',
-	height: '30px'
+	height: '30px',
+	marginBottom: '-10px'
 },
 
 submit = {
