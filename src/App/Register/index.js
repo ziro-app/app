@@ -15,9 +15,9 @@ export const Register = () => {
 			</div>
 			<form style={form}>
 				<div style={wrapper}>
-					<label style={label} htmlFor='cnpj'><CnpjIcon size={15} />CNPJ</label>
-					<input style={input} onChange={handleCnpj} value={cnpj} type='text' name='cnpj' id='cnpj' />
-					<Errors message={'Deve conter 13 caracteres'} />
+					<label style={label} htmlFor='cnpj'><CnpjIcon size={14} />CNPJ</label>
+					<input style={input} onChange={handleCnpj} value={cnpj} placeholder='mínimo 13 caracteres' type='text' name='cnpj' id='cnpj' />
+					<Errors message={'Mínimo 13 caracteres'} />
 				</div>
 				<Submit />
 			</form>

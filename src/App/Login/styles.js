@@ -1,5 +1,5 @@
 import { maxWidth, standardMargin, standardPadding, fontWeightMuted, fontWeightBody, fontSizeSmall,
-	primaryColor, grayColor1, grayColor2, alertColor, shadow } from '../../Theme/styleVariables'
+	primaryColor, grayColor1, grayColor3, alertColor, shadow } from '../../Theme/styleVariables'
 
 export const
 
@@ -13,7 +13,7 @@ container = {
 
 wrapper = {
 	display: 'grid',
-	gridRowGap: '5px',
+	gridRowGap: '8px',
 	color: grayColor1,
 	fontWeight: fontWeightMuted
 },
@@ -22,16 +22,20 @@ label = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
 	gridColumnGap: '8px',
-	alignItems: 'center'
+	alignItems: 'center',
+	marginBottom: '-4px'
 },
 
 input = {
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
 	outline: 'none',
-	border: 'none',
-	borderBottom: `2px solid ${grayColor2}`,
-	color: primaryColor
+	padding: '8px 24px',
+	border: `2px solid ${grayColor3}`,
+	borderRadius: '8px',
+	color: primaryColor,
+	backgroundColor: '#FDFDFD',
+	boxShadow: `rgba(34,34,34,0.3) 0px 3px 10px -3px`
 },
 
 error = {
@@ -44,7 +48,7 @@ error = {
 
 buttonWrapper = {
 	display: 'grid',
-	gridRowGap: '30px',
+	gridRowGap: '20px',
 	textAlign: 'center',
 	marginTop: '-10px'
 },

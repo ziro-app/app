@@ -28,7 +28,7 @@ fontTitle = 'Rubik',
 fontWeightTitle = '500',
 fontWeightBody = '400',
 fontWeightMuted = '300',
-fontSizeSmall = '1.4rem',
+fontSizeSmall = '1.3rem',
 
 /* SHADOW */
 shadow = `0px 5px 15px -4px rgba(34,34,34,0.45), 0px 5px 15px -4px rgba(34,34,34,0.40), 
