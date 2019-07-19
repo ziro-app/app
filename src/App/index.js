@@ -10,13 +10,7 @@ export const App = () => {
 	const [isLoading, setIsLoading] = useState(true)
 	const [location, setLocation] = useLocation()
 	useEffect(() => db.auth().onAuthStateChanged(user => {
-		if (user) {
-			setUser(user)
-			console.log(location)
-			if (/(^\/cadastrar$)|(^\/login$)/g.test(location)) 
-				setLocation('/')
-			console.log(location)
-		}
+		if (user) setUser(user)
 		else setUser(null)
 		if (setIsLoading) setIsLoading(false)
 	}), [])
