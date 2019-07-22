@@ -1,35 +1,70 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useLocation, Redirect } from 'wouter'
-import { AnimatePresence } from 'framer-motion'
+import { Switch, Route, Redirect } from 'wouter'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Header } from '../Header/index'
 import { Login } from '../Login/index'
 import { Register } from '../Register/index'
 import { MyData } from '../MyData/index'
 import { NotFound } from '../NotFound/index'
 
+const AnimateLogin = {
+	transition: { ease: 'easeInOut', duration: 0.5 },
+	initial: { opacity: 0, x: -10 },
+	animate: { opacity: 1, x: 0 },
+	exit: { opacity: 0, x: -100 }
+}
+const AnimateRegister = {
+	transition: { ease: 'easeInOut', duration: 0.5 },
+	initial: { opacity: 0, x: 10 },
+	animate: { opacity: 1, x: 0 },
+	exit: { opacity: 0, x: 100 }
+}
+
 export const Router = ({ user, setUser, location }) => {
-	const privateRoutes = {
-		'/': user => <MyData user={user} />,
-		'/meus-dados': user => <MyData user={user} />,
-		'/login': () => <Redirect to={'/'} />
-	}
-	const publicRoutes = {
-		'/login': <div><Header /><Login /></div>,
-		'/cadastrar': <div><Header /><AnimatePresence>{location === '/cadastrar' && <Register />}</AnimatePresence></div>,
-		'/': <div><Header /><Login /></div>
-	}
-	if (user)
-		if (privateRoutes[location])
-			return privateRoutes[location](user)
-		else return <NotFound />
-	else
-		if (publicRoutes[location])
-			return publicRoutes[location]
-		else return <NotFound />
+	if (user) return (
+		<Switch>
+			<Route path='/'>
+				<MyData user={user} />
+			</Route>
+			<Route path='/meus-dados'>
+				<MyData user={user} />
+			</Route>
+			<Route path='/login'>
+				<Redirect to='/' />
+			</Route>
+			<Route path='/:any*'>
+				<NotFound />
+			</Route>
+		</Switch>
+	)
+	else return (
+		<div>
+			<Header />
+			<Switch>
+				<Route path='/login'>
+					<AnimatePresence>
+						{location === '/login' &&
+							<motion.div style={{ position: 'absolute', width: '100%' }} key='one' {...AnimateLogin}>
+								<Login />
+							</motion.div>}
+					</AnimatePresence>
+				</Route>
+				<Route path='/cadastrar'>
+					<AnimatePresence>
+						{location === '/cadastrar' &&
+							<motion.div style={{ position: 'absolute', width: '100%' }} key='two' {...AnimateRegister}>
+								<Register />
+							</motion.div>}
+					</AnimatePresence>					
+				</Route>
+			</Switch>
+		</div>
+	)
 }
 
 Router.propTypes = {
 	user: PropTypes.object,
-	setUser: PropTypes.func.isRequired
+	setUser: PropTypes.func.isRequired,
+	location: PropTypes.string.isRequired
 }
