@@ -9,16 +9,16 @@ import { MyData } from '../MyData/index'
 import { NotFound } from '../NotFound/index'
 
 const AnimateLogin = {
-	transition: { ease: 'easeInOut', duration: 0.5 },
-	initial: { opacity: 0, x: -10 },
+	transition: { ease: 'easeInOut', duration: 0.2 },
+	initial: { opacity: 0, x: -150 },
 	animate: { opacity: 1, x: 0 },
-	exit: { opacity: 0, x: -100 }
+	exit: { opacity: 0, x: -300 }
 }
 const AnimateRegister = {
-	transition: { ease: 'easeInOut', duration: 0.5 },
-	initial: { opacity: 0, x: 10 },
+	transition: { ease: 'easeInOut', duration: 0.2 },
+	initial: { opacity: 0, x: 150 },
 	animate: { opacity: 1, x: 0 },
-	exit: { opacity: 0, x: 100 }
+	exit: { opacity: 0, x: 300 }
 }
 
 export const Router = ({ user, setUser, location }) => {
