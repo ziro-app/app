@@ -12,13 +12,13 @@ const AnimateLogin = {
 	transition: { ease: 'easeInOut', duration: 0.25 },
 	initial: { x: -200 },
 	animate: { x: 0 },
-	exit: { x: -400 }
+	exit: { x: -800 }
 }
 const AnimateRegister = {
 	transition: { ease: 'easeInOut', duration: 0.25 },
 	initial: { x: 200 },
 	animate: { x: 0 },
-	exit: { x: 400 }
+	exit: { x: 800 }
 }
 
 export const Router = ({ user, setUser, location }) => {
