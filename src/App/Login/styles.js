@@ -85,6 +85,7 @@ submit = {
 	border: `1px solid ${primaryColor}`,
 	borderRadius: '20px',
 	color: '#FFF',
+	fontFamily: fontTitle,
 	backgroundColor: primaryColor,
 	boxShadow: `${shadow}`
 },
