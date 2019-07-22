@@ -16,7 +16,7 @@ export const Router = ({ user, setUser, location, setLocation }) => {
 		}),
 		animate: { x: 0 },
 		exit: dragDirection => ({
-			x: dragDirection < 0 ? 1000 : -1000
+			x: dragDirection < 0 ? -1000 : 1000
 		})
 	}
 	const AnimateLogin = {
