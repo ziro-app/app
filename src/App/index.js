@@ -16,7 +16,7 @@ export const App = () => {
 	}), [])
 	return (
 		<ErrorBoundary>
-			{isLoading ? <InitialLoader /> : <Router user={user} setUser={setUser} location={location} />}
+			{isLoading ? <InitialLoader /> : <Router user={user} setUser={setUser} location={location} setLocation={setLocation} />}
 		</ErrorBoundary>
 	)
 }

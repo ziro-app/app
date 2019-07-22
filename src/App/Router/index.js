@@ -8,20 +8,29 @@ import { Register } from '../Register/index'
 import { MyData } from '../MyData/index'
 import { NotFound } from '../NotFound/index'
 
-const AnimateLogin = {
-	transition: { ease: 'easeInOut', duration: 0.15 },
-	initial: { x: -200 },
-	animate: { x: 0 },
-	exit: { x: -800 }
-}
-const AnimateRegister = {
-	transition: { ease: 'easeInOut', duration: 0.15 },
-	initial: { x: 200 },
-	animate: { x: 0 },
-	exit: { x: 800 }
-}
-
-export const Router = ({ user, setUser, location }) => {
+export const Router = ({ user, setUser, location, setLocation }) => {
+	const AnimateLogin = {
+		transition: { x: { type: 'spring', stiffness: 300, damping: 200 } },
+		initial: { x: -1000 },
+		animate: { x: 0 },
+		exit: { x: -1000 },
+		drag: 'x',
+		onDragEnd: (event, { point: { x } }) => {
+			console.log(x)
+			setLocation('/cadastrar')
+		}
+	}
+	const AnimateRegister = {
+		transition: { x: { type: 'spring', stiffness: 300, damping: 200 } },
+		initial: { x: 1000 },
+		animate: { x: 0 },
+		exit: { x: 1000 },
+		drag: 'x',
+		onDragEnd: (event, { point: { x } }) => {
+			console.log(x)
+			setLocation('/login')
+		}
+	}
 	if (user) return (
 		<Switch>
 			<Route path='/'>
