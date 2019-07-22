@@ -9,13 +9,13 @@ import { MyData } from '../MyData/index'
 import { NotFound } from '../NotFound/index'
 
 const AnimateLogin = {
-	transition: { ease: 'easeInOut', duration: 0.25 },
+	transition: { ease: 'easeInOut', duration: 0.15 },
 	initial: { x: -200 },
 	animate: { x: 0 },
 	exit: { x: -800 }
 }
 const AnimateRegister = {
-	transition: { ease: 'easeInOut', duration: 0.25 },
+	transition: { ease: 'easeInOut', duration: 0.15 },
 	initial: { x: 200 },
 	animate: { x: 0 },
 	exit: { x: 800 }
