@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Switch, Route, Redirect } from 'wouter'
 import { motion, AnimatePresence } from 'framer-motion'
+import { PrivateRouter } from './PrivateRouter'
 import { Header } from '../Header/index'
 import { Login } from '../Login/index'
 import { Register } from '../Register/index'
@@ -41,22 +42,7 @@ export const Router = ({ user, setUser, location, setLocation }) => {
 			setLocation('/login')
 		}
 	}
-	if (user) return (
-		<Switch>
-			<Route path='/'>
-				<MyData user={user} />
-			</Route>
-			<Route path='/meus-dados'>
-				<MyData user={user} />
-			</Route>
-			<Route path='/login'>
-				<Redirect to='/' />
-			</Route>
-			<Route path='/:any*'>
-				<NotFound />
-			</Route>
-		</Switch>
-	)
+	if (user) return <PrivateRouter user={user} />
 	else return (
 		<div>
 			<Header />
