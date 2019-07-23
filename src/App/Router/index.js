@@ -3,13 +3,9 @@ import PropTypes from 'prop-types'
 import { Switch, Route, Redirect } from 'wouter'
 import { motion, AnimatePresence } from 'framer-motion'
 import { PrivateRouter } from './PrivateRouter'
-import { Header } from '../Header/index'
-import { Login } from '../Login/index'
-import { Register } from '../Register/index'
-import { MyData } from '../MyData/index'
-import { NotFound } from '../NotFound/index'
+import { PublicRouter } from './PublicRouter'
 
-export const Router = ({ user, setUser, location, setLocation }) => {
+export const Router = ({ user, setUser }) => {
 	const [dragDirection, setDragDirection] = useState(0)
 	const variants = {
 		initial: dragDirection => ({
@@ -43,29 +39,7 @@ export const Router = ({ user, setUser, location, setLocation }) => {
 		}
 	}
 	if (user) return <PrivateRouter user={user} />
-	else return (
-		<div>
-			<Header />
-			<Switch>
-				<Route path='/login'>
-					<AnimatePresence>
-						{location === '/login' &&
-							<motion.div style={{ position: 'absolute', width: '100%' }} key='one' custom={dragDirection} variants={variants} {...AnimateLogin}>
-								<Login />
-							</motion.div>}
-					</AnimatePresence>
-				</Route>
-				<Route path='/cadastrar'>
-					<AnimatePresence>
-						{location === '/cadastrar' &&
-							<motion.div style={{ position: 'absolute', width: '100%' }} key='two' custom={dragDirection} variants={variants} {...AnimateRegister}>
-								<Register />
-							</motion.div>}
-					</AnimatePresence>					
-				</Route>
-			</Switch>
-		</div>
-	)
+	else return <PublicRouter />
 }
 
 Router.propTypes = {
