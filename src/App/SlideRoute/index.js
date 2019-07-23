@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLocation } from 'wouter'
+import { animatedDiv } from './styles'
 
-export const SlideRoute = ({ children }) => {
+export const SlideRoute = ({ to, children }) => {
 	const [dragDirection, setDragDirection] = useState(0)
 	const variants = {
 		initial: dragDirection => ({
@@ -28,9 +30,14 @@ export const SlideRoute = ({ children }) => {
 	return (
 		<AnimatePresence>
 			{location === '/login' &&
-				<motion.div style={{ position: 'absolute', width: '100%' }} key='one' custom={dragDirection} variants={variants} {...animateSettings}>
+				<motion.div style={animatedDiv} key='one' custom={dragDirection} variants={variants} {...animateSettings}>
 					{children}
 				</motion.div>}
 		</AnimatePresence>
 	)
+}
+
+SlideRoute.propTypes = {
+	to: PropTypes.string.isRequired,
+	children: PropTypes.element.isRequired
 }

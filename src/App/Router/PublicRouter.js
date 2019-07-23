@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Switch, Route } from 'wouter'
 import { Header } from '../Header/index'
 import { SlideRoute } from '../SlideRoute/index'
@@ -9,12 +8,12 @@ import { Register } from '../Register/index'
 export const PublicRouter = () =>
 	<Switch>
 		<Route path='/login'>
-			<SlideRoute>
+			<SlideRoute to='/cadastrar'>
 				<Login />
 			</SlideRoute>
 		</Route>
 		<Route path='/cadastrar'>
-			<SlideRoute>
+			<SlideRoute to='/login'>
 				<Register />
 			</SlideRoute>
 		</Route>
