@@ -8,12 +8,12 @@ import { Register } from '../Register/index'
 export const PublicRouter = () =>
 	<Switch>
 		<Route path='/login'>
-			<SlideRoute to='/cadastrar'>
+			<SlideRoute path='/login' to='/cadastrar'>
 				<Login />
 			</SlideRoute>
 		</Route>
 		<Route path='/cadastrar'>
-			<SlideRoute to='/login'>
+			<SlideRoute path='/cadastrar' to='/login'>
 				<Register />
 			</SlideRoute>
 		</Route>
