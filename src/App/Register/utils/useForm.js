@@ -3,17 +3,18 @@ import { useState } from 'react'
 export const useForm = () => {
 	const patternCnpj = '##.###.###/####-##'
 	const mask = (value, pattern) => {
-		// value must be a string
-		// pattern must use '#' to represent numbers
+		// pattern must use '#' to represent valid user input chars
 		if (value) {
-			const valueClean = value.replace('.','').replace('.','').replace('/','').replace('-','')
+			// remove from value all chars placed by the mask in a previous iteration
+			const charsToRemove = pattern.replace(/#/g, '')
+			const rawValue = charsToRemove.split('').reduce((acc,cur) => acc.replace(cur,''), value.toString())
 	
-			const nthOccurrence = pattern.split('#', valueClean.length).join('#').length
+			const nthOccurrence = pattern.split('#', rawValue.length).join('#').length
 	
 			const patternAdjusted = pattern.slice(0, nthOccurrence + 1)
 
 			let index = 0
-			return patternAdjusted.replace(/#/g, () => valueClean[index++])
+			return patternAdjusted.replace(/#/g, () => rawValue[index++])
 		}
 		return ''
 	}
@@ -24,4 +25,3 @@ export const useForm = () => {
 	const submitForm = event => event.PreventDefault()
 	return [cnpj, handleCnpj, submitForm]
 }
-// 11222333000144
