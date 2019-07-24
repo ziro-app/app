@@ -5,11 +5,11 @@ import { useAnimation } from './useAnimation'
 import { animated } from './styles'
 
 export const SlideRoute = ({ fromPath, toPath, children }) => {
-	const [location, dragDirection, animationSettings] = useAnimation(toPath)
+	const [location, dragDirection, animation] = useAnimation(toPath)
 	return (
 		<AnimatePresence>
 			{location === fromPath &&
-				<motion.div style={animated} key={fromPath} custom={dragDirection} {...animationSettings}>
+				<motion.div style={animated} key={fromPath} custom={dragDirection} {...animation}>
 					{children}
 				</motion.div>}
 		</AnimatePresence>
