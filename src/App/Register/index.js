@@ -6,7 +6,8 @@ import { CnpjIcon } from '../../Assets/CnpjIcon/index'
 import { container, welcome, subtitle, dot, instructions, text, cnae, form, wrapper, labelCnpj, inputCnpj } from './styles'
 
 export const Register = () => {
-	const { cnpj, handleCnpj, submitForm } = useForm()
+	const [cnpj, handleCnpj, submitForm] = useForm()
+	console.log(cnpj)
 	return (
 		<div style={container}>
 			<h1 style={welcome}><label style={subtitle}>Passo 1</label><label style={dot}>.</label><br/>Valide seu CNPJ</h1>

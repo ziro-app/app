@@ -6,7 +6,6 @@ import { animated } from './styles'
 
 export const SlideRoute = ({ fromPath, toPath, draggable, setDraggable, children }) => {
 	const [location, dragDirection, animation] = useAnimation(toPath, draggable, setDraggable)
-	console.log(draggable)
 	return (
 		<AnimatePresence>
 			{location === fromPath &&
