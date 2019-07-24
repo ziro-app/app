@@ -4,13 +4,13 @@ import { useLocation, Link } from 'wouter'
 import { Logo } from '../../Assets/Logo/index'
 import { container, menu, tab, tabActive } from './styles'
 
-export const Header = ({ primaryTab, secondaryTab, children }) => {
+export const Header = ({ primaryTab, secondaryTab, setDraggable, children }) => {
 	const [location] = useLocation()
 	return (
 		<Fragment>
 			<div style={container}>
 				<Logo />
-				<div style={menu}>
+				<div style={menu} onClick={() => setDraggable(false)}>
 					<Link style={location !== secondaryTab ? tabActive : tab} href={primaryTab}>
 						Login
 					</Link>
@@ -27,5 +27,6 @@ export const Header = ({ primaryTab, secondaryTab, children }) => {
 Header.propTypes = {
 	primaryTab: PropTypes.string.isRequired,
 	secondaryTab: PropTypes.string.isRequired,
+	setDraggable: PropTypes.func.isRequired,
 	children: PropTypes.element.isRequired
 }

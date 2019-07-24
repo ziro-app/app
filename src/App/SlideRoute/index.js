@@ -4,8 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useAnimation } from './useAnimation'
 import { animated } from './styles'
 
-export const SlideRoute = ({ fromPath, toPath, children }) => {
-	const [location, dragDirection, animation] = useAnimation(toPath)
+export const SlideRoute = ({ fromPath, toPath, draggable, setDraggable, children }) => {
+	const [location, dragDirection, animation] = useAnimation(toPath, draggable, setDraggable)
+	console.log(draggable)
 	return (
 		<AnimatePresence>
 			{location === fromPath &&
@@ -19,5 +20,7 @@ export const SlideRoute = ({ fromPath, toPath, children }) => {
 SlideRoute.propTypes = {
 	fromPath: PropTypes.string.isRequired,
 	toPath: PropTypes.string.isRequired,
+	draggable: PropTypes.bool.isRequired,
+	setDraggable: PropTypes.func.isRequired,
 	children: PropTypes.element.isRequired
 }

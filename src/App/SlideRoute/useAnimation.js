@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { useLocation } from 'wouter'
 
-export const useAnimation = to => {
+export const useAnimation = (to, draggable, setDraggable) => {
 	const [location, setLocation] = useLocation()
-	const [isDragging, setIsDragging] = useState(false)
 	const [dragDirection, setDragDirection] = useState(0)
-	const direction = location === '/login' ? -1000 : 1000
 	const animationNoDrag = {
 		transition: { x: { type: 'spring', stiffness: 300, damping: 200 } },
-		initial: { x: direction },
+		initial: { x: -1000 },
 		animate: { x: 0 },
-		exit: { x: direction },
+		exit: { x: 1000 },
+		drag: 'x',
+		onDrag: () => setDraggable(true)
 	}
 	const animationDrag = {
 		transition: { x: { type: 'spring', stiffness: 300, damping: 200 } },
@@ -18,9 +18,8 @@ export const useAnimation = to => {
 		animate: 'animate',
 		exit: 'exit',
 		drag: 'x',
-        dragConstraints: { left: 0, right: 0 },
-        dragElastic: 1,
-        onDragStart: () => setIsDragging(true),
+		dragConstraints: { left: 0, right: 0 },
+		dragElastic: 1,
 		onDragEnd: (event, { offset, velocity }) => {
 			if (Math.abs(offset.x * velocity.x) > 20000) {
 				setDragDirection(offset.x)
@@ -37,6 +36,7 @@ export const useAnimation = to => {
 			})
 		}
 	}
-	let animation = isDragging ? animationDrag : animationNoDrag
-	return [location, dragDirection, animation]
+	if (draggable)
+		return [location, dragDirection, animationDrag]
+	return [location, dragDirection, animationNoDrag]
 }
