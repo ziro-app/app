@@ -7,9 +7,12 @@ export const useForm = () => {
 	const [errorCnpj, setErrorCnpj] = useState('')
 	const handleCnpj = event => {
 		setCnpj(maskInput(event.target.value, '##.###.###/####-##', true))
+		if (errorCnpj !== '') setErrorCnpj('')
+	}
+	const submitForm = event => {
+		event.preventDefault()
 		const { cnpjIsValid, errorMsgCnpj } = validateCnpj(cnpj)
 		setErrorCnpj(errorMsgCnpj)
 	}
-	const submitForm = event => event.preventDefault()
 	return [cnpj, errorCnpj, handleCnpj, submitForm]
 }
