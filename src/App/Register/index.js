@@ -20,7 +20,7 @@ export const Register = () => {
 					<p style={text}>Seu CNPJ deve conter como atividade primária ou secundária:</p>
 					<p style={text}><label style={cnae}>CNAE 4781-4/00</label><br/>Comércio varejista de artigos do vestuário e acessórios</p>
 				</div>
-				<Submit submitting={submitting} errorCnpj={errorCnpj} />
+				<Submit submitting={submitting} errorCnpj={errorCnpj} errorSubmit={errorSubmit} />
 			</form>
 		</div>
 	)

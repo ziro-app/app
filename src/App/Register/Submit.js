@@ -5,10 +5,10 @@ import { Errors } from './Errors'
 import { Spinner } from '../../Assets/Spinner/index'
 import { buttonWrapper, loader, submit, submitDisabled, scaleButton, forgotPass } from './styles'
 
-export const Submit = ({ submitting, errorCnpj }) =>
+export const Submit = ({ submitting, errorCnpj, errorSubmit }) =>
 	<div style={buttonWrapper}>
 		<div style={loader}>
-			{submitting ? <Spinner size={'4rem'} /> : <Errors message={errorCnpj} />}
+			{submitting ? <Spinner size={'4rem'} /> : <Errors message={errorCnpj || errorSubmit} />}
 		</div>
 		<motion.input
 			style={submitting ? submitDisabled : submit}
@@ -20,5 +20,6 @@ export const Submit = ({ submitting, errorCnpj }) =>
 
 Submit.propTypes = {
 	submitting: PropTypes.bool.isRequired,
-	errorCnpj: PropTypes.string.isRequired
+	errorCnpj: PropTypes.string.isRequired,
+	errorSubmit: PropTypes.string.isRequired
 }

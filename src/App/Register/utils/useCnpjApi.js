@@ -13,14 +13,17 @@ export const useCnpjApi = (cnpj, setErrorCnpj) => {
 			try {
 				setSubmitting(true)
 				const { data: { message, data } } = await get(`${process.env.CNPJ_API}`)
+				setSubmitting(false)
 				if (message === 'Success')
 					console.log(data)
-				else
+				else {
 					console.log(message)
-				setSubmitting(false)
+					setErrorSubmit('Erro no serviço. Tente mais tarde')
+				}
 			} catch (error) {
 				console.log(error)
 				setSubmitting(false)
+				setErrorSubmit('Erro na conexão. Tente mais tarde')
 			}
 		}
 	}
