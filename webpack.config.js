@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-// const webpack = require('webpack')
+const webpack = require('webpack')
 
 module.exports = (env, { mode }) => {
 	const config = {
@@ -26,14 +26,22 @@ module.exports = (env, { mode }) => {
 		plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }) ]
 	}
 	if (mode === 'development') {
+		const { cnpj_api } = require('./credentials')
 		config.devtool = 'cheap-module-eval-source-map'
 		// config.output = { publicPath: '/' }
 		config.devServer = { historyApiFallback: true }
+		config.plugins.push(
+			new webpack.DefinePlugin({
+				'process.env': {
+					CNPJ_API: JSON.stringify(cnpj_api)
+				}
+			})
+		)
 	}
 	if (mode === 'production') {
 		config.devtool = 'cheap-module-source-map'
 		config.plugins.push(
-			new CopyWebpackPlugin([{ from: './_redirects', to: '_redirects', toType: 'file' }])
+			new CopyWebpackPlugin([{ from: './_redirects', to: '_redirects', toType: 'file' }]),
 			// new WebpackPwaManifest({
 			// 	name: 'Ziro App',
 			// 	short_name: 'Ziro',
@@ -43,12 +51,11 @@ module.exports = (env, { mode }) => {
 			// 	display: 'standalone',
 			// 	icons: [{ src: './logo.png', sizes: [96, 128, 192, 256, 384, 512] }]
 			// }),
-			// new webpack.DefinePlugin({
-			// 	'process.env': {
-			// 		DATA_SHEET_URL: JSON.stringify(process.env.DATA_SHEET_URL),
-			// 		API_URL: JSON.stringify(process.env.API_URL)
-			// 	}
-			// })
+			new webpack.DefinePlugin({
+				'process.env': {
+					CNPJ_API: JSON.stringify(process.env.CNPJ_API)
+				}
+			})
 		)
 	}
 	return config

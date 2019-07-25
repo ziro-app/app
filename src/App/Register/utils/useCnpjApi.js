@@ -12,7 +12,7 @@ export const useCnpjApi = (cnpj, setErrorCnpj) => {
 		if (cnpjIsValid) {
 			try {
 				setSubmitting(true)
-				const { data: { message, data } } = await get(``)
+				const { data: { message, data } } = await get(`${process.env.CNPJ_API}`)
 				if (message === 'Success')
 					console.log(data)
 				else
