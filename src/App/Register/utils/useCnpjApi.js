@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { get } from 'axios'
+import { post } from 'axios'
 import { validateCnpj } from './validateCnpj'
 
 export const useCnpjApi = (cnpj, setErrorCnpj) => {
@@ -12,7 +12,7 @@ export const useCnpjApi = (cnpj, setErrorCnpj) => {
 		if (cnpjIsValid) {
 			try {
 				setSubmitting(true)
-				const { data: { message, data } } = await get(`${process.env.CNPJ_API}`)
+				const { data: { message, data } } = await post(`${process.env.CNPJ_API}`, { cnpj })
 				setSubmitting(false)
 				if (message === 'Success')
 					console.log(data)
