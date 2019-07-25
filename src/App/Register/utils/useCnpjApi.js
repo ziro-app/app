@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { post } from 'axios'
+import { validateInput } from './validateInput'
 import { validateCnpj } from './validateCnpj'
 
 export const useCnpjApi = (cnpj, setErrorCnpj) => {
@@ -7,18 +8,24 @@ export const useCnpjApi = (cnpj, setErrorCnpj) => {
 	const [errorSubmit, setErrorSubmit] = useState('')
 	const submitForm = async event => {
 		event.preventDefault()
-		const { cnpjIsValid, errorMsgCnpj } = validateCnpj(cnpj)
+		const { inputIsValid, errorMsgCnpj } = validateInput(cnpj)
 		setErrorCnpj(errorMsgCnpj)
-		if (cnpjIsValid) {
+		if (inputIsValid) {
 			try {
 				setSubmitting(true)
 				const { data: { message, data } } = await post(`${process.env.CNPJ_API}`, { cnpj })
 				setSubmitting(false)
-				if (message === 'Success')
-					console.log(data)
-				else {
+				if (data.return !== 'OK')
+					setErrorSubmit('CNPJ não encontrado na Receita')
+				if (message !== 'Success') {
 					console.log(message)
-					setErrorSubmit('Erro no serviço. Tente mais tarde')
+					setErrorSubmit('Erro no serviço. Tente mais tarde')					
+				}
+				if (data.return === 'OK' && message === 'Success') {
+					const { status, message } = validateCnpj(data)
+					setErrorSubmit(message)
+					if (status === 'Success')
+						console.log('Ok, redirect to step 2')
 				}
 			} catch (error) {
 				console.log(error)
