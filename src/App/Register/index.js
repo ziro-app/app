@@ -14,7 +14,7 @@ export const Register = () => {
 			<form style={form} onSubmit={submitForm}>
 				<div style={wrapper}>
 					<label style={labelCnpj} htmlFor='cnpj'><CnpjIcon size={13} />CNPJ</label>
-					<input style={inputCnpj} onChange={handleCnpj} value={cnpj} placeholder='11.222.333/0001-44' type='text' name='cnpj' id='cnpj' />
+					<input style={inputCnpj} onChange={handleCnpj} value={cnpj} disabled={submitting} placeholder='11.222.333/0001-44' type='text' name='cnpj' id='cnpj' />
 				</div>
 				<div style={instructions}>
 					<p style={text}>Seu CNPJ deve conter como atividade primária ou secundária:</p>
