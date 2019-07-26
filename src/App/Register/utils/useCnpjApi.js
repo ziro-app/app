@@ -25,7 +25,7 @@ export const useCnpjApi = (cnpj, setErrorCnpj) => {
 					const { status, message } = validateCnpj(data)
 					setErrorSubmit(message)
 					if (status === 'Success')
-						console.log('Ok, redirect to step 2')
+						console.log('Ok, redirect to step 2') // <----- CHANGE HERE
 				}
 			} catch (error) {
 				console.log(error)
