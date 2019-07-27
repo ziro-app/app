@@ -28,7 +28,6 @@ module.exports = (env, { mode }) => {
 	if (mode === 'development') {
 		const { cnpj_api } = require('./credentials')
 		config.devtool = 'cheap-module-eval-source-map'
-		// config.output = { publicPath: '/' }
 		config.devServer = { historyApiFallback: true }
 		config.plugins.push(
 			new webpack.DefinePlugin({

@@ -26,11 +26,8 @@ export const useCnpjApi = (cnpj, setErrorCnpj) => {
 				if (data.return === 'OK' && message === 'Success') {
 					const { status, message } = validateCnpj(data)
 					setErrorSubmit(message)
-					if (status === 'Success') {
-						console.log(location)
+					if (status === 'Success')
 						setLocation('/cadastrar/email')
-						console.log(location)
-					}
 				}
 			} catch (error) {
 				console.log(error)
