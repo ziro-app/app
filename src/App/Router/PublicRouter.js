@@ -56,12 +56,8 @@ export const PublicRouter = () => {
 					</Route>
 				</Switch>
 			</Route>
-			<Route path='/cadastrar'>
-				<Redirect to='/cadastrar/cnpj' />
-			</Route>
-			<Route path='/:any*'>
-				<Redirect to='/home/login' />
-			</Route>
+			<Route path='/cadastrar'><Redirect to='/cadastrar/cnpj' /></Route>
+			<Route path='/:any*'><Redirect to='/home/login' /></Route>
 		</Switch>
 	)
 }

@@ -6,9 +6,8 @@ import { NotFound } from '../NotFound/index'
 
 export const PrivateRouter = ({ user }) =>
 	<Switch>
-		<Route path='/'><MyData user={user} /></Route>
+		<Route path='/home/login'><Redirect to='/meus-dados' /></Route>
 		<Route path='/meus-dados'><MyData user={user} /></Route>
-		<Route path='/home/login'><Redirect to='/' /></Route>
 		<Route path='/:any*'><NotFound /></Route>
 	</Switch>
 
