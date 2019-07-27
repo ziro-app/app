@@ -8,7 +8,7 @@ export const PrivateRouter = ({ user }) =>
 	<Switch>
 		<Route path='/'><MyData user={user} /></Route>
 		<Route path='/meus-dados'><MyData user={user} /></Route>
-		<Route path='/login'><Redirect to='/' /></Route>
+		<Route path='/home/login'><Redirect to='/' /></Route>
 		<Route path='/:any*'><NotFound /></Route>
 	</Switch>
 

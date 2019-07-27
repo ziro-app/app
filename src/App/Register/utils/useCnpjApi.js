@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { post } from 'axios'
+import { useLocation } from 'wouter'
 import { validateInput } from './validateInput'
 import { validateCnpj } from './validateCnpj'
 
 export const useCnpjApi = (cnpj, setErrorCnpj) => {
 	const [submitting, setSubmitting] = useState(false)
 	const [errorSubmit, setErrorSubmit] = useState('')
+	const [location, setLocation] = useLocation()
 	const submitForm = async event => {
 		event.preventDefault()
 		const { inputIsValid, errorMsgCnpj } = validateInput(cnpj)
@@ -24,8 +26,11 @@ export const useCnpjApi = (cnpj, setErrorCnpj) => {
 				if (data.return === 'OK' && message === 'Success') {
 					const { status, message } = validateCnpj(data)
 					setErrorSubmit(message)
-					if (status === 'Success')
-						console.log('Ok, redirect to step 2') // <----- CHANGE HERE
+					if (status === 'Success') {
+						console.log(location)
+						setLocation('/cadastrar/email')
+						console.log(location)
+					}
 				}
 			} catch (error) {
 				console.log(error)
