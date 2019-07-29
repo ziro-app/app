@@ -7,12 +7,14 @@ import { RegisterCnpj } from './RegisterCnpj/index'
 export const Register = () => {
 	const [direction, setDirection] = useState('forward')
 	const [cnpj, setCnpj] = useState('')
+	const [cnpjIsValid, setCnpjIsValid] = useState(false)
+	const cnpjProps = { cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, setDirection }
 	return (
 		<Header>
 			<Switch>
 				<Route path='/cadastrar/cnpj'>
 					<SlideRoute path='/cadastrar/cnpj' direction={direction}>
-						<RegisterCnpj cnpj={cnpj} setCnpj={setCnpj} setDirection={setDirection} />
+						<RegisterCnpj {...cnpjProps} />
 					</SlideRoute>
 				</Route>
 				<Route path='/cadastrar/email'>

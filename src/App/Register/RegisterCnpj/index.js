@@ -6,9 +6,9 @@ import { Submit } from './Submit'
 import { CnpjIcon } from '../../../Assets/CnpjIcon/index'
 import { container, welcome, subtitle, dot, instructions, text, cnae, form, wrapper, labelCnpj, inputCnpj } from './styles'
 
-export const RegisterCnpj = ({ cnpj, setCnpj, setDirection }) => {
-	const [errorCnpj, setErrorCnpj, handleCnpj] = useForm(setCnpj)
-	const [submitting, errorSubmit, submitForm] = useCnpjApi(cnpj, setErrorCnpj, setDirection)
+export const RegisterCnpj = ({ cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, setDirection }) => {
+	const [errorCnpj, setErrorCnpj, handleCnpj] = useForm(setCnpj, setCnpjIsValid)
+	const [submitting, errorSubmit, submitForm] = useCnpjApi(cnpj, setErrorCnpj, cnpjIsValid, setCnpjIsValid, setDirection)
 	return (
 		<div style={container}>
 			<h1 style={welcome}><label style={subtitle}>Passo 1</label><label style={dot}>.</label><br/>Valide seu CNPJ</h1>
@@ -30,5 +30,7 @@ export const RegisterCnpj = ({ cnpj, setCnpj, setDirection }) => {
 RegisterCnpj.propTypes = {
 	cnpj: PropTypes.string.isRequired,
 	setCnpj: PropTypes.func.isRequired,
+	cnpjIsValid: PropTypes.bool.isRequired,
+	setCnpjIsValid: PropTypes.func.isRequired,
 	setDirection: PropTypes.func.isRequired
 }
