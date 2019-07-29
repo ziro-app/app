@@ -1,6 +1,1 @@
-export const
-
-animated = {
-	position: 'absolute',
-	width: '100%'
-}
+export const animated = { position: 'absolute', width: '100%' }

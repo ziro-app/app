@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { animation } from './animation'
 import { animated } from './styles'
 
-export const SlideRoute = ({ path, children }) => {
+export const SlideRoute = ({ path, direction, children }) => {
 	const [location] = useLocation()
-	const animationSettings = animation('forward')
+	const animationSettings = animation(direction)
 	return (
 		<AnimatePresence>
 			{location === path &&
@@ -20,5 +20,6 @@ export const SlideRoute = ({ path, children }) => {
 
 SlideRoute.propTypes = {
 	path: PropTypes.string.isRequired,
+	direction: PropTypes.string.isRequired,
 	children: PropTypes.element.isRequired
 }

@@ -1,13 +1,14 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import { useForm } from './utils/useForm'
 import { useCnpjApi } from './utils/useCnpjApi'
 import { Submit } from './Submit'
 import { CnpjIcon } from '../../../Assets/CnpjIcon/index'
 import { container, welcome, subtitle, dot, instructions, text, cnae, form, wrapper, labelCnpj, inputCnpj } from './styles'
 
-export const RegisterCnpj = () => {
+export const RegisterCnpj = ({ setDirection }) => {
 	const [cnpj, errorCnpj, setErrorCnpj, handleCnpj] = useForm()
-	const [submitting, errorSubmit, submitForm] = useCnpjApi(cnpj, setErrorCnpj)
+	const [submitting, errorSubmit, submitForm] = useCnpjApi(cnpj, setErrorCnpj, setDirection)
 	return (
 		<div style={container}>
 			<h1 style={welcome}><label style={subtitle}>Passo 1</label><label style={dot}>.</label><br/>Valide seu CNPJ</h1>
@@ -24,4 +25,8 @@ export const RegisterCnpj = () => {
 			</form>
 		</div>
 	)
+}
+
+RegisterCnpj.propTypes = {
+	setDirection: PropTypes.func.isRequired
 }

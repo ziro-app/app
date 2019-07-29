@@ -4,7 +4,7 @@ import { useLocation } from 'wouter'
 import { validateInput } from './validateInput'
 import { validateCnpj } from './validateCnpj'
 
-export const useCnpjApi = (cnpj, setErrorCnpj) => {
+export const useCnpjApi = (cnpj, setErrorCnpj, setDirection) => {
 	const [submitting, setSubmitting] = useState(false)
 	const [errorSubmit, setErrorSubmit] = useState('')
 	const [location, setLocation] = useLocation()
@@ -26,8 +26,10 @@ export const useCnpjApi = (cnpj, setErrorCnpj) => {
 				if (data.return === 'OK' && message === 'Success') {
 					const { status, message } = validateCnpj(data)
 					setErrorSubmit(message)
-					if (status === 'Success')
+					if (status === 'Success') {
 						setLocation('/cadastrar/email')
+						setDirection('forward')
+					}
 				}
 			} catch (error) {
 				console.log(error)
