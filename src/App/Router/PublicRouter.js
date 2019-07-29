@@ -1,8 +1,7 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState } from 'react'
 import { Switch, Route, Redirect } from 'wouter'
 import { Header } from '../Header/index'
 import { SlideTab } from '../SlideTab/index'
-import { SlideRoute } from '../SlideRoute/index'
 import { Login } from '../Login/index'
 import { Welcome } from '../Welcome/index'
 import { Register } from '../Register/index'
@@ -30,33 +29,7 @@ export const PublicRouter = () => {
 					</Switch>
 				</Header>
 			</Route>
-			<Route path='/cadastrar/:any'>
-				<Switch>
-					<Route path='/cadastrar/cnpj'>
-						<SlideRoute path='/cadastrar/cnpj'>
-							<Register />
-						</SlideRoute>
-					</Route>
-					<Route path='/cadastrar/email'>
-						<SlideRoute path='/cadastrar/email'>
-							<div>Passo 2 - Valide seu email</div>
-						</SlideRoute>
-					</Route>
-					<Route path='/cadastrar/telefone'>
-						<SlideRoute path='/cadastrar/telefone'>
-							<div>Passo 3 - Valide seu telefone</div>
-						</SlideRoute>
-					</Route>
-					<Route path='/cadastrar/concluir'>
-						<SlideRoute path='/cadastrar/concluir'>
-							<div>Passo 4 - Conclua seu cadastro</div>
-						</SlideRoute>
-					</Route>
-					<Route path='/:any*'>
-						<Redirect to='/cadastrar/cnpj' />
-					</Route>
-				</Switch>
-			</Route>
+			<Route path='/cadastrar/:any'><Register /></Route>
 			<Route path='/cadastrar'><Redirect to='/cadastrar/cnpj' /></Route>
 			<Route path='/:any*'><Redirect to='/home/login' /></Route>
 		</Switch>

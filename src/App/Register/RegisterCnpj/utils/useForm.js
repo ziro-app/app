@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { maskInput } from '../../utils/maskInput'
+import { maskInput } from '../../../utils/maskInput'
 
 export const useForm = () => {
 	const [cnpj, setCnpj] = useState('')
