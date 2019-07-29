@@ -7,11 +7,10 @@ import { animated } from './styles'
 
 export const SlideRoute = ({ path, direction, children }) => {
 	const [location] = useLocation()
-	const animationSettings = animation(direction)
 	return (
 		<AnimatePresence initial={false}>
 			{location === path &&
-				<motion.div style={animated} key={path} {...animationSettings}>
+				<motion.div style={animated} key={path} custom={direction} {...animation}>
 					{children}
 				</motion.div>}
 		</AnimatePresence>

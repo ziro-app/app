@@ -1,13 +1,15 @@
-export const animation = direction => {
-	const animationBack = {
-		transition: { x: { type: 'spring', stiffness: 300, damping: 200 } },
-		initial: { x: 1000 },
+export const animation = ({
+	transition: { x: { type: 'spring', stiffness: 600, damping: 400 } },
+	initial: 'initial',
+	animate: 'animate',
+	exit: 'exit',
+	variants: {
+		initial: direction => ({
+			x: direction === 'forward' ? 1000 : 1000
+		}),
 		animate: { x: 0 },
-		exit: { x: 1000 }
+		exit: direction => ({
+			x: direction === 'forward' ? -1000 : -1000
+		})
 	}
-	const animationForward = {
-		...animationBack,
-		exit: { x: -1000 }
-	}
-	return direction === 'forward' ? animationForward : animationBack
-}
+})

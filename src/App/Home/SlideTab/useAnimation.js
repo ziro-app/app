@@ -5,7 +5,7 @@ export const useAnimation = (to, draggable, setDraggable) => {
 	const [location, setLocation] = useLocation()
 	const [dragDirection, setDragDirection] = useState(0)
 	const animationNoDrag = {
-		transition: { x: { type: 'spring', stiffness: 300, damping: 200 } },
+		transition: { x: { type: 'spring', stiffness: 600, damping: 400 } },
 		initial: { x: -1000 },
 		animate: { x: 0 },
 		exit: { x: 1000 },
@@ -13,7 +13,7 @@ export const useAnimation = (to, draggable, setDraggable) => {
 		onDrag: () => setDraggable(true)
 	}
 	const animationDrag = {
-		transition: { x: { type: 'spring', stiffness: 300, damping: 200 } },
+		transition: { x: { type: 'spring', stiffness: 600, damping: 400 } },
 		initial: 'initial',
 		animate: 'animate',
 		exit: 'exit',
