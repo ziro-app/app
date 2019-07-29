@@ -7,7 +7,7 @@ import { animated } from './styles'
 export const SlideTab = ({ fromPath, toPath, draggable, setDraggable, children }) => {
 	const [location, dragDirection, animation] = useAnimation(toPath, draggable, setDraggable)
 	return (
-		<AnimatePresence>
+		<AnimatePresence initial={false}>
 			{location === fromPath &&
 				<motion.div style={animated} key={fromPath} custom={dragDirection} {...animation}>
 					{children}

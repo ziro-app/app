@@ -56,7 +56,7 @@ wrapper = {
 
 label = {
 	display: 'grid',
-	gridTemplateColumns: 'auto 1fr auto',
+	gridTemplateColumns: 'auto 1fr',
 	gridColumnGap: '5px',
 	alignItems: 'center',
 	marginBottom: '-4px'
