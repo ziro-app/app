@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types'
 import { motion } from 'framer-motion'
 import { Errors } from './Errors'
 import { Spinner } from '../../Assets/Spinner/index'
-import { buttonWrapper, loader, submit, submitDisabled, scaleButton, forgotPass } from './styles'
+import { buttonWrapper, loader, submit, submitDisabled, scaleButton } from './styles'
 
 export const Submit = ({ submitting, errorCnpj, errorSubmit }) =>
 	<div style={buttonWrapper}>

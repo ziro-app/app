@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'wouter'
+import { motion } from 'framer-motion'
 import { ShoppingIcon } from '../../Assets/ShoppingIcon/index'
 import { TruckIcon } from '../../Assets/TruckIcon/index'
 import { CardIcon } from '../../Assets/CardIcon/index'
-import { container, welcome, subtitle, dot, benefits, wrapper, label, icon, text, submit } from './styles'
+import { container, welcome, subtitle, dot, benefits, wrapper, label, icon, text, submit, scaleButton } from './styles'
 
 export const Welcome = () =>
 	<div style={container}>
@@ -24,6 +25,6 @@ export const Welcome = () =>
 			</div>
 		</div>
 		<Link href='/cadastrar/cnpj'>
-			<input style={submit} type='submit' value='Iniciar' />
+			<motion.input style={submit} type='submit' value='Iniciar' whileTap={scaleButton} />
 		</Link>
 	</div>

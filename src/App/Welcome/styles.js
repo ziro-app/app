@@ -1,5 +1,4 @@
-import { maxWidth, standardMargin, standardPadding, fontTitle, fontWeightMuted, fontWeightBody,
-	fontSizeSmall, primaryColor, grayColor3, alertColor, shadow } from '../../Theme/styleVariables'
+import { maxWidth, standardMargin, standardPadding, fontTitle, primaryColor, shadow } from '../../Theme/styleVariables'
 
 export const
 
