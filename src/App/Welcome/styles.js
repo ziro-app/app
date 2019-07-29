@@ -35,8 +35,8 @@ instructions = {
 icon = {
 	display: 'grid',
 	placeItems: 'center',
-	width: '25px',
-	height: '25px',
+	width: '30px',
+	height: '30px',
 	borderRadius: '100%',
 	boxShadow: `0px 3px 10px -5px rgba(34,34,34,0.65)`
 },
