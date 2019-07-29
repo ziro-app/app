@@ -27,7 +27,7 @@ dot = {
 
 benefits = {
 	display: 'grid',
-	gridRowGap: '30px'
+	gridRowGap: '15px'
 },
 
 wrapper = {
@@ -39,7 +39,7 @@ wrapper = {
 label = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
-	gridColumnGap: '8px',
+	gridColumnGap: '10px',
 	alignItems: 'center',
 	fontFamily: fontTitle,
 	fontSize: '1.7rem'

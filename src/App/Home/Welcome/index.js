@@ -10,7 +10,7 @@ export const Welcome = () =>
 	<div style={container}>
 		<h1 style={welcome}><label style={subtitle}>Faça parte</label><label style={dot}>.</label><br/>Crie uma conta</h1>
 		<div style={benefits}>
-			<p>Compre no atacado do Bom Retiro, Brás e Itaim para revender</p>
+			<p style={text}>Compre no atacado do Bom Retiro, Brás e Itaim para revender</p>
 			<div style={wrapper}>
 				<label style={label}><div style={icon}><ShoppingIcon size={15} /></div>Assessoria</label>
 				<p style={text}>Encontre as melhores peças para o seu público-alvo</p>
