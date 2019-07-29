@@ -34,7 +34,7 @@ export const PublicRouter = () => {
 				<Switch>
 					<Route path='/cadastrar/cnpj'>
 						<SlideRoute path='/cadastrar/cnpj'>
-							<div>Passo 1 - Valide seu CNPJ</div>
+							<Register />
 						</SlideRoute>
 					</Route>
 					<Route path='/cadastrar/email'>
