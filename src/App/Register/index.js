@@ -10,7 +10,7 @@ export const Register = () => {
 	const [cnpjIsValid, setCnpjIsValid] = useState(false)
 	const cnpjProps = { cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, setDirection }
 	return (
-		<Header>
+		<Header setDirection={setDirection}>
 			<Switch>
 				<Route path='/cadastrar/cnpj'>
 					<SlideRoute path='/cadastrar/cnpj' direction={direction}>

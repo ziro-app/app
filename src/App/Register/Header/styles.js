@@ -16,4 +16,9 @@ back = {
 	height: '100%',
 	display: 'grid',
 	alignItems: 'center'
+},
+
+anchor = {
+	display: 'grid',
+	justifySelf: 'start'
 }
