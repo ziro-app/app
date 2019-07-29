@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { useLocation, Link } from 'wouter'
-import { Logo } from '../../Assets/Logo/index'
+import { Logo } from '../../../Assets/Logo/index'
 import { container, menu, tab, tabActive } from './styles'
 
 export const Header = ({ primaryTab, secondaryTab, setDraggable, children }) => {

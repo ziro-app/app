@@ -3,8 +3,8 @@ import { useForm } from './utils/useForm'
 import { useLogin } from './utils/useLogin'
 import { Submit } from './Submit'
 import { Errors } from './Errors'
-import { PasswordIcon } from '../../Assets/PasswordIcon/index'
-import { EmailIcon } from '../../Assets/EmailIcon/index'
+import { PasswordIcon } from '../../../Assets/PasswordIcon/index'
+import { EmailIcon } from '../../../Assets/EmailIcon/index'
 import { container, welcome, subtitle, dot, wrapper, label, input } from './styles'
 
 export const Login = () => {

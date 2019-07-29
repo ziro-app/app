@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'wouter'
 import { motion } from 'framer-motion'
-import { ShoppingIcon } from '../../Assets/ShoppingIcon/index'
-import { TruckIcon } from '../../Assets/TruckIcon/index'
-import { CardIcon } from '../../Assets/CardIcon/index'
+import { ShoppingIcon } from '../../../Assets/ShoppingIcon/index'
+import { TruckIcon } from '../../../Assets/TruckIcon/index'
+import { CardIcon } from '../../../Assets/CardIcon/index'
 import { container, welcome, subtitle, dot, benefits, wrapper, label, icon, text, submit, scaleButton } from './styles'
 
 export const Welcome = () =>

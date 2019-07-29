@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { db } from '../../../Firebase/db'
+import { db } from '../../../../Firebase/db'
 
 export const useLogin = () => {
 	const [authError, setAuthError] = useState('')
