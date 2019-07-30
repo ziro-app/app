@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'wouter'
 import { Header } from './Header/index'
 import { SlideRoute } from './SlideRoute/index'
 import { RegisterCnpj } from './RegisterCnpj/index'
+import { RegisterData } from './RegisterData/index'
 import { RegisterEmail } from './RegisterEmail/index'
 
 export const Register = () => {
@@ -10,6 +11,8 @@ export const Register = () => {
 	const [cnpj, setCnpj] = useState('')
 	const [cnpjIsValid, setCnpjIsValid] = useState(false)
 	const cnpjProps = { cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, setDirection }
+	const [name, setName] = useState('')
+	const dataProps = { name, setName }
 	const [email, setEmail] = useState('')
 	const emailProps = { email, setEmail }
 	return (
@@ -22,7 +25,7 @@ export const Register = () => {
 				</Route>
 				<Route path='/cadastrar/dados'>
 					<SlideRoute path='/cadastrar/dados' direction={direction}>
-						<div>Passo 2 - Conclua seu cadastro</div>
+						<RegisterData {...dataProps} />
 					</SlideRoute>
 				</Route>
 				<Route path='/cadastrar/email'>
