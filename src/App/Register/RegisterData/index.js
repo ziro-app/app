@@ -1,6 +1,7 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 import { useForm } from './utils/useForm'
+import { useSaveData } from './utils/useSaveData'
 import { Submit } from './Submit'
 import { NameIcon } from '../../../Assets/NameIcon/index'
 import { PhoneIcon } from '../../../Assets/PhoneIcon/index'
@@ -13,12 +14,16 @@ export const RegisterData = ({ name, setName, phone, setPhone, pass, setPass, co
 		errorPhone, setErrorPhone, handlePhone,
 		errorPass, setErrorPass, handlePass,
 		errorConfirmPass, setErrorConfirmPass, handleConfirmPass
-	] = useForm(setName, setPhone, setPass, setConfirmPass)
-	const errors = { errorName, errorPhone, errorPass, errorConfirmPass }
+	] = useForm(
+		setName, setPhone, setPass, setConfirmPass,
+		setErrorName, setErrorPhone, setErrorPass, setErrorConfirmPass
+	)
+	const [errorSave, saveForm] = useSaveData()
+	const errors = { errorName, errorPhone, errorPass, errorConfirmPass, errorSave }
 	return (
 		<div style={container}>
 			<h1 style={welcome}><label style={subtitle}>Passo 2</label><label style={dot}>.</label><br/>Preencha seus dados</h1>
-			<form style={form} onSubmit={e => e.preventDefault()}>
+			<form style={form} onSubmit={saveForm}>
 				<div style={wrapper}>
 					<label style={label} htmlFor='name'><NameIcon size={13} />Nome</label>
 					<input style={input} onChange={handleName} value={name} disabled={false} placeholder='Fernando(a) da Silva' type='text' name='name' id='name' />
@@ -35,7 +40,7 @@ export const RegisterData = ({ name, setName, phone, setPhone, pass, setPass, co
 					<label style={label} htmlFor='confirmpass'><PasswordIcon size={13} />Repetir senha</label>
 					<input style={input} onChange={handleConfirmPass} value={confirmPass} disabled={false} placeholder='Confirme sua senha' type='password' name='confirmpass' id='confirmpass' />
 				</div>
-				<Submit submitting={false} {...errors} errorSubmit={''} />
+				<Submit submitting={false} {...errors} />
 			</form>
 		</div>
 	)
