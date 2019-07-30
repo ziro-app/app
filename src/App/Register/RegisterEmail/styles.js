@@ -77,54 +77,54 @@ instructions = {
 
 text = {
 	fontSize: '1.6rem'
+},
+
+error = {
+	display: 'flex',
+	alignItems: 'center',
+	fontSize: fontSizeSmall,
+	color: alertColor,
+	fontWeight: fontWeightBody
+},
+
+buttonWrapper = {
+	display: 'grid',
+	gridRowGap: '20px',
+	textAlign: 'center',
+	marginTop: '-10px'
+},
+
+loader = {
+	display: 'grid',
+	alignItems: 'center',
+	justifyItems: 'center',
+	height: '30px',
+	marginBottom: '-10px'
+},
+
+submit = {
+	WebkitAppearance: 'none',
+	WebkitTapHighlightColor: 'rgba(0,0,0,0)',
+	MozAppearance: 'none',
+	outline: 'none',
+	cursor: 'pointer',
+	padding: '10px 0px',
+	border: `1px solid ${primaryColor}`,
+	borderRadius: '20px',
+	fontFamily: fontTitle,
+	color: '#FFF',
+	backgroundColor: primaryColor,
+	boxShadow: `${shadow}`
+},
+
+submitDisabled = {
+	...submit,
+	cursor: 'initial',
+	color: primaryColor,
+	backgroundColor: '#FFF',
+	boxShadow: 'none'
+},
+
+scaleButton = {
+	scale: 0.95
 }
-
-// error = {
-// 	display: 'flex',
-// 	alignItems: 'center',
-// 	fontSize: fontSizeSmall,
-// 	color: alertColor,
-// 	fontWeight: fontWeightBody
-// },
-
-// buttonWrapper = {
-// 	display: 'grid',
-// 	gridRowGap: '20px',
-// 	textAlign: 'center',
-// 	marginTop: '-10px'
-// },
-
-// loader = {
-// 	display: 'grid',
-// 	alignItems: 'center',
-// 	justifyItems: 'center',
-// 	height: '30px',
-// 	marginBottom: '-10px'
-// },
-
-// submit = {
-// 	WebkitAppearance: 'none',
-// 	WebkitTapHighlightColor: 'rgba(0,0,0,0)',
-// 	MozAppearance: 'none',
-// 	outline: 'none',
-// 	cursor: 'pointer',
-// 	padding: '10px 0px',
-// 	border: `1px solid ${primaryColor}`,
-// 	borderRadius: '20px',
-// 	fontFamily: fontTitle,
-// 	color: '#FFF',
-// 	backgroundColor: primaryColor,
-// 	boxShadow: `${shadow}`
-// },
-
-// submitDisabled = {
-// 	...submit,
-// 	cursor: 'initial',
-// 	color: primaryColor,
-// 	backgroundColor: '#FFF',
-// 	boxShadow: 'none'
-// },
-
-// scaleButton = {
-// 	scale: 0.95
-// }

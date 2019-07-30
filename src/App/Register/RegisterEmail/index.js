@@ -1,12 +1,13 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { Submit } from './Submit'
 import { EmailIcon } from '../../../Assets/EmailIcon/index'
 import { container, welcome, subtitle, dot, form, wrapper, labelEmail, inputEmail, instructions, text } from './styles'
 
 export const RegisterEmail = ({ email, setEmail }) => {
 	return (
 		<div style={container}>
-			<h1 style={welcome}><label style={subtitle}>Passo 2</label><label style={dot}>.</label><br/>Valide seu email</h1>
+			<h1 style={welcome}><label style={subtitle}>Passo 3</label><label style={dot}>.</label><br/>Valide seu email</h1>
 			<form style={form} onSubmit={e => e.preventDefault()}>
 				<div style={wrapper}>
 					<label style={labelEmail} htmlFor='email'><EmailIcon size={13} />Email</label>
@@ -15,7 +16,7 @@ export const RegisterEmail = ({ email, setEmail }) => {
 				<div style={instructions}>
 					<p style={text}>Clique no link de confirmação que será enviado para sua caixa</p>
 				</div>
-				{/*<Submit submitting={submitting} errorEmail={errorEmail} errorSubmit={errorSubmit} />*/}
+				<Submit submitting={false} errorEmail={''} errorSubmit={''} />
 			</form>
 		</div>
 	)
