@@ -5,7 +5,7 @@ export const maskInput = (inputValue, pattern, onlyNumbers) => {
 		// remove all non-numbers chars if onlyNumbers is true
 		if (onlyNumbers)
 			value = value.replace(/[^0-9]+/g, '')
-		if (value) {
+		if (value && pattern) {
 			// remove from value all chars placed by the mask in a previous iteration
 			const charsToRemove = pattern.replace(/#/g, '')
 			const rawValue = charsToRemove.split('').reduce((acc,cur) => acc.replace(cur,''), value)
