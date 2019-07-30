@@ -20,19 +20,14 @@ export const Register = () => {
 						<RegisterCnpj {...cnpjProps} />
 					</SlideRoute>
 				</Route>
+				<Route path='/cadastrar/dados'>
+					<SlideRoute path='/cadastrar/dados' direction={direction}>
+						<div>Passo 2 - Conclua seu cadastro</div>
+					</SlideRoute>
+				</Route>
 				<Route path='/cadastrar/email'>
 					<SlideRoute path='/cadastrar/email' direction={direction}>
 						<RegisterEmail {...emailProps} />
-					</SlideRoute>
-				</Route>
-				<Route path='/cadastrar/telefone'>
-					<SlideRoute path='/cadastrar/telefone' direction={direction}>
-						<div>Passo 3 - Valide seu telefone</div>
-					</SlideRoute>
-				</Route>
-				<Route path='/cadastrar/concluir'>
-					<SlideRoute path='/cadastrar/concluir' direction={direction}>
-						<div>Passo 4 - Conclua seu cadastro</div>
 					</SlideRoute>
 				</Route>
 				<Route path='/:any*'>

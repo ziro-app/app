@@ -12,17 +12,13 @@ export const BackButton = ({ setDirection }) => {
 			component: <CloseIcon />,
 			backLink: '/home/cadastrar'
 		},
-		'/cadastrar/email': {
+		'/cadastrar/dados': {
 			component: <BackIcon />,
 			backLink: '/cadastrar/cnpj'
 		},
-		'/cadastrar/telefone': {
+		'/cadastrar/email': {
 			component: <BackIcon />,
-			backLink: '/cadastrar/email'
-		},
-		'/cadastrar/concluir': {
-			component: <BackIcon />,
-			backLink: '/cadastrar/telefone'
+			backLink: '/cadastrar/dados'
 		}
 	}
 	const { backLink, component } = routes[location]

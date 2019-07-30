@@ -11,7 +11,7 @@ export const useCnpjApi = (cnpj, setErrorCnpj, cnpjIsValid, setCnpjIsValid, setD
 	const submitForm = async event => {
 		event.preventDefault()
 		if (cnpjIsValid) {
-			setLocation('/cadastrar/email')
+			setLocation('/cadastrar/dados')
 			setDirection('forward')
 		}
 		else {
@@ -33,7 +33,7 @@ export const useCnpjApi = (cnpj, setErrorCnpj, cnpjIsValid, setCnpjIsValid, setD
 						setErrorSubmit(message)
 						if (status === 'Success') {
 							setCnpjIsValid(true)
-							setLocation('/cadastrar/email')
+							setLocation('/cadastrar/dados')
 							setDirection('forward')
 						}
 					}
