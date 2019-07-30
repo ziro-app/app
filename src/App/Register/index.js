@@ -7,15 +7,19 @@ import { RegisterData } from './RegisterData/index'
 import { RegisterEmail } from './RegisterEmail/index'
 
 export const Register = () => {
+	// Slide animation direction
 	const [direction, setDirection] = useState('forward')
+	// Register cnpj state
 	const [cnpj, setCnpj] = useState('')
 	const [cnpjIsValid, setCnpjIsValid] = useState(false)
 	const cnpjProps = { cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, setDirection }
+	// Register data state
 	const [name, setName] = useState('')
 	const [phone, setPhone] = useState('')
 	const [pass, setPass] = useState('')
 	const [confirmPass, setConfirmPass] = useState('')
-	const dataProps = { name, setName, phone, setPhone, pass, setPass, confirmPass, setConfirmPass }
+	const dataProps = { name, setName, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, setDirection }
+	// Register email state
 	const [email, setEmail] = useState('')
 	const emailProps = { email, setEmail }
 	return (

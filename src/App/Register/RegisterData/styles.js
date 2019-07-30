@@ -1,4 +1,4 @@
-import { maxWidth, standardMargin, standardPadding, fontTitle, fontWeightMuted, fontWeightBody,
+import { maxWidth, standardMargin, standardPadding, fontTitle, fontWeightBody,
 	fontSizeSmall, primaryColor, grayColor3, alertColor, shadow } from '../../../Theme/styleVariables'
 
 export const
@@ -40,7 +40,7 @@ wrapper = {
 
 label = {
 	display: 'grid',
-	gridTemplateColumns: 'auto 1fr',
+	gridTemplateColumns: 'auto 1fr auto',
 	gridColumnGap: '5px',
 	alignItems: 'center',
 	marginBottom: '-4px',
@@ -57,17 +57,6 @@ input = {
 	color: primaryColor,
 	backgroundColor: '#FDFDFD',
 	boxShadow: `rgba(34,34,34,0.3) 0px 3px 10px -3px`
-},
-
-instructions = {
-	display: 'grid',
-	gridRowGap: '15px',
-	textAlign: 'center',
-	color: primaryColor
-},
-
-text = {
-	fontSize: '1.6rem'
 },
 
 error = {
@@ -106,14 +95,6 @@ submit = {
 	color: '#FFF',
 	backgroundColor: primaryColor,
 	boxShadow: `${shadow}`
-},
-
-submitDisabled = {
-	...submit,
-	cursor: 'initial',
-	color: primaryColor,
-	backgroundColor: '#FFF',
-	boxShadow: 'none'
 },
 
 scaleButton = {
