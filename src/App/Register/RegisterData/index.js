@@ -24,8 +24,8 @@ export const RegisterData = ({ name, setName, phone, setPhone, pass, setPass, co
 	const [errorSave, saveForm] = useSaveData(name, phone, pass, confirmPass, setErrorName, setErrorPhone, setErrorPass, setErrorConfirmPass, setDirection)
 	return (
 		<div style={container}>
-			<div>
-				<label style={message}><SuccessIcon size={13} color={successColor} />CNPJ validado com sucesso!</label>
+			<div style={success}>
+				<label style={message}><SuccessIcon size={14} color={successColor} />CNPJ validado com sucesso!</label>
 				<h1 style={welcome}><label style={subtitle}>Passo 2</label><label style={dot}>.</label><br/>Preencha seus dados</h1>
 			</div>
 			<form style={form} onSubmit={saveForm}>

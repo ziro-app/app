@@ -7,13 +7,20 @@ container = {
 	display: 'grid',
 	gridRowGap: '20px',
 	maxWidth: maxWidth,
-	margin: '10px auto 0',
+	margin: '20px auto 0',
 	padding: standardPadding
 },
 
-success = {},
+success = {
+	display: 'grid',
+	justifyItems: 'center'
+},
 
 message = {
+	display: 'grid',
+	gridTemplateColumns: 'auto 1fr',
+	alignItems: 'center',
+	gridColumnGap: '5px',
 	color: successColor
 },
 
