@@ -4,10 +4,12 @@ import { useForm } from './utils/useForm'
 import { useSaveData } from './utils/useSaveData'
 import { Submit } from './Submit'
 import { Errors } from './Errors'
+import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
 import { NameIcon } from '../../../Assets/NameIcon/index'
 import { PhoneIcon } from '../../../Assets/PhoneIcon/index'
 import { PasswordIcon } from '../../../Assets/PasswordIcon/index'
-import { container, welcome, subtitle, dot, form, wrapper, label, input } from './styles'
+import { successColor } from '../../../Theme/styleVariables'
+import { container, success, message, welcome, subtitle, dot, form, wrapper, label, input } from './styles'
 
 export const RegisterData = ({ name, setName, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, setDirection }) => {
 	const [
@@ -22,7 +24,10 @@ export const RegisterData = ({ name, setName, phone, setPhone, pass, setPass, co
 	const [errorSave, saveForm] = useSaveData(name, phone, pass, confirmPass, setErrorName, setErrorPhone, setErrorPass, setErrorConfirmPass, setDirection)
 	return (
 		<div style={container}>
-			<h1 style={welcome}><label style={subtitle}>Passo 2</label><label style={dot}>.</label><br/>Preencha seus dados</h1>
+			<div>
+				<label style={message}><SuccessIcon size={13} color={successColor} />CNPJ validado com sucesso!</label>
+				<h1 style={welcome}><label style={subtitle}>Passo 2</label><label style={dot}>.</label><br/>Preencha seus dados</h1>
+			</div>
 			<form style={form} onSubmit={saveForm}>
 				<div style={wrapper}>
 					<label style={label} htmlFor='name'><NameIcon size={13} />Nome<Errors message={errorName} /></label>

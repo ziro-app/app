@@ -1,5 +1,5 @@
-import { maxWidth, standardMargin, standardPadding, fontTitle, fontWeightBody,
-	fontSizeSmall, primaryColor, grayColor3, alertColor, shadow } from '../../../Theme/styleVariables'
+import { maxWidth, standardPadding, successColor, fontTitle, fontWeightBody, fontSizeSmall,
+	primaryColor, grayColor3, alertColor, shadow } from '../../../Theme/styleVariables'
 
 export const
 
@@ -7,8 +7,14 @@ container = {
 	display: 'grid',
 	gridRowGap: '20px',
 	maxWidth: maxWidth,
-	margin: standardMargin,
+	margin: '10px auto 0',
 	padding: standardPadding
+},
+
+success = {},
+
+message = {
+	color: successColor
 },
 
 welcome = {
