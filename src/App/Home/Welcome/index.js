@@ -8,7 +8,7 @@ import { container, welcome, subtitle, dot, benefits, wrapper, label, icon, text
 
 export const Welcome = () =>
 	<div style={container}>
-		<h1 style={welcome}><label style={subtitle}>Faça parte</label><label style={dot}>.</label><br/>Crie uma conta</h1>
+		<h1 style={welcome}><label style={subtitle}>Faça parte</label><label style={dot}>.</label><br/>Crie uma conta,</h1>
 		<div style={benefits}>
 			<p style={text}>Compre no atacado do Bom Retiro, Brás e Itaim para revender</p>
 			<div style={wrapper}>
