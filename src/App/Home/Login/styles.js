@@ -37,14 +37,15 @@ label = {
 	gridTemplateColumns: 'auto 1fr auto',
 	gridColumnGap: '5px',
 	alignItems: 'center',
-	marginBottom: '-4px'
+	marginBottom: '-4px',
+	paddingLeft: '5px'
 },
 
 input = {
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
 	outline: 'none',
-	padding: '8px 24px',
+	padding: '8px 22px',
 	border: `2px solid ${grayColor3}`,
 	borderRadius: '8px',
 	color: primaryColor,

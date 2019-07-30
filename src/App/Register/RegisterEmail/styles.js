@@ -55,7 +55,7 @@ input = {
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
 	outline: 'none',
-	padding: '8px 24px',
+	padding: '8px 22px',
 	border: `2px solid ${grayColor3}`,
 	borderRadius: '8px',
 	color: primaryColor,

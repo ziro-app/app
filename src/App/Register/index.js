@@ -14,7 +14,8 @@ export const Register = () => {
 	const [name, setName] = useState('')
 	const [phone, setPhone] = useState('')
 	const [pass, setPass] = useState('')
-	const dataProps = { name, setName, phone, setPhone, pass, setPass }
+	const [confirmPass, setConfirmPass] = useState('')
+	const dataProps = { name, setName, phone, setPhone, pass, setPass, confirmPass, setConfirmPass }
 	const [email, setEmail] = useState('')
 	const emailProps = { email, setEmail }
 	return (
