@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { maskInput } from '../../../utils/maskInput'
+import { capitalize } from '../../../utils/capitalize'
 
 export const useForm = (setName, setPhone, setPass, setConfirmPass) => {
 	const [errorName, setErrorName] = useState('')
@@ -7,7 +8,7 @@ export const useForm = (setName, setPhone, setPass, setConfirmPass) => {
 	const [errorPass, setErrorPass] = useState('')
 	const [errorConfirmPass, setErrorConfirmPass] = useState('')
 	const handleName = event => {
-		setName(event.target.value)
+		setName(capitalize(event.target.value))
 		if (errorName !== '') setErrorName('')
 	}
 	const handlePhone = event => {
