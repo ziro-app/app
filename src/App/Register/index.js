@@ -12,7 +12,9 @@ export const Register = () => {
 	const [cnpjIsValid, setCnpjIsValid] = useState(false)
 	const cnpjProps = { cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, setDirection }
 	const [name, setName] = useState('')
-	const dataProps = { name, setName }
+	const [phone, setPhone] = useState('')
+	const [pass, setPass] = useState('')
+	const dataProps = { name, setName, phone, setPhone, pass, setPass }
 	const [email, setEmail] = useState('')
 	const emailProps = { email, setEmail }
 	return (

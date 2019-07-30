@@ -43,12 +43,8 @@ label = {
 	gridTemplateColumns: 'auto 1fr',
 	gridColumnGap: '5px',
 	alignItems: 'center',
-	marginBottom: '-4px'
-},
-
-labelEmail = {
-	...label,
-	justifySelf: 'center',
+	marginBottom: '-4px',
+	justifySelf: 'center'
 },
 
 input = {
@@ -60,11 +56,7 @@ input = {
 	borderRadius: '8px',
 	color: primaryColor,
 	backgroundColor: '#FDFDFD',
-	boxShadow: `rgba(34,34,34,0.3) 0px 3px 10px -3px`
-},
-
-inputEmail = {
-	...input,
+	boxShadow: `rgba(34,34,34,0.3) 0px 3px 10px -3px`,
 	textAlign: 'center'
 },
 
