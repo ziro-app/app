@@ -13,7 +13,7 @@ export const Submit = ({ submitting, errorEmail, errorSubmit }) =>
 		<motion.input
 			style={submitting ? submitDisabled : submit}
 			type='submit'
-			value='Validar CNPJ'
+			value='Receber email'
 			whileTap={submitting ? null : scaleButton}
 		/>
 	</div>
