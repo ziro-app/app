@@ -7,7 +7,7 @@ container = {
 	display: 'grid',
 	gridRowGap: '20px',
 	maxWidth: maxWidth,
-	margin: '20px auto 0',
+	margin: '20px auto 80px',
 	padding: standardPadding
 },
 
