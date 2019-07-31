@@ -20,7 +20,7 @@ message = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
 	alignItems: 'center',
-	gridColumnGap: '5px',
+	gridColumnGap: '7px',
 	color: successColor
 },
 
