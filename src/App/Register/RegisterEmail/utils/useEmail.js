@@ -1,14 +1,14 @@
 import { useState } from 'react'
-// import { validateCnpj } from './validateCnpj'
+import { validateInput } from './validateInput'
 
 export const useEmail = (email, setErrorEmail) => {
 	const [submitting, setSubmitting] = useState(false)
 	const [errorSubmit, setErrorSubmit] = useState('')
 	const submitForm = async event => {
 		event.preventDefault()
-		// const { inputIsValid, errorMsgCnpj } = validateInput(email)
-		// setErrorEmail(errorMsgCnpj)
-		if (true) {
+		const { emailIsValid, errorMsgEmail } = validateInput(email)
+		setErrorEmail(errorMsgEmail)
+		if (emailIsValid) {
 			try {
 				setSubmitting(true)
 				const response = await Promise.reject('rejected')
