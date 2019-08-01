@@ -1,6 +1,7 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 import { useForm } from './utils/useForm'
+import { useEmail } from './utils/useEmail'
 import { Submit } from './Submit'
 import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
 import { EmailIcon } from '../../../Assets/EmailIcon/index'
@@ -9,6 +10,7 @@ import { container, success, message, welcome, subtitle, dot, form, wrapper, lab
 
 export const RegisterEmail = ({ email, setEmail }) => {
 	const [errorEmail, setErrorEmail, handleEmail] = useForm(setEmail)
+	const [submitting, errorSubmit, submitForm] = useEmail(email, setErrorEmail)
 	return (
 		<div style={container}>
 			<div style={success}>
@@ -23,7 +25,7 @@ export const RegisterEmail = ({ email, setEmail }) => {
 				<div style={instructions}>
 					<p style={text}>Será enviado um email de confirmação para sua caixa</p>
 				</div>
-				<Submit submitting={false} errorEmail={errorEmail} errorSubmit={''} />
+				<Submit submitting={submitting} errorEmail={errorEmail} errorSubmit={errorSubmit} />
 			</form>
 		</div>
 	)
