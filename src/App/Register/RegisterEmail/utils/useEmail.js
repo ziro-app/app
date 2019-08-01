@@ -11,7 +11,7 @@ export const useEmail = (email, setErrorEmail) => {
 		if (true) {
 			try {
 				setSubmitting(true)
-				const response = await new Promise.reject('rejected')
+				const response = await Promise.reject('rejected')
 				setSubmitting(false)
 			} catch (error) {
 				console.log(error)

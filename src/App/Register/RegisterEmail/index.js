@@ -17,7 +17,7 @@ export const RegisterEmail = ({ email, setEmail }) => {
 				<label style={message}><SuccessIcon size={14} color={successColor} />Seus dados foram salvos!</label>
 				<h1 style={welcome}><label style={subtitle}>Passo 3</label><label style={dot}>.</label><br/>Valide seu email</h1>
 			</div>
-			<form style={form} onSubmit={e => e.preventDefault()}>
+			<form style={form} onSubmit={submitForm}>
 				<div style={wrapper}>
 					<label style={labelEmail} htmlFor='email'><EmailIcon size={13} />Email</label>
 					<input style={inputEmail} onChange={handleEmail} value={email} disabled={false} placeholder='nome@exemplo.com' type='text' name='email' id='email' />
