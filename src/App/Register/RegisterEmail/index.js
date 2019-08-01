@@ -1,5 +1,6 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { useForm } from './utils/useForm'
 import { Submit } from './Submit'
 import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
 import { EmailIcon } from '../../../Assets/EmailIcon/index'
@@ -7,6 +8,7 @@ import { successColor } from '../../../Theme/styleVariables'
 import { container, success, message, welcome, subtitle, dot, form, wrapper, labelEmail, inputEmail, instructions, text } from './styles'
 
 export const RegisterEmail = ({ email, setEmail }) => {
+	const [errorEmail, setErrorEmail, handleEmail] = useForm(setEmail)
 	return (
 		<div style={container}>
 			<div style={success}>
@@ -16,12 +18,12 @@ export const RegisterEmail = ({ email, setEmail }) => {
 			<form style={form} onSubmit={e => e.preventDefault()}>
 				<div style={wrapper}>
 					<label style={labelEmail} htmlFor='email'><EmailIcon size={13} />Email</label>
-					<input style={inputEmail} onChange={e => setEmail(e.target.value)} value={email} disabled={false} placeholder='nome@exemplo.com' type='text' name='email' id='email' />
+					<input style={inputEmail} onChange={handleEmail} value={email} disabled={false} placeholder='nome@exemplo.com' type='text' name='email' id='email' />
 				</div>
 				<div style={instructions}>
 					<p style={text}>Será enviado um email de confirmação para sua caixa</p>
 				</div>
-				<Submit submitting={false} errorEmail={''} errorSubmit={''} />
+				<Submit submitting={false} errorEmail={errorEmail} errorSubmit={''} />
 			</form>
 		</div>
 	)
