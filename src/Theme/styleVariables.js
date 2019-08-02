@@ -30,6 +30,9 @@ fontWeightBody = '400',
 fontWeightMuted = '300',
 fontSizeSmall = '1.3rem',
 
+/* GRADIENT */
+gradient = `linear-gradient(#3A3A3A 10%, #333 30%, #222 60%, #000)`,
+
 /* SHADOW */
 shadow = `0px 5px 15px -4px rgba(34,34,34,0.45), 0px 5px 15px -4px rgba(34,34,34,0.40), 
 	0px 5px 15px -4px rgba(34,34,34,0.35), 0px 5px 15px -4px rgba(34,34,34,0.30)`

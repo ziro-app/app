@@ -1,5 +1,5 @@
 import { maxWidth, standardMargin, standardPadding, fontTitle, fontWeightMuted, fontWeightBody,
-	fontSizeSmall, primaryColor, grayColor3, alertColor, shadow } from '../../../Theme/styleVariables'
+	fontSizeSmall, primaryColor, grayColor3, grayColor4, alertColor, gradient, shadow } from '../../../Theme/styleVariables'
 
 export const
 
@@ -114,11 +114,11 @@ submit = {
 	outline: 'none',
 	cursor: 'pointer',
 	padding: '10px 0px',
-	border: `1px solid ${primaryColor}`,
+	border: 'none',
 	borderRadius: '20px',
 	fontFamily: fontTitle,
 	color: '#FFF',
-	backgroundColor: primaryColor,
+	background: gradient,
 	boxShadow: `${shadow}`
 },
 
@@ -126,7 +126,8 @@ submitDisabled = {
 	...submit,
 	cursor: 'initial',
 	color: primaryColor,
-	backgroundColor: '#FFF',
+	background: 'none',
+	backgroundColor: grayColor4,
 	boxShadow: 'none'
 },
 

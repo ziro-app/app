@@ -13,7 +13,8 @@ export const useEmail = (email, setErrorEmail, cnpj, name, phone, pass, confirmP
 		if (emailIsValid && inputsAreValid) {
 			try {
 				setSubmitting(true)
-				const response = await db.auth().createUserWithEmailAndPassword(email, pass)
+				await db.auth().createUserWithEmailAndPassword(email, pass)
+				await db.auth().currentUser.sendEmailVerification()
 				setSubmitting(false)
 			} catch (error) {
 				console.log(error)

@@ -1,4 +1,4 @@
-import { maxWidth, standardMargin, standardPadding, fontTitle, primaryColor, shadow } from '../../../Theme/styleVariables'
+import { maxWidth, standardMargin, standardPadding, fontTitle, primaryColor, gradient, shadow } from '../../../Theme/styleVariables'
 
 export const
 
@@ -66,11 +66,11 @@ submit = {
 	outline: 'none',
 	cursor: 'pointer',
 	padding: '10px 0px',
-	border: `1px solid ${primaryColor}`,
+	border: 'none',
 	borderRadius: '20px',
 	fontFamily: fontTitle,
 	color: '#FFF',
-	backgroundColor: primaryColor,
+	background: gradient,
 	boxShadow: `${shadow}`
 },
 

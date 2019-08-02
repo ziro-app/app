@@ -8,10 +8,12 @@ export const App = () => {
 	const [user, setUser] = useState(null)
 	const [isLoading, setIsLoading] = useState(true)
 	useEffect(() => db.auth().onAuthStateChanged(user => {
-		const { emailVerified } = user
-		if (user && emailVerified) setUser(user)
-		else setUser(null)
-		if (setIsLoading) setIsLoading(false)
+		if (user) {
+			const { emailVerified } = user
+			if (emailVerified) setUser(user)
+			else setUser(null)
+		}
+		if (isLoading) setIsLoading(false)
 	}), [])
 	return (
 		<ErrorBoundary>

@@ -1,4 +1,4 @@
-import { maxWidth } from '../../../Theme/styleVariables'
+import { maxWidth, standardMargin, standardPadding } from '../../../Theme/styleVariables'
 
 export const
 
@@ -7,7 +7,7 @@ container = {
 	display: 'grid',
 	justifyItems: 'center',
 	maxWidth: maxWidth,
-	margin: '40px 10% 0px'
+	margin: standardMargin
 },
 
 back = {
@@ -20,5 +20,6 @@ back = {
 
 anchor = {
 	display: 'grid',
-	justifySelf: 'start'
+	justifySelf: 'start',
+	padding: standardPadding
 }

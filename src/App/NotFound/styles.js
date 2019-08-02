@@ -1,5 +1,5 @@
 import { maxWidth, standardMargin, standardPadding,
-	primaryColor, fontTitle, fontWeightTitle, shadow } from '../../Theme/styleVariables'
+	primaryColor, fontTitle, fontWeightTitle, gradient, shadow } from '../../Theme/styleVariables'
 
 export const 
 
@@ -34,10 +34,10 @@ button = {
 	outline: 'none',
 	cursor: 'pointer',
 	padding: '10px 0px',
-	border: `1px solid ${primaryColor}`,
+	border: 'none',
 	borderRadius: '20px',
 	fontFamily: fontTitle,
 	color: '#FFF',
-	backgroundColor: primaryColor,
+	background: gradient,
 	boxShadow: `${shadow}`
 }
