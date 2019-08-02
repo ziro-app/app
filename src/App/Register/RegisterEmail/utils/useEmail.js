@@ -14,7 +14,7 @@ export const useEmail = (email, setErrorEmail, cnpj, name, phone, pass, confirmP
 			try {
 				setSubmitting(true)
 				await db.auth().createUserWithEmailAndPassword(email, pass)
-				await db.auth().currentUser.sendEmailVerification()
+				await db.auth().currentUser.sendEmailVerification({ url: process.env.CONTINUE_URL })
 				setSubmitting(false)
 			} catch (error) {
 				console.log(error)
