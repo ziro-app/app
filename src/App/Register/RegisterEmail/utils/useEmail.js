@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { db } from '../../../../Firebase/db'
 import { validateInput } from './validateInput'
 
 export const useEmail = (email, setErrorEmail, cnpj, name, phone, pass, confirmPass) => {
@@ -12,7 +13,7 @@ export const useEmail = (email, setErrorEmail, cnpj, name, phone, pass, confirmP
 		if (emailIsValid && inputsAreValid) {
 			try {
 				setSubmitting(true)
-				const response = await Promise.reject('rejected')
+				const response = await db.auth().createUserWithEmailAndPassword(email, pass)
 				setSubmitting(false)
 			} catch (error) {
 				console.log(error)
