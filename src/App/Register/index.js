@@ -21,7 +21,7 @@ export const Register = () => {
 	const dataProps = { name, setName, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, setDirection }
 	// Register email state
 	const [email, setEmail] = useState('')
-	const emailProps = { email, setEmail }
+	const emailProps = { email, setEmail, cnpj, name, phone, pass, confirmPass }
 	return (
 		<Header setDirection={setDirection}>
 			<Switch>

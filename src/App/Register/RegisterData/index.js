@@ -35,7 +35,7 @@ export const RegisterData = ({ name, setName, phone, setPhone, pass, setPass, co
 				</div>
 				<div style={wrapper}>
 					<label style={label} htmlFor='phone'><PhoneIcon size={13} />Whatsapp<Errors message={errorPhone} /></label>
-					<input style={input} onChange={handlePhone} value={phone} placeholder='(11) 22333-4455' type='text' name='phone' id='phone' />
+					<input style={input} onChange={handlePhone} value={phone} placeholder='(11) 92233-4455' type='text' name='phone' id='phone' />
 				</div>
 				<div style={wrapper}>
 					<label style={label} htmlFor='pass'><PasswordIcon size={13} />Senha<Errors message={errorPass} /></label>

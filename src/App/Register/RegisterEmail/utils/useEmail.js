@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import { validateInput } from './validateInput'
 
-export const useEmail = (email, setErrorEmail) => {
+export const useEmail = (email, setErrorEmail, cnpj, name, phone, pass, confirmPass) => {
 	const [submitting, setSubmitting] = useState(false)
 	const [errorSubmit, setErrorSubmit] = useState('')
 	const submitForm = async event => {
 		event.preventDefault()
-		const { emailIsValid, errorMsgEmail } = validateInput(email)
+		const { emailIsValid, errorMsgEmail, inputsAreValid, errorInputs } = validateInput(email, cnpj, name, phone, pass, confirmPass)
 		setErrorEmail(errorMsgEmail)
-		if (emailIsValid) {
+		setErrorSubmit(errorInputs)
+		if (emailIsValid && inputsAreValid) {
 			try {
 				setSubmitting(true)
 				const response = await Promise.reject('rejected')
