@@ -13,6 +13,7 @@ export const App = () => {
 			if (emailVerified) setUser(user)
 			else setUser(null)
 		}
+		else setUser(null)
 		if (isLoading) setIsLoading(false)
 	}), [])
 	return (
