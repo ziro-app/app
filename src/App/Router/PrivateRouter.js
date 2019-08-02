@@ -9,7 +9,7 @@ export const PrivateRouter = ({ user }) =>
 		<Route path='/home/login'><Redirect to='/meus-dados' /></Route>
 		<Route path='/cadastrar/email'><Redirect to='/meus-dados' /></Route>
 		<Route path='/meus-dados'><MyData user={user} /></Route>
-		<Route path='/:any*'><NotFound /></Route>
+		<Route path='/:any*'><NotFound fallback='/meus-dados' /></Route>
 	</Switch>
 
 PrivateRouter.propTypes = {
