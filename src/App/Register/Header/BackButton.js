@@ -19,6 +19,10 @@ export const BackButton = ({ setDirection }) => {
 		'/cadastrar/email': {
 			component: <BackIcon />,
 			backLink: '/cadastrar/dados'
+		},
+		'/cadastrar/validar-email': {
+			component: <BackIcon />,
+			backLink: '/cadastrar/email'
 		}
 	}
 	const { backLink, component } = routes[location]

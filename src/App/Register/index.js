@@ -5,6 +5,7 @@ import { SlideRoute } from './SlideRoute/index'
 import { RegisterCnpj } from './RegisterCnpj/index'
 import { RegisterData } from './RegisterData/index'
 import { RegisterEmail } from './RegisterEmail/index'
+import { RegisterValidateEmail } from './RegisterValidateEmail/index'
 
 export const Register = () => {
 	// Slide animation direction
@@ -21,7 +22,7 @@ export const Register = () => {
 	const dataProps = { name, setName, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, setDirection }
 	// Register email state
 	const [email, setEmail] = useState('')
-	const emailProps = { email, setEmail, cnpj, name, phone, pass, confirmPass }
+	const emailProps = { email, setEmail, cnpj, name, phone, pass, confirmPass, setDirection }
 	return (
 		<Header setDirection={setDirection}>
 			<Switch>
@@ -38,6 +39,11 @@ export const Register = () => {
 				<Route path='/cadastrar/email'>
 					<SlideRoute path='/cadastrar/email' direction={direction}>
 						<RegisterEmail {...emailProps} />
+					</SlideRoute>
+				</Route>
+				<Route path='/cadastrar/validar-email'>
+					<SlideRoute path='/cadastrar/validar-email' direction={direction}>
+						<RegisterValidateEmail />
 					</SlideRoute>
 				</Route>
 				<Route path='/:any*'>

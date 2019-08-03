@@ -8,9 +8,9 @@ import { EmailIcon } from '../../../Assets/EmailIcon/index'
 import { successColor } from '../../../Theme/styleVariables'
 import { container, success, message, welcome, subtitle, dot, form, wrapper, labelEmail, inputEmail, instructions, text } from './styles'
 
-export const RegisterEmail = ({ email, setEmail, cnpj, name, phone, pass, confirmPass }) => {
+export const RegisterEmail = ({ email, setEmail, cnpj, name, phone, pass, confirmPass, setDirection }) => {
 	const [errorEmail, setErrorEmail, handleEmail] = useForm(setEmail)
-	const [submitting, errorSubmit, submitForm] = useEmail(email, setErrorEmail, cnpj, name, phone, pass, confirmPass)
+	const [submitting, errorSubmit, submitForm] = useEmail(email, setErrorEmail, cnpj, name, phone, pass, confirmPass, setDirection)
 	return (
 		<div style={container}>
 			<div style={success}>
@@ -38,5 +38,6 @@ RegisterEmail.propTypes = {
 	name: PropTypes.string.isRequired,
 	phone: PropTypes.string.isRequired,
 	pass: PropTypes.string.isRequired,
-	confirmPass: PropTypes.string.isRequired
+	confirmPass: PropTypes.string.isRequired,
+	setDirection: PropTypes.func.isRequired
 }
