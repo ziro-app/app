@@ -23,7 +23,7 @@ export const RegisterEmail = ({ email, setEmail, cnpj, name, phone, pass, confir
 					<input style={inputEmail} onChange={handleEmail} value={email} disabled={false} placeholder='nome@exemplo.com' type='text' name='email' id='email' />
 				</div>
 				<div style={instructions}>
-					<p style={text}>Será enviado um email de confirmação para sua caixa</p>
+					<p style={text}>Será enviado um email de validação para sua caixa</p>
 				</div>
 				<Submit submitting={submitting} errorEmail={errorEmail} errorSubmit={errorSubmit} />
 			</form>
