@@ -98,6 +98,28 @@ submitDisabled = {
 	boxShadow: 'none'
 },
 
+primary = {
+	WebkitAppearance: 'none',
+	WebkitTapHighlightColor: 'rgba(0,0,0,0)',
+	MozAppearance: 'none',
+	outline: 'none',
+	cursor: 'pointer',
+	padding: '10px 0px',
+	border: 'none',
+	borderRadius: '20px',
+	fontFamily: fontTitle,
+	color: '#FFF',
+	background: gradient,
+	boxShadow: `${shadow}`
+},
+
+secondary = {
+	...primary,
+	color: 'rgb(34,34,34)',
+	background: `linear-gradient(rgb(248, 248, 248) 10%, rgb(250, 250, 250) 30%, rgb(252, 252, 252) 60%, rgb(255, 255, 255))`,
+	boxShadow: `rgba(34, 34, 34, 0.45) 0px 3px 15px -4px`
+},
+
 scaleButton = {
 	scale: 0.95
 }
