@@ -1,43 +1,36 @@
 import React, { useState } from 'react'
-import { PropTypes } from 'prop-types'
-import { useLocation } from 'wouter'
 import { motion } from 'framer-motion'
 import { db } from '../../../Firebase/db'
 import { Errors } from './Errors'
 import { Spinner } from '../../../Assets/Spinner/index'
-import { buttonWrapper, loader, primary, secondary, scaleButton } from './styles'
+import { buttonWrapper, loader, submit, submitDisabled, scaleButton } from './styles'
 
-export const Submit = ({ callToAction, type }) => {
+export const Submit = () => {
 	const [submitting, setSubmitting] = useState(false)
-	const [, setLocation] = useLocation()
-	const handleClick = async type => {
-		if (type === 'primary') {
-			setLocation('/home/login')
-			window.location.reload()
-		}
-		else {
-			setSubmitting(true)
-			await db.auth().currentUser.sendEmailVerification({ url: process.env.CONTINUE_URL })
-			setSubmitting(false)
-		}
+	const [error, setError] = useState('')
+	const submitForm = async () => {
+			try {
+				setSubmitting(true)
+				await db.auth().currentUser.sendEmailVerification({ url: process.env.CONTINUE_URL })
+				setSubmitting(false)
+			} catch (error) {
+				console.log(error)
+				setSubmitting(false)
+				setError('Aguarde alguns instantes para reenviar')
+			}
 	}
 	return (
 		<div style={buttonWrapper}>
-			<div style={loader}>
-				{submitting ? <Spinner size={'4rem'} /> : <Errors message={errorEmail || errorSubmit} />}
-			</div>
 			<motion.input
-				style={type === 'primary' ? primary : secondary }
+				style={submitting ? submitDisabled : submit }
 				type='submit'
-				value={callToAction}
+				value='Reenviar Email'
 				whileTap={submitting ? null : scaleButton}
-				onClick={handleClick.bind(null, type)}
+				onClick={submitForm}
 			/>
+			<div style={loader}>
+				{submitting ? <Spinner size={'4rem'} /> : <Errors message={error} />}
+			</div>
 		</div>
 	)
-}
-
-Submit.propTypes = {
-	callToAction: PropTypes.string.isRequired,
-	type: PropTypes.string.isRequired
 }
