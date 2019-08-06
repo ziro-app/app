@@ -117,7 +117,7 @@ secondary = {
 	...primary,
 	color: 'rgb(34,34,34)',
 	background: `linear-gradient(rgb(248, 248, 248) 10%, rgb(250, 250, 250) 30%, rgb(252, 252, 252) 60%, rgb(255, 255, 255))`,
-	boxShadow: `rgba(34, 34, 34, 0.45) 0px 3px 15px -4px`
+	boxShadow: `rgba(34, 34, 34, 0.45) 0px 2px 15px -4px,rgba(34, 34, 34, 0.25) 0px 2px 15px -4px`
 },
 
 scaleButton = {
