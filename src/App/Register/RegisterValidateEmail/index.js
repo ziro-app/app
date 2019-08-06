@@ -1,6 +1,7 @@
 import React from 'react'
 import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
 import { successColor } from '../../../Theme/styleVariables'
+import { Reload } from './Reload'
 import { Submit } from './Submit'
 import { container, success, message, welcome, subtitle, dot, instructions, text } from './styles'
 
@@ -14,6 +15,6 @@ export const RegisterValidateEmail = () =>
 			<p style={text}>Acesse o link para validar seu endereço de email e concluir o cadastro</p>
 			<p style={text}>Caso não tenha recebido, aperte o botão para reenviar</p>
 		</div>
-		{/*<Submit callToAction='Já acessei o link' type='primary' />*/}
+		<Reload />
 		<Submit />
 	</div>
