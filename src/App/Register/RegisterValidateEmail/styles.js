@@ -93,15 +93,6 @@ submit = {
 	boxShadow: `${shadow}`
 },
 
-submitDisabled = {
-	...submit,
-	cursor: 'initial',
-	color: primaryColor,
-	background: 'none',
-	backgroundColor: grayColor4,
-	boxShadow: 'none'
-},
-
 secondary = {
 	...submit,
 	color: primaryColor,

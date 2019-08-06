@@ -6,12 +6,11 @@ import { successColor } from '../../../Theme/styleVariables'
 import { successMsg, errorMsg } from './styles'
 
 export const Message = ({ message, type }) => {
+	const style = type === 'success' ? successMsg : errorMsg
 	const component = type === 'success' ? <SuccessIcon size={12} color={successColor} /> : <AlertIcon size={12} />
 	return (
-		<label style={type === 'success' ? successMsg : errorMsg}>
-			{message && component}
-			&nbsp;
-			{message}
+		<label style={style}>
+			{message && component}&nbsp;{message}
 		</label>
 	)
 }
