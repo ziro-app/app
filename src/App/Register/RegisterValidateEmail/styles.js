@@ -51,12 +51,17 @@ text = {
 	fontSize: '1.6rem'
 },
 
-error = {
+successMsg = {
 	display: 'flex',
 	alignItems: 'center',
 	fontSize: fontSizeSmall,
-	color: alertColor,
-	fontWeight: fontWeightBody
+	color: successColor,
+	fontWeight: fontWeightBody	
+},
+
+error = {
+	...successMsg,
+	color: alertColor
 },
 
 buttonWrapper = {

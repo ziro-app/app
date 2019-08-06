@@ -1,23 +1,23 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { db } from '../../../Firebase/db'
-import { Errors } from './Errors'
+import { Message } from './Message'
 import { Spinner } from '../../../Assets/Spinner/index'
 import { buttonWrapper, loader, secondary, secondaryDisabled, scaleButton } from './styles'
 
 export const Submit = () => {
 	const [submitting, setSubmitting] = useState(false)
-	const [message, setMessage] = useState('')
+	const [message, setMessage] = useState({ content: '', type: '' })
 	const submitForm = async () => {
 			try {
 				setSubmitting(true)
 				await db.auth().currentUser.sendEmailVerification({ url: process.env.CONTINUE_URL })
 				setSubmitting(false)
-				setMessage('Email reenviado com sucesso!')
+				setMessage({ content: 'Email reenviado com sucesso!', type: 'success' })
 			} catch (error) {
 				console.log(error)
 				setSubmitting(false)
-				setMessage('Aguarde alguns instantes para reenviar')
+				setMessage({ content: 'Aguarde alguns instantes para reenviar', type: 'error' })
 			}
 	}
 	return (
@@ -30,7 +30,7 @@ export const Submit = () => {
 				onClick={submitForm}
 			/>
 			<div style={loader}>
-				{submitting ? <Spinner size={'4rem'} /> : <Errors message={message} />}
+				{submitting ? <Spinner size={'4rem'} /> : <Message message={message.content} type={message.type} />}
 			</div>
 		</div>
 	)
