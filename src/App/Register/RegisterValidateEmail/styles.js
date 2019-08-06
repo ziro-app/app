@@ -59,7 +59,7 @@ successMsg = {
 	fontWeight: fontWeightBody	
 },
 
-error = {
+errorMsg = {
 	...successMsg,
 	color: alertColor
 },

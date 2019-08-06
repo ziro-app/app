@@ -3,26 +3,18 @@ import { PropTypes } from 'prop-types'
 import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
 import { AlertIcon } from '../../../Assets/AlertIcon/index'
 import { successColor } from '../../../Theme/styleVariables'
-import { successMsg, error } from './styles'
+import { successMsg, errorMsg } from './styles'
 
 export const Message = ({ message, type }) => {
-	if (type === 'success')
-		return (
-			<label style={successMsg}>
-				{message && <SuccessIcon size={12} color={successColor} />}
-				&nbsp;
-				{message}
-			</label>
-		)
+	const component = type === 'success' ? <SuccessIcon size={12} color={successColor} /> : <AlertIcon size={12} />
 	return (
-		<label style={error}>
-			{message && <AlertIcon size={12} />}
+		<label style={type === 'success' ? successMsg : errorMsg}>
+			{message && component}
 			&nbsp;
 			{message}
 		</label>
 	)
 }
-	
 
 Message.propTypes = {
 	message: PropTypes.string.isRequired,
