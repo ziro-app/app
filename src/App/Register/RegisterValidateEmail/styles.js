@@ -62,8 +62,7 @@ error = {
 buttonWrapper = {
 	display: 'grid',
 	gridRowGap: '20px',
-	textAlign: 'center',
-	marginTop: '-10px'
+	textAlign: 'center'
 },
 
 loader = {
@@ -71,7 +70,7 @@ loader = {
 	alignItems: 'center',
 	justifyItems: 'center',
 	height: '30px',
-	marginBottom: '-10px'
+	marginTop: '-10px'
 },
 
 submit = {
@@ -98,26 +97,18 @@ submitDisabled = {
 	boxShadow: 'none'
 },
 
-primary = {
-	WebkitAppearance: 'none',
-	WebkitTapHighlightColor: 'rgba(0,0,0,0)',
-	MozAppearance: 'none',
-	outline: 'none',
-	cursor: 'pointer',
-	padding: '10px 0px',
-	border: 'none',
-	borderRadius: '20px',
-	fontFamily: fontTitle,
-	color: '#FFF',
-	background: gradient,
-	boxShadow: `${shadow}`
+secondary = {
+	...submit,
+	color: primaryColor,
+	background: `linear-gradient(rgb(244, 244, 244) 10%, rgb(247, 247, 247) 30%, rgb(250, 250, 250) 60%, rgb(255, 255, 255))`,
+	boxShadow: `rgba(34, 34, 34, 0.45) 0px 2px 15px -4px,rgba(34, 34, 34, 0.25) 0px 2px 15px -4px`
 },
 
-secondary = {
-	...primary,
-	color: 'rgb(34,34,34)',
-	background: `linear-gradient(rgb(248, 248, 248) 10%, rgb(250, 250, 250) 30%, rgb(252, 252, 252) 60%, rgb(255, 255, 255))`,
-	boxShadow: `rgba(34, 34, 34, 0.45) 0px 2px 15px -4px,rgba(34, 34, 34, 0.25) 0px 2px 15px -4px`
+secondaryDisabled = {
+	...secondary,
+	background: 'none',
+	backgroundColor: grayColor4,
+	boxShadow: 'none'
 },
 
 scaleButton = {
