@@ -14,7 +14,7 @@ export const useLogin = () => {
 			console.log(error)
 			if (error.code) {
 				switch (error.code) {
-					case 'auth/invalid-email': setAuthError('Email não cadastrado'); break
+					case 'auth/invalid-email': setAuthError('Email inválido'); break
 					case 'auth/user-disabled': setAuthError('Usuário bloqueado'); break
 					case 'auth/user-not-found': setAuthError('Usuário não cadastrado'); break
 					case 'auth/wrong-password': setAuthError('Senha incorreta'); break

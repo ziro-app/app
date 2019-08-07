@@ -25,7 +25,7 @@ export const Submit = () => {
 			<motion.input
 				style={submitting ? secondaryDisabled : secondary }
 				type='submit'
-				value='Reenviar Email'
+				value='Reenviar email'
 				whileTap={submitting ? null : scaleButton}
 				onClick={submitForm}
 			/>

@@ -20,9 +20,16 @@ export const useEmail = (email, setErrorEmail, cnpj, name, phone, pass, confirmP
 				setLocation('/cadastrar/validar-email')
 				setDirection('forward')
 			} catch (error) {
-				console.log(error)
 				setSubmitting(false)
-				setErrorSubmit('Erro ao enviar')
+				console.log(error)
+				if (error.code) {
+					switch (error.code) {
+						case 'auth/invalid-email': setErrorSubmit('Email inválido'); break
+						case 'auth/email-already-in-use': setErrorSubmit('Email já cadastrado'); break
+						case 'auth/operation-not-allowed': setErrorSubmit('Operação não permitida'); break
+						case 'auth/weak-password': setErrorSubmit('Senha não é forte o suficiente'); break
+					}
+				}
 			}
 		}
 	}
