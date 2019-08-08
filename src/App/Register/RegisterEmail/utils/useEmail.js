@@ -15,8 +15,14 @@ export const useEmail = (email, setErrorEmail, cnpj, name, phone, pass, confirmP
 		if (emailIsValid && inputsAreValid) {
 			try {
 				setSubmitting(true)
-				await db.auth().createUserWithEmailAndPassword(email, pass)
+				const { user } = await db.auth().createUserWithEmailAndPassword(email, pass)
 				await db.auth().currentUser.sendEmailVerification({ url: process.env.CONTINUE_URL })
+				await db.firestore().collection('users').add({
+					id: user.uid,
+					name,
+					cnpj,
+					phone
+				})
 				setLocation('/cadastrar/validar-email')
 				setDirection('forward')
 			} catch (error) {
