@@ -3,7 +3,7 @@ import { useLocation } from 'wouter'
 import { db } from '../../../../Firebase/db'
 import { validateInput } from './validateInput'
 
-export const useEmail = (email, setErrorEmail, cnpj, name, phone, pass, confirmPass, pageIsValid, setPageIsValid, setDirection) => {
+export const useEmail = (email, setErrorEmail, cnpj, fname, lname, phone, pass, confirmPass, pageIsValid, setPageIsValid, setDirection) => {
 	const [submitting, setSubmitting] = useState(false)
 	const [errorSubmit, setErrorSubmit] = useState('')
 	const [, setLocation] = useLocation()
@@ -14,7 +14,7 @@ export const useEmail = (email, setErrorEmail, cnpj, name, phone, pass, confirmP
 			setDirection('forward')
 		}
 		else {
-			const { emailIsValid, errorMsgEmail, inputsAreValid, errorInputs } = validateInput(email, cnpj, name, phone, pass, confirmPass)
+			const { emailIsValid, errorMsgEmail, inputsAreValid, errorInputs } = validateInput(email, cnpj, fname, lname, phone, pass, confirmPass)
 			setErrorEmail(errorMsgEmail)
 			setErrorSubmit(errorInputs)
 			if (emailIsValid && inputsAreValid) {
@@ -24,8 +24,9 @@ export const useEmail = (email, setErrorEmail, cnpj, name, phone, pass, confirmP
 					await db.auth().currentUser.sendEmailVerification({ url: process.env.CONTINUE_URL })
 					await db.firestore().collection('users').add({
 						id: user.uid,
-						name,
 						cnpj,
+						fname,
+						lname,
 						phone
 					})
 					setPageIsValid(true)
