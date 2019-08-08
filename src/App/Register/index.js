@@ -15,15 +15,16 @@ export const Register = () => {
 	const [cnpjIsValid, setCnpjIsValid] = useState(false)
 	const cnpjProps = { cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, setDirection }
 	// Register data state
-	const [name, setName] = useState('')
+	const [fname, setFname] = useState('')
+	const [lname, setLname] = useState('')
 	const [phone, setPhone] = useState('')
 	const [pass, setPass] = useState('')
 	const [confirmPass, setConfirmPass] = useState('')
-	const dataProps = { name, setName, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, setDirection }
+	const dataProps = { fname, setFname, lname, setLname, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, setDirection }
 	// Register email state
 	const [email, setEmail] = useState('')
 	const [emailIsValid, setEmailIsValid] = useState(false)
-	const emailProps = { email, setEmail, emailIsValid, setEmailIsValid, cnpj, name, phone, pass, confirmPass, setDirection }
+	const emailProps = { email, setEmail, emailIsValid, setEmailIsValid, cnpj, fname, lname, phone, pass, confirmPass, setDirection }
 	return (
 		<Header setDirection={setDirection}>
 			<Switch>

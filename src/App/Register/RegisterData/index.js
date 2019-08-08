@@ -11,17 +11,18 @@ import { PasswordIcon } from '../../../Assets/PasswordIcon/index'
 import { successColor } from '../../../Theme/styleVariables'
 import { container, success, message, welcome, subtitle, dot, form, wrapper, label, input } from './styles'
 
-export const RegisterData = ({ name, setName, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, setDirection }) => {
+export const RegisterData = ({ fname, setFname, lname, setLname, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, setDirection }) => {
 	const [
-		errorName, setErrorName, handleName,
+		errorFname, setErrorFname, handleFname,
+		errorLname, setErrorLname, handleLname,
 		errorPhone, setErrorPhone, handlePhone,
 		errorPass, setErrorPass, handlePass,
 		errorConfirmPass, setErrorConfirmPass, handleConfirmPass
 	] = useForm(
-		setName, setPhone, setPass, setConfirmPass,
-		setErrorName, setErrorPhone, setErrorPass, setErrorConfirmPass
+		setFname, setLname, setPhone, setPass, setConfirmPass,
+		setErrorFname, setErrorLname, setErrorPhone, setErrorPass, setErrorConfirmPass
 	)
-	const [errorSave, saveForm] = useSaveData(name, phone, pass, confirmPass, setErrorName, setErrorPhone, setErrorPass, setErrorConfirmPass, setDirection)
+	const [errorSave, saveForm] = useSaveData(fname, lname, phone, pass, confirmPass, setErrorFname, setErrorLname, setErrorPhone, setErrorPass, setErrorConfirmPass, setDirection)
 	return (
 		<div style={container}>
 			<div style={success}>
@@ -30,8 +31,12 @@ export const RegisterData = ({ name, setName, phone, setPhone, pass, setPass, co
 			</div>
 			<form style={form} onSubmit={saveForm}>
 				<div style={wrapper}>
-					<label style={label} htmlFor='name'><NameIcon size={13} />Nome<Errors message={errorName} /></label>
-					<input style={input} onChange={handleName} value={name} placeholder='Fernando(a) Silva' type='text' name='name' id='name' />
+					<label style={label} htmlFor='fname'><NameIcon size={13} />Nome<Errors message={errorFname} /></label>
+					<input style={input} onChange={handleFname} value={fname} placeholder='Fernando(a)' type='text' name='name' id='fname' />
+				</div>
+				<div style={wrapper}>
+					<label style={label} htmlFor='lname'><NameIcon size={13} />Sobrenome<Errors message={errorLname} /></label>
+					<input style={input} onChange={handleLname} value={lname} placeholder='Santos Silva' type='text' name='name' id='lname' />
 				</div>
 				<div style={wrapper}>
 					<label style={label} htmlFor='phone'><PhoneIcon size={13} />Whatsapp<Errors message={errorPhone} /></label>
@@ -52,8 +57,10 @@ export const RegisterData = ({ name, setName, phone, setPhone, pass, setPass, co
 }
 
 RegisterData.propTypes = {
-	name: PropTypes.string.isRequired,
-	setName: PropTypes.func.isRequired,
+	fname: PropTypes.string.isRequired,
+	setFname: PropTypes.func.isRequired,
+	lname: PropTypes.string.isRequired,
+	setLname: PropTypes.func.isRequired,
 	phone: PropTypes.string.isRequired,
 	setPhone: PropTypes.func.isRequired,
 	pass: PropTypes.string.isRequired,
