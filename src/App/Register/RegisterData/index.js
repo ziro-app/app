@@ -9,7 +9,7 @@ import { NameIcon } from '../../../Assets/NameIcon/index'
 import { PhoneIcon } from '../../../Assets/PhoneIcon/index'
 import { PasswordIcon } from '../../../Assets/PasswordIcon/index'
 import { successColor } from '../../../Theme/styleVariables'
-import { container, success, message, welcome, subtitle, dot, form, wrapper, label, input } from './styles'
+import { container, success, message, welcome, subtitle, dot, form, wrapper, label, input, wrapperPhone } from './styles'
 
 export const RegisterData = ({ fname, setFname, lname, setLname, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, setDirection }) => {
 	const [
@@ -32,15 +32,18 @@ export const RegisterData = ({ fname, setFname, lname, setLname, phone, setPhone
 			<form style={form} onSubmit={saveForm}>
 				<div style={wrapper}>
 					<label style={label} htmlFor='fname'><NameIcon size={13} />Nome<Errors message={errorFname} /></label>
-					<input style={input} onChange={handleFname} value={fname} placeholder='Fernando(a)' type='text' name='name' id='fname' />
+					<input style={input} onChange={handleFname} value={fname} placeholder='Fernando(a)' type='text' name='fname' id='fname' />
 				</div>
 				<div style={wrapper}>
 					<label style={label} htmlFor='lname'><NameIcon size={13} />Sobrenome<Errors message={errorLname} /></label>
-					<input style={input} onChange={handleLname} value={lname} placeholder='Santos Silva' type='text' name='name' id='lname' />
+					<input style={input} onChange={handleLname} value={lname} placeholder='Santos Silva' type='text' name='lname' id='lname' />
 				</div>
 				<div style={wrapper}>
 					<label style={label} htmlFor='phone'><PhoneIcon size={13} />Whatsapp<Errors message={errorPhone} /></label>
-					<input style={input} onChange={handlePhone} value={phone} placeholder='(11) 92233-4455' type='text' name='phone' id='phone' />
+					<div style={wrapperPhone}>
+						<input style={input} onChange={() => console.log(e.target.value)} value={55} type='text' name='country' id='country' />
+						<input style={input} onChange={handlePhone} value={phone} placeholder='(11) 92233-4455' type='text' name='phone' id='phone' />
+					</div>
 				</div>
 				<div style={wrapper}>
 					<label style={label} htmlFor='pass'><PasswordIcon size={13} />Senha<Errors message={errorPass} /></label>

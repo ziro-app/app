@@ -72,6 +72,11 @@ input = {
 	boxShadow: `rgba(34,34,34,0.3) 0px 3px 10px -3px`
 },
 
+wrapperPhone = {
+	display: 'grid',
+	gridTemplateColumns: '80px 1fr'
+},
+
 error = {
 	display: 'flex',
 	alignItems: 'center',
