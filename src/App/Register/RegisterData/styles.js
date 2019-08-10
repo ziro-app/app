@@ -74,7 +74,7 @@ input = {
 
 wrapperPhone = {
 	display: 'grid',
-	gridTemplateColumns: '80px 1fr'
+	gridTemplateColumns: '85px 1fr'
 },
 
 error = {

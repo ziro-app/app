@@ -11,18 +11,19 @@ import { PasswordIcon } from '../../../Assets/PasswordIcon/index'
 import { successColor } from '../../../Theme/styleVariables'
 import { container, success, message, welcome, subtitle, dot, form, wrapper, label, input, wrapperPhone } from './styles'
 
-export const RegisterData = ({ fname, setFname, lname, setLname, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, setDirection }) => {
+export const RegisterData = ({ fname, setFname, lname, setLname, country, setCountry, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, setDirection }) => {
 	const [
 		errorFname, setErrorFname, handleFname,
 		errorLname, setErrorLname, handleLname,
+		errorCountry, setErrorCountry, handleCountry,
 		errorPhone, setErrorPhone, handlePhone,
 		errorPass, setErrorPass, handlePass,
 		errorConfirmPass, setErrorConfirmPass, handleConfirmPass
 	] = useForm(
-		setFname, setLname, setPhone, setPass, setConfirmPass,
+		setFname, setLname, setCountry, setPhone, setPass, setConfirmPass,
 		setErrorFname, setErrorLname, setErrorPhone, setErrorPass, setErrorConfirmPass
 	)
-	const [errorSave, saveForm] = useSaveData(fname, lname, phone, pass, confirmPass, setErrorFname, setErrorLname, setErrorPhone, setErrorPass, setErrorConfirmPass, setDirection)
+	const [errorSave, saveForm] = useSaveData(fname, lname, country, phone, pass, confirmPass, setErrorFname, setErrorLname, setErrorCountry, setErrorPhone, setErrorPass, setErrorConfirmPass, setDirection)
 	return (
 		<div style={container}>
 			<div style={success}>
@@ -39,9 +40,9 @@ export const RegisterData = ({ fname, setFname, lname, setLname, phone, setPhone
 					<input style={input} onChange={handleLname} value={lname} placeholder='Santos Silva' type='text' name='lname' id='lname' />
 				</div>
 				<div style={wrapper}>
-					<label style={label} htmlFor='phone'><PhoneIcon size={13} />Whatsapp<Errors message={errorPhone} /></label>
+					<label style={label} htmlFor='phone'><PhoneIcon size={13} />Whatsapp<Errors message={errorPhone || errorCountry} /></label>
 					<div style={wrapperPhone}>
-						<input style={input} onChange={() => console.log(e.target.value)} value={55} type='text' name='country' id='country' />
+						<input style={input} onChange={handleCountry} value={country} type='text' name='country' id='country' />
 						<input style={input} onChange={handlePhone} value={phone} placeholder='(11) 92233-4455' type='text' name='phone' id='phone' />
 					</div>
 				</div>
@@ -64,6 +65,8 @@ RegisterData.propTypes = {
 	setFname: PropTypes.func.isRequired,
 	lname: PropTypes.string.isRequired,
 	setLname: PropTypes.func.isRequired,
+	country: PropTypes.string.isRequired,
+	setCountry: PropTypes.func.isRequired,
 	phone: PropTypes.string.isRequired,
 	setPhone: PropTypes.func.isRequired,
 	pass: PropTypes.string.isRequired,
