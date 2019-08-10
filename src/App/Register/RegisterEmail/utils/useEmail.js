@@ -3,7 +3,7 @@ import { useLocation } from 'wouter'
 import { db } from '../../../../Firebase/db'
 import { validateInput } from './validateInput'
 
-export const useEmail = (email, setErrorEmail, cnpj, fname, lname, phone, pass, confirmPass, pageIsValid, setPageIsValid, setDirection) => {
+export const useEmail = (email, setErrorEmail, cnpj, fname, lname, country, phone, pass, confirmPass, pageIsValid, setPageIsValid, setDirection) => {
 	const [submitting, setSubmitting] = useState(false)
 	const [errorSubmit, setErrorSubmit] = useState('')
 	const [, setLocation] = useLocation()
@@ -14,7 +14,7 @@ export const useEmail = (email, setErrorEmail, cnpj, fname, lname, phone, pass, 
 			setDirection('forward')
 		}
 		else {
-			const { emailIsValid, errorMsgEmail, inputsAreValid, errorInputs } = validateInput(email, cnpj, fname, lname, phone, pass, confirmPass)
+			const { emailIsValid, errorMsgEmail, inputsAreValid, errorInputs } = validateInput(email, cnpj, fname, lname, country, phone, pass, confirmPass)
 			setErrorEmail(errorMsgEmail)
 			setErrorSubmit(errorInputs)
 			if (emailIsValid && inputsAreValid) {
@@ -27,7 +27,7 @@ export const useEmail = (email, setErrorEmail, cnpj, fname, lname, phone, pass, 
 						cnpj,
 						fname,
 						lname,
-						phone
+						phone: `${country} ${phone}`
 					})
 					setPageIsValid(true)
 					setLocation('/cadastrar/validar-email')
