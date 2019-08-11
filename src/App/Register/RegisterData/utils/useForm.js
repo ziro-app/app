@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { maskInput } from '../../../utils/maskInput'
 import { capitalize } from '../../../utils/capitalize'
 
-export const useForm = (setFname, setLname, setCountry, setPhone, setPass, setConfirmPass) => {
+export const useForm = (setFname, setLname, setCountry, setPhone, setPass, setConfirmPass, country) => {
 	const [errorFname, setErrorFname] = useState('')
 	const [errorLname, setErrorLname] = useState('')
 	const [errorCountry, setErrorCountry] = useState('')
@@ -22,7 +22,8 @@ export const useForm = (setFname, setLname, setCountry, setPhone, setPass, setCo
 		if (errorCountry !== '') setErrorCountry('')
 	}
 	const handlePhone = event => {
-		setPhone(maskInput(event.target.value, '(##) #####-####', true))
+		if (country !== '+55') setPhone(maskInput(event.target.value, '############', true))
+		else setPhone(maskInput(event.target.value, '(##) #####-####', true))
 		if (errorPhone !== '') setErrorPhone('')
 	}
 	const handlePass = event => {

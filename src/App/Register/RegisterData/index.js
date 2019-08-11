@@ -19,10 +19,7 @@ export const RegisterData = ({ fname, setFname, lname, setLname, country, setCou
 		errorPhone, setErrorPhone, handlePhone,
 		errorPass, setErrorPass, handlePass,
 		errorConfirmPass, setErrorConfirmPass, handleConfirmPass
-	] = useForm(
-		setFname, setLname, setCountry, setPhone, setPass, setConfirmPass,
-		setErrorFname, setErrorLname, setErrorPhone, setErrorPass, setErrorConfirmPass
-	)
+	] = useForm(setFname, setLname, setCountry, setPhone, setPass, setConfirmPass, country)
 	const [errorSave, saveForm] = useSaveData(fname, lname, country, phone, pass, confirmPass, setErrorFname, setErrorLname, setErrorCountry, setErrorPhone, setErrorPass, setErrorConfirmPass, setDirection)
 	return (
 		<div style={container}>

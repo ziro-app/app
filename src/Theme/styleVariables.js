@@ -28,7 +28,7 @@ fontTitle = 'Rubik',
 fontWeightTitle = '500',
 fontWeightBody = '400',
 fontWeightMuted = '300',
-fontSizeSmall = '1.3rem',
+fontSizeSmall = '1.2rem',
 
 /* GRADIENT */
 gradient = `linear-gradient(#3A3A3A 10%, #333 30%, #222 60%, #000)`,
