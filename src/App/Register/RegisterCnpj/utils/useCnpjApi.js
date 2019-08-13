@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { post } from 'axios'
 import { useLocation } from 'wouter'
+import { db } from '../../../../Firebase/db'
 import { validateInput } from './validateInput'
 import { validateCnpj } from './validateCnpj'
 
@@ -20,21 +21,27 @@ export const useCnpjApi = (cnpj, setErrorCnpj, cnpjIsValid, setCnpjIsValid, setD
 			if (inputIsValid) {
 				try {
 					setSubmitting(true)
-					const { data: { message, data } } = await post(`${process.env.CNPJ_API}`, { cnpj })
-					setSubmitting(false)
-					if (data.return !== 'OK')
-						setErrorSubmit('CNPJ não encontrado na Receita')
-					if (message !== 'Success') {
-						console.log(message)
-						setErrorSubmit('Erro no serviço. Tente mais tarde')					
-					}
-					if (data.return === 'OK' && message === 'Success') {
-						const { status, message } = validateCnpj(data)
-						setErrorSubmit(message)
-						if (status === 'Success') {
-							setCnpjIsValid(true)
-							setLocation('/cadastrar/dados')
-							setDirection('forward')
+					const { empty } = await db.firestore().collection('users').where('cnpj', '==', cnpj).get()
+					if (!empty) {
+						setSubmitting(false)
+						setErrorSubmit('CNPJ já cadastrado na base')
+					} else {
+						const { data: { message, data } } = await post(`${process.env.CNPJ_API}`, { cnpj })
+						setSubmitting(false)
+						if (data.return !== 'OK')
+							setErrorSubmit('CNPJ não encontrado na Receita')
+						if (message !== 'Success') {
+							console.log(message)
+							setErrorSubmit('Erro no serviço. Tente mais tarde')					
+						}
+						if (data.return === 'OK' && message === 'Success') {
+							const { status, message } = validateCnpj(data)
+							setErrorSubmit(message)
+							if (status === 'Success') {
+								setCnpjIsValid(true)
+								setLocation('/cadastrar/dados')
+								setDirection('forward')
+							}
 						}
 					}
 				} catch (error) {
