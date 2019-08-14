@@ -8,7 +8,12 @@ export const useLogin = () => {
 	const login = async (email, password) => {
 		try {
 			setSubmitting(true)
-			const authResult = await db.auth().signInWithEmailAndPassword(email, password)
+			const { user: { emailVerified } } = await db.auth().signInWithEmailAndPassword(email, password)
+			if (!emailVerified) {
+				setSubmitting(false)
+				db.auth().signOut()
+				setAuthError('Acesse o email de verificação para entrar')
+			}
 		} catch (error) {
 			setSubmitting(false)
 			console.log(error)
