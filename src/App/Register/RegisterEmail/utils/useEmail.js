@@ -29,6 +29,7 @@ export const useEmail = (email, setErrorEmail, cnpj, fname, lname, country, phon
 						lname,
 						phone: `${country} ${phone}`
 					})
+					await db.firestore().collection('cnpjs').add({ cnpj })
 					setPageIsValid(true)
 					setLocation('/cadastrar/validar-email')
 					setDirection('forward')

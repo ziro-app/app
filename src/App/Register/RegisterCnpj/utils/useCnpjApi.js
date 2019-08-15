@@ -21,7 +21,7 @@ export const useCnpjApi = (cnpj, setErrorCnpj, cnpjIsValid, setCnpjIsValid, setD
 			if (inputIsValid) {
 				try {
 					setSubmitting(true)
-					const { empty } = await db.firestore().collection('users').where('cnpj', '==', cnpj).get()
+					const { empty } = await db.firestore().collection('cnpjs').where('cnpj', '==', cnpj).get()
 					if (!empty) {
 						setSubmitting(false)
 						setErrorSubmit('CNPJ já cadastrado na base')
