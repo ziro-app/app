@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Options } from './Options/index'
 import { animation } from './animation'
-import { panel, container } from './styles'
+import { panel } from './styles'
 
 export const Panel = ({ isOpen }) =>
 	<AnimatePresence initial={false}>
 		{isOpen &&
 			<motion.div style={panel} key={1} {...animation}>
-				<div style={container}>Panel</div>
+				<Options />
 			</motion.div>}
 	</AnimatePresence>
 
