@@ -4,6 +4,7 @@ import { CloseIcon } from '../../../../Assets/CloseIcon/index'
 import { TruckIcon } from '../../../../Assets/TruckIcon/index'
 import { CardIcon } from '../../../../Assets/CardIcon/index'
 import { NameIcon } from '../../../../Assets/NameIcon/index'
+import { LogoutIcon } from '../../../../Assets/LogoutIcon/index'
 import { container, close, options, option, icon, text, soon } from './styles'
 
 export const Options = ({ setIsOpen }) =>
@@ -25,7 +26,7 @@ export const Options = ({ setIsOpen }) =>
 				<h1 style={text}>Meus Dados</h1>
 			</li>
 			<li style={option}>
-				<div style={icon}><TruckIcon size={17} strokeWidth={3} /></div>
+				<div style={icon}><LogoutIcon size={17} strokeWidth={3} /></div>
 				<h1 style={text}>Sair</h1>
 			</li>
 		</ul>
