@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { db } from '../../../../Firebase/db'
 import { CloseIcon } from '../../../../Assets/CloseIcon/index'
 import { TruckIcon } from '../../../../Assets/TruckIcon/index'
 import { CardIcon } from '../../../../Assets/CardIcon/index'
@@ -25,7 +26,7 @@ export const Options = ({ setIsOpen }) =>
 				<div style={icon}><NameIcon size={17} strokeWidth={3} /></div>
 				<h1 style={text}>Meus Dados</h1>
 			</li>
-			<li style={option}>
+			<li style={option} onClick={() => db.auth().signOut()}>
 				<div style={icon}><LogoutIcon size={17} strokeWidth={3} /></div>
 				<h1 style={text}>Sair</h1>
 			</li>

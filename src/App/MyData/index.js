@@ -4,12 +4,9 @@ import { container } from './styles'
 
 export const MyData = ({ user }) => {
 	console.log(user)
-	const logout = () => db.auth().signOut()
 	return (
 		<div style={container}>
-			<label>Olá,</label>
-			<label>{user.email}</label>
-			<input type='submit' value='Logout' onClick={logout} />
+			<label>Aqui você poderá ver e editar seus dados</label>
 		</div>
 	)
 }

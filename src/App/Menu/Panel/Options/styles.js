@@ -28,15 +28,16 @@ options = {
 
 option = {
 	display: 'grid',
-	gridTemplateColumns: '35px 1fr',
+	gridTemplateColumns: '36px 1fr',
 	gridColumnGap: '15px',
-	alignItems: 'center'
+	alignItems: 'center',
+	cursor: 'pointer'
 },
 
 icon = {
 	display: 'grid',
 	placeItems: 'center',
-	height: '35px',
+	height: '36px',
 	borderRadius: '100%',
 	boxShadow: `0px 3px 11px -4px rgba(34,34,34,0.7)`
 },
