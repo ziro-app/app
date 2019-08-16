@@ -5,14 +5,15 @@ import { Options } from './Options/index'
 import { animation } from './animation'
 import { panel } from './styles'
 
-export const Panel = ({ isOpen }) =>
+export const Panel = ({ isOpen, setIsOpen }) =>
 	<AnimatePresence initial={false}>
 		{isOpen &&
 			<motion.div style={panel} key={1} {...animation}>
-				<Options />
+				<Options setIsOpen={setIsOpen} />
 			</motion.div>}
 	</AnimatePresence>
 
 Panel.propTypes = {
-	isOpen: PropTypes.bool.isRequired
+	isOpen: PropTypes.bool.isRequired,
+	setIsOpen: PropTypes.func.isRequired
 }

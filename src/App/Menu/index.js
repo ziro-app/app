@@ -5,10 +5,10 @@ import { Panel } from './Panel/index'
 import { container } from './styles'
 
 export const Menu = ({ title, children }) => {
-	const [isOpen, setIsOpen] = useState(false)
+	const [isOpen, setIsOpen] = useState(true)
 	return (
 		<div style={container}>
-			<Panel isOpen={isOpen} />
+			<Panel isOpen={isOpen} setIsOpen={setIsOpen} />
 			<Header title={title} setIsOpen={setIsOpen} />
 			{children}
 		</div>
