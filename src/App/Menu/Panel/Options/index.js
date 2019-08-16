@@ -13,19 +13,19 @@ export const Options = ({ setIsOpen }) =>
 		</div>
 		<ul style={options}>
 			<li style={option}>
-				<div style={icon}><TruckIcon size={17} /></div>
+				<div style={icon}><TruckIcon size={17} strokeWidth={3} /></div>
 				<h1 style={text}>Atendimentos<label style={soon}>&nbsp;&nbsp;(em breve)</label></h1>
 			</li>
 			<li style={option}>
-				<div style={icon}><CardIcon size={17} /></div>
+				<div style={icon}><CardIcon size={17} strokeWidth={3} /></div>
 				<h1 style={text}>Pagamentos<label style={soon}>&nbsp;&nbsp;(em breve)</label></h1>
 			</li>
 			<li style={option}>
-				<div style={icon}><NameIcon size={17} /></div>
+				<div style={icon}><NameIcon size={17} strokeWidth={3} /></div>
 				<h1 style={text}>Meus Dados</h1>
 			</li>
 			<li style={option}>
-				<div style={icon}><TruckIcon size={17} /></div>
+				<div style={icon}><TruckIcon size={17} strokeWidth={3} /></div>
 				<h1 style={text}>Sair</h1>
 			</li>
 		</ul>
