@@ -1,4 +1,4 @@
-import { maxWidth, standardMargin, standardPadding, fontTitle, primaryColor, gradient, shadow } from '../../../Theme/styleVariables'
+import { maxWidth, standardPadding, fontTitle, primaryColor, gradient, shadow } from '../../../Theme/styleVariables'
 
 export const
 
@@ -12,7 +12,8 @@ container = {
 
 welcome = {
 	fontFamily: fontTitle,
-	fontSize: '2.1rem'
+	fontSize: '2.1rem',
+	color: primaryColor
 },
 
 subtitle = {
@@ -27,35 +28,30 @@ dot = {
 
 benefits = {
 	display: 'grid',
-	gridRowGap: '15px'
-},
-
-wrapper = {
-	display: 'grid',
-	gridRowGap: '5px',
+	gridRowGap: '15px',
 	color: primaryColor
 },
 
-label = {
-	display: 'grid',
-	gridTemplateColumns: 'auto 1fr',
-	gridColumnGap: '10px',
-	alignItems: 'center',
-	fontFamily: fontTitle,
-	fontSize: '1.7rem'
+call = {
+	marginBottom: '25px'
 },
 
-icon = {
-	display: 'grid',
-	placeItems: 'center',
-	width: '30px',
-	height: '30px',
-	borderRadius: '100%',
-	boxShadow: `0px 3px 11px -4px rgba(34,34,34,0.7)`
+word = {
+	position: 'relative'	
+},
+
+color = {
+	position: 'absolute',
+	top: '65%',
+	left: '5%',
+	width: '115px',
+	height: '8px',
+	zIndex: '-1',
+	background: 'rgba(255,228,0,0.8)'
 },
 
 text = {
-	fontSize: '1.6rem'
+	fontSize: '1.5rem'
 },
 
 submit = {
