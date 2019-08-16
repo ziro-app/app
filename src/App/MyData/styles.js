@@ -1,4 +1,4 @@
-import { maxWidth, standardMargin, standardPadding } from '../../Theme/styleVariables'
+import { maxWidth, standardMargin } from '../../Theme/styleVariables'
 
 export const
 
@@ -7,6 +7,5 @@ container = {
 	gridRowGap: '20px',
 	maxWidth: maxWidth,
 	margin: standardMargin,
-	padding: standardPadding,
 	textAlign: 'center'
 }

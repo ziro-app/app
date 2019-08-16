@@ -1,4 +1,4 @@
-import { maxWidth, standardMargin, standardPadding, fontTitle } from '../../../Theme/styleVariables'
+import { maxWidth, fontTitle } from '../../../Theme/styleVariables'
 
 export const
 
@@ -7,8 +7,7 @@ container = {
 	gridTemplateColumns: '30px 1fr',
 	placeItems: 'center',
 	maxWidth: maxWidth,
-	margin: standardMargin,
-	padding: standardPadding
+	margin: '0 auto'
 },
 
 text = {
