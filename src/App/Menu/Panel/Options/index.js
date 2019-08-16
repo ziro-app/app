@@ -6,12 +6,15 @@ import { TruckIcon } from '../../../../Assets/TruckIcon/index'
 import { CardIcon } from '../../../../Assets/CardIcon/index'
 import { NameIcon } from '../../../../Assets/NameIcon/index'
 import { LogoutIcon } from '../../../../Assets/LogoutIcon/index'
-import { container, close, options, option, icon, text, soon } from './styles'
+import { container, header, close, title, options, option, icon, text, soon } from './styles'
 
 export const Options = ({ setIsOpen }) =>
 	<div style={container}>
-		<div style={close} onClick={() => setIsOpen(false)}>
-			<CloseIcon />
+		<div style={header}>
+			<div style={close} onClick={() => setIsOpen(false)}>
+				<CloseIcon />
+			</div>
+			<h1 style={title}>Olá, Vitor</h1>
 		</div>
 		<ul style={options}>
 			<li style={option}>

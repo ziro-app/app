@@ -12,16 +12,26 @@ container = {
 
 },
 
+header = {
+	display: 'grid',
+	gridTemplateColumns: '30px 1fr',
+	placeItems: 'center'
+},
+
+title = {
+	marginLeft: '-30px',
+	fontFamily: fontTitle
+},
+
 close = {
 	display: 'grid',
-	alignItems: 'center',
-	height: '38px',
-	margin: '12px 0'
+	alignItems: 'center'
 },
 
 options = {
 	display: 'grid',
 	gridRowGap: '30px',
+	marginTop: '60px',
 	fontFamily: fontTitle,
 	color: primaryColor
 },
