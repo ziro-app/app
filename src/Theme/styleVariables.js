@@ -4,7 +4,7 @@ export const
 maxWidth = '400px',
 
 /* MARGIN & PADDING */
-standardMargin = '40px auto 0',
+standardMargin = '20px auto 0',
 standardPadding = '0 10%',
 
 /* COLORS */
