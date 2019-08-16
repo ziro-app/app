@@ -4,11 +4,11 @@ import { Header } from './Header/index'
 import { Panel } from './Panel/index'
 import { container } from './styles'
 
-export const Menu = ({ title, children }) => {
+export const Menu = ({ user, title, children }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	return (
 		<div style={container}>
-			<Panel isOpen={isOpen} setIsOpen={setIsOpen} />
+			<Panel user={user} isOpen={isOpen} setIsOpen={setIsOpen} />
 			<Header title={title} setIsOpen={setIsOpen} />
 			{children}
 		</div>
@@ -16,6 +16,7 @@ export const Menu = ({ title, children }) => {
 }
 
 Menu.propTypes = {
+	user: PropTypes.object.isRequired,
 	title: PropTypes.string.isRequired,
 	children: PropTypes.element.isRequired
 }
