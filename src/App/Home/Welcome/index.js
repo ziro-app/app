@@ -12,15 +12,15 @@ export const Welcome = () =>
 		<div style={benefits}>
 			<p style={text}>Compre no atacado do Bom Retiro, Brás e Itaim para revender</p>
 			<div style={wrapper}>
-				<label style={label}><div style={icon}><ShoppingIcon size={15} /></div>Assessoria</label>
+				<label style={label}><div style={icon}><ShoppingIcon size={15} strokeWidth={3} /></div>Assessoria</label>
 				<p style={text}>Encontre as melhores peças para o seu público-alvo</p>
 			</div>
 			<div style={wrapper}>
-				<label style={label}><div style={icon}><TruckIcon size={15} /></div>Logística</label>
+				<label style={label}><div style={icon}><TruckIcon size={15} strokeWidth={3} /></div>Logística</label>
 				<p style={text}>Despreocupe-se com a retirada e o despacho de mercadorias</p>
 			</div>
 			<div style={wrapper}>
-				<label style={label}><div style={icon}><CardIcon size={15} /></div>Pagamento</label>
+				<label style={label}><div style={icon}><CardIcon size={15} strokeWidth={3} /></div>Pagamento</label>
 				<p style={text}>Parcele em até 6x no cartão via link seguro ou maquininha</p>
 			</div>
 		</div>
