@@ -4,7 +4,7 @@ export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '15px',
+	gridRowGap: '20px',
 	placeItems: 'center'
 },
 
@@ -20,7 +20,7 @@ menu = {
 tab = {
 	WebkitTapHighlightColor: 'rgba(0,0,0,0)',
 	display: 'grid',
-	alignItems: 'center',
+	placeItems: 'center',
 	width: '100%',
 	padding: '5px 0',
 	fontSize: '1.4rem',

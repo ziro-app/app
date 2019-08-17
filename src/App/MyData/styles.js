@@ -6,6 +6,5 @@ container = {
 	display: 'grid',
 	gridRowGap: '20px',
 	maxWidth: maxWidth,
-	margin: standardMargin,
-	textAlign: 'center'
+	margin: standardMargin
 }
