@@ -1,4 +1,4 @@
-import { fontTitle, primaryColor, grayColor2 } from '../../../Theme/styleVariables'
+import { fontTitle, primaryColor, successColor } from '../../../Theme/styleVariables'
 
 export const
 
@@ -9,7 +9,7 @@ container = {
 },
 
 field = {
-	display: 'grid',
+	display: 'grid'
 },
 
 label = {
@@ -26,4 +26,19 @@ input = {
 	border: 'none',
 	fontSize: '1.6rem',
 	color: primaryColor
+},
+
+labelWrapper = {
+	display: 'grid',
+	gridTemplateColumns: 'auto 1fr',
+	gridColumnGap: '6px'
+},
+
+validated = {
+	display: 'grid',
+	gridTemplateColumns: 'auto 1fr',
+	alignItems: 'center',
+	gridColumnGap: '2px',
+	fontSize: '1.2rem',
+	color: successColor
 }

@@ -1,5 +1,7 @@
 import React from 'react'
-import { container, field, label, input } from './styles'
+import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
+import { successColor } from '../../../Theme/styleVariables'
+import { container, field, label, input, labelWrapper, validated } from './styles'
 
 export const PersonData = () => {
 	return (
@@ -25,7 +27,7 @@ export const PersonData = () => {
 				<label>&nbsp;</label>
 			</div>
 			<div style={field}>
-				<label style={label}>Email</label>
+				<div style={labelWrapper}><label style={label}>Email</label><label style={validated}><SuccessIcon size={9} color={successColor} />validado</label></div>
 				<input style={input} value='vitorbarbosa19@gmail.com' />
 				<label>&nbsp;</label>
 			</div>
