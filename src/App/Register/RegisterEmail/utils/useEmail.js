@@ -38,6 +38,7 @@ export const useEmail = (email, setErrorEmail, cnpj, fname, lname, country, phon
 					console.log(error)
 					if (error.code) {
 						switch (error.code) {
+							case 'auth/network-request-failed': setAuthError('Sem conexão com a rede'); break
 							case 'auth/invalid-email': setErrorSubmit('Email inválido'); break
 							case 'auth/email-already-in-use': setErrorSubmit('Email já cadastrado'); break
 							case 'auth/operation-not-allowed': setErrorSubmit('Operação não permitida'); break
