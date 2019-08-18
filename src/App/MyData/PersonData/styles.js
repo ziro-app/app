@@ -9,7 +9,15 @@ container = {
 },
 
 field = {
-	display: 'grid'
+	display: 'grid',
+	color: primaryColor
+},
+
+header = {
+	display: 'grid',
+	gridTemplateColumns: 'auto 1fr',
+	alignItems: 'center',
+	justifyItems: 'end'
 },
 
 label = {

@@ -20,7 +20,8 @@ header = {
 
 title = {
 	marginLeft: '-30px',
-	fontFamily: fontTitle
+	fontFamily: fontTitle,
+	color: primaryColor
 },
 
 close = {

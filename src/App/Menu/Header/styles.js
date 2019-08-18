@@ -1,4 +1,4 @@
-import { maxWidth, fontTitle } from '../../../Theme/styleVariables'
+import { maxWidth, fontTitle, primaryColor } from '../../../Theme/styleVariables'
 
 export const
 
@@ -12,5 +12,6 @@ container = {
 
 text = {
 	marginLeft: '-30px',
-	fontFamily: fontTitle
+	fontFamily: fontTitle,
+	color: primaryColor
 }
