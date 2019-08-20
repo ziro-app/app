@@ -20,6 +20,12 @@ header = {
 	justifyItems: 'end'
 },
 
+headerAlt = {
+	...header,
+	gridTemplateColumns: 'auto auto 1fr',
+	gridColumnGap: '6px'
+},
+
 label = {
 	fontFamily: fontTitle,
 	fontSize: '1.3rem',
@@ -39,7 +45,13 @@ input = {
 labelWrapper = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
-	gridColumnGap: '6px'
+	gridColumnGap: '2px',
+	alignItems: 'center'
+},
+
+pending = {
+	color: '#E5CD00',
+	fontSize: '1.2rem'
 },
 
 validated = {

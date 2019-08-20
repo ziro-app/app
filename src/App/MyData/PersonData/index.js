@@ -1,8 +1,9 @@
 import React from 'react'
 import { PenIcon } from '../../../Assets/PenIcon/index'
+import { PendingIcon } from '../../../Assets/PendingIcon/index'
 import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
 import { successColor } from '../../../Theme/styleVariables'
-import { container, field, header, label, input, labelWrapper, validated } from './styles'
+import { container, field, header, headerAlt, label, input, labelWrapper, pending, validated } from './styles'
 
 export const PersonData = () => {
 	return (
@@ -24,19 +25,21 @@ export const PersonData = () => {
 				<label>&nbsp;</label>
 			</div>
 			<div style={field}>
-				<div style={header}>
+				<div style={headerAlt}>
 					<label style={label}>RG</label>
+					<div style={labelWrapper}><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} /><label style={pending}>pendente</label></div>
 					<PenIcon size={13} />
 				</div>
-				<input style={input} value='11.22.33.44-55' />
+				<input style={input} placeholder='11.22.33.44-55' />
 				<label>&nbsp;</label>
 			</div>
 			<div style={field}>
-				<div style={header}>
+				<div style={headerAlt}>
 					<label style={label}>CPF</label>
+					<div style={labelWrapper}><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} /><label style={pending}>pendente</label></div>
 					<PenIcon size={13} />
 				</div>
-				<input style={input} value='111.222.333-44' />
+				<input style={input} placeholder='111.222.333-44' />
 				<label>&nbsp;</label>
 			</div>
 			<div style={field}>
