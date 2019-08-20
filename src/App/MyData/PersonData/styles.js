@@ -5,7 +5,18 @@ export const
 container = {
 	display: 'grid',
 	gridRowGap: '20px',
-	marginTop: '40px'
+	marginTop: '10px'
+},
+
+warning = {
+	display: 'grid',
+	gridRowGap: '4px',
+	justifyItems: 'center',
+	maxWidth: '250px',
+	margin: '0 auto',
+	textAlign: 'center',
+	fontSize: '1.2rem',
+	color: '#E5CD00',
 },
 
 field = {

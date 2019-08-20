@@ -3,11 +3,12 @@ import { PenIcon } from '../../../Assets/PenIcon/index'
 import { PendingIcon } from '../../../Assets/PendingIcon/index'
 import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
 import { successColor } from '../../../Theme/styleVariables'
-import { container, field, header, headerAlt, label, input, labelWrapper, pending, validated } from './styles'
+import { container, warning, field, header, headerAlt, label, input, labelWrapper, pending, validated } from './styles'
 
 export const PersonData = () => {
 	return (
 		<div style={container}>
+			<label style={warning}><PendingIcon size={13} color={'#E5CD00'} strokeWidth={3} />corrija pendências para liberar pagamentos</label>
 			<div style={field}>
 				<div style={header}>
 					<label style={label}>Nome</label>
