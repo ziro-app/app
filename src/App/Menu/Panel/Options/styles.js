@@ -55,7 +55,8 @@ icon = {
 
 text = {
 	fontSize: '1.5rem',
-	textTransform: 'uppercase'
+	textTransform: 'uppercase',
+	color: primaryColor
 },
 
 soon = {
