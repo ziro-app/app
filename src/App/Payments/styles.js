@@ -1,17 +1,18 @@
-import { fontTitle, primaryColor, alertColor, successColor } from '../../Theme/styleVariables'
+import { fontTitle, alertColor, successColor, fontWeightMuted, grayColor2 } from '../../Theme/styleVariables'
 
 export const
 
 container = {
 	display: 'grid',
-	marginTop: '10px',
-	fontSize: '1.6rem'
+	maxWidth: '400px',
+	margin: '20px auto 0',
+	fontSize: '1.4rem'
 },
 
 transaction = {
 	display: 'grid',
-	borderLeft: `2px ${alertColor} solid`,
-	padding: '0 0 30px 20px',
+	borderLeft: `1px ${alertColor} solid`,
+	padding: '0 0 40px 30px',
 	gridTemplate: `
 		'status date'
 		'supplier supplier'
@@ -22,18 +23,24 @@ transaction = {
 
 transaction2 = {
 	...transaction,
-	borderLeft: `2px ${successColor} solid`,
+	borderLeft: `1px ${successColor} solid`,
 },
 
 transaction3 = {
 	...transaction,
-	borderLeft: `2px ${primaryColor} solid`,
+	borderLeft: `1px ${grayColor2} solid`,
+	gridTemplate: `
+		'supplier supplier date'
+		'value value value'
+		'quantity quantity quantity'
+		/ 35% 35% 30%`
 },
 
 status = {
 	gridArea: 'status',
 	alignSelf: 'end',
 	fontFamily: fontTitle,
+	fontWeight: '600',
 	fontSize: '0.9rem',
 	textTransform: 'uppercase',
 	color: alertColor
@@ -46,7 +53,7 @@ status2 = {
 
 status3 = {
 	...status,
-	color: primaryColor
+	color: grayColor2
 },
 
 supplier = {
@@ -61,10 +68,11 @@ date = {
 	gridArea: 'date',
 	justifySelf: 'end',
 	fontSize: '1.2rem',
-	textTransform: 'uppercase'
+	fontWeight: fontWeightMuted
 },
 
 quantity = {
 	gridArea: 'quantity',
-	fontSize: '1.2rem'
+	fontSize: '1.2rem',
+	fontWeight: fontWeightMuted
 }

@@ -19,11 +19,34 @@ export const Payments = ({ user }) =>
 			<div style={quantity}>23 pçs</div>
 		</div>
 		<div style={transaction3}>
-			<div style={status3}>Concluído</div>
 			<div style={supplier}>La Chocolê</div>
 			<div style={value}>R$ 5.372,43</div>
 			<div style={date}>27/ago</div>
 			<div style={quantity}>29 pçs</div>
+		</div>
+		<div style={transaction3}>
+			<div style={supplier}>Esmeral</div>
+			<div style={value}>R$ 1.809,13</div>
+			<div style={date}>27/ago</div>
+			<div style={quantity}>12 pçs</div>
+		</div>
+		<div style={transaction3}>
+			<div style={supplier}>Salgunamu</div>
+			<div style={value}>R$ 1.999,88</div>
+			<div style={date}>27/ago</div>
+			<div style={quantity}>13 pçs</div>
+		</div>
+		<div style={transaction3}>
+			<div style={supplier}>Jo Fashion</div>
+			<div style={value}>R$ 2.341,70</div>
+			<div style={date}>26/ago</div>
+			<div style={quantity}>17 pçs</div>
+		</div>
+		<div style={transaction3}>
+			<div style={supplier}>Loubucca</div>
+			<div style={value}>R$ 1.987,69</div>
+			<div style={date}>26/ago</div>
+			<div style={quantity}>12 pçs</div>
 		</div>
 	</div>
 
