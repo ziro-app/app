@@ -10,6 +10,7 @@ container = {
 },
 
 transaction = {
+
 	display: 'grid',
 	borderLeft: `1px ${alertColor} solid`,
 	padding: '0 0 40px 30px',
@@ -36,9 +37,28 @@ transaction3 = {
 		/ 35% 35% 30%`
 },
 
+circle = {
+
+	left: '-1.3%',
+	width: '7px',
+	height: '7px',
+	borderRadius: '50%',
+	backgroundColor: alertColor
+},
+
+circle2 = {
+	...circle,
+	backgroundColor: successColor
+},
+
+circle3 = {
+	...circle,
+	backgroundColor: grayColor2
+},
+
 status = {
 	gridArea: 'status',
-	alignSelf: 'end',
+	alignSelf: 'top',
 	fontFamily: fontTitle,
 	fontWeight: '600',
 	fontSize: '0.9rem',
