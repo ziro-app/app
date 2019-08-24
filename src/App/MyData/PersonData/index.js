@@ -23,7 +23,7 @@ export const PersonData = () => {
 					<label style={label}>Nome</label>
 					<PenIcon size={13} />
 				</div>
-				<input ref={inputFname} style={input} disabled={disableFname} value='Vitor' />
+				<input ref={inputFname} style={input} readonly={disableFname} value='Vitor' />
 				<label>&nbsp;</label>
 			</div>
 			<div style={field}>
@@ -31,7 +31,7 @@ export const PersonData = () => {
 					<label style={label}>Sobrenome</label>
 					<PenIcon size={13} />
 				</div>
-				<input style={input} disabled={disableLname} value='Barbosa' />
+				<input style={input} readonly={disableLname} value='Barbosa' />
 				<label>&nbsp;</label>
 			</div>
 			<div style={field}>
@@ -40,7 +40,7 @@ export const PersonData = () => {
 					<div style={labelWrapper}><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} /><label style={pending}>pendente</label></div>
 					<PenIcon size={13} />
 				</div>
-				<input style={input} disabled={disableRG} placeholder='11.22.33.44-55' />
+				<input style={input} readonly={disableRG} placeholder='11.22.33.44-55' />
 				<label>&nbsp;</label>
 			</div>
 			<div style={field}>
@@ -49,22 +49,22 @@ export const PersonData = () => {
 					<div style={labelWrapper}><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} /><label style={pending}>pendente</label></div>
 					<PenIcon size={13} />
 				</div>
-				<input style={input} disabled={disableCPF} placeholder='111.222.333-44' />
+				<input style={input} readonly={disableCPF} placeholder='111.222.333-44' />
 				<label>&nbsp;</label>
 			</div>
 			<div style={field}>
 				<div style={labelWrapper}><label style={label}>Email</label><label style={validated}><SuccessIcon size={9} color={successColor} />validado</label></div>
-				<input style={input} disabled={true} value='vitorbarbosa19@gmail.com' />
+				<input style={input} readonly={true} value='vitorbarbosa19@gmail.com' />
 				<label>&nbsp;</label>
 			</div>
 			<div style={field}>
 				<label style={label}>Whatsapp</label>
-				<input style={input} disabled={true} value='+55 (11) 95177-1321' />
+				<input style={input} readonly={true} value='+55 (11) 95177-1321' />
 				<label>&nbsp;</label>
 			</div>
 			<div style={field}>
 				<label style={label}>Nova Senha</label>
-				<input style={input} disabled={true} value='' />
+				<input style={input} readonly={true} value='' />
 				<label>&nbsp;</label>
 			</div>
 		</div>
