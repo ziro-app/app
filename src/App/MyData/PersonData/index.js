@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { PenIcon } from '../../../Assets/PenIcon/index'
 import { PendingIcon } from '../../../Assets/PendingIcon/index'
 import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
@@ -7,6 +7,11 @@ import { container, warning, field, header, headerAlt, label, input, labelWrappe
 
 export const PersonData = () => {
 	const [disableFname, setDisableFname] = useState(true)
+	const inputFname = useRef(null)
+	const handleFname = () => {
+		setDisableFname(false)
+		inputFname.current.select()
+	}
 	const [disableLname, setDisableLname] = useState(true)
 	const [disableRG, setDisableRG] = useState(true)
 	const [disableCPF, setDisableCPF] = useState(true)
@@ -14,11 +19,11 @@ export const PersonData = () => {
 		<div style={container}>
 			<label style={warning}><PendingIcon size={13} color={'#E5CD00'} strokeWidth={3} />corrija pendências para liberar pagamentos</label>
 			<div style={field}>
-				<div style={header} onClick={() => setDisableFname(false)}>
+				<div style={header} onClick={handleFname}>
 					<label style={label}>Nome</label>
 					<PenIcon size={13} />
 				</div>
-				<input style={input} disabled={disableFname} value='Vitor' />
+				<input ref={inputFname} style={input} disabled={disableFname} value='Vitor' />
 				<label>&nbsp;</label>
 			</div>
 			<div style={field}>
