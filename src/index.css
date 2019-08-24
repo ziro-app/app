@@ -56,6 +56,10 @@ input[type="text"]:focus, input[type="password"]:focus {
     box-shadow: rgba(34, 34, 34, 0.3) 0px 3px 10px -2px !important;
 }
 
+input:disabled {
+    background: none;
+}
+
 a:active, a:focus {
     outline: none;
     -moz-outline-style: none;
