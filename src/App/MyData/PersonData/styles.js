@@ -39,7 +39,7 @@ headerAlt = {
 
 label = {
 	fontFamily: fontTitle,
-	fontSize: '1.3rem',
+	fontSize: '1.2rem',
 	textTransform: 'uppercase'
 },
 

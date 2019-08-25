@@ -16,7 +16,6 @@ export const PersonData = () => {
 	const updateFname = ({ target: { value } }) => setFname(value)
 	return (
 		<div style={container}>
-			<label style={warning}><PendingIcon size={13} color={'#E5CD00'} strokeWidth={3} />corrija pendências para liberar pagamentos</label>
 			<div style={field} onClick={editFname}>
 				<div style={header}>
 					<label style={label}>Nome</label>
@@ -36,7 +35,7 @@ export const PersonData = () => {
 			<div style={field}>
 				<div style={headerAlt}>
 					<label style={label}>RG</label>
-					<div style={labelWrapper}><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} /><label style={pending}>pendente</label></div>
+					<div style={labelWrapper}><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} /><label style={pending}>preencha p/ liberar pagamentos</label></div>
 					<PenIcon size={13} />
 				</div>
 				<input style={input} placeholder='11.22.33.44-55' />
@@ -45,7 +44,7 @@ export const PersonData = () => {
 			<div style={field}>
 				<div style={headerAlt}>
 					<label style={label}>CPF</label>
-					<div style={labelWrapper}><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} /><label style={pending}>pendente</label></div>
+					<div style={labelWrapper}><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} /><label style={pending}>preencha p/ liberar pagamentos</label></div>
 					<PenIcon size={13} />
 				</div>
 				<input style={input} placeholder='111.222.333-44' />
