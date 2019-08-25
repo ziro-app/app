@@ -4,22 +4,27 @@ import { PenIcon } from '../../../Assets/PenIcon/index'
 import { PendingIcon } from '../../../Assets/PendingIcon/index'
 import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
 import { successColor } from '../../../Theme/styleVariables'
-import { container, warning, field, header, headerAlt, label, input, labelWrapper, pending, validated } from './styles'
+import { container, warning, field, header, headerAlt, label, input, labelWrapper, pending, validated, submit } from './styles'
 
 export const PersonData = () => {
 	const [fname, setFname] = useState('Vitor')
+	const [editFname, setEditFname] = useState(false)
+	const [submitFname, setSubmitFname] = useState(false)
 	const inputFname = useRef(null)
-	const editFname = () => {
+	const selectFname = () => {
 		if (inputFname && inputFname.current)
 			inputFname.current.select()
 	}
-	const updateFname = ({ target: { value } }) => setFname(value)
+	const updateFname = ({ target: { value } }) => {
+		setEditFname(true)
+		setFname(value)
+	}
 	return (
 		<div style={container}>
-			<div style={field} onClick={editFname}>
+			<div style={field} onClick={selectFname}>
 				<div style={header}>
 					<label style={label}>Nome</label>
-					<PenIcon size={13} />
+					{editFname ? <div style={submit}>Salvar</div> : <PenIcon size={13} />}
 				</div>
 				<InputText style={input} ref={inputFname} value={fname} onChange={updateFname} />
 				<label>&nbsp;</label>

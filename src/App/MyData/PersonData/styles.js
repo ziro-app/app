@@ -72,4 +72,13 @@ validated = {
 	gridColumnGap: '2px',
 	fontSize: '1.2rem',
 	color: successColor
+},
+
+submit = {
+	padding: '0px 5px',
+	border: `1px solid ${primaryColor}`,
+	borderRadius: '4px',
+	fontFamily: fontTitle,
+	textTransform: 'uppercase',
+	cursor: 'pointer'
 }
