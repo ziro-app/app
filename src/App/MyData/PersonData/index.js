@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useReducer } from 'react'
 import InputText from '@bit/vitorbarbosa19.ziro.input-text'
 import { PenIcon } from '../../../Assets/PenIcon/index'
 import { PendingIcon } from '../../../Assets/PendingIcon/index'
@@ -7,24 +7,46 @@ import { successColor } from '../../../Theme/styleVariables'
 import { container, warning, field, header, headerAlt, label, input, labelWrapper, pending, validated, submit } from './styles'
 
 export const PersonData = () => {
+	const [uiState, transition] = useReducer((uiState, action) => {
+		const machine = {
+			idle: { EDIT: 'editing' },
+			editing: { SUBMIT: 'submitting', EDIT: 'editing' },
+			submitting: { OK: 'success', ERROR: 'error' },
+			success: { EDIT: 'editing' },
+			error: { SUBMIT: 'submitting', EDIT: 'editing' }
+		}
+		return machine[uiState][action]
+	}, 'idle')
 	const [fname, setFname] = useState('Vitor')
-	const [editFname, setEditFname] = useState(false)
-	const [submitFname, setSubmitFname] = useState(false)
 	const inputFname = useRef(null)
 	const selectFname = () => {
 		if (inputFname && inputFname.current)
 			inputFname.current.select()
 	}
 	const updateFname = ({ target: { value } }) => {
-		setEditFname(true)
-		setFname(value)
+		if (uiState !== 'submitting') {
+			transition('EDIT')
+			setFname(value)
+		}
+	}
+	const saveFname = async () => {
+		transition('SUBMIT')
+		await new Promise(resolve => setTimeout(() => resolve('OK'),1000))
+		transition('OK')
+	}
+	const display = {
+		idle: <PenIcon size={13} />,
+		editing: <div style={submit} onClick={saveFname}>Salvar</div>,
+		submitting: <div>Enviando...</div>,
+		success: <PenIcon size={13} />,
+		error: <div style={submit} onClick={saveFname}>Salvar</div>
 	}
 	return (
 		<div style={container}>
 			<div style={field} onClick={selectFname}>
 				<div style={header}>
 					<label style={label}>Nome</label>
-					{editFname ? <div style={submit}>Salvar</div> : <PenIcon size={13} />}
+					{display[uiState]}
 				</div>
 				<InputText style={input} ref={inputFname} value={fname} onChange={updateFname} />
 				<label>&nbsp;</label>
