@@ -27,8 +27,9 @@ field = {
 header = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
-	alignItems: 'center',
-	justifyItems: 'end'
+	alignItems: 'end',
+	justifyItems: 'end',
+	height: '24px'
 },
 
 headerAlt = {
