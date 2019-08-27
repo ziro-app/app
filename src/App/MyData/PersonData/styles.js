@@ -29,13 +29,18 @@ header = {
 	gridTemplateColumns: 'auto 1fr',
 	alignItems: 'end',
 	justifyItems: 'end',
-	height: '24px'
+	height: '20px'
 },
 
 headerAlt = {
 	...header,
 	gridTemplateColumns: 'auto auto 1fr',
 	gridColumnGap: '6px'
+},
+
+spinner = {
+	animation: 'spin 0.6s linear infinite',
+	justifySelf: 'end'
 },
 
 label = {

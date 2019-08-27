@@ -5,7 +5,7 @@ import { PendingIcon } from '../../../Assets/PendingIcon/index'
 import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
 import { Spinner } from '../../../Assets/Spinner/index'
 import { successColor } from '../../../Theme/styleVariables'
-import { container, warning, field, header, headerAlt, label, input, labelWrapper, pending, validated, submit } from './styles'
+import { container, warning, field, header, headerAlt, spinner, label, input, labelWrapper, pending, validated, submit } from './styles'
 
 export const PersonData = () => {
 	const [uiState, transition] = useReducer((uiState, action) => {
@@ -38,7 +38,7 @@ export const PersonData = () => {
 	const display = {
 		idle: <PenIcon size={13} />,
 		editing: <div style={submit} onClick={saveFname}>Salvar</div>,
-		submitting: <div style={{ justifySelf: 'end' }}><Spinner size={'2rem'} /></div>,
+		submitting: <Spinner size={'2rem'} style={spinner} />,
 		success: <PenIcon size={13} />,
 		error: <div style={submit} onClick={saveFname}>Salvar</div>
 	}
