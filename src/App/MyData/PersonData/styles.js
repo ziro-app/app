@@ -90,10 +90,9 @@ validated = {
 },
 
 submit = {
-	padding: '0px 5px',
-	border: `1px solid ${primaryColor}`,
-	borderRadius: '4px',
-	fontFamily: fontTitle,
+	padding: '2px 6px',
+	border: `1px solid rgb(74,74,74)`,
+	borderRadius: '2px',
 	textTransform: 'uppercase',
 	cursor: 'pointer'
 }
