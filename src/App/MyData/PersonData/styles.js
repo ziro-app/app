@@ -1,4 +1,4 @@
-import { fontTitle, primaryColor, successColor } from '../../../Theme/styleVariables'
+import { fontTitle, primaryColor, grayColor2, successColor } from '../../../Theme/styleVariables'
 
 export const
 
@@ -58,6 +58,15 @@ input = {
 	fontSize: '1.6rem',
 	color: primaryColor
 },
+
+inputCss =	`
+	input:disabled {
+		background: none;
+	}
+	input::placeholder {
+	   	color: ${grayColor2};
+	}
+`,
 
 labelWrapper = {
 	display: 'grid',

@@ -21,13 +21,14 @@ alertColor = '#EB5757',
 successColor = '#4BCA81',
 otherColor = '#2D9CDB',
 
-// grab all colors: primaryColor, primaryAltColor, primaryAltColorLight1, primaryAltColorLight2, grayColor1, grayColor2, grayColor3, grayColor4, secondaryColor, alertColor, successColor, otherColor
-
 /* FONTS */
 fontTitle = 'Rubik',
+fontBody = 'Work Sans',
 fontWeightTitle = '500',
 fontWeightBody = '400',
 fontWeightMuted = '300',
+fontSizeNormal = '1.6rem',
+fontSizeInput = '1.5rem',
 fontSizeSmall = '1.2rem',
 
 /* GRADIENT */

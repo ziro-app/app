@@ -23,6 +23,15 @@ a {
     text-decoration: none;
 }
 
+a:active, a:focus {
+    outline: none;
+    -moz-outline-style: none;
+}
+
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 ul {
     font-size: 1.7rem;
     padding: 0;
@@ -33,14 +42,12 @@ label {
     font-size: 1.6rem;
 }
 
+/* remove below after updating all inputs to the standard input component from Ziro library */
+
 input {
     font-size: 1.5rem;
     font-family: 'work sans', 'system-ui', 'sans-serif';
 }
-
-/* --------------- */
-/* ADVANCED STYLES */
-/* --------------- */
 
 input::placeholder, textarea::placeholder {
     color: #BDBDBD;
@@ -55,11 +62,4 @@ input:disabled {
     background: none;
 }
 
-a:active, a:focus {
-    outline: none;
-    -moz-outline-style: none;
-}
-
-a {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
+/* --- */
