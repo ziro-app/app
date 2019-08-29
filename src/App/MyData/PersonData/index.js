@@ -5,7 +5,7 @@ import { PendingIcon } from '../../../Assets/PendingIcon/index'
 import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
 import { Spinner } from '../../../Assets/Spinner/index'
 import { successColor } from '../../../Theme/styleVariables'
-import { container, warning, field, header, headerAlt, spinner, label, input, inputCss, labelWrapper, pending, validated, submit } from './styles'
+import { container, block, alert, header, name, note, input, inputCss, pending, validated, warning, field, headerAlt, spinner, label, labelWrapper, submit } from './styles'
 
 export const PersonData = () => {
 	const [uiState, transition] = useReducer((uiState, action) => {
@@ -44,13 +44,14 @@ export const PersonData = () => {
 	}
 	return (
 		<div style={container}>
-			<div style={field} onClick={selectFname}>
+			<div style={block} onClick={selectFname}>
+				<div style={alert}><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} /><label style={pending}>preencha p/ liberar pagamentos</label></div>
 				<div style={header}>
-					<label style={label}>Nome</label>
+					<label style={name}>Nome</label>
+					<div style={note}><label style={validated}><SuccessIcon size={8} color={successColor} />validado</label></div>
 					{display[uiState]}
 				</div>
 				<InputText style={input} css={inputCss} ref={inputFname} value={fname} onChange={updateFname} />
-				<label>&nbsp;</label>
 			</div>
 			<div style={field}>
 				<div style={header}>

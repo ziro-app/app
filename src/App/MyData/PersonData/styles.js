@@ -8,45 +8,34 @@ container = {
 	marginTop: '10px'
 },
 
-warning = {
-	display: 'grid',
-	gridRowGap: '4px',
-	justifyItems: 'center',
-	maxWidth: '250px',
-	margin: '0 auto',
-	textAlign: 'center',
-	fontSize: '1.2rem',
-	color: '#E5CD00',
-},
-
-field = {
+block = {
 	display: 'grid',
 	color: primaryColor
 },
 
-header = {
+alert = {
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
-	alignItems: 'end',
-	justifyItems: 'end',
+	gridColumnGap: '5px',
+	alignItems: 'center'
+},
+
+header = {
+	display: 'grid',
+	gridTemplateColumns: 'auto auto 1fr',
+	gridColumnGap: '6px',
+	placeItems: 'end',
 	height: '20px'
 },
 
-headerAlt = {
-	...header,
-	gridTemplateColumns: 'auto auto 1fr',
-	gridColumnGap: '6px'
-},
-
-spinner = {
-	animation: 'spin 0.6s linear infinite',
-	justifySelf: 'end'
-},
-
-label = {
+name = {
 	fontFamily: fontTitle,
 	fontSize: '1.2rem',
 	textTransform: 'uppercase'
+},
+
+note = {
+
 },
 
 input = {
@@ -68,16 +57,9 @@ inputCss =	`
 	}
 `,
 
-labelWrapper = {
-	display: 'grid',
-	gridTemplateColumns: 'auto 1fr',
-	gridColumnGap: '2px',
-	alignItems: 'center'
-},
-
 pending = {
 	color: '#E5CD00',
-	fontSize: '1.2rem'
+	fontSize: '1.1rem'
 },
 
 validated = {
@@ -85,8 +67,48 @@ validated = {
 	gridTemplateColumns: 'auto 1fr',
 	alignItems: 'center',
 	gridColumnGap: '2px',
-	fontSize: '1.2rem',
+	fontSize: '1.1rem',
 	color: successColor
+},
+
+warning = {
+	display: 'grid',
+	gridRowGap: '4px',
+	justifyItems: 'center',
+	maxWidth: '250px',
+	margin: '0 auto',
+	textAlign: 'center',
+	fontSize: '1.2rem',
+	color: '#E5CD00',
+},
+
+field = {
+	display: 'grid',
+	color: primaryColor
+},
+
+headerAlt = {
+	...header,
+	gridTemplateColumns: 'auto auto 1fr',
+	gridColumnGap: '6px'
+},
+
+spinner = {
+	animation: 'spin 0.6s linear infinite',
+	justifySelf: 'end'
+},
+
+label = {
+	fontFamily: fontTitle,
+	fontSize: '1.2rem',
+	textTransform: 'uppercase'
+},
+
+labelWrapper = {
+	display: 'grid',
+	gridTemplateColumns: 'auto 1fr',
+	gridColumnGap: '2px',
+	alignItems: 'center'
 },
 
 submit = {
