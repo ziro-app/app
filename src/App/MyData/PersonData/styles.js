@@ -1,4 +1,4 @@
-import { fontTitle, primaryColor, grayColor2, successColor } from '../../../Theme/styleVariables'
+import { fontTitle, primaryColor, grayColor2, successColor, alertColor } from '../../../Theme/styleVariables'
 
 export const
 
@@ -56,6 +56,11 @@ inputCss =	`
 	   	color: ${grayColor2};
 	}
 `,
+
+error = {
+	color: alertColor,
+	fontSize: '1.1rem'
+},
 
 pending = {
 	color: '#E5CD00',

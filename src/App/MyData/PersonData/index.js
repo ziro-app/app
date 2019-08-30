@@ -1,11 +1,11 @@
-import React, { useState, useRef, useReducer } from 'react'
+import React, { useState, useRef, useReducer, Fragment } from 'react'
 import InputText from '@bit/vitorbarbosa19.ziro.input-text'
 import { PenIcon } from '../../../Assets/PenIcon/index'
 import { PendingIcon } from '../../../Assets/PendingIcon/index'
 import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
 import { Spinner } from '../../../Assets/Spinner/index'
 import { successColor } from '../../../Theme/styleVariables'
-import { container, block, alert, header, name, note, input, inputCss, pending, validated, warning, field, headerAlt, spinner, label, labelWrapper, submit } from './styles'
+import { container, block, alert, header, name, note, input, inputCss, error, pending, validated, warning, field, headerAlt, spinner, label, labelWrapper, submit } from './styles'
 
 export const PersonData = () => {
 	const [uiState, transition] = useReducer((uiState, action) => {
@@ -38,6 +38,7 @@ export const PersonData = () => {
 	const saveFname = async () => {
 		if (validateFname(fname)) {
 			transition('SUBMIT')
+			setErrorFname('')
 			await new Promise(resolve => setTimeout(() => resolve('OK'),1000))
 			transition('OK')
 		} else {
@@ -54,7 +55,12 @@ export const PersonData = () => {
 	return (
 		<div style={container}>
 			<div style={block} onClick={selectFname}>
-				<div style={alert}><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} /><label style={pending}>preencha p/ liberar pagamentos</label></div>
+				<div style={alert}>
+					{errorFname
+						? <div style={error}>{errorFname}</div>
+						: <Fragment><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} /><label style={pending}>preencha p/ liberar pagamentos</label></Fragment>
+					}
+				</div>
 				<div style={header}>
 					<label style={name}>Nome</label>
 					<div style={note}><label style={validated}><SuccessIcon size={8} color={successColor} />validado</label></div>
