@@ -55,12 +55,15 @@ export const PersonData = () => {
 	return (
 		<div style={container}>
 			<div style={block} onClick={selectFname}>
-				<div style={alert}>
-					{errorFname
-						? <div style={error}>{errorFname}</div>
-						: <Fragment><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} /><label style={pending}>preencha p/ liberar pagamentos</label></Fragment>
-					}
-				</div>
+				{uiState === 'submitting'
+					? <div style={{ height: '1.5rem' }}>&nbsp;</div>
+					: <div style={alert}>
+						{errorFname
+							? <div style={error}>{errorFname}</div>
+							: <Fragment><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} /><label style={pending}>preencha p/ liberar pagamentos</label></Fragment>
+						}
+					  </div>
+				}
 				<div style={header}>
 					<label style={name}>Nome</label>
 					<div style={note}><label style={validated}><SuccessIcon size={8} color={successColor} />validado</label></div>
