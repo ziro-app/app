@@ -2,10 +2,11 @@ import React, { useState, useRef, useReducer, Fragment } from 'react'
 import InputText from '@bit/vitorbarbosa19.ziro.input-text'
 import { PenIcon } from '../../../Assets/PenIcon/index'
 import { PendingIcon } from '../../../Assets/PendingIcon/index'
+import { AlertIcon } from '../../../Assets/AlertIcon/index'
 import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
 import { Spinner } from '../../../Assets/Spinner/index'
 import { successColor } from '../../../Theme/styleVariables'
-import { container, block, alert, header, name, note, input, inputCss, error, pending, validated, warning, field, headerAlt, spinner, label, labelWrapper, submit } from './styles'
+import { container, block, space, header, name, note, input, inputCss, error, pending, validated, warning, field, headerAlt, spinner, label, labelWrapper, submit } from './styles'
 
 export const PersonData = () => {
 	const [uiState, transition] = useReducer((uiState, action) => {
@@ -56,13 +57,13 @@ export const PersonData = () => {
 		<div style={container}>
 			<div style={block} onClick={selectFname}>
 				{uiState === 'submitting'
-					? <div style={{ height: '1.5rem' }}>&nbsp;</div>
-					: <div style={alert}>
+					? <div style={space}>&nbsp;</div>
+					: <Fragment>
 						{errorFname
-							? <div style={error}>{errorFname}</div>
-							: <Fragment><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} /><label style={pending}>preencha p/ liberar pagamentos</label></Fragment>
+							? <div style={error}><AlertIcon size={9} />{errorFname}</div>
+							: <div style={pending}><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} />preencha p/ liberar pagamentos</div>
 						}
-					  </div>
+					  </Fragment>
 				}
 				<div style={header}>
 					<label style={name}>Nome</label>

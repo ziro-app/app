@@ -13,11 +13,8 @@ block = {
 	color: primaryColor
 },
 
-alert = {
-	display: 'grid',
-	gridTemplateColumns: 'auto 1fr',
-	gridColumnGap: '5px',
-	alignItems: 'center'
+space = {
+	height: '1.5rem'
 },
 
 header = {
@@ -58,11 +55,19 @@ inputCss =	`
 `,
 
 error = {
+	display: 'grid',
+	gridTemplateColumns: 'auto 1fr',
+	gridColumnGap: '5px',
+	alignItems: 'center',
 	color: alertColor,
 	fontSize: '1.1rem'
 },
 
 pending = {
+	display: 'grid',
+	gridTemplateColumns: 'auto 1fr',
+	gridColumnGap: '5px',
+	alignItems: 'center',
 	color: '#E5CD00',
 	fontSize: '1.1rem'
 },
