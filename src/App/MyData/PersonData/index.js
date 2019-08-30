@@ -19,6 +19,7 @@ export const PersonData = () => {
 		return machine[uiState][action]
 	}, 'idle')
 	const [fname, setFname] = useState('Vitor')
+	const [errorFname, setErrorFname] = useState('')
 	const inputFname = useRef(null)
 	const selectFname = () => {
 		if (inputFname && inputFname.current)
@@ -30,10 +31,18 @@ export const PersonData = () => {
 			setFname(value)
 		}
 	}
+	const validateFname = fname => {
+		const fnameIsValid = Boolean(fname)
+		return fnameIsValid
+	}
 	const saveFname = async () => {
-		transition('SUBMIT')
-		await new Promise(resolve => setTimeout(() => resolve('OK'),1000))
-		transition('OK')
+		if (validateFname(fname)) {
+			transition('SUBMIT')
+			await new Promise(resolve => setTimeout(() => resolve('OK'),1000))
+			transition('OK')
+		} else {
+			setErrorFname('Não pode estar em branco')
+		}
 	}
 	const display = {
 		idle: <PenIcon size={13} />,
