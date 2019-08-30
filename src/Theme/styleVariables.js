@@ -19,6 +19,7 @@ grayColor4 = '#F2F2F2',
 secondaryColor = '#FFE401',
 alertColor = '#EB5757',
 successColor = '#4BCA81',
+pendingColor = '#E5CD00',
 otherColor = '#2D9CDB',
 
 /* FONTS */

@@ -60,8 +60,8 @@ export const PersonData = () => {
 					? <div style={space}>&nbsp;</div>
 					: <Fragment>
 						{errorFname
-							? <div style={error}><AlertIcon size={9} />{errorFname}</div>
-							: <div style={pending}><PendingIcon size={9} color={'#E5CD00'} strokeWidth={3} />preencha p/ liberar pagamentos</div>
+							? <div style={error}><AlertIcon size={9} strokeWidth={3} />{errorFname}</div>
+							: <div style={pending}><PendingIcon size={9} strokeWidth={3} />preencha p/ liberar pagamentos</div>
 						}
 					  </Fragment>
 				}

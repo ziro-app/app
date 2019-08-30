@@ -1,4 +1,4 @@
-import { fontTitle, primaryColor, grayColor2, successColor, alertColor } from '../../../Theme/styleVariables'
+import { fontTitle, primaryColor, grayColor2, successColor, alertColor, pendingColor } from '../../../Theme/styleVariables'
 
 export const
 
@@ -68,7 +68,7 @@ pending = {
 	gridTemplateColumns: 'auto 1fr',
 	gridColumnGap: '5px',
 	alignItems: 'center',
-	color: '#E5CD00',
+	color: pendingColor,
 	fontSize: '1.1rem'
 },
 

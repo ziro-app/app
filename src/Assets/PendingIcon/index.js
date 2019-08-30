@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { primaryColor } from '../../Theme/styleVariables'
+import { pendingColor } from '../../Theme/styleVariables'
 
 export const PendingIcon = ({ size, color, strokeWidth }) =>
 	<svg width={size} height={size} viewBox='0 0 24 24' fill='none' stroke={color} strokeWidth={strokeWidth} strokeLinecap='round' strokeLinejoin='round'>
@@ -11,7 +11,7 @@ export const PendingIcon = ({ size, color, strokeWidth }) =>
 
 PendingIcon.defaultProps = {
 	size: 24,
-	color: primaryColor,
+	color: pendingColor,
 	strokeWidth: 2
 }
 
