@@ -53,18 +53,21 @@ export const PersonData = () => {
 		success: <PenIcon size={13} />,
 		error: <div style={submit} onClick={saveFname}>Salvar</div>
 	}
+	const displayError = () => {
+		if (uiState === 'submitting')
+			return <div style={space}>&nbsp;</div>
+		else {
+			if (errorFname)
+				return <div style={error}><AlertIcon size={9} strokeWidth={3} />{errorFname}</div>
+			if (!errorFname && false)
+				return <div style={pending}><PendingIcon size={9} strokeWidth={3} />preencha p/ liberar pagamentos</div>
+			return <div style={space}>&nbsp;</div>
+		}
+	}
 	return (
 		<div style={container}>
 			<div style={block} onClick={selectFname}>
-				{uiState === 'submitting'
-					? <div style={space}>&nbsp;</div>
-					: <Fragment>
-						{errorFname
-							? <div style={error}><AlertIcon size={9} strokeWidth={3} />{errorFname}</div>
-							: <div style={pending}><PendingIcon size={9} strokeWidth={3} />preencha p/ liberar pagamentos</div>
-						}
-					  </Fragment>
-				}
+				{displayError()}
 				<div style={header(false)}>
 					<label style={name}>Nome</label>
 					{false && <div style={note}><label style={validated}><SuccessIcon size={8} color={successColor} />validado</label></div>}
