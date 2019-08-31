@@ -17,13 +17,13 @@ space = {
 	height: '1.5rem'
 },
 
-header = {
+header = threeColumn => ({
 	display: 'grid',
-	gridTemplateColumns: 'auto auto 1fr',
+	gridTemplateColumns: threeColumn ? 'auto auto 1fr' : 'auto 1fr',
 	gridColumnGap: '6px',
 	placeItems: 'end',
 	height: '20px'
-},
+}),
 
 name = {
 	fontFamily: fontTitle,

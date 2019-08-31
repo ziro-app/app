@@ -65,15 +65,15 @@ export const PersonData = () => {
 						}
 					  </Fragment>
 				}
-				<div style={header}>
+				<div style={header(false)}>
 					<label style={name}>Nome</label>
-					<div style={note}><label style={validated}><SuccessIcon size={8} color={successColor} />validado</label></div>
+					{false && <div style={note}><label style={validated}><SuccessIcon size={8} color={successColor} />validado</label></div>}
 					{display[uiState]}
 				</div>
 				<InputText style={input} css={inputCss} ref={inputFname} value={fname} onChange={updateFname} />
 			</div>
 			<div style={field}>
-				<div style={header}>
+				<div style={headerAlt}>
 					<label style={label}>Sobrenome</label>
 					<PenIcon size={13} />
 				</div>
