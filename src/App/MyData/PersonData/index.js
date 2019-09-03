@@ -8,7 +8,7 @@ export const PersonData = () => {
 	const updateFname = ({ target: { value } }) => setFname(value)
 	const validateFname = () => {
 		if (fname.length < 3) {
-			setErrorFname('pelo menos 3 caracteres')
+			setErrorFname('mínimo 3 caracteres')
 			return false
 		} else {
 			setErrorFname('')
@@ -16,6 +16,19 @@ export const PersonData = () => {
 		}
 	}
 	const saveFname = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
+	const [lname, setLname] = useState('Barbosa')
+	const [errorLname, setErrorLname] = useState('')
+	const updateLname = ({ target: { value } }) => setLname(value)
+	const validateLname = () => {
+		if (lname.length < 3) {
+			setErrorLname('mínimo 3 caracteres')
+			return false
+		} else {
+			setErrorLname('')
+			return true
+		}
+	}
+	const saveLname = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
 	return (
 		<div style={container}>
 			<EditableData
@@ -29,12 +42,12 @@ export const PersonData = () => {
 			/>
 			<EditableData
 				name='Sobrenome'
-				value={'Barbosa'}
-				onChange={updateFname}
-				validateInput={validateFname}
-				submit={saveFname}
-				setError={setErrorFname}
-				error={errorFname}
+				value={lname}
+				onChange={updateLname}
+				validateInput={validateLname}
+				submit={saveLname}
+				setError={setErrorLname}
+				error={errorLname}
 			/>
 			<EditableData
 				name='RG'
