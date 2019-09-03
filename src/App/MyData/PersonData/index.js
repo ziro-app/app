@@ -59,6 +59,9 @@ export const PersonData = () => {
 		}
 	}
 	const saveCpf = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
+	/*-------- EMAIL & WHATSAPP --------*/
+	const email = 'vitorbarbosa19@gmail.com'
+	const whatsapp = '+55 (11) 95177-1321'
 	return (
 		<div style={container}>
 			<EditableData
@@ -103,23 +106,13 @@ export const PersonData = () => {
 			/>
 			<EditableData
 				name='Email'
-				value={'vitorbarbosa19@gmail.com'}
-				onChange={updateFname}
-				validateInput={validateFname}
-				submit={saveFname}
-				setError={setErrorFname}
-				error={errorFname}
+				value={email}
 				isValidated={true}
 				editable={false}
 			/>
 			<EditableData
 				name='Whatsapp'
-				value={'+55 (11) 95177-1321'}
-				onChange={updateFname}
-				validateInput={validateFname}
-				submit={saveFname}
-				setError={setErrorFname}
-				error={errorFname}
+				value={whatsapp}
 				editable={false}
 			/>
 		</div>
