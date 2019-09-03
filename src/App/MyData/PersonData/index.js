@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'
+import { db } from '../../../Firebase/db'
 import { container } from './styles'
 
-export const PersonData = () => {
+export const PersonData = ({ user }) => {
 	/*-------- FNAME --------*/
 	const [fname, setFname] = useState('Vitor')
 	const [errorFname, setErrorFname] = useState('')
@@ -60,7 +62,7 @@ export const PersonData = () => {
 	}
 	const saveCpf = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
 	/*-------- EMAIL & WHATSAPP --------*/
-	const email = 'vitorbarbosa19@gmail.com'
+	const email = user.email
 	const whatsapp = '+55 (11) 95177-1321'
 	return (
 		<div style={container}>
@@ -117,4 +119,8 @@ export const PersonData = () => {
 			/>
 		</div>
 	)
+}
+
+PersonData.propTypes = {
+	user: PropTypes.object.isRequired
 }
