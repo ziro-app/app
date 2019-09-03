@@ -1,4 +1,5 @@
 import React, { useState, useRef, useReducer, Fragment } from 'react'
+import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'
 import InputText from '@bit/vitorbarbosa19.ziro.input-text'
 import { PenIcon } from '../../../Assets/PenIcon/index'
 import { PendingIcon } from '../../../Assets/PendingIcon/index'
@@ -9,72 +10,30 @@ import { successColor } from '../../../Theme/styleVariables'
 import { container, block, space, header, name, note, input, inputCss, error, pending, validated, warning, field, headerAlt, spinner, label, labelWrapper, submit } from './styles'
 
 export const PersonData = () => {
-	const [uiState, transition] = useReducer((uiState, action) => {
-		const machine = {
-			idle: { EDIT: 'editing' },
-			editing: { SUBMIT: 'submitting', EDIT: 'editing' },
-			submitting: { OK: 'success', ERROR: 'error' },
-			success: { EDIT: 'editing' },
-			error: { SUBMIT: 'submitting', EDIT: 'editing' }
-		}
-		return machine[uiState][action]
-	}, 'idle')
 	const [fname, setFname] = useState('Vitor')
 	const [errorFname, setErrorFname] = useState('')
-	const inputFname = useRef(null)
-	const selectFname = () => {
-		if (inputFname && inputFname.current)
-			inputFname.current.select()
-	}
-	const updateFname = ({ target: { value } }) => {
-		if (uiState !== 'submitting') {
-			transition('EDIT')
-			setFname(value)
-		}
-	}
-	const validateFname = fname => {
-		const fnameIsValid = Boolean(fname)
-		return fnameIsValid
-	}
-	const saveFname = async () => {
-		if (validateFname(fname)) {
-			transition('SUBMIT')
-			setErrorFname('')
-			await new Promise(resolve => setTimeout(() => resolve('OK'),1000))
-			transition('OK')
+	const updateFname = ({ target: { value } }) => setFname(value)
+	const validateFname = () => {
+		if (fname.length < 3) {
+			setErrorFname('pelo menos 3 caracteres')
+			return false
 		} else {
-			setErrorFname('Não pode estar em branco')
+			setErrorFname('')
+			return true
 		}
 	}
-	const display = {
-		idle: <PenIcon size={13} />,
-		editing: <div style={submit} onClick={saveFname}>Salvar</div>,
-		submitting: <Spinner size={'2rem'} style={spinner} />,
-		success: <PenIcon size={13} />,
-		error: <div style={submit} onClick={saveFname}>Salvar</div>
-	}
-	const displayError = () => {
-		if (uiState === 'submitting')
-			return <div style={space}>&nbsp;</div>
-		else {
-			if (errorFname)
-				return <div style={error}><AlertIcon size={9} strokeWidth={3} />{errorFname}</div>
-			if (!errorFname && false)
-				return <div style={pending}><PendingIcon size={9} strokeWidth={3} />preencha p/ liberar pagamentos</div>
-			return <div style={space}>&nbsp;</div>
-		}
-	}
+	const saveFname = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
 	return (
 		<div style={container}>
-			<div style={block} onClick={selectFname}>
-				{displayError()}
-				<div style={header(false)}>
-					<label style={name}>Nome</label>
-					{false && <div style={note}><label style={validated}><SuccessIcon size={8} color={successColor} />validado</label></div>}
-					{display[uiState]}
-				</div>
-				<InputText style={input} css={inputCss} ref={inputFname} value={fname} onChange={updateFname} />
-			</div>
+			<EditableData
+				name='Nome'
+				value={fname}
+				onChange={updateFname}
+				validateInput={validateFname}
+				submit={saveFname}
+				setError={setErrorFname}
+				error={errorFname}
+			/>
 			<div style={field}>
 				<div style={headerAlt}>
 					<label style={label}>Sobrenome</label>
