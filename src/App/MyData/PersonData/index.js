@@ -3,6 +3,7 @@ import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'
 import { container } from './styles'
 
 export const PersonData = () => {
+	/*-------- FNAME --------*/
 	const [fname, setFname] = useState('Vitor')
 	const [errorFname, setErrorFname] = useState('')
 	const updateFname = ({ target: { value } }) => setFname(value)
@@ -16,6 +17,7 @@ export const PersonData = () => {
 		}
 	}
 	const saveFname = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
+	/*-------- LNAME --------*/
 	const [lname, setLname] = useState('Barbosa')
 	const [errorLname, setErrorLname] = useState('')
 	const updateLname = ({ target: { value } }) => setLname(value)
@@ -29,6 +31,34 @@ export const PersonData = () => {
 		}
 	}
 	const saveLname = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
+	/*-------- RG --------*/
+	const [rg, setRg] = useState('')
+	const [errorRg, setErrorRg] = useState('')
+	const updateRg = ({ target: { value } }) => setRg(value)
+	const validateRg = () => {
+		if (rg.length < 3) {
+			setErrorRg('mínimo 5 caracteres')
+			return false
+		} else {
+			setErrorRg('')
+			return true
+		}
+	}
+	const saveRg = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
+	/*-------- CPF --------*/
+	const [cpf, setCpf] = useState('')
+	const [errorCpf, setErrorCpf] = useState('')
+	const updateCpf = ({ target: { value } }) => setCpf(value)
+	const validateCpf = () => {
+		if (cpf.length < 12) {
+			setErrorCpf('deve ter 11 caracteres')
+			return false
+		} else {
+			setErrorCpf('')
+			return true
+		}
+	}
+	const saveCpf = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
 	return (
 		<div style={container}>
 			<EditableData
@@ -51,23 +81,23 @@ export const PersonData = () => {
 			/>
 			<EditableData
 				name='RG'
-				value={''}
-				onChange={updateFname}
-				validateInput={validateFname}
-				submit={saveFname}
-				setError={setErrorFname}
-				error={errorFname}
+				value={rg}
+				onChange={updateRg}
+				validateInput={validateRg}
+				submit={saveRg}
+				setError={setErrorRg}
+				error={errorRg}
 				warning='preencha para liberar pagamentos'
 				placeholder='11.22.33.44-55'
 			/>
 			<EditableData
 				name='CPF'
-				value={''}
-				onChange={updateFname}
-				validateInput={validateFname}
-				submit={saveFname}
-				setError={setErrorFname}
-				error={errorFname}
+				value={cpf}
+				onChange={updateCpf}
+				validateInput={validateCpf}
+				submit={saveCpf}
+				setError={setErrorCpf}
+				error={errorCpf}
 				warning='preencha para liberar pagamentos'
 				placeholder='111.222.333-44'
 			/>
