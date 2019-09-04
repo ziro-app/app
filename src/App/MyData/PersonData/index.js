@@ -12,9 +12,11 @@ export const PersonData = ({ user: { uid, email } }) => {
 	useEffect(() => db.firestore().collection('users').where('id','==',uid).onSnapshot(
 		snapshot => {
 			const data = snapshot.docs[0].data()
-			if (data.id === uid) {
+			if (data && data.id === uid) {
 				setFname(data.fname)
 				setLname(data.lname)
+				setRg(data.rg)
+				setCpf(data.cpf)
 				setWhatsapp(data.phone)
 			}
 			setIsLoading(false)
