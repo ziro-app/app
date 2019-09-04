@@ -95,6 +95,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				setError={setErrorFname}
 				error={errorFname}
 				isLoading={isLoading}
+				editable={!errorFetch}
 			/>
 			<EditableData
 				name='Sobrenome'
@@ -105,6 +106,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				setError={setErrorLname}
 				error={errorLname}
 				isLoading={isLoading}
+				editable={!errorFetch}
 			/>
 			<EditableData
 				name='RG'
@@ -114,9 +116,10 @@ export const PersonData = ({ user: { uid, email } }) => {
 				submit={saveRg}
 				setError={setErrorRg}
 				error={errorRg}
-				warning={rg === '' ? 'preencha para liberar pagamentos' : ''}
+				warning={rg === '' ? 'preencha p/ pagar pelo app' : ''}
 				placeholder='11.22.33.44-55'
 				isLoading={isLoading}
+				editable={!errorFetch}
 			/>
 			<EditableData
 				name='CPF'
@@ -126,9 +129,10 @@ export const PersonData = ({ user: { uid, email } }) => {
 				submit={saveCpf}
 				setError={setErrorCpf}
 				error={errorCpf}
-				warning={cpf === '' ? 'preencha para liberar pagamentos' : ''}
+				warning={cpf === '' ? 'preencha p/ pagar pelo app' : ''}
 				placeholder='111.222.333-44'
 				isLoading={isLoading}
+				editable={!errorFetch}
 			/>
 			<EditableData
 				name='Email'
@@ -141,6 +145,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				value={whatsapp}
 				editable={false}
 				isLoading={isLoading}
+				editable={!errorFetch}
 			/>
 		</div>
 	)
