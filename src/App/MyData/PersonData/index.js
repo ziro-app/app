@@ -114,7 +114,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				submit={saveRg}
 				setError={setErrorRg}
 				error={errorRg}
-				warning='preencha para liberar pagamentos'
+				warning={rg === '' ? 'preencha para liberar pagamentos' : ''}
 				placeholder='11.22.33.44-55'
 				isLoading={isLoading}
 			/>
@@ -126,7 +126,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				submit={saveCpf}
 				setError={setErrorCpf}
 				error={errorCpf}
-				warning='preencha para liberar pagamentos'
+				warning={cpf === '' ? 'preencha para liberar pagamentos' : ''}
 				placeholder='111.222.333-44'
 				isLoading={isLoading}
 			/>
