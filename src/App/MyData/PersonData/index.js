@@ -55,7 +55,10 @@ export const PersonData = ({ user: { uid, email } }) => {
 			return true
 		}
 	}
-	const saveLname = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
+	const saveLname = async () => {
+		const data = await db.firestore().collection('users').where('id','==',uid).get()
+		await data.docs[0].ref.update({ lname })
+	}
 	/*-------- RG --------*/
 	const [rg, setRg] = useState('')
 	const [errorRg, setErrorRg] = useState('')
@@ -69,13 +72,16 @@ export const PersonData = ({ user: { uid, email } }) => {
 			return true
 		}
 	}
-	const saveRg = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
+	const saveRg = async () => {
+		const data = await db.firestore().collection('users').where('id','==',uid).get()
+		await data.docs[0].ref.update({ rg })
+	}
 	/*-------- CPF --------*/
 	const [cpf, setCpf] = useState('')
 	const [errorCpf, setErrorCpf] = useState('')
 	const updateCpf = ({ target: { value } }) => setCpf(value)
 	const validateCpf = () => {
-		if (cpf.length < 12) {
+		if (cpf.length < 11) {
 			setErrorCpf('deve ter 11 caracteres')
 			return false
 		} else {
@@ -83,7 +89,10 @@ export const PersonData = ({ user: { uid, email } }) => {
 			return true
 		}
 	}
-	const saveCpf = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
+	const saveCpf = async () => {
+		const data = await db.firestore().collection('users').where('id','==',uid).get()
+		await data.docs[0].ref.update({ cpf })
+	}
 	/*-------- WHATSAPP --------*/
 	const [whatsapp, setWhatsapp] = useState('')
 	return (
