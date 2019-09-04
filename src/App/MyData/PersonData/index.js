@@ -38,7 +38,10 @@ export const PersonData = ({ user: { uid, email } }) => {
 			return true
 		}
 	}
-	const saveFname = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
+	const saveFname = async () => {
+		const data = await db.firestore().collection('users').where('id','==',uid).get()
+		await data.docs[0].ref.update({ fname })
+	}
 	/*-------- LNAME --------*/
 	const [lname, setLname] = useState('')
 	const [errorLname, setErrorLname] = useState('')
@@ -145,7 +148,6 @@ export const PersonData = ({ user: { uid, email } }) => {
 				value={whatsapp}
 				editable={false}
 				isLoading={isLoading}
-				editable={!errorFetch}
 			/>
 		</div>
 	)
