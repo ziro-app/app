@@ -1,10 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'
 import { db } from '../../../Firebase/db'
 import { container } from './styles'
 
-export const PersonData = ({ user }) => {
+export const PersonData = ({ user: { uid, email } }) => {
+	useEffect(() => db.firestore().collection('users').where('id','==',uid).onSnapshot(
+		snapshot => {
+			snapshot.forEach(doc => {
+				console.log(doc.data())
+				setWhatsapp(doc.data().phone)
+			})
+		},
+		error => {
+			console.log(error)
+		}
+	), [])
 	/*-------- FNAME --------*/
 	const [fname, setFname] = useState('Vitor')
 	const [errorFname, setErrorFname] = useState('')
@@ -61,9 +72,8 @@ export const PersonData = ({ user }) => {
 		}
 	}
 	const saveCpf = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
-	/*-------- EMAIL & WHATSAPP --------*/
-	const email = user.email
-	const whatsapp = '+55 (11) 95177-1321'
+	/*-------- WHATSAPP --------*/
+	const [whatsapp, setWhatsapp] = useState('')
 	return (
 		<div style={container}>
 			<EditableData
