@@ -7,17 +7,19 @@ import { container } from './styles'
 export const PersonData = ({ user: { uid, email } }) => {
 	useEffect(() => db.firestore().collection('users').where('id','==',uid).onSnapshot(
 		snapshot => {
-			snapshot.forEach(doc => {
-				console.log(doc.data())
-				setWhatsapp(doc.data().phone)
-			})
+			const data = snapshot.docs[0].data()
+			if (data.id === uid) {
+				setFname(data.fname)
+				setLname(data.lname)
+				setWhatsapp(data.phone)
+			}
 		},
 		error => {
 			console.log(error)
 		}
 	), [])
 	/*-------- FNAME --------*/
-	const [fname, setFname] = useState('Vitor')
+	const [fname, setFname] = useState('')
 	const [errorFname, setErrorFname] = useState('')
 	const updateFname = ({ target: { value } }) => setFname(value)
 	const validateFname = () => {
@@ -31,7 +33,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 	}
 	const saveFname = () => new Promise((resolve, reject) => setTimeout(() => resolve('OK'),1000))
 	/*-------- LNAME --------*/
-	const [lname, setLname] = useState('Barbosa')
+	const [lname, setLname] = useState('')
 	const [errorLname, setErrorLname] = useState('')
 	const updateLname = ({ target: { value } }) => setLname(value)
 	const validateLname = () => {
