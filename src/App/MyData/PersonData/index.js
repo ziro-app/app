@@ -4,7 +4,7 @@ import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'
 import Badge from '@bit/vitorbarbosa19.ziro.badge'
 import { db } from '../../../Firebase/db'
 import { alertColor } from '../../../Theme/styleVariables'
-import { container, fetch } from './styles'
+import { container, fetch, update } from './styles'
 
 export const PersonData = ({ user: { uid, email } }) => {
 	const [errorFetch, setErrorFetch] = useState('')
@@ -160,6 +160,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				editable={false}
 				isLoading={isLoading}
 			/>
+			<div style={update}>* Para alterar email ou whatsapp, contate assessor</div>
 		</div>
 	)
 }

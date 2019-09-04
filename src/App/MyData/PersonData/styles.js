@@ -1,4 +1,4 @@
-import { alertColor } from '../../../Theme/styleVariables'
+import { primaryColor, alertColor } from '../../../Theme/styleVariables'
 
 export const
 
@@ -16,4 +16,10 @@ fetch = {
 	margin: '0 auto -40px',
 	fontSize: '1.2rem',
 	color: alertColor
+},
+
+update = {
+	marginTop: '25px',
+	textAlign: 'left',
+	color: primaryColor
 }
