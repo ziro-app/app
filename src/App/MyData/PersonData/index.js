@@ -8,6 +8,7 @@ import { container, fetch } from './styles'
 
 export const PersonData = ({ user: { uid, email } }) => {
 	const [errorFetch, setErrorFetch] = useState('')
+	const [isLoading, setIsLoading] = useState(true)
 	useEffect(() => db.firestore().collection('users').where('id','==',uid).onSnapshot(
 		snapshot => {
 			const data = snapshot.docs[0].data()
@@ -16,10 +17,12 @@ export const PersonData = ({ user: { uid, email } }) => {
 				setLname(data.lname)
 				setWhatsapp(data.phone)
 			}
+			setIsLoading(false)
 		},
 		error => {
 			console.log(error)
 			setErrorFetch('Erro. Recarregue a página')
+			setIsLoading(false)
 		}
 	), [])
 	/*-------- FNAME --------*/
@@ -91,6 +94,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				submit={saveFname}
 				setError={setErrorFname}
 				error={errorFname}
+				isLoading={isLoading}
 			/>
 			<EditableData
 				name='Sobrenome'
@@ -100,6 +104,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				submit={saveLname}
 				setError={setErrorLname}
 				error={errorLname}
+				isLoading={isLoading}
 			/>
 			<EditableData
 				name='RG'
@@ -111,6 +116,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				error={errorRg}
 				warning='preencha para liberar pagamentos'
 				placeholder='11.22.33.44-55'
+				isLoading={isLoading}
 			/>
 			<EditableData
 				name='CPF'
@@ -122,6 +128,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				error={errorCpf}
 				warning='preencha para liberar pagamentos'
 				placeholder='111.222.333-44'
+				isLoading={isLoading}
 			/>
 			<EditableData
 				name='Email'
@@ -133,6 +140,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='Whatsapp'
 				value={whatsapp}
 				editable={false}
+				isLoading={isLoading}
 			/>
 		</div>
 	)
