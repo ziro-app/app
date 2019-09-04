@@ -27,6 +27,10 @@ export const PersonData = ({ user: { uid, email } }) => {
 			setIsLoading(false)
 		}
 	), [])
+	const saveToDb = async (name, value) => {
+		const data = await db.firestore().collection('users').where('id','==',uid).get()
+		await data.docs[0].ref.update({ [name]: value })
+	}
 	/*-------- FNAME --------*/
 	const [fname, setFname] = useState('')
 	const [errorFname, setErrorFname] = useState('')
@@ -39,10 +43,6 @@ export const PersonData = ({ user: { uid, email } }) => {
 			setErrorFname('')
 			return true
 		}
-	}
-	const saveFname = async () => {
-		const data = await db.firestore().collection('users').where('id','==',uid).get()
-		await data.docs[0].ref.update({ fname })
 	}
 	/*-------- LNAME --------*/
 	const [lname, setLname] = useState('')
@@ -57,10 +57,6 @@ export const PersonData = ({ user: { uid, email } }) => {
 			return true
 		}
 	}
-	const saveLname = async () => {
-		const data = await db.firestore().collection('users').where('id','==',uid).get()
-		await data.docs[0].ref.update({ lname })
-	}
 	/*-------- RG --------*/
 	const [rg, setRg] = useState('')
 	const [errorRg, setErrorRg] = useState('')
@@ -73,10 +69,6 @@ export const PersonData = ({ user: { uid, email } }) => {
 			setErrorRg('')
 			return true
 		}
-	}
-	const saveRg = async () => {
-		const data = await db.firestore().collection('users').where('id','==',uid).get()
-		await data.docs[0].ref.update({ rg })
 	}
 	/*-------- CPF --------*/
 	const [cpf, setCpf] = useState('')
@@ -91,10 +83,6 @@ export const PersonData = ({ user: { uid, email } }) => {
 			return true
 		}
 	}
-	const saveCpf = async () => {
-		const data = await db.firestore().collection('users').where('id','==',uid).get()
-		await data.docs[0].ref.update({ cpf })
-	}
 	/*-------- WHATSAPP --------*/
 	const [whatsapp, setWhatsapp] = useState('')
 	return (
@@ -105,7 +93,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				value={fname}
 				onChange={updateFname}
 				validateInput={validateFname}
-				submit={saveFname}
+				submit={saveToDb.bind(null,'fname',fname)}
 				setError={setErrorFname}
 				error={errorFname}
 				isLoading={isLoading}
@@ -116,7 +104,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				value={lname}
 				onChange={updateLname}
 				validateInput={validateLname}
-				submit={saveLname}
+				submit={saveToDb.bind(null,'lname',lname)}
 				setError={setErrorLname}
 				error={errorLname}
 				isLoading={isLoading}
@@ -127,7 +115,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				value={rg}
 				onChange={updateRg}
 				validateInput={validateRg}
-				submit={saveRg}
+				submit={saveToDb.bind(null,'rg',rg)}
 				setError={setErrorRg}
 				error={errorRg}
 				warning={rg === '' ? 'preencha p/ pagar pelo app' : ''}
@@ -140,7 +128,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				value={cpf}
 				onChange={updateCpf}
 				validateInput={validateCpf}
-				submit={saveCpf}
+				submit={saveToDb.bind(null,'cpf',cpf)}
 				setError={setErrorCpf}
 				error={errorCpf}
 				warning={cpf === '' ? 'preencha p/ pagar pelo app' : ''}
