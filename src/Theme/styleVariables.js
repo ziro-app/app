@@ -17,9 +17,9 @@ grayColor2 = '#BDBDBD',
 grayColor3 = '#E0E0E0',
 grayColor4 = '#F2F2F2',
 secondaryColor = '#FFE401',
-alertColor = '#EB5757',
 successColor = '#4BCA81',
-pendingColor = '#E5CD00',
+alertColor = '#EB5757',
+warningColor = '#E5CD00',
 otherColor = '#2D9CDB',
 
 /* FONTS */
@@ -30,7 +30,7 @@ fontWeightBody = '400',
 fontWeightMuted = '300',
 fontSizeNormal = '1.6rem',
 fontSizeInput = '1.5rem',
-fontSizeSmall = '1.2rem',
+fontSizeSmall = '1.1rem',
 
 /* GRADIENT */
 gradient = `linear-gradient(#3A3A3A 10%, #333 30%, #222 60%, #000)`,

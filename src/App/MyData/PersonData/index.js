@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'
+import Badge from '@bit/vitorbarbosa19.ziro.badge'
 import { db } from '../../../Firebase/db'
-import { container } from './styles'
+import { alertColor } from '../../../Theme/styleVariables'
+import { container, fetch } from './styles'
 
 export const PersonData = ({ user: { uid, email } }) => {
+	const [errorFetch, setErrorFetch] = useState('')
 	useEffect(() => db.firestore().collection('users').where('id','==',uid).onSnapshot(
 		snapshot => {
 			const data = snapshot.docs[0].data()
@@ -16,6 +19,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 		},
 		error => {
 			console.log(error)
+			setErrorFetch('Erro. Recarregue a página')
 		}
 	), [])
 	/*-------- FNAME --------*/
@@ -78,6 +82,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 	const [whatsapp, setWhatsapp] = useState('')
 	return (
 		<div style={container}>
+			{errorFetch && <Badge style={fetch} type='alert' color={alertColor} message={errorFetch} />}
 			<EditableData
 				name='Nome'
 				value={fname}
