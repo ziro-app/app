@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'
 import Badge from '@bit/vitorbarbosa19.ziro.badge'
 import { db } from '../../../Firebase/db'
+import { maskInput } from '../../utils/maskInput'
+import { capitalize } from '../../utils/capitalize'
 import { alertColor } from '../../../Theme/styleVariables'
 import { container, fetch, update } from './styles'
 
@@ -34,7 +36,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 	/*-------- FNAME --------*/
 	const [fname, setFname] = useState('')
 	const [errorFname, setErrorFname] = useState('')
-	const updateFname = ({ target: { value } }) => setFname(value)
+	const updateFname = ({ target: { value } }) => setFname(capitalize(value))
 	const validateFname = () => {
 		if (fname.length < 3) {
 			setErrorFname('mínimo 3 caracteres')
@@ -47,7 +49,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 	/*-------- LNAME --------*/
 	const [lname, setLname] = useState('')
 	const [errorLname, setErrorLname] = useState('')
-	const updateLname = ({ target: { value } }) => setLname(value)
+	const updateLname = ({ target: { value } }) => setLname(capitalize(value))
 	const validateLname = () => {
 		if (lname.length < 3) {
 			setErrorLname('mínimo 3 caracteres')
@@ -60,7 +62,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 	/*-------- RG --------*/
 	const [rg, setRg] = useState('')
 	const [errorRg, setErrorRg] = useState('')
-	const updateRg = ({ target: { value } }) => setRg(value)
+	const updateRg = ({ target: { value } }) => setRg(maskInput(value, '############', true))
 	const validateRg = () => {
 		if (rg.length < 3) {
 			setErrorRg('mínimo 5 caracteres')
@@ -73,7 +75,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 	/*-------- CPF --------*/
 	const [cpf, setCpf] = useState('')
 	const [errorCpf, setErrorCpf] = useState('')
-	const updateCpf = ({ target: { value } }) => setCpf(value)
+	const updateCpf = ({ target: { value } }) => setCpf(maskInput(value, '###.###.###-##', true))
 	const validateCpf = () => {
 		if (cpf.length < 11) {
 			setErrorCpf('deve ter 11 caracteres')
