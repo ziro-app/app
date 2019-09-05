@@ -1,1 +1,0 @@
-export const updateInput = (setValue, mask) => ({ target: { value } }) => setValue(mask(value))

@@ -56,7 +56,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='Nome'
 				value={fname}
 				onChange={updateFname}
-				validateInput={validateInput.bind(null,fname.length < 3,'mínimo 3 caracteres',setErrorFname)}
+				validateInput={validateInput.bind(null,fname === '','preencha esse campo',setErrorFname)}
 				submit={saveToDb.bind(null,uid,'fname',fname)}
 				setError={setErrorFname}
 				error={errorFname}
@@ -67,7 +67,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='Sobrenome'
 				value={lname}
 				onChange={updateLname}
-				validateInput={validateInput.bind(null,lname.length < 3,'mínimo 3 caracteres',setErrorLname)}
+				validateInput={validateInput.bind(null,lname === '','preencha esse campo',setErrorLname)}
 				submit={saveToDb.bind(null,uid,'lname',lname)}
 				setError={setErrorLname}
 				error={errorLname}
@@ -78,7 +78,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='RG'
 				value={rg}
 				onChange={updateRg}
-				validateInput={validateInput.bind(null,rg.length < 5,'mínimo 5 caracteres',setErrorRg)}
+				validateInput={validateInput.bind(null,rg === '','preencha esse campo',setErrorRg)}
 				submit={saveToDb.bind(null,uid,'rg',rg)}
 				setError={setErrorRg}
 				error={errorRg}
@@ -91,7 +91,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='CPF'
 				value={cpf}
 				onChange={updateCpf}
-				validateInput={validateInput.bind(null,cpf.length < 11,'mínimo 11 caracteres',setErrorCpf)}
+				validateInput={validateInput.bind(null,cpf.length < 14,'mínimo 11 caracteres',setErrorCpf)}
 				submit={saveToDb.bind(null,uid,'cpf',cpf)}
 				setError={setErrorCpf}
 				error={errorCpf}
