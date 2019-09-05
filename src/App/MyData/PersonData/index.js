@@ -3,14 +3,13 @@ import PropTypes from 'prop-types'
 import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'
 import Badge from '@bit/vitorbarbosa19.ziro.badge'
 import { db } from '../../../Firebase/db'
+import { saveToDb } from './saveToDb'
 import { maskInput } from '../../utils/maskInput'
 import { capitalize } from '../../utils/capitalize'
 import { alertColor } from '../../../Theme/styleVariables'
 import { container, fetch, update } from './styles'
 
 export const PersonData = ({ user: { uid, email } }) => {
-	const [errorFetch, setErrorFetch] = useState('')
-	const [isLoading, setIsLoading] = useState(true)
 	useEffect(() => db.firestore().collection('users').where('id','==',uid).onSnapshot(
 		snapshot => {
 			const data = snapshot.docs[0].data()
@@ -29,10 +28,8 @@ export const PersonData = ({ user: { uid, email } }) => {
 			setIsLoading(false)
 		}
 	), [])
-	const saveToDb = async (name, value) => {
-		const data = await db.firestore().collection('users').where('id','==',uid).get()
-		await data.docs[0].ref.update({ [name]: value })
-	}
+	const [errorFetch, setErrorFetch] = useState('')
+	const [isLoading, setIsLoading] = useState(true)
 	/*-------- FNAME --------*/
 	const [fname, setFname] = useState('')
 	const [errorFname, setErrorFname] = useState('')
@@ -95,7 +92,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				value={fname}
 				onChange={updateFname}
 				validateInput={validateFname}
-				submit={saveToDb.bind(null,'fname',fname)}
+				submit={saveToDb.bind(null,uid,'fname',fname)}
 				setError={setErrorFname}
 				error={errorFname}
 				isLoading={isLoading}
@@ -106,7 +103,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				value={lname}
 				onChange={updateLname}
 				validateInput={validateLname}
-				submit={saveToDb.bind(null,'lname',lname)}
+				submit={saveToDb.bind(null,uid,'lname',lname)}
 				setError={setErrorLname}
 				error={errorLname}
 				isLoading={isLoading}
@@ -117,7 +114,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				value={rg}
 				onChange={updateRg}
 				validateInput={validateRg}
-				submit={saveToDb.bind(null,'rg',rg)}
+				submit={saveToDb.bind(null,uid,'rg',rg)}
 				setError={setErrorRg}
 				error={errorRg}
 				warning={rg === '' ? 'preencha p/ pagar pelo app' : ''}
@@ -130,7 +127,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				value={cpf}
 				onChange={updateCpf}
 				validateInput={validateCpf}
-				submit={saveToDb.bind(null,'cpf',cpf)}
+				submit={saveToDb.bind(null,uid,'cpf',cpf)}
 				setError={setErrorCpf}
 				error={errorCpf}
 				warning={cpf === '' ? 'preencha p/ pagar pelo app' : ''}
