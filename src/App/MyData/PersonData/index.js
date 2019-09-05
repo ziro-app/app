@@ -4,6 +4,7 @@ import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'
 import Badge from '@bit/vitorbarbosa19.ziro.badge'
 import { db } from '../../../Firebase/db'
 import { saveToDb } from './saveToDb'
+import { validateInput } from './validateInput'
 import { maskInput } from '../../utils/maskInput'
 import { capitalize } from '../../utils/capitalize'
 import { alertColor } from '../../../Theme/styleVariables'
@@ -91,7 +92,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='Nome'
 				value={fname}
 				onChange={updateFname}
-				validateInput={validateFname}
+				validateInput={validateInput.bind(null,fname.length < 3,'mínimo 3 caracteres',setErrorFname)}
 				submit={saveToDb.bind(null,uid,'fname',fname)}
 				setError={setErrorFname}
 				error={errorFname}
