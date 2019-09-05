@@ -21,6 +21,7 @@ fetch = {
 update = {
 	marginTop: '25px',
 	textAlign: 'left',
+	fontSize: '1.2rem',
 	fontWeight: fontWeightMuted,
 	color: primaryColor
 }
