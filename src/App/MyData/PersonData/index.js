@@ -29,7 +29,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 	), [])
 	const [isLoading, setIsLoading] = useState(true)
 	const [errorFetch, setErrorFetch] = useState('')
-	/* FNAME --------*/
+	/*---------------- FNAME ----------------*/
 	const [fname, setFname] = useState('')
 	const [errorFname, setErrorFname] = useState('')
 	const updateFname = ({ target: { value } }) => setFname(capitalize(value))
@@ -37,27 +37,32 @@ export const PersonData = ({ user: { uid, email } }) => {
 	const messageFname = 'preencha esse campo'
 	const validateFname = validateInput.bind(null, conditionFname, messageFname, setErrorFname)
 	const saveFname = saveToDb.bind(null, uid, 'fname', fname)
-	/* LNAME --------*/
+	/*---------------- LNAME ----------------*/
 	const [lname, setLname] = useState('')
 	const [errorLname, setErrorLname] = useState('')
 	const updateLname = ({ target: { value } }) => setLname(capitalize(value))
-	/* RG --------*/
+	const conditionLname = lname === ''
+	const messageLname = 'preencha esse campo'
+	const validateLname = validateInput.bind(null, conditionLname, messageLname, setErrorLname)
+	const saveLname = saveToDb.bind(null, uid, 'lname', lname)
+	/*---------------- RG ----------------*/
 	const [rg, setRg] = useState('')
 	const [errorRg, setErrorRg] = useState('')
 	const updateRg = ({ target: { value } }) => setRg(maskInput(value, '############', true))
-	/* CPF --------*/
+	const conditionRg = rg === ''
+	const messageRg = 'preencha esse campo'
+	const validateRg = validateInput.bind(null, conditionRg, messageRg, setErrorRg)
+	const saveRg = saveToDb.bind(null, uid, 'rg', rg)
+	/*---------------- CPF ----------------*/
 	const [cpf, setCpf] = useState('')
 	const [errorCpf, setErrorCpf] = useState('')
 	const updateCpf = ({ target: { value } }) => setCpf(maskInput(value, '###.###.###-##', true))
-	/* WHATSAPP --------*/
-	const [whatsapp, setWhatsapp] = useState('')
-	/* SUPPORT VARIABLES*/
-	const conditionLname = lname === ''
-	const messageLname = 'preencha esse campo'
-	const conditionRg = rg === ''
-	const messageRg = 'preencha esse campo'
 	const conditionCpf = cpf && cpf.length < 14
 	const messageCpf = 'mínimo 11 caracteres'
+	const validateCpf = validateInput.bind(null, conditionCpf, messageCpf, setErrorCpf)
+	const saveCpf = saveToDb.bind(null, uid, 'cpf', cpf)
+	/*---------------- WHATSAPP ----------------*/
+	const [whatsapp, setWhatsapp] = useState('')
 	return (
 		<div style={container}>
 			{errorFetch && <Badge style={fetch} type='alert' color={alertColor} message={errorFetch} />}
@@ -76,8 +81,8 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='Sobrenome'
 				value={lname}
 				onChange={updateLname}
-				validateInput={validateInput.bind(null,conditionLname,messageLname,setErrorLname)}
-				submit={saveToDb.bind(null,uid,'lname',lname)}
+				validateInput={validateLname}
+				submit={saveLname}
 				setError={setErrorLname}
 				error={errorLname}
 				isLoading={isLoading}
@@ -87,8 +92,8 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='RG'
 				value={rg}
 				onChange={updateRg}
-				validateInput={validateInput.bind(null,conditionRg,messageRg,setErrorRg)}
-				submit={saveToDb.bind(null,uid,'rg',rg)}
+				validateInput={validateRg}
+				submit={saveRg}
 				setError={setErrorRg}
 				error={errorRg}
 				warning={conditionRg ? 'preencha p/ pagar pelo app' : ''}
@@ -100,8 +105,8 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='CPF'
 				value={cpf}
 				onChange={updateCpf}
-				validateInput={validateInput.bind(null,conditionCpf,messageCpf,setErrorCpf)}
-				submit={saveToDb.bind(null,uid,'cpf',cpf)}
+				validateInput={validateCpf}
+				submit={saveCpf}
 				setError={setErrorCpf}
 				error={errorCpf}
 				warning={cpf === '' ? 'preencha p/ pagar pelo app' : ''}
