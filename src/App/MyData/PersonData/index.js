@@ -13,14 +13,12 @@ import { container, fetch, update } from './styles'
 export const PersonData = ({ user: { uid, email } }) => {
 	useEffect(() => db.firestore().collection('users').where('uid','==',uid).onSnapshot(
 		snapshot => {
-			const data = snapshot.docs[0].data()
-			if (data && data.uid === uid) {
-				setFname(data.fname)
-				setLname(data.lname)
-				setRg(data.rg)
-				setCpf(data.cpf)
-				setWhatsapp(data.phone)
-			}
+			const { fname, lname, rg, cpf, phone } = snapshot.docs[0].data()
+			setFname(fname ? fname : '')
+			setLname(lname ? lname : '')
+			setRg(rg ? rg : '')
+			setCpf(cpf ? cpf : '')
+			setWhatsapp(phone ? phone : '')
 			setIsLoading(false)
 		},
 		error => {
@@ -35,6 +33,10 @@ export const PersonData = ({ user: { uid, email } }) => {
 	const [fname, setFname] = useState('')
 	const [errorFname, setErrorFname] = useState('')
 	const updateFname = ({ target: { value } }) => setFname(capitalize(value))
+	const conditionFname = fname === ''
+	const messageFname = 'preencha esse campo'
+	const validateFname = validateInput.bind(null, conditionFname, messageFname, setErrorFname)
+	const saveFname = saveToDb.bind(null, uid, 'fname', fname)
 	/* LNAME --------*/
 	const [lname, setLname] = useState('')
 	const [errorLname, setErrorLname] = useState('')
@@ -49,6 +51,13 @@ export const PersonData = ({ user: { uid, email } }) => {
 	const updateCpf = ({ target: { value } }) => setCpf(maskInput(value, '###.###.###-##', true))
 	/* WHATSAPP --------*/
 	const [whatsapp, setWhatsapp] = useState('')
+	/* SUPPORT VARIABLES*/
+	const conditionLname = lname === ''
+	const messageLname = 'preencha esse campo'
+	const conditionRg = rg === ''
+	const messageRg = 'preencha esse campo'
+	const conditionCpf = cpf && cpf.length < 14
+	const messageCpf = 'mínimo 11 caracteres'
 	return (
 		<div style={container}>
 			{errorFetch && <Badge style={fetch} type='alert' color={alertColor} message={errorFetch} />}
@@ -56,8 +65,8 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='Nome'
 				value={fname}
 				onChange={updateFname}
-				validateInput={validateInput.bind(null,fname === '','preencha esse campo',setErrorFname)}
-				submit={saveToDb.bind(null,uid,'fname',fname)}
+				validateInput={validateFname}
+				submit={saveFname}
 				setError={setErrorFname}
 				error={errorFname}
 				isLoading={isLoading}
@@ -67,7 +76,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='Sobrenome'
 				value={lname}
 				onChange={updateLname}
-				validateInput={validateInput.bind(null,lname === '','preencha esse campo',setErrorLname)}
+				validateInput={validateInput.bind(null,conditionLname,messageLname,setErrorLname)}
 				submit={saveToDb.bind(null,uid,'lname',lname)}
 				setError={setErrorLname}
 				error={errorLname}
@@ -78,11 +87,11 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='RG'
 				value={rg}
 				onChange={updateRg}
-				validateInput={validateInput.bind(null,rg === '','preencha esse campo',setErrorRg)}
+				validateInput={validateInput.bind(null,conditionRg,messageRg,setErrorRg)}
 				submit={saveToDb.bind(null,uid,'rg',rg)}
 				setError={setErrorRg}
 				error={errorRg}
-				warning={rg === '' ? 'preencha p/ pagar pelo app' : ''}
+				warning={conditionRg ? 'preencha p/ pagar pelo app' : ''}
 				placeholder='11.22.33.44-55'
 				isLoading={isLoading}
 				editable={!errorFetch}
@@ -91,7 +100,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='CPF'
 				value={cpf}
 				onChange={updateCpf}
-				validateInput={validateInput.bind(null,cpf.length < 14,'mínimo 11 caracteres',setErrorCpf)}
+				validateInput={validateInput.bind(null,conditionCpf,messageCpf,setErrorCpf)}
 				submit={saveToDb.bind(null,uid,'cpf',cpf)}
 				setError={setErrorCpf}
 				error={errorCpf}
