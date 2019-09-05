@@ -29,61 +29,25 @@ export const PersonData = ({ user: { uid, email } }) => {
 			setIsLoading(false)
 		}
 	), [])
-	const [errorFetch, setErrorFetch] = useState('')
 	const [isLoading, setIsLoading] = useState(true)
-	/*-------- FNAME --------*/
+	const [errorFetch, setErrorFetch] = useState('')
+	/* FNAME --------*/
 	const [fname, setFname] = useState('')
 	const [errorFname, setErrorFname] = useState('')
 	const updateFname = ({ target: { value } }) => setFname(capitalize(value))
-	const validateFname = () => {
-		if (fname.length < 3) {
-			setErrorFname('mínimo 3 caracteres')
-			return false
-		} else {
-			setErrorFname('')
-			return true
-		}
-	}
-	/*-------- LNAME --------*/
+	/* LNAME --------*/
 	const [lname, setLname] = useState('')
 	const [errorLname, setErrorLname] = useState('')
 	const updateLname = ({ target: { value } }) => setLname(capitalize(value))
-	const validateLname = () => {
-		if (lname.length < 3) {
-			setErrorLname('mínimo 3 caracteres')
-			return false
-		} else {
-			setErrorLname('')
-			return true
-		}
-	}
-	/*-------- RG --------*/
+	/* RG --------*/
 	const [rg, setRg] = useState('')
 	const [errorRg, setErrorRg] = useState('')
 	const updateRg = ({ target: { value } }) => setRg(maskInput(value, '############', true))
-	const validateRg = () => {
-		if (rg.length < 3) {
-			setErrorRg('mínimo 5 caracteres')
-			return false
-		} else {
-			setErrorRg('')
-			return true
-		}
-	}
-	/*-------- CPF --------*/
+	/* CPF --------*/
 	const [cpf, setCpf] = useState('')
 	const [errorCpf, setErrorCpf] = useState('')
 	const updateCpf = ({ target: { value } }) => setCpf(maskInput(value, '###.###.###-##', true))
-	const validateCpf = () => {
-		if (cpf.length < 11) {
-			setErrorCpf('deve ter 11 caracteres')
-			return false
-		} else {
-			setErrorCpf('')
-			return true
-		}
-	}
-	/*-------- WHATSAPP --------*/
+	/* WHATSAPP --------*/
 	const [whatsapp, setWhatsapp] = useState('')
 	return (
 		<div style={container}>
@@ -103,7 +67,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='Sobrenome'
 				value={lname}
 				onChange={updateLname}
-				validateInput={validateLname}
+				validateInput={validateInput.bind(null,lname.length < 3,'mínimo 3 caracteres',setErrorLname)}
 				submit={saveToDb.bind(null,uid,'lname',lname)}
 				setError={setErrorLname}
 				error={errorLname}
@@ -114,7 +78,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='RG'
 				value={rg}
 				onChange={updateRg}
-				validateInput={validateRg}
+				validateInput={validateInput.bind(null,rg.length < 5,'mínimo 5 caracteres',setErrorRg)}
 				submit={saveToDb.bind(null,uid,'rg',rg)}
 				setError={setErrorRg}
 				error={errorRg}
@@ -127,7 +91,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				name='CPF'
 				value={cpf}
 				onChange={updateCpf}
-				validateInput={validateCpf}
+				validateInput={validateInput.bind(null,cpf.length < 11,'mínimo 11 caracteres',setErrorCpf)}
 				submit={saveToDb.bind(null,uid,'cpf',cpf)}
 				setError={setErrorCpf}
 				error={errorCpf}
