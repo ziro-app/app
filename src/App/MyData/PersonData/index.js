@@ -126,7 +126,7 @@ export const PersonData = ({ user: { uid, email } }) => {
 				editable={false}
 				isLoading={isLoading}
 			/>
-			<div style={update}>* Para alterar email ou whatsapp, contate assessor</div>
+			<div style={update}>Para alterar email ou whatsapp,<br/>contate assessor</div>
 		</div>
 	)
 }
