@@ -23,7 +23,7 @@ export const useEmail = (email, setErrorEmail, cnpj, fname, lname, country, phon
 					const { user } = await db.auth().createUserWithEmailAndPassword(email, pass)
 					await db.auth().currentUser.sendEmailVerification({ url: process.env.CONTINUE_URL })
 					await db.firestore().collection('users').add({
-						id: user.uid,
+						uid: user.uid,
 						cnpj,
 						fname,
 						lname,

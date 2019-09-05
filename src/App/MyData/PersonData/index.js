@@ -11,10 +11,10 @@ import { alertColor } from '../../../Theme/styleVariables'
 import { container, fetch, update } from './styles'
 
 export const PersonData = ({ user: { uid, email } }) => {
-	useEffect(() => db.firestore().collection('users').where('id','==',uid).onSnapshot(
+	useEffect(() => db.firestore().collection('users').where('uid','==',uid).onSnapshot(
 		snapshot => {
 			const data = snapshot.docs[0].data()
-			if (data && data.id === uid) {
+			if (data && data.uid === uid) {
 				setFname(data.fname)
 				setLname(data.lname)
 				setRg(data.rg)
