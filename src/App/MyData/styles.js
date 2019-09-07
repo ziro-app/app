@@ -4,5 +4,5 @@ export const
 
 container = {
 	maxWidth: maxWidth,
-	margin: '20px auto 60px'
+	margin: '40px auto 0'
 }

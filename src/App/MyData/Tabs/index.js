@@ -2,21 +2,19 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { useLocation, Link } from 'wouter'
 import TransitionTab from '@bit/vitorbarbosa19.ziro.transition-tab'
-import { container, menu, tab, tabActive } from './styles'
+import { menu, tab, tabActive } from './styles'
 
 export const Tabs = ({ pathOne, tabNameOne, pathTwo, tabNameTwo, children }) => {
 	const [location] = useLocation()
 	return (
 		<Fragment>
-			<div style={container}>
-				<div style={menu}>
-					<Link style={location === pathOne ? tabActive : tab} href={pathOne}>
-						{tabNameOne}
-					</Link>
-					<Link style={location === pathTwo ? tabActive : tab} href={pathTwo}>
-						{tabNameTwo}
-					</Link>
-				</div>
+			<div style={menu}>
+				<Link style={location === pathOne ? tabActive : tab} href={pathOne}>
+					{tabNameOne}
+				</Link>
+				<Link style={location === pathTwo ? tabActive : tab} href={pathTwo}>
+					{tabNameTwo}
+				</Link>
 			</div>
 			<TransitionTab components={[
 				{ path: pathOne, children: children[0] },
