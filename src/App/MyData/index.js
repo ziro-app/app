@@ -6,7 +6,12 @@ import { container } from './styles'
 
 export const MyData = ({ user }) =>
 	<div style={container}>
-		<Tabs>
+		<Tabs
+			pathOne='/meus-dados/fisica'
+			tabNameOne='p. física'
+			pathTwo='/meus-dados/juridica'
+			tabNameTwo='p. jurídica'
+		>
 			<PersonData user={user} />
 			<div>Pessoa Jurídica</div>
 		</Tabs>
