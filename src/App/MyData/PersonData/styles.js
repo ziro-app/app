@@ -1,4 +1,4 @@
-import { primaryColor, alertColor, fontWeightMuted } from '../../../Theme/styleVariables'
+import { primaryColor, alertColor, fontSizeSmall, fontWeightMuted } from '../../../Theme/styleVariables'
 
 export const
 
@@ -21,7 +21,7 @@ fetch = {
 update = {
 	marginTop: '25px',
 	textAlign: 'left',
-	fontSize: '1.2rem',
+	fontSize: fontSizeSmall,
 	fontWeight: fontWeightMuted,
 	color: primaryColor
 }
