@@ -8,6 +8,7 @@ export const MyData = ({ user }) =>
 	<div style={container}>
 		<Tabs>
 			<PersonData user={user} />
+			<div>Pessoa Jurídica</div>
 		</Tabs>
 	</div>
 
