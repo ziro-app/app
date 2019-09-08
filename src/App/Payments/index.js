@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { container, transaction, transaction2, transaction3, circle, circle2, circle3, status, status2, status3, supplier, value, date, quantity } from './styles'
 
-export const Payments = ({ user }) =>
+export const Payments = () =>
 	<div style={container}>
 		<div style={transaction}>
 			<div style={status}>Em aberto</div>
@@ -49,7 +48,3 @@ export const Payments = ({ user }) =>
 			<div style={quantity}>12 pçs</div>
 		</div>
 	</div>
-
-Payments.propTypes = {
-	user: PropTypes.object.isRequired
-}

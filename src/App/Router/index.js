@@ -4,7 +4,7 @@ import { PrivateRouter } from './PrivateRouter'
 import { PublicRouter } from './PublicRouter'
 
 export const Router = ({ user }) => user
-	? <PrivateRouter user={user} />
+	? <PrivateRouter />
 	: <PublicRouter />
 
 Router.propTypes = {

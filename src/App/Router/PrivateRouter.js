@@ -6,15 +6,11 @@ import { MyData } from '../MyData/index'
 import { Payments } from '../Payments/index'
 import { NotFound } from '../NotFound/index'
 
-export const PrivateRouter = ({ user }) =>
+export const PrivateRouter = () =>
 	<Switch>
 		<Route path='/home/login'><Redirect to='/meus-dados' /></Route>
 		<Route path='/cadastrar/email'><Redirect to='/meus-dados' /></Route>
-		<Route path='/meus-dados/:any'><Menu title='Meus Dados' user={user}><MyData user={user} /></Menu></Route>
-		<Route path='/pagamentos'><Menu title='Pagamentos' user={user}><Payments /></Menu></Route>
+		<Route path='/meus-dados/:any'><Menu title='Meus Dados'><MyData /></Menu></Route>
+		<Route path='/pagamentos'><Menu title='Pagamentos'><Payments /></Menu></Route>
 		<Route path='/:any*'><NotFound fallback='/meus-dados' /></Route>
 	</Switch>
-
-PrivateRouter.propTypes = {
-	user: PropTypes.object
-}
