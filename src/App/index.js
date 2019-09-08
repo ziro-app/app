@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, createContext, useEffect } from 'react'
 import { db } from '../Firebase/db'
+import { userContext } from './appContext'
 import ErrorBoundary from './ErrorBoundary/index'
 import { InitialLoader } from './InitialLoader/index'
 import { Router } from './Router/index'
 
 export const App = () => {
-	/*== APP STATES ==*/
+	/*== APP STATE ==*/
 	const [user, setUser] = useState(null)
 	const [isLoading, setIsLoading] = useState(true)
 	const [fname, setFname] = useState('')
@@ -37,9 +38,15 @@ export const App = () => {
 		else setUser(null)
 		if (isLoading) setIsLoading(false)
 	}), [])
-	return (
-		<ErrorBoundary>
-			{isLoading ? <InitialLoader /> : <Router user={user} />}
-		</ErrorBoundary>
-	)
+	/*== RENDER LOGIC ==*/
+	const userData = { fname, lname, rg, cpf, whatsapp, setFname, setLname, setRg, setCpf, setWhatsapp }
+	const renderApp = {
+		true: 
+			<InitialLoader />,
+		false:
+			<userContext.Provider value={userData}>
+				<Router user={user} />
+			</userContext.Provider>
+	}
+	return <ErrorBoundary>{renderApp[isLoading]}</ErrorBoundary>
 }
