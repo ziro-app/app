@@ -10,7 +10,7 @@ import { container, fetch, update } from './styles'
 
 export const PersonData = () => {
 	const [errorFetch, setErrorFetch] = useState('')
-	const { fname, lname, rg, cpf, email, whatsapp,
+	const { loadingData, fname, lname, rg, cpf, email, whatsapp,
 		setFname, setLname, setRg, setCpf, setWhatsapp, saveData } = useContext(userContext)
 	/*---------------- FNAME ----------------*/
 	const [errorFname, setErrorFname] = useState('')
@@ -51,6 +51,7 @@ export const PersonData = () => {
 				submit={saveFname}
 				setError={setErrorFname}
 				error={errorFname}
+				isLoading={loadingData}
 				editable={!errorFetch}
 			/>
 			<EditableData
@@ -61,6 +62,7 @@ export const PersonData = () => {
 				submit={saveLname}
 				setError={setErrorLname}
 				error={errorLname}
+				isLoading={loadingData}
 				editable={!errorFetch}
 			/>
 			<EditableData
@@ -73,6 +75,7 @@ export const PersonData = () => {
 				error={errorRg}
 				warning={conditionRg ? 'preencha p/ pagar pelo app' : ''}
 				placeholder='11.22.33.44-55'
+				isLoading={loadingData}
 				editable={!errorFetch}
 			/>
 			<EditableData
@@ -85,6 +88,7 @@ export const PersonData = () => {
 				error={errorCpf}
 				warning={cpf === '' ? 'preencha p/ pagar pelo app' : ''}
 				placeholder='111.222.333-44'
+				isLoading={loadingData}
 				editable={!errorFetch}
 			/>
 			<EditableData
@@ -96,6 +100,7 @@ export const PersonData = () => {
 			<EditableData
 				name='Whatsapp'
 				value={whatsapp}
+				isLoading={loadingData}
 				editable={false}
 			/>
 			<div style={update}>*Para alterar email ou whatsapp,<br/>contate assessor</div>

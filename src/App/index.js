@@ -9,7 +9,8 @@ import { Router } from './Router/index'
 export const App = () => {
 	/*== APP STATE ==*/
 	const [user, setUser] = useState(null)
-	const [isLoading, setIsLoading] = useState(true)
+	const [loadingUser, setLoadingUser] = useState(true)
+	const [loadingData, setLoadingData] = useState(true)
 	const [uid, setUid] = useState('')
 	const [fname, setFname] = useState('')
 	const [lname, setLname] = useState('')
@@ -31,21 +32,21 @@ export const App = () => {
 					setRg(rg ? rg : '')
 					setCpf(cpf ? cpf : '')
 					setWhatsapp(phone ? phone : '')
-					setIsLoading(false)
+					setLoadingData(false)
 				},
 				error => {
 					console.log(error)
 					setErrorFetch('Erro. Recarregue a página')
-					setIsLoading(false)
+					setLoadingData(false)
 				}
 			)
 		}
 		else setUser(null)
-		if (isLoading) setIsLoading(false)
+		if (loadingUser) setLoadingUser(false)
 	}), [])
 	/*== RENDER LOGIC ==*/
 	const saveData = saveToDb(uid)
-	const userData = { fname, lname, rg, cpf, email, whatsapp,
+	const userData = { loadingData, fname, lname, rg, cpf, email, whatsapp,
 		setFname, setLname, setRg, setCpf, setWhatsapp, saveData }
 	const renderApp = {
 		true: 
@@ -55,5 +56,5 @@ export const App = () => {
 				<Router user={user} />
 			</userContext.Provider>
 	}
-	return <ErrorBoundary>{renderApp[isLoading]}</ErrorBoundary>
+	return <ErrorBoundary>{renderApp[loadingUser]}</ErrorBoundary>
 }
