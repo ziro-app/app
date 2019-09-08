@@ -44,10 +44,9 @@ export const App = () => {
 		if (isLoading) setIsLoading(false)
 	}), [])
 	/*== RENDER LOGIC ==*/
-	const userData = {
-		uid, fname, lname, rg, cpf, email, whatsapp,
-		setFname, setLname, setRg, setCpf, setWhatsapp, saveToDb
-	}
+	const saveData = saveToDb(uid)
+	const userData = { fname, lname, rg, cpf, email, whatsapp,
+		setFname, setLname, setRg, setCpf, setWhatsapp, saveData }
 	const renderApp = {
 		true: 
 			<InitialLoader />,
