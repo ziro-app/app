@@ -13,5 +13,5 @@ export const NotFound = ({ fallback }) =>
 	</div>
 
 NotFound.propTypes = {
-	user: PropTypes.object
+	fallback: PropTypes.string
 }
