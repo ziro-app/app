@@ -9,8 +9,7 @@ import { alertColor } from '../../../Theme/styleVariables'
 import { container, fetch, update } from './styles'
 
 export const PersonData = () => {
-	const [errorFetch, setErrorFetch] = useState('')
-	const { loadingData, fname, lname, rg, cpf, email, whatsapp,
+	const { loadingData, errorFetch, fname, lname, rg, cpf, email, whatsapp,
 		setFname, setLname, setRg, setCpf, setWhatsapp, saveData } = useContext(userContext)
 	/*---------------- FNAME ----------------*/
 	const [errorFname, setErrorFname] = useState('')

@@ -11,6 +11,7 @@ export const App = () => {
 	const [user, setUser] = useState(null)
 	const [loadingUser, setLoadingUser] = useState(true)
 	const [loadingData, setLoadingData] = useState(true)
+	const [errorFetch, setErrorFetch] = useState('')
 	const [uid, setUid] = useState('')
 	const [fname, setFname] = useState('')
 	const [lname, setLname] = useState('')
@@ -46,7 +47,7 @@ export const App = () => {
 	}), [])
 	/*== RENDER LOGIC ==*/
 	const saveData = saveUserData(uid)
-	const userData = { loadingData, fname, lname, rg, cpf, email, whatsapp,
+	const userData = { loadingData, errorFetch, fname, lname, rg, cpf, email, whatsapp,
 		setFname, setLname, setRg, setCpf, setWhatsapp, saveData }
 	const renderApp = {
 		true: 
