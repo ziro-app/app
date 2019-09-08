@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react'
 import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'
 import Badge from '@bit/vitorbarbosa19.ziro.badge'
 import { userContext } from '../../appContext'
-import { saveToDb } from './saveToDb'
 import { validateInput } from './validateInput'
 import { maskInput } from '../../utils/maskInput'
 import { capitalize } from '../../utils/capitalize'
@@ -11,7 +10,7 @@ import { container, fetch, update } from './styles'
 
 export const PersonData = () => {
 	const [errorFetch, setErrorFetch] = useState('')
-	const { fname, lname, rg, cpf, whatsapp, setFname, setLname, setRg, setCpf, setWhatsapp } = useContext(userContext)
+	const { uid, fname, lname, rg, cpf, email, whatsapp, setFname, setLname, setRg, setCpf, setWhatsapp, saveToDb } = useContext(userContext)
 	/*---------------- FNAME ----------------*/
 	const [errorFname, setErrorFname] = useState('')
 	const updateFname = ({ target: { value } }) => setFname(capitalize(value))
@@ -51,7 +50,6 @@ export const PersonData = () => {
 				submit={saveFname}
 				setError={setErrorFname}
 				error={errorFname}
-				isLoading={isLoading}
 				editable={!errorFetch}
 			/>
 			<EditableData
@@ -62,7 +60,6 @@ export const PersonData = () => {
 				submit={saveLname}
 				setError={setErrorLname}
 				error={errorLname}
-				isLoading={isLoading}
 				editable={!errorFetch}
 			/>
 			<EditableData
@@ -75,7 +72,6 @@ export const PersonData = () => {
 				error={errorRg}
 				warning={conditionRg ? 'preencha p/ pagar pelo app' : ''}
 				placeholder='11.22.33.44-55'
-				isLoading={isLoading}
 				editable={!errorFetch}
 			/>
 			<EditableData
@@ -88,7 +84,6 @@ export const PersonData = () => {
 				error={errorCpf}
 				warning={cpf === '' ? 'preencha p/ pagar pelo app' : ''}
 				placeholder='111.222.333-44'
-				isLoading={isLoading}
 				editable={!errorFetch}
 			/>
 			<EditableData
@@ -101,7 +96,6 @@ export const PersonData = () => {
 				name='Whatsapp'
 				value={whatsapp}
 				editable={false}
-				isLoading={isLoading}
 			/>
 			<div style={update}>*Para alterar email ou whatsapp,<br/>contate assessor</div>
 		</div>

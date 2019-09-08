@@ -1,6 +1,7 @@
 import React, { useState, createContext, useEffect } from 'react'
 import { db } from '../Firebase/db'
 import { userContext } from './appContext'
+import { saveToDb } from './utils/saveToDb'
 import ErrorBoundary from './ErrorBoundary/index'
 import { InitialLoader } from './InitialLoader/index'
 import { Router } from './Router/index'
@@ -45,7 +46,7 @@ export const App = () => {
 	/*== RENDER LOGIC ==*/
 	const userData = {
 		uid, fname, lname, rg, cpf, email, whatsapp,
-		setFname, setLname, setRg, setCpf, setWhatsapp
+		setFname, setLname, setRg, setCpf, setWhatsapp, saveToDb
 	}
 	const renderApp = {
 		true: 
