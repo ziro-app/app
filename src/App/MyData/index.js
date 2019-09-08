@@ -3,7 +3,7 @@ import { Tabs } from './Tabs/index'
 import { PersonData } from './PersonData/index'
 import { container } from './styles'
 
-export const MyData = ({ user }) =>
+export const MyData = () =>
 	<div style={container}>
 		<Tabs
 			pathOne='/meus-dados/fisica'
@@ -11,7 +11,7 @@ export const MyData = ({ user }) =>
 			pathTwo='/meus-dados/juridica'
 			tabNameTwo='p. jurídica'
 		>
-			<PersonData user={user} />
+			<PersonData />
 			<div>Pessoa Jurídica</div>
 		</Tabs>
 	</div>

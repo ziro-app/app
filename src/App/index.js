@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { db } from '../Firebase/db'
 import { userContext } from './appContext'
 import { saveUserData } from './utils/saveUserData'
@@ -8,7 +8,6 @@ import { Router } from './Router/index'
 
 export const App = () => {
 	/*== APP STATE ==*/
-	const [user, setUser] = useState(null)
 	const [loadingUser, setLoadingUser] = useState(true)
 	const [loadingData, setLoadingData] = useState(true)
 	const [errorFetch, setErrorFetch] = useState('')
@@ -22,7 +21,6 @@ export const App = () => {
 	/*== INITIAL DATA LOAD ==*/
 	useEffect(() => db.auth().onAuthStateChanged(user => {
 		if (user && user.emailVerified) {
-			setUser(user)
 			setUid(user.uid)
 			setEmail(user.email)
 			db.firestore().collection('users').where('uid','==',user.uid).onSnapshot(
@@ -42,7 +40,6 @@ export const App = () => {
 				}
 			)
 		}
-		else setUser(null)
 		if (loadingUser) setLoadingUser(false)
 	}), [])
 	/*== RENDER LOGIC ==*/
@@ -54,7 +51,7 @@ export const App = () => {
 			<InitialLoader />,
 		false:
 			<userContext.Provider value={userData}>
-				<Router user={user} />
+				<Router userLoggedIn={!!uid} />
 			</userContext.Provider>
 	}
 	return <ErrorBoundary>{renderApp[loadingUser]}</ErrorBoundary>
