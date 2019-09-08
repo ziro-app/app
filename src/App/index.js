@@ -9,15 +9,19 @@ export const App = () => {
 	/*== APP STATE ==*/
 	const [user, setUser] = useState(null)
 	const [isLoading, setIsLoading] = useState(true)
+	const [uid, setUid] = useState('')
 	const [fname, setFname] = useState('')
 	const [lname, setLname] = useState('')
 	const [rg, setRg] = useState('')
 	const [cpf, setCpf] = useState('')
+	const [email, setEmail] = useState('')
 	const [whatsapp, setWhatsapp] = useState('')
 	/*== INITIAL DATA LOAD ==*/
 	useEffect(() => db.auth().onAuthStateChanged(user => {
 		if (user && user.emailVerified) {
 			setUser(user)
+			setUid(user.uid)
+			setEmail(user.email)
 			db.firestore().collection('users').where('uid','==',user.uid).onSnapshot(
 				snapshot => {
 					const { fname, lname, rg, cpf, phone } = snapshot.docs[0].data()
@@ -39,7 +43,10 @@ export const App = () => {
 		if (isLoading) setIsLoading(false)
 	}), [])
 	/*== RENDER LOGIC ==*/
-	const userData = { fname, lname, rg, cpf, whatsapp, setFname, setLname, setRg, setCpf, setWhatsapp }
+	const userData = {
+		uid, fname, lname, rg, cpf, email, whatsapp,
+		setFname, setLname, setRg, setCpf, setWhatsapp
+	}
 	const renderApp = {
 		true: 
 			<InitialLoader />,
