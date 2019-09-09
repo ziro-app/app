@@ -9,13 +9,13 @@ import { NameIcon } from '../../../../Assets/NameIcon/index'
 import { LogoutIcon } from '../../../../Assets/LogoutIcon/index'
 import { container, header, close, title, options, option, icon, text, soon } from './styles'
 
-export const Options = ({ user: { displayName }, setIsOpen }) =>
+export const Options = ({ setIsOpen }) =>
 	<div style={container}>
 		<div style={header}>
 			<div style={close} onClick={() => setIsOpen(false)}>
 				<CloseIcon />
 			</div>
-			<h1 style={title}>Olá, {displayName}</h1>
+			<h1 style={title}>Olá</h1>
 		</div>
 		<ul style={options}>
 			<li style={option}>
@@ -38,6 +38,5 @@ export const Options = ({ user: { displayName }, setIsOpen }) =>
 	</div>
 
 Options.propTypes = {
-	user: PropTypes.object.isRequired,
 	setIsOpen: PropTypes.func.isRequired
 }

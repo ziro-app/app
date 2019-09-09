@@ -12,8 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.5.4",
-    "@bit/vitorbarbosa19.ziro.badge": "0.0.8",
-    "@bit/vitorbarbosa19.ziro.editable-data": "0.0.11",
+    "@bit/vitorbarbosa19.ziro.badge": "0.0.9",
+    "@bit/vitorbarbosa19.ziro.drawer": "0.0.1",
+    "@bit/vitorbarbosa19.ziro.editable-data": "0.0.12",
     "@bit/vitorbarbosa19.ziro.input-text": "0.0.12",
     "@bit/vitorbarbosa19.ziro.tab-dual-header": "0.0.1",
     "@bit/vitorbarbosa19.ziro.tab-dual-transition": "0.0.2",
