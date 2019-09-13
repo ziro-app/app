@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { db } from '../../Firebase/db'
 import HeaderWithMenu from  '@bit/vitorbarbosa19.ziro.header-with-menu'
 import Drawer from '@bit/vitorbarbosa19.ziro.drawer'
 import DrawerPanel from '@bit/vitorbarbosa19.ziro.drawer-panel'
@@ -17,16 +18,20 @@ export const MyData = () => {
 					username='Vitor Barbosa'
 					usercnpj='28.026.371/0001-61'
 					options={[
-						{ path: '#',
+						{ path: null,
+						  onClick: null,
 						  icon: <Icon type='truck' size={13} strokeWidth={3} />,
 						  text: 'Atendimentos' },
-						{ path: '#',
+						{ path: null,
+						  onClick: null,
 						  icon: <Icon type='card' size={13} strokeWidth={3} />,
 						  text: 'Pagamentos' },
-						{ path: '#',
+						{ path: '/meus-dados/fisica',
+						  onClick: () => setIsOpen(false),
 						  icon: <Icon type='user' size={13} strokeWidth={3} />,
 						  text: 'Meus Dados' },
-						{ path: '#',
+						{ path: null,
+						  onClick: () => db.auth().signOut(),
 						  icon: <Icon type='logout' size={13} strokeWidth={3} />,
 						  text: 'Sair' },
 					]}
