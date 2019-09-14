@@ -15,7 +15,7 @@ export const MyData = () => {
 			<HeaderWithMenu title='Meus Dados' setIsOpen={() => setIsOpen(true)} />
 			<Drawer isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
 				<DrawerPanel
-					username='Vitor Barbosa'
+					username='Vitor Almeida Barbosa'
 					usercnpj='28.026.371/0001-61'
 					options={[
 						{ path: null,
