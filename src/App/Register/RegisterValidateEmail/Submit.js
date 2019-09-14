@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { db } from '../../../Firebase/db'
+import { auth } from '../../../Firebase/index'
 import { Message } from './Message'
 import { Spinner } from '../../../Assets/Spinner/index'
 import { buttonWrapper, loader, secondary, secondaryDisabled, scaleButton } from './styles'
@@ -11,7 +11,7 @@ export const Submit = () => {
 	const submitForm = async () => {
 			try {
 				setSubmitting(true)
-				await db.auth().currentUser.sendEmailVerification({ url: process.env.CONTINUE_URL })
+				await auth.currentUser.sendEmailVerification({ url: process.env.CONTINUE_URL })
 				setSubmitting(false)
 				setMessage({ content: 'Email reenviado com sucesso!', type: 'success' })
 			} catch (error) {

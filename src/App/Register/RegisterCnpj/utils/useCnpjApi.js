@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { post } from 'axios'
 import { useLocation } from 'wouter'
-import { db } from '../../../../Firebase/db'
+import { db } from '../../../../Firebase/index'
 import { validateInput } from './validateInput'
 import { validateCnpj } from './validateCnpj'
 
@@ -21,7 +21,7 @@ export const useCnpjApi = (cnpj, setErrorCnpj, cnpjIsValid, setCnpjIsValid, setD
 			if (inputIsValid) {
 				try {
 					setSubmitting(true)
-					const { empty } = await db.firestore().collection('cnpjs').where('cnpj', '==', cnpj).get()
+					const { empty } = await db.collection('cnpjs').where('cnpj', '==', cnpj).get()
 					if (!empty) {
 						setSubmitting(false)
 						setErrorSubmit('CNPJ já cadastrado na base')

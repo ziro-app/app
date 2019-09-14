@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useLocation } from 'wouter'
-import { db } from '../../../../Firebase/db'
+import { auth, db } from '../../../../Firebase/index'
 import { validateInput } from './validateInput'
 
 export const useEmail = (email, setErrorEmail, cnpj, fname, lname, country, phone, pass, confirmPass, pageIsValid, setPageIsValid, setDirection) => {
@@ -20,16 +20,16 @@ export const useEmail = (email, setErrorEmail, cnpj, fname, lname, country, phon
 			if (emailIsValid && inputsAreValid) {
 				try {
 					setSubmitting(true)
-					const { user } = await db.auth().createUserWithEmailAndPassword(email, pass)
-					await db.auth().currentUser.sendEmailVerification({ url: process.env.CONTINUE_URL })
-					await db.firestore().collection('users').add({
+					const { user } = await auth.createUserWithEmailAndPassword(email, pass)
+					await auth.currentUser.sendEmailVerification({ url: process.env.CONTINUE_URL })
+					await db.collection('users').add({
 						uid: user.uid,
 						cnpj,
 						fname,
 						lname,
 						phone: `${country} ${phone}`
 					})
-					await db.firestore().collection('cnpjs').add({ cnpj })
+					await db.collection('cnpjs').add({ cnpj })
 					setPageIsValid(true)
 					setLocation('/cadastrar/validar-email')
 					setDirection('forward')

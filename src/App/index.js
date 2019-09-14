@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { db } from '../Firebase/db'
+import { auth, db } from '../Firebase/index'
 import { userContext } from './appContext'
 import { saveUserData } from './utils/saveUserData'
 import ErrorBoundary from './ErrorBoundary/index'
@@ -21,11 +21,11 @@ export const App = () => {
 	/*== INITIAL DATA LOAD ==*/
 	useEffect(() => {
 		let unsubscribe = () => null
-		return db.auth().onAuthStateChanged(user => {
+		return auth.onAuthStateChanged(user => {
 			if (user && user.emailVerified) {
 				setUid(user.uid)
 				setEmail(user.email)
-				unsubscribe = db.firestore().collection('users').where('uid','==',user.uid).onSnapshot(
+				unsubscribe = db.collection('users').where('uid','==',user.uid).onSnapshot(
 					snapshot => {
 						const { fname, lname, rg, cpf, phone } = snapshot.docs[0].data()
 						setFname(fname ? fname : '')

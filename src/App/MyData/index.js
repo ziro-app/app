@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { db } from '../../Firebase/db'
+import { auth } from '../../Firebase/index'
 import HeaderWithMenu from  '@bit/vitorbarbosa19.ziro.header-with-menu'
 import Drawer from '@bit/vitorbarbosa19.ziro.drawer'
 import DrawerPanel from '@bit/vitorbarbosa19.ziro.drawer-panel'
@@ -31,7 +31,7 @@ export const MyData = () => {
 						  icon: <Icon type='user' size={13} strokeWidth={3} />,
 						  text: 'Meus Dados' },
 						{ path: null,
-						  onClick: () => db.auth().signOut(),
+						  onClick: () => auth.signOut(),
 						  icon: <Icon type='logout' size={13} strokeWidth={3} />,
 						  text: 'Sair' },
 					]}

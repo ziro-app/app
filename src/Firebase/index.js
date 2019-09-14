@@ -3,4 +3,6 @@ import 'firebase/auth'
 import 'firebase/firestore'
 import { firebaseConfig } from './firebase-config.js'
 
-export const db = firebase.initializeApp(firebaseConfig)
+const init = firebase.initializeApp(firebaseConfig)
+
+export const db = init.firestore(), auth = init.auth()

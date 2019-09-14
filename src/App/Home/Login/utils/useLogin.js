@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { db } from '../../../../Firebase/db'
+import { auth } from '../../../../Firebase/index'
 
 export const useLogin = () => {
 	const [authError, setAuthError] = useState('')
@@ -8,10 +8,10 @@ export const useLogin = () => {
 	const login = async (email, password) => {
 		try {
 			setSubmitting(true)
-			const { user: { emailVerified } } = await db.auth().signInWithEmailAndPassword(email, password)
+			const { user: { emailVerified } } = await auth.signInWithEmailAndPassword(email, password)
 			if (!emailVerified) {
 				setSubmitting(false)
-				db.auth().signOut()
+				auth.signOut()
 				setAuthError('Acesse o email de verificação para entrar')
 			}
 		} catch (error) {
