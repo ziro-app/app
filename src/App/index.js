@@ -4,7 +4,8 @@ import { userContext } from './appContext'
 import { saveUserData } from './utils/saveUserData'
 import ErrorBoundary from './ErrorBoundary/index'
 import { InitialLoader } from './InitialLoader/index'
-import { Router } from './Router/index'
+import { PrivateRouter } from './Router/PrivateRouter'
+import { PublicRouter } from './Router/PublicRouter'
 
 export const App = () => {
 	/*== APP STATE ==*/
@@ -18,7 +19,7 @@ export const App = () => {
 	const [cpf, setCpf] = useState('')
 	const [email, setEmail] = useState('')
 	const [whatsapp, setWhatsapp] = useState('')
-	/*== INITIAL DATA LOAD ==*/
+	/*== SET AUTH AND DB LISTENERS ==*/
 	useEffect(() => {
 		let unsubscribe = () => null
 		return auth.onAuthStateChanged(user => {
@@ -65,7 +66,7 @@ export const App = () => {
 			<InitialLoader />,
 		false:
 			<userContext.Provider value={userData}>
-				<Router userLoggedIn={!!uid} />
+				{!!uid ? <PrivateRouter /> : <PublicRouter />}
 			</userContext.Provider>
 	}
 	return <ErrorBoundary>{renderApp[loadingUser]}</ErrorBoundary>
