@@ -14,28 +14,28 @@ export const PersonData = () => {
 	/*---------------- FNAME ----------------*/
 	const [errorFname, setErrorFname] = useState('')
 	const updateFname = ({ target: { value } }) => setFname(capitalize(value))
-	const conditionFname = fname === ''
+	const conditionFname = !fname
 	const messageFname = 'preencha esse campo'
 	const validateFname = validateInput.bind(null, conditionFname, messageFname, setErrorFname)
 	const saveFname = saveData.bind(null, 'fname', fname)
 	/*---------------- LNAME ----------------*/
 	const [errorLname, setErrorLname] = useState('')
 	const updateLname = ({ target: { value } }) => setLname(capitalize(value))
-	const conditionLname = lname === ''
+	const conditionLname = !lname
 	const messageLname = 'preencha esse campo'
 	const validateLname = validateInput.bind(null, conditionLname, messageLname, setErrorLname)
 	const saveLname = saveData.bind(null, 'lname', lname)
 	/*---------------- RG ----------------*/
 	const [errorRg, setErrorRg] = useState('')
 	const updateRg = ({ target: { value } }) => setRg(maskInput(value, '############', true))
-	const conditionRg = rg === ''
+	const conditionRg = !rg
 	const messageRg = 'preencha esse campo'
 	const validateRg = validateInput.bind(null, conditionRg, messageRg, setErrorRg)
 	const saveRg = saveData.bind(null, 'rg', rg)
 	/*---------------- CPF ----------------*/
 	const [errorCpf, setErrorCpf] = useState('')
 	const updateCpf = ({ target: { value } }) => setCpf(maskInput(value, '###.###.###-##', true))
-	const conditionCpf = cpf && cpf.length < 14
+	const conditionCpf = !cpf || cpf.length < 14
 	const messageCpf = 'mínimo 11 caracteres'
 	const validateCpf = validateInput.bind(null, conditionCpf, messageCpf, setErrorCpf)
 	const saveCpf = saveData.bind(null, 'cpf', cpf)

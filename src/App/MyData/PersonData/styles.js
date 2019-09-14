@@ -4,8 +4,8 @@ export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '20px',
-	marginTop: '20px'
+	gridRowGap: '15px',
+	marginTop: '5px'
 },
 
 fetch = {
