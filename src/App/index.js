@@ -19,29 +19,43 @@ export const App = () => {
 	const [email, setEmail] = useState('')
 	const [whatsapp, setWhatsapp] = useState('')
 	/*== INITIAL DATA LOAD ==*/
-	useEffect(() => db.auth().onAuthStateChanged(user => {
-		if (user && user.emailVerified) {
-			setUid(user.uid)
-			setEmail(user.email)
-			db.firestore().collection('users').where('uid','==',user.uid).onSnapshot(
-				snapshot => {
-					const { fname, lname, rg, cpf, phone } = snapshot.docs[0].data()
-					setFname(fname ? fname : '')
-					setLname(lname ? lname : '')
-					setRg(rg ? rg : '')
-					setCpf(cpf ? cpf : '')
-					setWhatsapp(phone ? phone : '')
-					setLoadingData(false)
-				},
-				error => {
-					console.log(error)
-					setErrorFetch('Erro. Recarregue a página')
-					setLoadingData(false)
-				}
-			)
-		}
-		if (loadingUser) setLoadingUser(false)
-	}), [])
+	useEffect(() => {
+		let unsubscribe = () => null
+		return db.auth().onAuthStateChanged(user => {
+			if (user && user.emailVerified) {
+				setUid(user.uid)
+				setEmail(user.email)
+				unsubscribe = db.firestore().collection('users').where('uid','==',user.uid).onSnapshot(
+					snapshot => {
+						const { fname, lname, rg, cpf, phone } = snapshot.docs[0].data()
+						setFname(fname ? fname : '')
+						setLname(lname ? lname : '')
+						setRg(rg ? rg : '')
+						setCpf(cpf ? cpf : '')
+						setWhatsapp(phone ? phone : '')
+						setErrorFetch('')
+						if (loadingData) setLoadingData(false)
+					},
+					error => {
+						console.log(error)
+						setErrorFetch('Erro. Recarregue a página')
+						if (loadingData) setLoadingData(false)
+					}
+				)
+			} else {
+				unsubscribe()
+				setLoadingData(true)
+				setErrorFetch('')
+				setUid('')
+				setFname('')
+				setLname('')
+				setRg('')
+				setCpf('')
+				setEmail('')
+				setWhatsapp('')
+			}
+			if (loadingUser) setLoadingUser(false)
+	})}, [])
 	/*== RENDER LOGIC ==*/
 	const saveData = saveUserData(uid)
 	const userData = { loadingData, errorFetch, fname, lname, rg, cpf, email, whatsapp,
