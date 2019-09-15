@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Switch, Route, Redirect } from 'wouter'
 import { Header } from './Header/index'
 import { SlideRoute } from './SlideRoute/index'
+import { Join } from '../Join/index'
 import { RegisterCnpj } from './RegisterCnpj/index'
 import { RegisterData } from './RegisterData/index'
 import { RegisterEmail } from './RegisterEmail/index'
@@ -29,6 +30,11 @@ export const Register = () => {
 	return (
 		<Header setDirection={setDirection}>
 			<Switch>
+				<Route path='/cadastrar'>
+					<SlideRoute path='/cadastrar' direction={direction}>
+						<Join />
+					</SlideRoute>
+				</Route>
 				<Route path='/cadastrar/cnpj'>
 					<SlideRoute path='/cadastrar/cnpj' direction={direction}>
 						<RegisterCnpj {...cnpjProps} />
