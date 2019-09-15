@@ -7,13 +7,13 @@ import DrawerPanel from '@bit/vitorbarbosa19.ziro.drawer-panel'
 import Icon from '@bit/vitorbarbosa19.ziro.icon'
 import { Tabs } from './Tabs/index'
 import { PersonData } from './PersonData/index'
-import { container } from './styles'
+import { container, padding } from '../../Theme/styleVariables'
 
 export const MyData = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const { fname, cnpj } = useContext(userContext)
 	return (
-		<div style={container}>
+		<div style={{...container, padding: padding }}>
 			<HeaderWithMenu title='Meus Dados' setIsOpen={() => setIsOpen(true)} />
 			<Drawer isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
 				<DrawerPanel
