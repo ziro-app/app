@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { userContext } from '../appContext'
 import { auth } from '../../Firebase/index'
 import HeaderWithMenu from  '@bit/vitorbarbosa19.ziro.header-with-menu'
 import Drawer from '@bit/vitorbarbosa19.ziro.drawer'
@@ -10,13 +11,14 @@ import { container } from './styles'
 
 export const MyData = () => {
 	const [isOpen, setIsOpen] = useState(false)
+	const { fname, cnpj } = useContext(userContext)
 	return (
 		<div style={container}>
 			<HeaderWithMenu title='Meus Dados' setIsOpen={() => setIsOpen(true)} />
 			<Drawer isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
 				<DrawerPanel
-					username='Vitor Almeida Barbosa'
-					usercnpj='28.026.371/0001-61'
+					username={fname}
+					usercnpj={cnpj || '28.026.371/0001-61'}
 					options={[
 						{ path: null,
 						  onClick: null,
