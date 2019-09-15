@@ -10,16 +10,8 @@ export const Header = ({ primaryTab, secondaryTab, setDraggable, children }) => 
 		<Fragment>
 			<div style={container}>
 				<Logo />
-				<div style={menu} onClick={() => setDraggable(false)}>
-					<Link style={location !== secondaryTab ? tabActive : tab} href={primaryTab}>
-						Login
-					</Link>
-					<Link style={location === secondaryTab ? tabActive : tab} href={secondaryTab}>
-						Cadastrar
-					</Link>
-				</div>
+				<div style={menu}></div>
 			</div>
-			{children}
 		</Fragment>
 	)
 }

@@ -5,10 +5,7 @@ export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '20px',
-	maxWidth: maxWidth,
-	margin: '40px auto 80px',
-	padding: standardPadding
+	gridRowGap: '20px'
 },
 
 welcome = {

@@ -1,9 +1,17 @@
 export const
 
-/* MAX-WIDTH */
-maxWidth = '400px',
+/* STANDARD CONTAINER */
 
-/* MARGIN & PADDING */
+container = {
+	maxWidth: '600px',
+	height: '100vh',
+	boxSizing: 'border-box',
+	margin: '0 auto',
+	padding: '20px 5% 0'
+},
+
+/* WIDTH, MARGIN, PADDING */
+maxWidth = '400px',
 standardMargin = '20px auto 0',
 standardPadding = '0 10%',
 
