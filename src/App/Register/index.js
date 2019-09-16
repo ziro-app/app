@@ -35,7 +35,10 @@ export const Register = () => {
 				  children: <Join />
 				},
 				{ path: '/cadastrar/cnpj',
-				  children: <Header backPath={'/cadastrar'} setForward={headerProps}><RegisterCnpj {...cnpjProps} /></Header>
+				  children:
+				  	<Header title='Valide seu CNPJ' subtitle='Passo 1' backPath='/cadastrar' setForward={headerProps}>
+				  		<RegisterCnpj {...cnpjProps} />
+				  	</Header>
 				},
 				{ path: '/cadastrar/dados',
 				  children: <RegisterData {...dataProps} />

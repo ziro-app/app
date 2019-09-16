@@ -22,7 +22,7 @@ step = {
 	textAlign: 'center'
 },
 
-title = {
+sub = {
 	fontSize: '1.4rem',
 	textTransform: 'uppercase'
 },

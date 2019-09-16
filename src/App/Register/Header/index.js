@@ -1,24 +1,25 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { BackButton } from './BackButton'
-import { Logo } from '../../../Assets/Logo/index'
-import { container, step, title, dot } from './styles'
+import { container, step, sub, dot } from './styles'
 
-export const Header = ({ backPath, setForward, children }) =>
+export const Header = ({ title, subtitle, backPath, setForward, children }) =>
 	<Fragment>
 		<div style={container}>
 			<BackButton backPath={backPath} setForward={setForward} />
 			<h1 style={step}>
-				<label style={title}>Passo 1</label>
+				<label style={sub}>{subtitle}</label>
 				<label style={dot}>.</label>
 				<br/>
-				Valide seu CNPJ
+				{title}
 			</h1>
 		</div>
 		{children}
 	</Fragment>
 
 Header.propTypes = {
+	title: PropTypes.string.isRequired,
+	subtitle: PropTypes.string.isRequired,
 	backPath: PropTypes.string.isRequired,
 	setForward: PropTypes.func.isRequired,
 	children: PropTypes.element.isRequired
