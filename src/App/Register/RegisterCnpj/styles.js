@@ -11,22 +11,6 @@ container = {
 	padding: standardPadding
 },
 
-welcome = {
-	fontFamily: fontTitle,
-	fontSize: '2.1rem',
-	textAlign: 'center'
-},
-
-subtitle = {
-	fontSize: '1.4rem',
-	textTransform: 'uppercase'
-},
-
-dot = {
-	color: '#FFE401',
-	fontSize: '2.1rem'
-},
-
 instructions = {
 	display: 'grid',
 	gridRowGap: '15px',

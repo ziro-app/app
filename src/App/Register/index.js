@@ -6,6 +6,7 @@ import { RegisterCnpj } from './RegisterCnpj/index'
 import { RegisterData } from './RegisterData/index'
 import { RegisterEmail } from './RegisterEmail/index'
 import { RegisterValidateEmail } from './RegisterValidateEmail/index'
+import { container, padding } from '../../Theme/styleVariables'
 
 export const Register = () => {
 	// Slide animation direction
@@ -28,22 +29,24 @@ export const Register = () => {
 	const [emailIsValid, setEmailIsValid] = useState(false)
 	const emailProps = { email, setEmail, emailIsValid, setEmailIsValid, cnpj, fname, lname, country, phone, pass, confirmPass }
 	return (
-		<TransitionRoute forward={forward} components={[
-			{ path: '/cadastrar',
-			  children: <Join />
-			},
-			{ path: '/cadastrar/cnpj',
-			  children: <Header backPath={'/cadastrar'} setForward={headerProps}><RegisterCnpj {...cnpjProps} /></Header>
-			},
-			{ path: '/cadastrar/dados',
-			  children: <RegisterData {...dataProps} />
-			},
-			{ path: '/cadastrar/email',
-			  children: <RegisterEmail {...emailProps} />
-			},
-			{ path: '/cadastrar/validar-email',
-			  children: <RegisterValidateEmail />
-			}
-		]} />
+		<div style={container}>
+			<TransitionRoute forward={forward} components={[
+				{ path: '/cadastrar',
+				  children: <Join />
+				},
+				{ path: '/cadastrar/cnpj',
+				  children: <Header backPath={'/cadastrar'} setForward={headerProps}><RegisterCnpj {...cnpjProps} /></Header>
+				},
+				{ path: '/cadastrar/dados',
+				  children: <RegisterData {...dataProps} />
+				},
+				{ path: '/cadastrar/email',
+				  children: <RegisterEmail {...emailProps} />
+				},
+				{ path: '/cadastrar/validar-email',
+				  children: <RegisterValidateEmail />
+				}
+			]}/>
+		</div>
 	)
 }

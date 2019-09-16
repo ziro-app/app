@@ -1,25 +1,33 @@
-import { maxWidth, standardMargin, standardPadding } from '../../../Theme/styleVariables'
+import { padding, fontTitle, primaryColor, secondaryColor } from '../../../Theme/styleVariables'
 
 export const
 
 container = {
 	position: 'relative',
-	display: 'grid',
-	justifyItems: 'center',
-	maxWidth: maxWidth,
-	margin: standardMargin
+	padding: padding
 },
 
 back = {
 	position: 'absolute',
-	width: '100%',
-	height: '100%',
 	display: 'grid',
-	alignItems: 'center'
+	alignItems: 'center',
+	height: '100%'
 },
 
-anchor = {
-	display: 'grid',
-	justifySelf: 'start',
-	padding: standardPadding
+step = {
+	margin: '0',
+	fontFamily: fontTitle,
+	fontSize: '2.1rem',
+	color: primaryColor,
+	textAlign: 'center'
+},
+
+title = {
+	fontSize: '1.4rem',
+	textTransform: 'uppercase'
+},
+
+dot = {
+	color: secondaryColor,
+	fontSize: '2.1rem'
 }

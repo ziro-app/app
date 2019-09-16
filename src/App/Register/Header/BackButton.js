@@ -1,16 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useLocation, Link } from 'wouter'
-import { CloseIcon } from '../../../Assets/CloseIcon/index'
+import { Link } from 'wouter'
 import { BackIcon } from '../../../Assets/BackIcon/index'
-import { back, anchor } from './styles'
+import { back } from './styles'
 
 export const BackButton = ({ backPath, setForward }) =>
-	<div style={back}>
-		<Link href={backPath} onClick={setForward}>
-			<a style={anchor}><BackIcon /></a>
-		</Link>
-	</div>
+	<Link href={backPath} onClick={setForward}>
+		<a style={back}><BackIcon /></a>
+	</Link>
 
 BackButton.propTypes = {
 	backPath: PropTypes.string.isRequired,

@@ -4,14 +4,13 @@ import { useForm } from './utils/useForm'
 import { useCnpjApi } from './utils/useCnpjApi'
 import { Submit } from './Submit'
 import { CnpjIcon } from '../../../Assets/CnpjIcon/index'
-import { container, welcome, subtitle, dot, instructions, text, cnae, form, wrapper, labelCnpj, inputCnpj } from './styles'
+import { container, form, wrapper, labelCnpj, inputCnpj, instructions, text, cnae } from './styles'
 
 export const RegisterCnpj = ({ cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, setDirection }) => {
 	const [errorCnpj, setErrorCnpj, handleCnpj] = useForm(setCnpj, setCnpjIsValid)
 	const [submitting, errorSubmit, submitForm] = useCnpjApi(cnpj, setErrorCnpj, cnpjIsValid, setCnpjIsValid, setDirection)
 	return (
-		<div style={container}>
-			<h1 style={welcome}><label style={subtitle}>Passo 1</label><label style={dot}>.</label><br/>Valide seu CNPJ</h1>
+		<div style={container}>			
 			<form style={form} onSubmit={submitForm}>
 				<div style={wrapper}>
 					<label style={labelCnpj} htmlFor='cnpj'><CnpjIcon size={13} />CNPJ</label>
