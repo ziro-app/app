@@ -4,16 +4,17 @@ import { BackButton } from './BackButton'
 import { Logo } from '../../../Assets/Logo/index'
 import { container } from './styles'
 
-export const Header = ({ setDirection, children }) =>
+export const Header = ({ backPath, setForward, children }) =>
 	<Fragment>
 		<div style={container}>
-			<BackButton setDirection={setDirection} />
+			<BackButton backPath={backPath} setForward={setForward} />
 			<Logo />
 		</div>
 		{children}
 	</Fragment>
 
 Header.propTypes = {
-	setDirection: PropTypes.func.isRequired,
+	backPath: PropTypes.string.isRequired,
+	setForward: PropTypes.func.isRequired,
 	children: PropTypes.element.isRequired
 }

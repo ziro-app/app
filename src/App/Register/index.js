@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { Switch, Route, Redirect } from 'wouter'
 import TransitionRoute from '@bit/vitorbarbosa19.ziro.transition-route'
 import { Header } from './Header/index'
-import { SlideRoute } from './SlideRoute/index'
 import { Join } from '../Join/index'
 import { RegisterCnpj } from './RegisterCnpj/index'
 import { RegisterData } from './RegisterData/index'
@@ -12,6 +10,7 @@ import { RegisterValidateEmail } from './RegisterValidateEmail/index'
 export const Register = () => {
 	// Slide animation direction
 	const [forward, setForward] = useState(true)
+	const headerProps = () => setForward(false)
 	// Register cnpj state
 	const [cnpj, setCnpj] = useState('')
 	const [cnpjIsValid, setCnpjIsValid] = useState(false)
@@ -34,7 +33,7 @@ export const Register = () => {
 			  children: <Join />
 			},
 			{ path: '/cadastrar/cnpj',
-			  children: <RegisterCnpj {...cnpjProps} />
+			  children: <Header backPath={'/cadastrar'} setForward={headerProps}><RegisterCnpj {...cnpjProps} /></Header>
 			},
 			{ path: '/cadastrar/dados',
 			  children: <RegisterData {...dataProps} />
