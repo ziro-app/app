@@ -11,11 +11,11 @@ import { container, padding } from '../../Theme/styleVariables'
 export const Register = () => {
 	// Slide animation direction
 	const [forward, setForward] = useState(true)
-	const headerProps = () => setForward(false)
+	const headerProp = () => setForward(false)
 	// Register cnpj state
 	const [cnpj, setCnpj] = useState('')
 	const [cnpjIsValid, setCnpjIsValid] = useState(false)
-	const cnpjProps = { cnpj, setCnpj, cnpjIsValid, setCnpjIsValid }
+	const cnpjProps = { cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, setForward }
 	// Register data state
 	const [fname, setFname] = useState('')
 	const [lname, setLname] = useState('')
@@ -36,7 +36,7 @@ export const Register = () => {
 				},
 				{ path: '/cadastrar/cnpj',
 				  children:
-				  	<Header title='Valide seu CNPJ' subtitle='Passo 1' backPath='/cadastrar' setForward={headerProps}>
+				  	<Header title='Valide seu CNPJ' subtitle='Passo 1' backPath='/cadastrar' setForward={headerProp}>
 				  		<RegisterCnpj {...cnpjProps} />
 				  	</Header>
 				},

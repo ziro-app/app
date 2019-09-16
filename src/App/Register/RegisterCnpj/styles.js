@@ -1,35 +1,12 @@
-import { maxWidth, standardMargin, standardPadding, fontTitle, fontWeightMuted, fontWeightBody,
+import { padding, fontTitle, fontWeightMuted, fontWeightBody,
 	fontSizeSmall, primaryColor, grayColor3, grayColor4, alertColor, gradient, shadow } from '../../../Theme/styleVariables'
 
 export const
 
-container = {
-	display: 'grid',
-	gridRowGap: '20px',
-	maxWidth: maxWidth,
-	margin: '40px auto 80px',
-	padding: standardPadding
-},
-
-instructions = {
-	display: 'grid',
-	gridRowGap: '15px',
-	textAlign: 'center',
-	color: primaryColor
-},
-
-text = {
-	fontSize: '1.6rem'
-},
-
-cnae = {
-	fontFamily: fontTitle,
-	fontSize: '1.5rem'
-},
-
 form = {
 	display: 'grid',
-	gridRowGap: '20px'
+	gridRowGap: '15px',
+	padding: padding
 },
 
 wrapper = {
@@ -39,16 +16,12 @@ wrapper = {
 },
 
 label = {
+	justifySelf: 'center',
 	display: 'grid',
 	gridTemplateColumns: 'auto 1fr',
 	gridColumnGap: '5px',
 	alignItems: 'center',
 	marginBottom: '-4px'
-},
-
-labelCnpj = {
-	...label,
-	justifySelf: 'center',
 },
 
 input = {
@@ -59,13 +32,20 @@ input = {
 	border: `2px solid ${grayColor3}`,
 	borderRadius: '8px',
 	color: primaryColor,
+	textAlign: 'center',
 	backgroundColor: '#FDFDFD',
 	boxShadow: `rgba(34,34,34,0.3) 0px 3px 10px -3px`
 },
 
-inputCnpj = {
-	...input,
-	textAlign: 'center'
+instructions = {
+	display: 'grid',
+	gridRowGap: '10px',
+	textAlign: 'center',
+	color: primaryColor
+},
+
+cnae = {
+	fontFamily: fontTitle
 },
 
 error = {
