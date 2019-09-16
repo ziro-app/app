@@ -11,11 +11,12 @@ import { container, padding } from '../../Theme/styleVariables'
 export const Register = () => {
 	// Slide animation direction
 	const [forward, setForward] = useState(true)
-	const headerProp = () => setForward(false)
+	const goForward = () => setForward(true)
+	const goBack = () => setForward(false)
 	// Register cnpj state
 	const [cnpj, setCnpj] = useState('')
 	const [cnpjIsValid, setCnpjIsValid] = useState(false)
-	const cnpjProps = { cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, setForward }
+	const cnpjProps = { cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, goForward }
 	// Register data state
 	const [fname, setFname] = useState('')
 	const [lname, setLname] = useState('')
@@ -32,11 +33,11 @@ export const Register = () => {
 		<div style={container}>
 			<TransitionRoute forward={forward} components={[
 				{ path: '/cadastrar',
-				  children: <Join />
+				  children: <Join goForward={goForward} />
 				},
 				{ path: '/cadastrar/cnpj',
 				  children:
-				  	<Header title='Valide seu CNPJ' subtitle='Passo 1' backPath='/cadastrar' setForward={headerProp}>
+				  	<Header title='Valide seu CNPJ' subtitle='Passo 1' backPath='/cadastrar' goBack={goBack}>
 				  		<RegisterCnpj {...cnpjProps} />
 				  	</Header>
 				},

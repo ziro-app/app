@@ -5,7 +5,7 @@ import { db } from '../../../../Firebase/index'
 import { validateInput } from './validateInput'
 import { validateCnpj } from './validateCnpj'
 
-export const useCnpjApi = (cnpj, setErrorCnpj, cnpjIsValid, setCnpjIsValid, setDirection) => {
+export const useCnpjApi = (cnpj, setErrorCnpj, cnpjIsValid, setCnpjIsValid, goForward) => {
 	const [submitting, setSubmitting] = useState(false)
 	const [errorSubmit, setErrorSubmit] = useState('')
 	const [location, setLocation] = useLocation()
@@ -13,7 +13,7 @@ export const useCnpjApi = (cnpj, setErrorCnpj, cnpjIsValid, setCnpjIsValid, setD
 		event.preventDefault()
 		if (cnpjIsValid) {
 			setLocation('/cadastrar/dados')
-			setDirection('forward')
+			goForward()
 		}
 		else {
 			const { inputIsValid, errorMsgCnpj } = validateInput(cnpj)
@@ -40,7 +40,7 @@ export const useCnpjApi = (cnpj, setErrorCnpj, cnpjIsValid, setCnpjIsValid, setD
 							if (status === 'Success') {
 								setCnpjIsValid(true)
 								setLocation('/cadastrar/dados')
-								setDirection('forward')
+								goForward()
 							}
 						}
 					}

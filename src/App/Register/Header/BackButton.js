@@ -4,8 +4,8 @@ import { Link } from 'wouter'
 import Icon from '@bit/vitorbarbosa19.ziro.icon'
 import { back } from './styles'
 
-export const BackButton = ({ backPath, setForward }) =>
-	<Link href={backPath} onClick={setForward}>
+export const BackButton = ({ backPath, goBack }) =>
+	<Link href={backPath} onClick={goBack}>
 		<a style={back}>
 			<Icon type='back' />
 		</a>
@@ -13,5 +13,5 @@ export const BackButton = ({ backPath, setForward }) =>
 
 BackButton.propTypes = {
 	backPath: PropTypes.string.isRequired,
-	setForward: PropTypes.func.isRequired
+	goBack: PropTypes.func.isRequired
 }
