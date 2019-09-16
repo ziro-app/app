@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Switch, Route, Redirect } from 'wouter'
+import TransitionRoute from '@bit/vitorbarbosa19.ziro.transition-route'
 import { Header } from './Header/index'
 import { SlideRoute } from './SlideRoute/index'
 import { Join } from '../Join/index'
@@ -10,11 +11,11 @@ import { RegisterValidateEmail } from './RegisterValidateEmail/index'
 
 export const Register = () => {
 	// Slide animation direction
-	const [direction, setDirection] = useState('forward')
+	const [forward, setForward] = useState(true)
 	// Register cnpj state
 	const [cnpj, setCnpj] = useState('')
 	const [cnpjIsValid, setCnpjIsValid] = useState(false)
-	const cnpjProps = { cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, setDirection }
+	const cnpjProps = { cnpj, setCnpj, cnpjIsValid, setCnpjIsValid }
 	// Register data state
 	const [fname, setFname] = useState('')
 	const [lname, setLname] = useState('')
@@ -22,43 +23,28 @@ export const Register = () => {
 	const [phone, setPhone] = useState('')
 	const [pass, setPass] = useState('')
 	const [confirmPass, setConfirmPass] = useState('')
-	const dataProps = { fname, setFname, lname, setLname, country, setCountry, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, setDirection }
+	const dataProps = { fname, setFname, lname, setLname, country, setCountry, phone, setPhone, pass, setPass, confirmPass, setConfirmPass }
 	// Register email state
 	const [email, setEmail] = useState('')
 	const [emailIsValid, setEmailIsValid] = useState(false)
-	const emailProps = { email, setEmail, emailIsValid, setEmailIsValid, cnpj, fname, lname, country, phone, pass, confirmPass, setDirection }
+	const emailProps = { email, setEmail, emailIsValid, setEmailIsValid, cnpj, fname, lname, country, phone, pass, confirmPass }
 	return (
-		<Header setDirection={setDirection}>
-			<Switch>
-				<Route path='/cadastrar'>
-					<SlideRoute path='/cadastrar' direction={direction}>
-						<Join />
-					</SlideRoute>
-				</Route>
-				<Route path='/cadastrar/cnpj'>
-					<SlideRoute path='/cadastrar/cnpj' direction={direction}>
-						<RegisterCnpj {...cnpjProps} />
-					</SlideRoute>
-				</Route>
-				<Route path='/cadastrar/dados'>
-					<SlideRoute path='/cadastrar/dados' direction={direction}>
-						<RegisterData {...dataProps} />
-					</SlideRoute>
-				</Route>
-				<Route path='/cadastrar/email'>
-					<SlideRoute path='/cadastrar/email' direction={direction}>
-						<RegisterEmail {...emailProps} />
-					</SlideRoute>
-				</Route>
-				<Route path='/cadastrar/validar-email'>
-					<SlideRoute path='/cadastrar/validar-email' direction={direction}>
-						<RegisterValidateEmail />
-					</SlideRoute>
-				</Route>
-				<Route path='/:any*'>
-					<Redirect to='/cadastrar/cnpj' />
-				</Route>
-			</Switch>
-		</Header>
+		<TransitionRoute forward={forward} components={[
+			{ path: '/cadastrar',
+			  children: <Join />
+			},
+			{ path: '/cadastrar/cnpj',
+			  children: <RegisterCnpj {...cnpjProps} />
+			},
+			{ path: '/cadastrar/dados',
+			  children: <RegisterData {...dataProps} />
+			},
+			{ path: '/cadastrar/email',
+			  children: <RegisterEmail {...emailProps} />
+			},
+			{ path: '/cadastrar/validar-email',
+			  children: <RegisterValidateEmail />
+			}
+		]} />
 	)
 }
