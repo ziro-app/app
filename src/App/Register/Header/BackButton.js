@@ -1,12 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'wouter'
-import { BackIcon } from '../../../Assets/BackIcon/index'
+import Icon from '@bit/vitorbarbosa19.ziro.icon'
 import { back } from './styles'
 
 export const BackButton = ({ backPath, setForward }) =>
 	<Link href={backPath} onClick={setForward}>
-		<a style={back}><BackIcon /></a>
+		<a style={back}>
+			<Icon type='back' />
+		</a>
 	</Link>
 
 BackButton.propTypes = {
