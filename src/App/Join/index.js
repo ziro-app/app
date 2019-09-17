@@ -7,7 +7,7 @@ export const Join = ({ goForward, goBack }) =>
 	<div style={container}>
 		<CallToAction
 			headerText='Tem cadastro? LOGIN'
-			headerLinkPath='/home'
+			headerLinkPath='/login'
 			pillText='Faça parte'
 			ctaText='Compre pra revender sem se preocupar com fornecedores, logística ou pagamento'
 			btnPath='/cadastrar/cnpj'

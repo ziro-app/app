@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import { useLocation } from 'wouter'
 import { auth, db } from '../Firebase/index'
 import { userContext } from './appContext'
 import { saveUserData } from './utils/saveUserData'
 import ErrorBoundary from './ErrorBoundary/index'
 import { InitialLoader } from './InitialLoader/index'
-import { PrivateRouter } from './Router/PrivateRouter'
-import { PublicRouter } from './Router/PublicRouter'
+import { Router } from './Router'
 
 export const App = () => {
 	/*== APP STATE ==*/
+	const [,setLocation] = useLocation()
 	const [loadingUser, setLoadingUser] = useState(true)
 	const [loadingData, setLoadingData] = useState(true)
 	const [errorFetch, setErrorFetch] = useState('')
@@ -24,6 +25,7 @@ export const App = () => {
 		let unsubscribe = () => null
 		return auth.onAuthStateChanged(user => {
 			if (user && user.emailVerified) {
+				setLocation('/meus-dados/fisica')
 				setUid(user.uid)
 				setEmail(user.email)
 				unsubscribe = db.collection('users').where('uid','==',user.uid).onSnapshot(
@@ -44,6 +46,7 @@ export const App = () => {
 					}
 				)
 			} else {
+				setLocation('/login')
 				unsubscribe()
 				setLoadingData(true)
 				setErrorFetch('')
@@ -61,13 +64,12 @@ export const App = () => {
 	const saveData = saveUserData(uid)
 	const userData = { loadingData, errorFetch, fname, lname, rg, cpf, email, whatsapp,
 		setFname, setLname, setRg, setCpf, setWhatsapp, saveData }
-	const renderApp = {
-		true: 
-			<InitialLoader />,
-		false:
+	if (loadingUser) return <InitialLoader />
+	return (
+		<ErrorBoundary>
 			<userContext.Provider value={userData}>
-				{!!uid ? <PrivateRouter /> : <PublicRouter />}
+				<Router />
 			</userContext.Provider>
-	}
-	return <ErrorBoundary>{renderApp[loadingUser]}</ErrorBoundary>
+		</ErrorBoundary>
+	)
 }
