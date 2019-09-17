@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import TransitionRoute from '@bit/vitorbarbosa19.ziro.transition-route'
 import { Header } from './Header/index'
-import { Join } from '../Join/index'
+import { Join } from './Join/index'
 import { RegisterCnpj } from './RegisterCnpj/index'
 import { RegisterData } from './RegisterData/index'
 import { RegisterEmail } from './RegisterEmail/index'
