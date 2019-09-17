@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { useLocation } from 'wouter'
 import { Home } from './Home/index'
 import { Register } from './Register/index'
@@ -25,4 +26,8 @@ export const Router = ({ isLogged }) => {
 			default: return null
 		}
 	}
+}
+
+Router.propTypes = {
+	isLogged: PropTypes.bool.isRequired
 }
