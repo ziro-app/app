@@ -55,7 +55,7 @@ export const App = () => {
 				setCpf('')
 				setEmail('')
 				setWhatsapp('')
-				if (location !== '/cadastrar') setLocation('/login')
+				setLocation('/login') //don't remove
 			}
 			if (loadingUser) setLoadingUser(false)
 	})}, [])
