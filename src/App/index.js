@@ -3,14 +3,13 @@ import { useLocation } from 'wouter'
 import { auth, db } from '../Firebase/index'
 import { userContext } from './appContext'
 import { saveUserData } from './utils/saveUserData'
-import { redirect } from './utils/redirect'
 import ErrorBoundary from './ErrorBoundary/index'
 import { InitialLoader } from './InitialLoader/index'
 import { Router } from './Router'
 
 export const App = () => {
 	/*== APP STATE ==*/
-	const [location, setLocation] = useLocation()
+	const [, setLocation] = useLocation()
 	const [loadingUser, setLoadingUser] = useState(true)
 	const [loadingData, setLoadingData] = useState(true)
 	const [errorFetch, setErrorFetch] = useState('')
@@ -45,7 +44,6 @@ export const App = () => {
 						if (loadingData) setLoadingData(false)
 					}
 				)
-				if (redirect(location)) setLocation('/meus-dados/fisica')
 			} else {
 				unsubscribe()
 				setLoadingData(true)
@@ -57,7 +55,7 @@ export const App = () => {
 				setCpf('')
 				setEmail('')
 				setWhatsapp('')
-				if (location !== '/cadastrar') setLocation('/login')
+				setLocation('/login')
 			}
 			if (loadingUser) setLoadingUser(false)
 	})}, [])
@@ -69,7 +67,7 @@ export const App = () => {
 	return (
 		<ErrorBoundary>
 			<userContext.Provider value={userData}>
-				<Router />
+				<Router isLogged={!!uid} />
 			</userContext.Provider>
 		</ErrorBoundary>
 	)

@@ -1,19 +1,28 @@
 import React from 'react'
-import { Switch, Route } from 'wouter'
+import { useLocation } from 'wouter'
 import { Home } from './Home/index'
 import { Register } from './Register/index'
 import { MyData } from './MyData/index'
 import { NotFound } from './NotFound/index'
 
-export const Router = () =>
-	<Switch>
-		<Route path='/login'><Home /></Route>
-		<Route path='/cadastrar'><Register /></Route>
-		<Route path='/cadastrar/cnpj'><Register /></Route>
-		<Route path='/cadastrar/dados'><Register /></Route>
-		<Route path='/cadastrar/email'><Register /></Route>
-		<Route path='/cadastrar/validar-email'><Register /></Route>
-		<Route path='/meus-dados/fisica'><MyData /></Route>
-		<Route path='/meus-dados/juridica'><MyData /></Route>
-		<Route path='/:any*'><NotFound fallback='/meus-dados/fisica' /></Route>
-	</Switch>
+export const Router = ({ isLogged }) => {
+	const [location, setLocation] = useLocation()
+	if (isLogged) {
+		switch (location) {
+			case '/meus-dados/fisica': return <MyData />
+			case '/meus-dados/juridica': return <MyData />
+			case '/login': setLocation('/meus-dados/fisica')
+			default: return <NotFound fallback='/meus-dados/fisica' />
+		}
+	} else {
+		switch (location) {
+			case '/login': return <Home />
+			case '/cadastrar': return <Register />
+			case '/cadastrar/cnpj': return <Register />
+			case '/cadastrar/dados': return <Register />
+			case '/cadastrar/email': return <Register />
+			case '/cadastrar/validar-email': return <Register />
+			default: return null
+		}
+	}
+}
