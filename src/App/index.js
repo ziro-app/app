@@ -9,7 +9,7 @@ import { Router } from './Router'
 
 export const App = () => {
 	/*== APP STATE ==*/
-	const [, setLocation] = useLocation()
+	const [location, setLocation] = useLocation()
 	const [loadingUser, setLoadingUser] = useState(true)
 	const [loadingData, setLoadingData] = useState(true)
 	const [errorFetch, setErrorFetch] = useState('')
@@ -55,7 +55,7 @@ export const App = () => {
 				setCpf('')
 				setEmail('')
 				setWhatsapp('')
-				setLocation('/login')
+				if (location !== '/cadastrar') setLocation('/login')
 			}
 			if (loadingUser) setLoadingUser(false)
 	})}, [])
