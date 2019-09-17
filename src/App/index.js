@@ -3,13 +3,14 @@ import { useLocation } from 'wouter'
 import { auth, db } from '../Firebase/index'
 import { userContext } from './appContext'
 import { saveUserData } from './utils/saveUserData'
+import { redirect } from './utils/redirect'
 import ErrorBoundary from './ErrorBoundary/index'
 import { InitialLoader } from './InitialLoader/index'
 import { Router } from './Router'
 
 export const App = () => {
 	/*== APP STATE ==*/
-	const [,setLocation] = useLocation()
+	const [location, setLocation] = useLocation()
 	const [loadingUser, setLoadingUser] = useState(true)
 	const [loadingData, setLoadingData] = useState(true)
 	const [errorFetch, setErrorFetch] = useState('')
@@ -25,7 +26,6 @@ export const App = () => {
 		let unsubscribe = () => null
 		return auth.onAuthStateChanged(user => {
 			if (user && user.emailVerified) {
-				setLocation('/meus-dados/fisica')
 				setUid(user.uid)
 				setEmail(user.email)
 				unsubscribe = db.collection('users').where('uid','==',user.uid).onSnapshot(
@@ -45,8 +45,8 @@ export const App = () => {
 						if (loadingData) setLoadingData(false)
 					}
 				)
+				if (redirect(location)) setLocation('/meus-dados/fisica')
 			} else {
-				setLocation('/login')
 				unsubscribe()
 				setLoadingData(true)
 				setErrorFetch('')
@@ -57,6 +57,7 @@ export const App = () => {
 				setCpf('')
 				setEmail('')
 				setWhatsapp('')
+				if (location !== '/cadastrar') setLocation('/login')
 			}
 			if (loadingUser) setLoadingUser(false)
 	})}, [])
