@@ -14,7 +14,15 @@ export const RegisterEmail = ({ email, setEmail, cnpj, fname, lname, country, ph
 		<form style={form} onSubmit={submitForm}>
 			<div style={wrapper}>
 				<label style={label} htmlFor='email'><Icon type='email' size={13} />Email</label>
-				<input style={input} onChange={handleEmail} value={email} disabled={false} placeholder='nome@exemplo.com' type='text' name='email' id='email' />
+				<InputText
+					style={input}
+					value={email}
+					submitting={submitting}
+					onChange={handleEmail}
+					placeholder='nome@exemplo.com'
+					name='email'
+					id='email'
+				/>
 			</div>
 			<div style={instructions}>
 				<label>Será enviado um email de validação para sua caixa</label>
