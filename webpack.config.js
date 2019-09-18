@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 const webpack = require('webpack')
@@ -42,6 +43,7 @@ module.exports = (env, { mode }) => {
 	if (mode === 'production') {
 		config.devtool = 'cheap-module-source-map'
 		config.plugins.push(
+			new CompressionPlugin(),
 			new CopyWebpackPlugin([
 				{ from: './_redirects', to: '_redirects', toType: 'file' },
 				{ from: './src/sw.js', to: 'sw.js', toType: 'file' }
