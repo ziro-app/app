@@ -1,54 +1,19 @@
-import { maxWidth, standardPadding, successColor, fontTitle, fontWeightBody,
-	fontSizeSmall, primaryColor, grayColor4, alertColor, gradient, shadow } from '../../../Theme/styleVariables'
+import { padding, fontTitle, fontWeightBody, fontSizeSmall, primaryColor, grayColor4,
+	successColor, alertColor, gradient, shadow } from '../../../Theme/styleVariables'
 
 export const
 
 container = {
 	display: 'grid',
-	gridRowGap: '20px',
-	maxWidth: maxWidth,
-	margin: '20px auto 80px',
-	padding: standardPadding
-},
-
-success = {
-	display: 'grid',
-	justifyItems: 'center'
-},
-
-message = {
-	display: 'grid',
-	gridTemplateColumns: 'auto 1fr',
-	alignItems: 'center',
-	gridColumnGap: '7px',
-	color: successColor
-},
-
-welcome = {
-	fontFamily: fontTitle,
-	fontSize: '2.1rem',
-	textAlign: 'center'
-},
-
-subtitle = {
-	fontSize: '1.4rem',
-	textTransform: 'uppercase'
-},
-
-dot = {
-	color: '#FFE401',
-	fontSize: '2.1rem'
+	gridRowGap: '15px',
+	padding: padding
 },
 
 instructions = {
 	display: 'grid',
-	gridRowGap: '15px',
+	gridRowGap: '10px',
 	textAlign: 'center',
 	color: primaryColor
-},
-
-text = {
-	fontSize: '1.6rem'
 },
 
 successMsg = {

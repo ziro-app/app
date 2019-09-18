@@ -69,7 +69,16 @@ export const Register = () => {
 				  	</Header>
 				},
 				{ path: '/cadastrar/validar-email',
-				  children: <RegisterValidateEmail />
+				  children:
+				  	<Header
+					  	title='Verifique sua caixa'
+					  	subtitle='Passo 4'
+					  	message='Email de validação enviado!'
+					  	backPath='/cadastrar/email'
+					  	goBack={goBack}
+				  	>
+				  		<RegisterValidateEmail />
+				  	</Header>
 				}
 			]}/>
 		</div>
