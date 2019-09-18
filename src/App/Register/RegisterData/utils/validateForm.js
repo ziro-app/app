@@ -12,12 +12,12 @@ export const validateForm = (fname, lname, rg, cpf, birth, country, phone, pass,
 	const errorMsgFname = fnameIsValid ? '' : 'Campo obrigatório'
 	const errorMsgLname = lnameIsValid ? '' : 'Campo obrigatório'
 	const errorMsgRg = rgIsValid ? '' : 'Campo obrigatório'
-	const errorMsgCpf = cpfIsValid ? '' : 'Mínimo 11 números'
-	const errorMsgBirth = birthIsValid ? '' : 'Mínimo 8 números'
+	const errorMsgCpf = cpfIsValid ? '' : 'Formato inválido'
+	const errorMsgBirth = birthIsValid ? '' : 'Formato inválido'
 	const errorMsgCountry = countryIsValid ? '' : 'Digite cód. país. BR é 55'
 	const errorMsgPhone = phoneIsValid ? '' : 'Formato inválido'
 	const errorMsgPass = passIsValid ? '' : 'Mínimo 8 caracteres'
-	const errorMsgConfirmPass = confirmPassIsValid ? '' : 'Valor incorreto'
+	const errorMsgConfirmPass = confirmPassIsValid ? '' : 'Valor não confere'
 	const formIsValid = fnameIsValid && lnameIsValid && rgIsValid && cpfIsValid && birthIsValid && countryIsValid && phoneIsValid && passIsValid && confirmPassIsValid
 	return {
 		formIsValid,
