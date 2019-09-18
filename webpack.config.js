@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 const webpack = require('webpack')
 
 module.exports = (env, { mode }) => {
@@ -45,15 +46,15 @@ module.exports = (env, { mode }) => {
 				{ from: './_redirects', to: '_redirects', toType: 'file' },
 				{ from: './src/sw.js', to: 'sw.js', toType: 'file' }
 			]),
-			// new WebpackPwaManifest({
-			// 	name: 'Ziro App',
-			// 	short_name: 'Ziro',
-			// 	start_url: '/',
-			// 	background_color: '#FFF',
-			// 	theme_color: '#FFF',
-			// 	display: 'standalone',
-			// 	icons: [{ src: './logo.png', sizes: [96, 128, 192, 256, 384, 512] }]
-			// }),
+			new WebpackPwaManifest({
+				name: 'Ziro App',
+				short_name: 'Ziro',
+				start_url: '/',
+				background_color: '#FFF',
+				theme_color: '#FFF',
+				display: 'standalone',
+				icons: [{ src: './logo.png', sizes: [96, 128, 192, 256, 384, 512] }]
+			}),
 			new webpack.DefinePlugin({
 				'process.env': {
 					CNPJ_API: JSON.stringify(process.env.CNPJ_API),
