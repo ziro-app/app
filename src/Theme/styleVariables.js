@@ -3,7 +3,7 @@ export const
 /* STANDARD CONTAINER */
 
 container = {
-	maxWidth: '600px',
+	maxWidth: '500px',
 	height: '100vh',
 	boxSizing: 'border-box',
 	margin: '0 auto'

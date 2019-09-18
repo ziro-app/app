@@ -6,7 +6,8 @@ export const
 form = {
 	display: 'grid',
 	gridRowGap: '15px',
-	padding: padding
+	padding: padding,
+	margin: '0 0 30px'
 },
 
 wrapper = {
