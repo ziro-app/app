@@ -41,7 +41,10 @@ module.exports = (env, { mode }) => {
 	if (mode === 'production') {
 		config.devtool = 'cheap-module-source-map'
 		config.plugins.push(
-			new CopyWebpackPlugin([{ from: './_redirects', to: '_redirects', toType: 'file' }]),
+			new CopyWebpackPlugin([
+				{ from: './_redirects', to: '_redirects', toType: 'file' },
+				{ from: './src/sw.js', to: 'sw.js', toType: 'file' }
+			]),
 			// new WebpackPwaManifest({
 			// 	name: 'Ziro App',
 			// 	short_name: 'Ziro',
