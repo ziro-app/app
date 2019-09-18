@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from './utils/useForm'
 import { useSaveData } from './utils/useSaveData'
+import InputText from '@bit/vitorbarbosa19.ziro.input-text'
 import { Submit } from './Submit'
 import { Errors } from './Errors'
 import { NameIcon } from '../../../Assets/NameIcon/index'
@@ -18,31 +19,76 @@ export const RegisterData = ({ fname, setFname, lname, setLname, country, setCou
 		errorPass, setErrorPass, handlePass,
 		errorConfirmPass, setErrorConfirmPass, handleConfirmPass
 	] = useForm(setFname, setLname, setCountry, setPhone, setPass, setConfirmPass, country)
-	const [errorSave, saveForm] = useSaveData(fname, lname, country, phone, pass, confirmPass, setErrorFname, setErrorLname, setErrorCountry, setErrorPhone, setErrorPass, setErrorConfirmPass, setDirection)
+	const [errorSave, saveForm] = useSaveData(fname, lname, country, phone, pass, confirmPass,
+		setErrorFname, setErrorLname, setErrorCountry, setErrorPhone, setErrorPass,
+		setErrorConfirmPass, setDirection)
 	return (
 		<form style={form} onSubmit={saveForm}>
 			<div style={wrapper}>
 				<label style={label} htmlFor='fname'><NameIcon size={13} />Nome<Errors message={errorFname} /></label>
-				<input style={input} onChange={handleFname} value={fname} placeholder='Fernando(a)' type='text' name='fname' id='fname' />
+				<InputText
+					style={input}
+					value={fname}
+					onChange={handleFname}
+					placeholder='Fernando(a)'
+					name='fname'
+					id='fname'
+				/>
 			</div>
 			<div style={wrapper}>
 				<label style={label} htmlFor='lname'><NameIcon size={13} />Sobrenome<Errors message={errorLname} /></label>
-				<input style={input} onChange={handleLname} value={lname} placeholder='Santos Silva' type='text' name='lname' id='lname' />
+				<InputText
+					style={input}
+					value={lname}
+					onChange={handleLname}
+					placeholder='Santos Silva'
+					name='lname'
+					id='lname'
+				/>
 			</div>
 			<div style={wrapper}>
 				<label style={label} htmlFor='phone'><PhoneIcon size={13} />Whatsapp<Errors message={errorPhone || errorCountry} /></label>
 				<div style={wrapperPhone}>
-					<input style={input} onChange={handleCountry} value={country} type='text' name='country' id='country' />
-					<input style={input} onChange={handlePhone} value={phone} placeholder='(11) 92233-4455' type='text' name='phone' id='phone' />
+					<InputText
+						style={input}
+						value={country}
+						onChange={handleCountry}
+						name='country'
+						id='country'
+					/>
+					<InputText
+						style={input}
+						value={phone}
+						onChange={handlePhone}
+						placeholder='(11) 92233-4455'
+						name='phone'
+						id='phone'
+					/>
 				</div>
 			</div>
 			<div style={wrapper}>
 				<label style={label} htmlFor='pass'><PasswordIcon size={13} />Senha<Errors message={errorPass} /></label>
-				<input style={input} onChange={handlePass} value={pass} placeholder='mínimo 8 caracteres' type='password' name='pass' id='pass' />
+				<InputText
+					style={input}
+					value={pass}
+					onChange={handlePass}
+					placeholder='mínimo 8 caracteres'
+					name='pass'
+					id='pass'
+					type='password'
+				/>
 			</div>
 			<div style={wrapper}>
 				<label style={label} htmlFor='confirmpass'><PasswordIcon size={13} />Repetir senha<Errors message={errorConfirmPass} /></label>
-				<input style={input} onChange={handleConfirmPass} value={confirmPass} placeholder='confirme sua senha' type='password' name='confirmpass' id='confirmpass' />
+				<InputText
+					style={input}
+					value={confirmPass}
+					onChange={handleConfirmPass}
+					placeholder='confirme sua senha'
+					name='confirmPass'
+					id='confirmPass'
+					type='password'
+				/>
 			</div>
 			<Submit errorSave={errorSave} />
 		</form>
