@@ -37,13 +37,24 @@ export const Register = () => {
 				},
 				{ path: '/cadastrar/cnpj',
 				  children:
-				  	<Header title='Valide seu CNPJ' subtitle='Passo 1' backPath='/cadastrar' goBack={goBack}>
+				  	<Header
+				  		title='Valide seu CNPJ'
+				  		subtitle='Passo 1'
+				  		backPath='/cadastrar'
+				  		goBack={goBack}
+				  	>
 				  		<RegisterCnpj {...cnpjProps} />
 				  	</Header>
 				},
 				{ path: '/cadastrar/dados',
 				  children:
-				  	<Header title='Preencha seus dados' subtitle='Passo 2' backPath='/cadastrar/cnpj' goBack={goBack}>
+				  	<Header
+					  	title='Preencha seus dados'
+					  	subtitle='Passo 2'
+					  	message='CNPJ validado com sucesso!'
+					  	backPath='/cadastrar/cnpj'
+					  	goBack={goBack}
+				  	>
 				  		<RegisterData {...dataProps} />
 				  	</Header>
 				},
