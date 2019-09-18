@@ -26,8 +26,21 @@ export const useEmail = (email, setErrorEmail, cnpj, razao, fantasia, rua, numer
 					await db.collection('users').add({
 						uid: user.uid,
 						cnpj,
+						razao,
+						fantasia,
+						rua,
+						numero,
+						complemento,
+						bairro,
+						cep,
+						cidade,
+						estado,
+						pais,
 						fname,
 						lname,
+						rg,
+						cpf,
+						birth,
 						phone: `${country} ${phone}`
 					})
 					await db.collection('cnpjs').add({ cnpj })
