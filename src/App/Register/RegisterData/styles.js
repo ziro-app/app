@@ -1,48 +1,12 @@
-import { maxWidth, standardPadding, successColor, fontTitle, fontWeightBody, fontSizeSmall,
+import { padding, fontTitle, fontBody, fontSizeInput, fontWeightBody, fontSizeSmall,
 	primaryColor, grayColor3, alertColor, gradient, shadow } from '../../../Theme/styleVariables'
 
 export const
 
-container = {
-	display: 'grid',
-	gridRowGap: '20px',
-	maxWidth: maxWidth,
-	margin: '20px auto 80px',
-	padding: standardPadding
-},
-
-success = {
-	display: 'grid',
-	justifyItems: 'center'
-},
-
-message = {
-	display: 'grid',
-	gridTemplateColumns: 'auto 1fr',
-	alignItems: 'center',
-	gridColumnGap: '7px',
-	color: successColor
-},
-
-welcome = {
-	fontFamily: fontTitle,
-	fontSize: '2.1rem',
-	textAlign: 'center'
-},
-
-subtitle = {
-	fontSize: '1.4rem',
-	textTransform: 'uppercase'
-},
-
-dot = {
-	color: '#FFE401',
-	fontSize: '2.1rem'
-},
-
 form = {
 	display: 'grid',
-	gridRowGap: '20px'
+	gridRowGap: '15px',
+	padding: padding
 },
 
 wrapper = {
@@ -64,9 +28,13 @@ input = {
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
 	outline: 'none',
+	boxSizing: 'border-box',
+	width: '100%',
 	padding: '8px 22px',
 	border: `2px solid ${grayColor3}`,
 	borderRadius: '8px',
+	fontFamily: `${fontBody}, 'system-ui', 'sans-serif'`,
+	fontSize: fontSizeInput,
 	color: primaryColor,
 	backgroundColor: '#FDFDFD',
 	boxShadow: `rgba(34,34,34,0.3) 0px 3px 10px -3px`
