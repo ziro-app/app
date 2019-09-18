@@ -6,7 +6,7 @@ import { submit, scaleButton } from './styles'
 export const Reload = () => {
 	const [, setLocation] = useLocation()
 	const reload = () => {
-		setLocation('/home/login')
+		setLocation('/login')
 		window.location.reload()
 	}
 	return (
