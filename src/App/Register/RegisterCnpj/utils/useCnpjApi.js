@@ -5,7 +5,7 @@ import { db } from '../../../../Firebase/index'
 import { validateInput } from './validateInput'
 import { validateCnpj } from './validateCnpj'
 
-export const useCnpjApi = (cnpj, razao, setRazao, fantasia, setFantasia, rua, setRua, numero, setNumero, complemento, setComplemento, bairro, setBairro, cep, setCep, cidade, setCidade, estado, setEstado, setErrorCnpj, cnpjIsValid, setCnpjIsValid, goForward) => {
+export const useCnpjApi = (cnpj, setRazao, setFantasia, setRua, setNumero, setComplemento, setBairro, setCep, setCidade, setEstado, setErrorCnpj, cnpjIsValid, setCnpjIsValid, goForward) => {
 	const [submitting, setSubmitting] = useState(false)
 	const [errorSubmit, setErrorSubmit] = useState('')
 	const [location, setLocation] = useLocation()

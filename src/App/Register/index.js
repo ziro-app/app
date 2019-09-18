@@ -25,9 +25,8 @@ export const Register = () => {
 	const [estado, setEstado] = useState('')
 	const [pais] = useState('BR')
 	const [cnpjIsValid, setCnpjIsValid] = useState(false)
-	const cnpjProps = { cnpj, setCnpj, razao, setRazao, fantasia, setFantasia, rua, setRua,
-		numero, setNumero, complemento, setComplemento, bairro, setBairro, cep, setCep, cidade, setCidade,
-		estado, setEstado, cnpjIsValid, setCnpjIsValid, goForward }
+	const cnpjProps = { cnpj, setCnpj, setRazao, setFantasia, setRua, setNumero, setComplemento, setBairro,
+		setCep, setCidade, setEstado, cnpjIsValid, setCnpjIsValid, goForward }
 	// Register data state
 	const [fname, setFname] = useState('')
 	const [lname, setLname] = useState('')
