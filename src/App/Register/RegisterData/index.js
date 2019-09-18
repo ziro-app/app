@@ -9,18 +9,21 @@ import { Errors } from './Errors'
 import { PhoneIcon } from '../../../Assets/PhoneIcon/index'
 import { form, wrapper, label, input, wrapperPhone } from './styles'
 
-export const RegisterData = ({ fname, setFname, lname, setLname, country, setCountry, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, goForward }) => {
+export const RegisterData = ({ fname, setFname, lname, setLname, rg, setRg, cpf, setCpf, birth, setBirth, country, setCountry, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, goForward }) => {
 	const [
 		errorFname, setErrorFname, handleFname,
 		errorLname, setErrorLname, handleLname,
+		errorRg, setErrorRg, handleRg,
+		errorCpf, setErrorCpf, handleCpf,
+		errorBirth, setErrorBirth, handleBirth,
 		errorCountry, setErrorCountry, handleCountry,
 		errorPhone, setErrorPhone, handlePhone,
 		errorPass, setErrorPass, handlePass,
 		errorConfirmPass, setErrorConfirmPass, handleConfirmPass
-	] = useForm(setFname, setLname, setCountry, setPhone, setPass, setConfirmPass, country)
-	const [errorSave, saveForm] = useSaveData(fname, lname, country, phone, pass, confirmPass,
-		setErrorFname, setErrorLname, setErrorCountry, setErrorPhone, setErrorPass,
-		setErrorConfirmPass, goForward)
+	] = useForm(setFname, setLname, setRg, setCpf, setBirth, setCountry, setPhone, setPass, setConfirmPass, country)
+	const [errorSave, saveForm] = useSaveData(fname, lname, rg, cpf, birth, country, phone, pass, confirmPass,
+		setErrorFname, setErrorLname, setErrorRg, setErrorCpf, setErrorBirth, setErrorCountry, setErrorPhone,
+		setErrorPass, setErrorConfirmPass, goForward)
 	return (
 		<form style={form} onSubmit={saveForm}>
 			<div style={wrapper}>
@@ -47,6 +50,45 @@ export const RegisterData = ({ fname, setFname, lname, setLname, country, setCou
 					placeholder='Santos Silva'
 					name='lname'
 					id='lname'
+				/>
+			</div>
+			<div style={wrapper}>
+				<label style={label} htmlFor='rg'>
+					<Icon type='user' size={13} />RG<Errors message={errorRg} />
+				</label>
+				<InputText
+					style={input}
+					value={rg}
+					onChange={handleRg}
+					placeholder='11.22.33.44-55'
+					name='rg'
+					id='rg'
+				/>
+			</div>
+			<div style={wrapper}>
+				<label style={label} htmlFor='cpf'>
+					<Icon type='user' size={13} />CPF<Errors message={errorCpf} />
+				</label>
+				<InputText
+					style={input}
+					value={cpf}
+					onChange={handleCpf}
+					placeholder='111.222.333-44'
+					name='cpf'
+					id='cpf'
+				/>
+			</div>
+			<div style={wrapper}>
+				<label style={label} htmlFor='birth'>
+					<Icon type='user' size={13} />Nascimento<Errors message={errorBirth} />
+				</label>
+				<InputText
+					style={input}
+					value={birth}
+					onChange={handleBirth}
+					placeholder='01/01/1900'
+					name='birth'
+					id='birth'
 				/>
 			</div>
 			<div style={wrapper}>
@@ -109,6 +151,12 @@ RegisterData.propTypes = {
 	setFname: PropTypes.func.isRequired,
 	lname: PropTypes.string.isRequired,
 	setLname: PropTypes.func.isRequired,
+	rg: PropTypes.string.isRequired,
+	setRg: PropTypes.func.isRequired,
+	cpf: PropTypes.string.isRequired,
+	setCpf: PropTypes.func.isRequired,
+	birth: PropTypes.string.isRequired,
+	setBirth: PropTypes.func.isRequired,
 	country: PropTypes.string.isRequired,
 	setCountry: PropTypes.func.isRequired,
 	phone: PropTypes.string.isRequired,

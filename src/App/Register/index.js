@@ -31,12 +31,15 @@ export const Register = () => {
 	// Register data state
 	const [fname, setFname] = useState('')
 	const [lname, setLname] = useState('')
+	const [rg, setRg] = useState('')
+	const [cpf, setCpf] = useState('')
+	const [birth, setBirth] = useState('')
 	const [country, setCountry] = useState('+55')
 	const [phone, setPhone] = useState('')
 	const [pass, setPass] = useState('')
 	const [confirmPass, setConfirmPass] = useState('')
-	const dataProps = { fname, setFname, lname, setLname, country, setCountry, phone, setPhone,
-		pass, setPass, confirmPass, setConfirmPass, goForward }
+	const dataProps = { fname, setFname, lname, setLname, rg, setRg, cpf, setCpf, birth, setBirth,
+		country, setCountry, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, goForward }
 	// Register email state
 	const [email, setEmail] = useState('')
 	const [emailIsValid, setEmailIsValid] = useState(false)

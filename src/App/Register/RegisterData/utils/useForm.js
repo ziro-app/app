@@ -2,9 +2,12 @@ import { useState } from 'react'
 import { maskInput } from '../../../utils/maskInput'
 import { capitalize } from '../../../utils/capitalize'
 
-export const useForm = (setFname, setLname, setCountry, setPhone, setPass, setConfirmPass, country) => {
+export const useForm = (setFname, setLname, setRg, setCpf, setBirth, setCountry, setPhone, setPass, setConfirmPass, country) => {
 	const [errorFname, setErrorFname] = useState('')
 	const [errorLname, setErrorLname] = useState('')
+	const [errorRg, setErrorRg] = useState('')
+	const [errorCpf, setErrorCpf] = useState('')
+	const [errorBirth, setErrorBirth] = useState('')
 	const [errorCountry, setErrorCountry] = useState('')
 	const [errorPhone, setErrorPhone] = useState('')
 	const [errorPass, setErrorPass] = useState('')
@@ -16,6 +19,18 @@ export const useForm = (setFname, setLname, setCountry, setPhone, setPass, setCo
 	const handleLname = event => {
 		setLname(capitalize(event.target.value))
 		if (errorLname !== '') setErrorLname('')
+	}
+	const handleRg = event => {
+		setRg(maskInput(event.target.value, '############', true))
+		if (errorRg !== '') setErrorRg('')
+	}
+	const handleCpf = event => {
+		setCpf(maskInput(event.target.value, '###.###.###-##', true))
+		if (errorCpf !== '') setErrorCpf('')
+	}
+	const handleBirth = event => {
+		setBirth(maskInput(event.target.value, '##/##/####', true))
+		if (errorBirth !== '') setErrorBirth('')
 	}
 	const handleCountry = event => {
 		setCountry(maskInput(event.target.value, '+###', true))
@@ -37,6 +52,9 @@ export const useForm = (setFname, setLname, setCountry, setPhone, setPass, setCo
 	return [
 		errorFname, setErrorFname, handleFname,
 		errorLname, setErrorLname, handleLname,
+		errorRg, setErrorRg, handleRg,
+		errorCpf, setErrorCpf, handleCpf,
+		errorBirth, setErrorBirth, handleBirth,		
 		errorCountry, setErrorCountry, handleCountry,
 		errorPhone, setErrorPhone, handlePhone,
 		errorPass, setErrorPass, handlePass,
