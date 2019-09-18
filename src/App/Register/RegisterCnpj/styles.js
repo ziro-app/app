@@ -1,4 +1,4 @@
-import { padding, fontTitle, fontWeightBody, fontSizeSmall, primaryColor,
+import { padding, fontTitle, fontBody, fontSizeInput, fontWeightBody, fontSizeSmall, primaryColor,
 	grayColor3, grayColor4, alertColor, gradient, shadow } from '../../../Theme/styleVariables'
 
 export const
@@ -28,9 +28,13 @@ input = {
 	WebkitAppearance: 'none',
 	MozAppearance: 'none',
 	outline: 'none',
+	boxSizing: 'border-box',
+	width: '100%',
 	padding: '8px 22px',
 	border: `2px solid ${grayColor3}`,
 	borderRadius: '8px',
+	fontFamily: `${fontBody}, 'system-ui', 'sans-serif'`,
+	fontSize: fontSizeInput,
 	color: primaryColor,
 	textAlign: 'center',
 	backgroundColor: '#FDFDFD',

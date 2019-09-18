@@ -1,9 +1,10 @@
 import React from 'react'
-import { PropTypes } from 'prop-types'
+import PropTypes from 'prop-types'
 import { useForm } from './utils/useForm'
 import { useCnpjApi } from './utils/useCnpjApi'
+import InputText from '@bit/vitorbarbosa19.ziro.input-text'
+import Icon from '@bit/vitorbarbosa19.ziro.icon'
 import { Submit } from './Submit'
-import { CnpjIcon } from '../../../Assets/CnpjIcon/index'
 import { form, wrapper, label, input, instructions, cnae } from './styles'
 
 export const RegisterCnpj = ({ cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, goForward }) => {
@@ -12,8 +13,16 @@ export const RegisterCnpj = ({ cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, goFor
 	return (	
 		<form style={form} onSubmit={submitForm}>
 			<div style={wrapper}>
-				<label style={label} htmlFor='cnpj'><CnpjIcon size={13} />CNPJ</label>
-				<input style={input} onChange={handleCnpj} value={cnpj} disabled={submitting} placeholder='11.222.333/0001-44' type='text' name='cnpj' id='cnpj' />
+				<label style={label} htmlFor='cnpj'><Icon type='close' size={13} />CNPJ</label>
+				<InputText
+					style={input}
+					value={cnpj}
+					submitting={submitting}
+					onChange={handleCnpj}
+					placeholder='11.222.333/0001-44'
+					name='cnpj'
+					id='cnpj'
+				/>
 			</div>
 			<div style={instructions}>
 				<label>Seu CNPJ deve conter como atividade primária ou secundária:</label>
