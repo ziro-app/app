@@ -7,9 +7,9 @@ import Icon from '@bit/vitorbarbosa19.ziro.icon'
 import { Submit } from './Submit'
 import { form, wrapper, label, input, instructions } from './styles'
 
-export const RegisterEmail = ({ email, setEmail, cnpj, fname, lname, country, phone, pass, confirmPass, emailIsValid, setEmailIsValid, goForward }) => {
+export const RegisterEmail = ({ email, setEmail, emailIsValid, setEmailIsValid, cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, fname, lname, rg, cpf, birth, country, phone, pass, confirmPass, goForward }) => {
 	const [errorEmail, setErrorEmail, handleEmail] = useForm(setEmail, setEmailIsValid)
-	const [submitting, errorSubmit, submitForm] = useEmail(email, setErrorEmail, cnpj, fname, lname, country, phone, pass, confirmPass, emailIsValid, setEmailIsValid, goForward)
+	const [submitting, errorSubmit, submitForm] = useEmail(email, setErrorEmail, cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, fname, lname, rg, cpf, birth, country, phone, pass, confirmPass, emailIsValid, setEmailIsValid, goForward)
 	return (
 		<form style={form} onSubmit={submitForm}>
 			<div style={wrapper}>
@@ -35,14 +35,27 @@ export const RegisterEmail = ({ email, setEmail, cnpj, fname, lname, country, ph
 RegisterEmail.propTypes = {
 	email: PropTypes.string.isRequired,
 	setEmail: PropTypes.func.isRequired,
+	emailIsValid: PropTypes.bool.isRequired,
+	setEmailIsValid: PropTypes.func.isRequired,
 	cnpj: PropTypes.string.isRequired,
+	razao: PropTypes.string.isRequired,
+	fantasia: PropTypes.string.isRequired,
+	rua: PropTypes.string.isRequired,
+	numero: PropTypes.string.isRequired,
+	complemento: PropTypes.string.isRequired,
+	bairro: PropTypes.string.isRequired,
+	cep: PropTypes.string.isRequired,
+	cidade: PropTypes.string.isRequired,
+	estado: PropTypes.string.isRequired,
+	pais: PropTypes.string.isRequired,
 	fname: PropTypes.string.isRequired,
 	lname: PropTypes.string.isRequired,
+	rg: PropTypes.string.isRequired,
+	cpf: PropTypes.string.isRequired,
+	birth: PropTypes.string.isRequired,
 	country: PropTypes.string.isRequired,
 	phone: PropTypes.string.isRequired,
 	pass: PropTypes.string.isRequired,
 	confirmPass: PropTypes.string.isRequired,
-	emailIsValid: PropTypes.bool.isRequired,
-	setEmailIsValid: PropTypes.func.isRequired,
 	goForward: PropTypes.func.isRequired
 }

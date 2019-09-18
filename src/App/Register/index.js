@@ -43,7 +43,8 @@ export const Register = () => {
 	// Register email state
 	const [email, setEmail] = useState('')
 	const [emailIsValid, setEmailIsValid] = useState(false)
-	const emailProps = { email, setEmail, emailIsValid, setEmailIsValid, cnpj, fname, lname,
+	const emailProps = { email, setEmail, emailIsValid, setEmailIsValid, cnpj, razao, fantasia, rua,
+		numero, complemento, bairro, cep, cidade, estado, pais, fname, lname, rg, cpf, birth,
 		country, phone, pass, confirmPass, goForward }
 	return (
 		<div style={container}>

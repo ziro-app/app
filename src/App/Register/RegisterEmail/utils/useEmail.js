@@ -3,7 +3,7 @@ import { useLocation } from 'wouter'
 import { auth, db } from '../../../../Firebase/index'
 import { validateInput } from './validateInput'
 
-export const useEmail = (email, setErrorEmail, cnpj, fname, lname, country, phone, pass, confirmPass, pageIsValid, setPageIsValid, goForward) => {
+export const useEmail = (email, setErrorEmail, cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, fname, lname, rg, cpf, birth, country, phone, pass, confirmPass, pageIsValid, setPageIsValid, goForward) => {
 	const [submitting, setSubmitting] = useState(false)
 	const [errorSubmit, setErrorSubmit] = useState('')
 	const [, setLocation] = useLocation()
@@ -15,7 +15,7 @@ export const useEmail = (email, setErrorEmail, cnpj, fname, lname, country, phon
 		}
 		else {
 			const { emailIsValid, errorMsgEmail, inputsAreValid, errorInputs } = validateInput(email,
-				cnpj, fname, lname, country, phone, pass, confirmPass)
+				cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, fname, lname, rg, cpf, birth, country, phone, pass, confirmPass)
 			setErrorEmail(errorMsgEmail)
 			setErrorSubmit(errorInputs)
 			if (emailIsValid && inputsAreValid) {
