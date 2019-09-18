@@ -1,4 +1,5 @@
-import { padding, fontTitle, primaryColor, secondaryColor } from '../../../Theme/styleVariables'
+import { padding, fontTitle, fontBody, primaryColor,
+	successColor, secondaryColor } from '../../../Theme/styleVariables'
 
 export const
 
@@ -20,6 +21,21 @@ step = {
 	fontSize: '2.1rem',
 	color: primaryColor,
 	textAlign: 'center'
+},
+
+wrapper = {
+	display: 'grid',
+	justifyItems: 'center'
+},
+
+badge = {
+	display: 'grid',
+	gridTemplateColumns: 'auto 1fr',
+	gridColumnGap: '6px',
+	alignItems: 'center',
+	justifyItems: 'start',
+	fontFamily: fontBody,
+	color: successColor
 },
 
 sub = {

@@ -42,7 +42,10 @@ export const Register = () => {
 				  	</Header>
 				},
 				{ path: '/cadastrar/dados',
-				  children: <RegisterData {...dataProps} />
+				  children:
+				  	<Header title='Preencha seus dados' subtitle='Passo 2' backPath='/cadastrar/cnpj' goBack={goBack}>
+				  		<RegisterData {...dataProps} />
+				  	</Header>
 				},
 				{ path: '/cadastrar/email',
 				  children: <RegisterEmail {...emailProps} />
