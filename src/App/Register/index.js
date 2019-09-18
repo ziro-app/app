@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import TransitionRoute from '@bit/vitorbarbosa19.ziro.transition-route'
 import { Header } from './Header/index'
-import { Join } from './Join/index'
 import { RegisterCnpj } from './RegisterCnpj/index'
 import { RegisterData } from './RegisterData/index'
 import { RegisterEmail } from './RegisterEmail/index'
@@ -31,11 +30,8 @@ export const Register = () => {
 	const [emailIsValid, setEmailIsValid] = useState(false)
 	const emailProps = { email, setEmail, emailIsValid, setEmailIsValid, cnpj, fname, lname, country, phone, pass, confirmPass }
 	return (
-		<div style={{...container, overflow: 'hidden' }}>
+		<div style={container}>
 			<TransitionRoute forward={forward} components={[
-				{ path: '/cadastrar',
-				  children: <Join goForward={goForward} />
-				},
 				{ path: '/cadastrar/cnpj',
 				  children:
 				  	<Header

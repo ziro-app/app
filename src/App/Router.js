@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useLocation } from 'wouter'
 import { Home } from './Home/index'
+import { Join } from './Join/index'
 import { Register } from './Register/index'
 import { MyData } from './MyData/index'
 import { NotFound } from './NotFound/index'
@@ -18,7 +19,7 @@ export const Router = ({ isLogged }) => {
 	} else {
 		switch (location) {
 			case '/login': return <Home />
-			case '/cadastrar': return <Register />
+			case '/cadastrar': return <Join />
 			case '/cadastrar/cnpj': return <Register />
 			case '/cadastrar/dados': return <Register />
 			case '/cadastrar/email': return <Register />
