@@ -13,7 +13,7 @@ export const RegisterCnpj = ({ cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, goFor
 	return (	
 		<form style={form} onSubmit={submitForm}>
 			<div style={wrapper}>
-				<label style={label} htmlFor='cnpj'><Icon type='close' size={13} />CNPJ</label>
+				<label style={label} htmlFor='cnpj'><Icon type='cnpj' size={13} />CNPJ</label>
 				<InputText
 					style={input}
 					value={cnpj}

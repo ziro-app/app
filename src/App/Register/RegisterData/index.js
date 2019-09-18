@@ -5,9 +5,8 @@ import { useSaveData } from './utils/useSaveData'
 import InputText from '@bit/vitorbarbosa19.ziro.input-text'
 import { Submit } from './Submit'
 import { Errors } from './Errors'
-import { NameIcon } from '../../../Assets/NameIcon/index'
+import Icon from '@bit/vitorbarbosa19.ziro.icon'
 import { PhoneIcon } from '../../../Assets/PhoneIcon/index'
-import { PasswordIcon } from '../../../Assets/PasswordIcon/index'
 import { form, wrapper, label, input, wrapperPhone } from './styles'
 
 export const RegisterData = ({ fname, setFname, lname, setLname, country, setCountry, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, goForward }) => {
@@ -26,7 +25,7 @@ export const RegisterData = ({ fname, setFname, lname, setLname, country, setCou
 		<form style={form} onSubmit={saveForm}>
 			<div style={wrapper}>
 				<label style={label} htmlFor='fname'>
-					<NameIcon size={13} />Nome<Errors message={errorFname} />
+					<Icon type='user' size={13} />Nome<Errors message={errorFname} />
 				</label>
 				<InputText
 					style={input}
@@ -39,7 +38,7 @@ export const RegisterData = ({ fname, setFname, lname, setLname, country, setCou
 			</div>
 			<div style={wrapper}>
 				<label style={label} htmlFor='lname'>
-					<NameIcon size={13} />Sobrenome<Errors message={errorLname} />
+					<Icon type='user' size={13} />Sobrenome<Errors message={errorLname} />
 				</label>
 				<InputText
 					style={input}
@@ -74,7 +73,7 @@ export const RegisterData = ({ fname, setFname, lname, setLname, country, setCou
 			</div>
 			<div style={wrapper}>
 				<label style={label} htmlFor='pass'>
-					<PasswordIcon size={13} />Senha<Errors message={errorPass} />
+					<Icon type='lock' size={13} />Senha<Errors message={errorPass} />
 				</label>
 				<InputText
 					style={input}
@@ -88,7 +87,7 @@ export const RegisterData = ({ fname, setFname, lname, setLname, country, setCou
 			</div>
 			<div style={wrapper}>
 				<label style={label} htmlFor='confirmpass'>
-					<PasswordIcon size={13} />Repetir senha<Errors message={errorConfirmPass} />
+					<Icon type='lock' size={13} />Repetir senha<Errors message={errorConfirmPass} />
 				</label>
 				<InputText
 					style={input}
