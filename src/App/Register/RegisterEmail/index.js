@@ -1,33 +1,26 @@
 import React from 'react'
-import { PropTypes } from 'prop-types'
+import PropTypes from 'prop-types'
 import { useForm } from './utils/useForm'
 import { useEmail } from './utils/useEmail'
+import InputText from '@bit/vitorbarbosa19.ziro.input-text'
+import Icon from '@bit/vitorbarbosa19.ziro.icon'
 import { Submit } from './Submit'
-import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
-import { EmailIcon } from '../../../Assets/EmailIcon/index'
-import { successColor } from '../../../Theme/styleVariables'
-import { container, success, message, welcome, subtitle, dot, form, wrapper, labelEmail, inputEmail, instructions, text } from './styles'
+import { form, wrapper, label, input, instructions } from './styles'
 
-export const RegisterEmail = ({ email, setEmail, cnpj, fname, lname, country, phone, pass, confirmPass, emailIsValid, setEmailIsValid, setDirection }) => {
+export const RegisterEmail = ({ email, setEmail, cnpj, fname, lname, country, phone, pass, confirmPass, emailIsValid, setEmailIsValid, goForward }) => {
 	const [errorEmail, setErrorEmail, handleEmail] = useForm(setEmail, setEmailIsValid)
-	const [submitting, errorSubmit, submitForm] = useEmail(email, setErrorEmail, cnpj, fname, lname, country, phone, pass, confirmPass, emailIsValid, setEmailIsValid, setDirection)
+	const [submitting, errorSubmit, submitForm] = useEmail(email, setErrorEmail, cnpj, fname, lname, country, phone, pass, confirmPass, emailIsValid, setEmailIsValid, goForward)
 	return (
-		<div style={container}>
-			<div style={success}>
-				<label style={message}><SuccessIcon size={14} color={successColor} />Seus dados foram salvos!</label>
-				<h1 style={welcome}><label style={subtitle}>Passo 3</label><label style={dot}>.</label><br/>Valide seu email</h1>
+		<form style={form} onSubmit={submitForm}>
+			<div style={wrapper}>
+				<label style={label} htmlFor='email'><Icon type='email' size={13} />Email</label>
+				<input style={input} onChange={handleEmail} value={email} disabled={false} placeholder='nome@exemplo.com' type='text' name='email' id='email' />
 			</div>
-			<form style={form} onSubmit={submitForm}>
-				<div style={wrapper}>
-					<label style={labelEmail} htmlFor='email'><EmailIcon size={13} />Email</label>
-					<input style={inputEmail} onChange={handleEmail} value={email} disabled={false} placeholder='nome@exemplo.com' type='text' name='email' id='email' />
-				</div>
-				<div style={instructions}>
-					<p style={text}>Será enviado um email de validação para sua caixa</p>
-				</div>
-				<Submit submitting={submitting} errorEmail={errorEmail} errorSubmit={errorSubmit} />
-			</form>
-		</div>
+			<div style={instructions}>
+				<label>Será enviado um email de validação para sua caixa</label>
+			</div>
+			<Submit submitting={submitting} errorEmail={errorEmail} errorSubmit={errorSubmit} />
+		</form>
 	)
 }
 
@@ -43,5 +36,5 @@ RegisterEmail.propTypes = {
 	confirmPass: PropTypes.string.isRequired,
 	emailIsValid: PropTypes.bool.isRequired,
 	setEmailIsValid: PropTypes.func.isRequired,
-	setDirection: PropTypes.func.isRequired
+	goForward: PropTypes.func.isRequired
 }

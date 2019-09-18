@@ -28,7 +28,8 @@ export const Register = () => {
 	// Register email state
 	const [email, setEmail] = useState('')
 	const [emailIsValid, setEmailIsValid] = useState(false)
-	const emailProps = { email, setEmail, emailIsValid, setEmailIsValid, cnpj, fname, lname, country, phone, pass, confirmPass }
+	const emailProps = { email, setEmail, emailIsValid, setEmailIsValid, cnpj, fname, lname,
+		country, phone, pass, confirmPass, goForward }
 	return (
 		<div style={container}>
 			<TransitionRoute forward={forward} components={[
@@ -56,7 +57,16 @@ export const Register = () => {
 				  	</Header>
 				},
 				{ path: '/cadastrar/email',
-				  children: <RegisterEmail {...emailProps} />
+				  children:
+				  	<Header
+					  	title='Valide seu email'
+					  	subtitle='Passo 3'
+					  	message='Seus dados foram salvos!'
+					  	backPath='/cadastrar/dados'
+					  	goBack={goBack}
+				  	>
+				  		<RegisterEmail {...emailProps} />
+				  	</Header>
 				},
 				{ path: '/cadastrar/validar-email',
 				  children: <RegisterValidateEmail />

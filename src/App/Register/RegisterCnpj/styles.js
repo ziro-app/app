@@ -101,10 +101,4 @@ submitDisabled = {
 
 scaleButton = {
 	scale: 0.95
-},
-
-
-forgotPass = {
-	fontSize: fontSizeSmall,
-	color: primaryColor
 }

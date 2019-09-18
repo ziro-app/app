@@ -3,7 +3,7 @@ import { useLocation } from 'wouter'
 import { auth, db } from '../../../../Firebase/index'
 import { validateInput } from './validateInput'
 
-export const useEmail = (email, setErrorEmail, cnpj, fname, lname, country, phone, pass, confirmPass, pageIsValid, setPageIsValid, setDirection) => {
+export const useEmail = (email, setErrorEmail, cnpj, fname, lname, country, phone, pass, confirmPass, pageIsValid, setPageIsValid, goForward) => {
 	const [submitting, setSubmitting] = useState(false)
 	const [errorSubmit, setErrorSubmit] = useState('')
 	const [, setLocation] = useLocation()
@@ -11,10 +11,11 @@ export const useEmail = (email, setErrorEmail, cnpj, fname, lname, country, phon
 		event.preventDefault()
 		if (pageIsValid) {
 			setLocation('/cadastrar/validar-email')
-			setDirection('forward')
+			goForward()
 		}
 		else {
-			const { emailIsValid, errorMsgEmail, inputsAreValid, errorInputs } = validateInput(email, cnpj, fname, lname, country, phone, pass, confirmPass)
+			const { emailIsValid, errorMsgEmail, inputsAreValid, errorInputs } = validateInput(email,
+				cnpj, fname, lname, country, phone, pass, confirmPass)
 			setErrorEmail(errorMsgEmail)
 			setErrorSubmit(errorInputs)
 			if (emailIsValid && inputsAreValid) {
@@ -32,7 +33,7 @@ export const useEmail = (email, setErrorEmail, cnpj, fname, lname, country, phon
 					await db.collection('cnpjs').add({ cnpj })
 					setPageIsValid(true)
 					setLocation('/cadastrar/validar-email')
-					setDirection('forward')
+					goForward()
 				} catch (error) {
 					setSubmitting(false)
 					console.log(error)
