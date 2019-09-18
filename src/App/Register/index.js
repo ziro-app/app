@@ -12,10 +12,22 @@ export const Register = () => {
 	const [forward, setForward] = useState(true)
 	const goForward = () => setForward(true)
 	const goBack = () => setForward(false)
-	// Register cnpj state
+	// Register business data
 	const [cnpj, setCnpj] = useState('')
+	const [razao, setRazao] = useState('')
+	const [fantasia, setFantasia] = useState('')
+	const [rua, setRua] = useState('')
+	const [numero, setNumero] = useState('')
+	const [complemento, setComplemento] = useState('')
+	const [bairro, setBairro] = useState('')
+	const [cep, setCep] = useState('')
+	const [cidade, setCidade] = useState('')
+	const [estado, setEstado] = useState('')
+	const [pais] = useState('BR')
 	const [cnpjIsValid, setCnpjIsValid] = useState(false)
-	const cnpjProps = { cnpj, setCnpj, cnpjIsValid, setCnpjIsValid, goForward }
+	const cnpjProps = { cnpj, setCnpj, razao, setRazao, fantasia, setFantasia, rua, setRua,
+		numero, setNumero, complemento, setComplemento, bairro, setBairro, cep, setCep, cidade, setCidade,
+		estado, setEstado, cnpjIsValid, setCnpjIsValid, goForward }
 	// Register data state
 	const [fname, setFname] = useState('')
 	const [lname, setLname] = useState('')

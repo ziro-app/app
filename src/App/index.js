@@ -55,7 +55,7 @@ export const App = () => {
 				setCpf('')
 				setEmail('')
 				setWhatsapp('')
-				setLocation('/login') //don't remove
+				// setLocation('/login') //don't remove
 			}
 			if (loadingUser) setLoadingUser(false)
 	})}, [])

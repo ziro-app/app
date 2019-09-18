@@ -5,7 +5,7 @@ import { db } from '../../../../Firebase/index'
 import { validateInput } from './validateInput'
 import { validateCnpj } from './validateCnpj'
 
-export const useCnpjApi = (cnpj, setErrorCnpj, cnpjIsValid, setCnpjIsValid, goForward) => {
+export const useCnpjApi = (cnpj, razao, setRazao, fantasia, setFantasia, rua, setRua, numero, setNumero, complemento, setComplemento, bairro, setBairro, cep, setCep, cidade, setCidade, estado, setEstado, setErrorCnpj, cnpjIsValid, setCnpjIsValid, goForward) => {
 	const [submitting, setSubmitting] = useState(false)
 	const [errorSubmit, setErrorSubmit] = useState('')
 	const [location, setLocation] = useLocation()
@@ -38,6 +38,16 @@ export const useCnpjApi = (cnpj, setErrorCnpj, cnpjIsValid, setCnpjIsValid, goFo
 							const { status, message } = validateCnpj(data)
 							setErrorSubmit(message)
 							if (status === 'Success') {
+								console.log(data.result)
+								setRazao(data.result.nome)
+								setFantasia(data.result.fantasia)
+								setRua(data.result.logradouro)
+								setNumero(data.result.numero)
+								setComplemento(data.result.complemento)
+								setBairro(data.result.bairro)
+								setCep(data.result.cep)
+								setCidade(data.result.municipio)
+								setEstado(data.result.uf)
 								setCnpjIsValid(true)
 								setLocation('/cadastrar/dados')
 								goForward()
