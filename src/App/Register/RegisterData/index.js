@@ -54,7 +54,7 @@ export const RegisterData = ({ fname, setFname, lname, setLname, rg, setRg, cpf,
 			</div>
 			<div style={wrapper}>
 				<label style={label} htmlFor='rg'>
-					<Icon type='user' size={13} />RG<Errors message={errorRg} />
+					<Icon type='id' size={13} />RG<Errors message={errorRg} />
 				</label>
 				<InputText
 					style={input}
@@ -67,7 +67,7 @@ export const RegisterData = ({ fname, setFname, lname, setLname, rg, setRg, cpf,
 			</div>
 			<div style={wrapper}>
 				<label style={label} htmlFor='cpf'>
-					<Icon type='user' size={13} />CPF<Errors message={errorCpf} />
+					<Icon type='id' size={13} />CPF<Errors message={errorCpf} />
 				</label>
 				<InputText
 					style={input}
@@ -80,7 +80,7 @@ export const RegisterData = ({ fname, setFname, lname, setLname, rg, setRg, cpf,
 			</div>
 			<div style={wrapper}>
 				<label style={label} htmlFor='birth'>
-					<Icon type='user' size={13} />Nascimento<Errors message={errorBirth} />
+					<Icon type='calendar' size={13} />Nascimento<Errors message={errorBirth} />
 				</label>
 				<InputText
 					style={input}
