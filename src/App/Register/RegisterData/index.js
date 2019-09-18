@@ -10,7 +10,7 @@ import { PhoneIcon } from '../../../Assets/PhoneIcon/index'
 import { PasswordIcon } from '../../../Assets/PasswordIcon/index'
 import { form, wrapper, label, input, wrapperPhone } from './styles'
 
-export const RegisterData = ({ fname, setFname, lname, setLname, country, setCountry, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, setDirection }) => {
+export const RegisterData = ({ fname, setFname, lname, setLname, country, setCountry, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, goForward }) => {
 	const [
 		errorFname, setErrorFname, handleFname,
 		errorLname, setErrorLname, handleLname,
@@ -21,11 +21,13 @@ export const RegisterData = ({ fname, setFname, lname, setLname, country, setCou
 	] = useForm(setFname, setLname, setCountry, setPhone, setPass, setConfirmPass, country)
 	const [errorSave, saveForm] = useSaveData(fname, lname, country, phone, pass, confirmPass,
 		setErrorFname, setErrorLname, setErrorCountry, setErrorPhone, setErrorPass,
-		setErrorConfirmPass, setDirection)
+		setErrorConfirmPass, goForward)
 	return (
 		<form style={form} onSubmit={saveForm}>
 			<div style={wrapper}>
-				<label style={label} htmlFor='fname'><NameIcon size={13} />Nome<Errors message={errorFname} /></label>
+				<label style={label} htmlFor='fname'>
+					<NameIcon size={13} />Nome<Errors message={errorFname} />
+				</label>
 				<InputText
 					style={input}
 					value={fname}
@@ -36,7 +38,9 @@ export const RegisterData = ({ fname, setFname, lname, setLname, country, setCou
 				/>
 			</div>
 			<div style={wrapper}>
-				<label style={label} htmlFor='lname'><NameIcon size={13} />Sobrenome<Errors message={errorLname} /></label>
+				<label style={label} htmlFor='lname'>
+					<NameIcon size={13} />Sobrenome<Errors message={errorLname} />
+				</label>
 				<InputText
 					style={input}
 					value={lname}
@@ -47,7 +51,9 @@ export const RegisterData = ({ fname, setFname, lname, setLname, country, setCou
 				/>
 			</div>
 			<div style={wrapper}>
-				<label style={label} htmlFor='phone'><PhoneIcon size={13} />Whatsapp<Errors message={errorPhone || errorCountry} /></label>
+				<label style={label} htmlFor='phone'>
+					<PhoneIcon size={13} />Whatsapp<Errors message={errorPhone || errorCountry} />
+				</label>
 				<div style={wrapperPhone}>
 					<InputText
 						style={input}
@@ -67,7 +73,9 @@ export const RegisterData = ({ fname, setFname, lname, setLname, country, setCou
 				</div>
 			</div>
 			<div style={wrapper}>
-				<label style={label} htmlFor='pass'><PasswordIcon size={13} />Senha<Errors message={errorPass} /></label>
+				<label style={label} htmlFor='pass'>
+					<PasswordIcon size={13} />Senha<Errors message={errorPass} />
+				</label>
 				<InputText
 					style={input}
 					value={pass}
@@ -79,7 +87,9 @@ export const RegisterData = ({ fname, setFname, lname, setLname, country, setCou
 				/>
 			</div>
 			<div style={wrapper}>
-				<label style={label} htmlFor='confirmpass'><PasswordIcon size={13} />Repetir senha<Errors message={errorConfirmPass} /></label>
+				<label style={label} htmlFor='confirmpass'>
+					<PasswordIcon size={13} />Repetir senha<Errors message={errorConfirmPass} />
+				</label>
 				<InputText
 					style={input}
 					value={confirmPass}
@@ -108,5 +118,5 @@ RegisterData.propTypes = {
 	setPass: PropTypes.func.isRequired,
 	confirmPass: PropTypes.string.isRequired,
 	setConfirmPass: PropTypes.func.isRequired,
-	setDirection: PropTypes.func.isRequired
+	goForward: PropTypes.func.isRequired
 }
