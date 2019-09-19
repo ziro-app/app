@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react'
 import { userContext } from '../../appContext'
 import { validateInput } from '../PersonData/validateInput' //change later
 import { maskInput } from '../../utils/maskInput'
-import { capitalize } from '../../utils/capitalize'
 import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'
 import Badge from '@bit/vitorbarbosa19.ziro.badge'
 import { alertColor } from '../../../Theme/styleVariables'
@@ -13,98 +12,89 @@ export const BusinessData = () => {
 		cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, ie,
 		setCnpj, setRazao, setFantasia, setRua, setNumero, setComplemento, setBairro, setCep, setCidade, setEstado, setPais, setIe
 	} = useContext(userContext)
-	/*---------------- FNAME ----------------*/
-	const [errorFname, setErrorFname] = useState('')
-	const updateFname = ({ target: { value } }) => setFname(capitalize(value))
-	const conditionFname = !fname
-	const messageFname = 'preencha esse campo'
-	const validateFname = validateInput.bind(null, conditionFname, messageFname, setErrorFname)
-	const saveFname = saveData.bind(null, 'fname', fname)
-	/*---------------- LNAME ----------------*/
-	const [errorLname, setErrorLname] = useState('')
-	const updateLname = ({ target: { value } }) => setLname(capitalize(value))
-	const conditionLname = !lname
-	const messageLname = 'preencha esse campo'
-	const validateLname = validateInput.bind(null, conditionLname, messageLname, setErrorLname)
-	const saveLname = saveData.bind(null, 'lname', lname)
-	/*---------------- RG ----------------*/
-	const [errorRg, setErrorRg] = useState('')
-	const updateRg = ({ target: { value } }) => setRg(maskInput(value, '############', true))
-	const conditionRg = !rg
-	const messageRg = 'preencha esse campo'
-	const validateRg = validateInput.bind(null, conditionRg, messageRg, setErrorRg)
-	const saveRg = saveData.bind(null, 'rg', rg)
-	/*---------------- CPF ----------------*/
-	const [errorCpf, setErrorCpf] = useState('')
-	const updateCpf = ({ target: { value } }) => setCpf(maskInput(value, '###.###.###-##', true))
-	const conditionCpf = !cpf || cpf.length < 14
-	const messageCpf = 'mínimo 11 caracteres'
-	const validateCpf = validateInput.bind(null, conditionCpf, messageCpf, setErrorCpf)
-	const saveCpf = saveData.bind(null, 'cpf', cpf)
+	/*---------------- IE ----------------*/
+	const [errorIe, setErrorIe] = useState('')
+	const updateIe = ({ target: { value } }) => setIe(maskInput(value, '#############', true))
+	const conditionIe = !ie
+	const messageIe = 'preencha esse campo'
+	const validateIe = validateInput.bind(null, conditionIe, messageIe, setErrorIe)
+	const saveIe = saveData.bind(null, 'ie', ie)
 	return (
 		<div style={container}>
 			{errorFetch && <Badge style={fetch} type='alert' color={alertColor} message={errorFetch} />}
 			<EditableData
-				name='Nome'
-				value={fname}
-				onChange={updateFname}
-				validateInput={validateFname}
-				submit={saveFname}
-				setError={setErrorFname}
-				error={errorFname}
+				name='Cnpj'
+				value={cnpj}
 				isLoading={loadingData}
-				editable={!errorFetch}
-			/>
-			<EditableData
-				name='Sobrenome'
-				value={lname}
-				onChange={updateLname}
-				validateInput={validateLname}
-				submit={saveLname}
-				setError={setErrorLname}
-				error={errorLname}
-				isLoading={loadingData}
-				editable={!errorFetch}
-			/>
-			<EditableData
-				name='RG'
-				value={rg}
-				onChange={updateRg}
-				validateInput={validateRg}
-				submit={saveRg}
-				setError={setErrorRg}
-				error={errorRg}
-				warning={conditionRg ? 'preencha p/ pagar pelo app' : ''}
-				placeholder='11.22.33.44-55'
-				isLoading={loadingData}
-				editable={!errorFetch}
-			/>
-			<EditableData
-				name='CPF'
-				value={cpf}
-				onChange={updateCpf}
-				validateInput={validateCpf}
-				submit={saveCpf}
-				setError={setErrorCpf}
-				error={errorCpf}
-				warning={cpf === '' ? 'preencha p/ pagar pelo app' : ''}
-				placeholder='111.222.333-44'
-				isLoading={loadingData}
-				editable={!errorFetch}
-			/>
-			<EditableData
-				name='Email'
-				value={email}
 				isValidated={true}
 				editable={false}
 			/>
 			<EditableData
-				name='Whatsapp'
-				value={whatsapp}
+				name='Razão Social'
+				value={razao}
 				isLoading={loadingData}
 				editable={false}
 			/>
-			<div style={update}>*Para alterar email ou whatsapp,<br/>contate assessor</div>
+			<EditableData
+				name='Fantasia'
+				value={fantasia}
+				isLoading={loadingData}
+				editable={false}
+			/>
+			<EditableData
+				name='Inscrição Estadual'
+				value={ie}
+				onChange={updateIe}
+				validateInput={validateIe}
+				submit={saveIe}
+				setError={setErrorIe}
+				error={errorIe}
+				isLoading={loadingData}
+				editable={!errorFetch}
+			/>
+			<EditableData
+				name='Rua'
+				value={rua}
+				isLoading={loadingData}
+				editable={false}
+			/>
+			<EditableData
+				name='Numero'
+				value={numero}
+				isLoading={loadingData}
+				editable={false}
+			/>
+			<EditableData
+				name='Complemento'
+				value={complemento}
+				isLoading={loadingData}
+				editable={false}
+			/>
+			<EditableData
+				name='Bairro'
+				value={bairro}
+				isLoading={loadingData}
+				editable={false}
+			/>
+			<EditableData
+				name='Cep'
+				value={cep}
+				isLoading={loadingData}
+				editable={false}
+			/>
+			<EditableData
+				name='Cidade'
+				value={cidade}
+				isLoading={loadingData}
+				editable={false}
+			/>
+			<EditableData
+				name='Estado'
+				value={estado}
+				isLoading={loadingData}
+				editable={false}
+			/>
+			<div style={update}>*Para alterar CNPJ,<br/>contate assessor</div>
 		</div>
 	)
 }

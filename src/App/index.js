@@ -52,7 +52,7 @@ export const App = () => {
 						setBirth(birth ? birth : '')
 						setWhatsapp(phone ? phone : '')
 						const { cnpj, razao, fantasia, rua, numero, complemento, bairro,
-							cep, cidade, estado, pais } = snapshot.docs[0].data()
+							cep, cidade, estado, pais, ie } = snapshot.docs[0].data()
 						/* business data */
 						setCnpj(cnpj ? cnpj : '')
 						setRazao(razao ? razao : '')
