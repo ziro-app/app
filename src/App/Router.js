@@ -24,6 +24,8 @@ export const Router = ({ isLogged }) => {
 			case '/cadastrar/dados': return <Register />
 			case '/cadastrar/email': return <Register />
 			case '/cadastrar/validar-email': return <Register />
+			case '/meus-dados/fisica': setLocation('/login')
+			case '/meus-dados/juridica': setLocation('/login')
 			default: return null
 		}
 	}
