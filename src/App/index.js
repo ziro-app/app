@@ -18,6 +18,7 @@ export const App = () => {
 	const [lname, setLname] = useState('')
 	const [rg, setRg] = useState('')
 	const [cpf, setCpf] = useState('')
+	const [birth, setBirth] = useState('')
 	const [email, setEmail] = useState('')
 	const [whatsapp, setWhatsapp] = useState('')
 	/*== SET AUTH AND DB LISTENERS ==*/
@@ -29,11 +30,13 @@ export const App = () => {
 				setEmail(user.email)
 				unsubscribe = db.collection('users').where('uid','==',user.uid).onSnapshot(
 					snapshot => {
-						const { fname, lname, rg, cpf, phone } = snapshot.docs[0].data()
+						console.log(snapshot.docs[0].data())
+						const { fname, lname, rg, cpf, birth, phone } = snapshot.docs[0].data()
 						setFname(fname ? fname : '')
 						setLname(lname ? lname : '')
 						setRg(rg ? rg : '')
 						setCpf(cpf ? cpf : '')
+						setBirth(birth ? birth : '')
 						setWhatsapp(phone ? phone : '')
 						setErrorFetch('')
 						if (loadingData) setLoadingData(false)
@@ -53,6 +56,7 @@ export const App = () => {
 				setLname('')
 				setRg('')
 				setCpf('')
+				setBirth('')
 				setEmail('')
 				setWhatsapp('')
 				setLocation('/login') //don't remove
@@ -61,8 +65,8 @@ export const App = () => {
 	})}, [])
 	/*== RENDER LOGIC ==*/
 	const saveData = saveUserData(uid)
-	const userData = { loadingData, errorFetch, fname, lname, rg, cpf, email, whatsapp,
-		setFname, setLname, setRg, setCpf, setWhatsapp, saveData }
+	const userData = { loadingData, errorFetch, fname, lname, rg, cpf, birth, email, whatsapp,
+		setFname, setLname, setRg, setCpf, setBirth, setWhatsapp, saveData }
 	if (loadingUser) return <InitialLoader />
 	return (
 		<ErrorBoundary>

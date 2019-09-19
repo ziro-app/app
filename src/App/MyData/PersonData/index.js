@@ -9,8 +9,8 @@ import { alertColor } from '../../../Theme/styleVariables'
 import { container, fetch, update } from './styles'
 
 export const PersonData = () => {
-	const { loadingData, errorFetch, fname, lname, rg, cpf, email, whatsapp,
-		setFname, setLname, setRg, setCpf, setWhatsapp, saveData } = useContext(userContext)
+	const { loadingData, errorFetch, fname, lname, rg, cpf, birth, email, whatsapp,
+		setFname, setLname, setRg, setCpf, setBirth, setWhatsapp, saveData } = useContext(userContext)
 	/*---------------- FNAME ----------------*/
 	const [errorFname, setErrorFname] = useState('')
 	const updateFname = ({ target: { value } }) => setFname(capitalize(value))
@@ -36,9 +36,16 @@ export const PersonData = () => {
 	const [errorCpf, setErrorCpf] = useState('')
 	const updateCpf = ({ target: { value } }) => setCpf(maskInput(value, '###.###.###-##', true))
 	const conditionCpf = !cpf || cpf.length < 14
-	const messageCpf = 'mínimo 11 caracteres'
+	const messageCpf = 'necessário 11 números'
 	const validateCpf = validateInput.bind(null, conditionCpf, messageCpf, setErrorCpf)
 	const saveCpf = saveData.bind(null, 'cpf', cpf)
+	/*---------------- BIRTH ----------------*/
+	const [errorBirth, setErrorBirth] = useState('')
+	const updateBirth = ({ target: { value } }) => setBirth(maskInput(value, '##/##/####', true))
+	const conditionBirth = !birth || birth.length < 10
+	const messageBirth = 'necessário 8 números'
+	const validateBirth = validateInput.bind(null, conditionBirth, messageBirth, setErrorBirth)
+	const saveBirth = saveData.bind(null, 'birth', birth)
 	return (
 		<div style={container}>
 			{errorFetch && <Badge style={fetch} type='alert' color={alertColor} message={errorFetch} />}
@@ -87,6 +94,19 @@ export const PersonData = () => {
 				error={errorCpf}
 				warning={cpf === '' ? 'preencha p/ pagar pelo app' : ''}
 				placeholder='111.222.333-44'
+				isLoading={loadingData}
+				editable={!errorFetch}
+			/>
+			<EditableData
+				name='Nascimento'
+				value={birth}
+				onChange={updateBirth}
+				validateInput={validateBirth}
+				submit={saveBirth}
+				setError={setErrorBirth}
+				error={errorBirth}
+				warning={birth === '' ? 'preencha p/ pagar pelo app' : ''}
+				placeholder='01/01/1990'
 				isLoading={loadingData}
 				editable={!errorFetch}
 			/>
