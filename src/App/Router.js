@@ -18,6 +18,7 @@ export const Router = ({ isLogged }) => {
 		}
 	} else {
 		switch (location) {
+			case '/': setLocation('/login')
 			case '/login': return <Home />
 			case '/cadastrar': return <Join />
 			case '/cadastrar/cnpj': return <Register />
@@ -26,7 +27,7 @@ export const Router = ({ isLogged }) => {
 			case '/cadastrar/validar-email': return <Register />
 			case '/meus-dados/fisica': setLocation('/login')
 			case '/meus-dados/juridica': setLocation('/login')
-			default: return null
+			default: return <NotFound fallback='/login' />
 		}
 	}
 }

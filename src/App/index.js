@@ -87,7 +87,6 @@ export const App = () => {
 				setBirth('')
 				setEmail('')
 				setWhatsapp('')
-				// setLocation('/login') //don't remove
 			}
 			if (loadingUser) setLoadingUser(false)
 	})}, [])
