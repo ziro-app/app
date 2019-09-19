@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { userContext } from '../../appContext'
-import { validateInput } from './validateInput'
+import { validateInput } from '../validateInput'
 import { maskInput } from '../../utils/maskInput'
 import { capitalize } from '../../utils/capitalize'
 import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'

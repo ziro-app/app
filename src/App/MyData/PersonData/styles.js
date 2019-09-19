@@ -19,7 +19,7 @@ fetch = {
 },
 
 update = {
-	marginTop: '25px',
+	margin: '25px 0',
 	textAlign: 'left',
 	fontSize: fontSizeSmall,
 	fontWeight: fontWeightMuted,

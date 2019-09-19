@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { userContext } from '../../appContext'
-import { validateInput } from '../PersonData/validateInput' //change later
+import { validateInput } from '../validateInput'
 import { maskInput } from '../../utils/maskInput'
 import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'
 import Badge from '@bit/vitorbarbosa19.ziro.badge'
@@ -94,7 +94,7 @@ export const BusinessData = () => {
 				isLoading={loadingData}
 				editable={false}
 			/>
-			<div style={update}>*Para alterar CNPJ,<br/>contate assessor</div>
+			<div style={update}>*Para alterar CNPJ, contate assessor</div>
 		</div>
 	)
 }

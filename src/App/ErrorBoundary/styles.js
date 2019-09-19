@@ -18,5 +18,6 @@ title = {
 
 alert = {
 	display: 'grid',
-	placeItems: 'center'
+	alignItems: 'center',
+	justifyItems: 'center'
 }
