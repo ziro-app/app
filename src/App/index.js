@@ -21,6 +21,17 @@ export const App = () => {
 	const [birth, setBirth] = useState('')
 	const [email, setEmail] = useState('')
 	const [whatsapp, setWhatsapp] = useState('')
+	const [cnpj, setCnpj] = useState('')
+	const [razao, setRazao] = useState('')
+	const [fantasia, setFantasia] = useState('')
+	const [rua, setRua] = useState('')
+	const [numero, setNumero] = useState('')
+	const [complemento, setComplemento] = useState('')
+	const [bairro, setBairro] = useState('')
+	const [cep, setCep] = useState('')
+	const [cidade, setCidade] = useState('')
+	const [estado, setEstado] = useState('')
+const [,setPais] = useState('')
 	/*== SET AUTH AND DB LISTENERS ==*/
 	useEffect(() => {
 		let unsubscribe = () => null
@@ -32,12 +43,27 @@ export const App = () => {
 					snapshot => {
 						console.log(snapshot.docs[0].data())
 						const { fname, lname, rg, cpf, birth, phone } = snapshot.docs[0].data()
+						/* person data */
 						setFname(fname ? fname : '')
 						setLname(lname ? lname : '')
 						setRg(rg ? rg : '')
 						setCpf(cpf ? cpf : '')
 						setBirth(birth ? birth : '')
 						setWhatsapp(phone ? phone : '')
+						const { cnpj, razao, fantasia, rua, numero, complemento, bairro,
+							cep, cidade, estado, pais } = snapshot.docs[0].data()
+						/* business data */
+						setCnpj(cnpj ? cnpj : '')
+						setRazao(razao ? razao : '')
+						setFantasia(fantasia ? fantasia : '')
+						setRua(rua ? rua : '')
+						setNumero(numero ? numero : '')
+						setComplemento(complemento ? complemento : '')
+						setBairro(bairro ? bairro : '')
+						setCep(cep ? cep : '')
+						setCidade(cidade ? cidade : '')
+						setEstado(estado ? estado : '')
+						setPais(pais ? pais : '')
 						setErrorFetch('')
 						if (loadingData) setLoadingData(false)
 					},
