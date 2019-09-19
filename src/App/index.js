@@ -75,6 +75,7 @@ export const App = () => {
 						if (loadingData) setLoadingData(false)
 					}
 				)
+				if (loadingData) setLoadingData(false)
 			} else {
 				unsubscribe()
 				setLoadingData(true)

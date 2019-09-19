@@ -26,7 +26,7 @@ export const BusinessData = () => {
 				name='Cnpj'
 				value={cnpj}
 				isLoading={loadingData}
-				isValidated={true}
+				isValidated={!!cnpj}
 				editable={false}
 			/>
 			<EditableData
