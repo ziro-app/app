@@ -7,6 +7,7 @@ import DrawerPanel from '@bit/vitorbarbosa19.ziro.drawer-panel'
 import Icon from '@bit/vitorbarbosa19.ziro.icon'
 import { Tabs } from './Tabs/index'
 import { PersonData } from './PersonData/index'
+import { BusinessData } from './BusinessData/index'
 import { container, padding } from '../../Theme/styleVariables'
 
 export const MyData = () => {
@@ -46,7 +47,7 @@ export const MyData = () => {
 				tabNameTwo='p. jurídica'
 			>
 				<PersonData />
-				<div>Pessoa Jurídica</div>
+				<BusinessData />
 			</Tabs>
 		</div>
 	)
