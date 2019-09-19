@@ -31,7 +31,8 @@ export const App = () => {
 	const [cep, setCep] = useState('')
 	const [cidade, setCidade] = useState('')
 	const [estado, setEstado] = useState('')
-const [,setPais] = useState('')
+	const [pais, setPais] = useState('')
+	const [ie, setIe] = useState('')
 	/*== SET AUTH AND DB LISTENERS ==*/
 	useEffect(() => {
 		let unsubscribe = () => null
@@ -64,6 +65,7 @@ const [,setPais] = useState('')
 						setCidade(cidade ? cidade : '')
 						setEstado(estado ? estado : '')
 						setPais(pais ? pais : '')
+						setIe(ie ? ie : '')
 						setErrorFetch('')
 						if (loadingData) setLoadingData(false)
 					},
@@ -91,8 +93,12 @@ const [,setPais] = useState('')
 	})}, [])
 	/*== RENDER LOGIC ==*/
 	const saveData = saveUserData(uid)
-	const userData = { loadingData, errorFetch, fname, lname, rg, cpf, birth, email, whatsapp,
-		setFname, setLname, setRg, setCpf, setBirth, setWhatsapp, saveData }
+	const userData = { loadingData, errorFetch, saveData, 
+		fname, lname, rg, cpf, birth, email, whatsapp,
+		setFname, setLname, setRg, setCpf, setBirth, setWhatsapp,
+		cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, ie,
+		setCnpj, setRazao, setFantasia, setRua, setNumero, setComplemento, setBairro, setCep, setCidade, setEstado, setPais, setIe
+	}
 	if (loadingUser) return <InitialLoader />
 	return (
 		<ErrorBoundary>

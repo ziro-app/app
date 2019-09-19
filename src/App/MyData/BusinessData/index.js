@@ -9,8 +9,10 @@ import { alertColor } from '../../../Theme/styleVariables'
 import { container, fetch, update } from './styles'
 
 export const BusinessData = () => {
-	const { loadingData, errorFetch, fname, lname, rg, cpf, email, whatsapp,
-		setFname, setLname, setRg, setCpf, setWhatsapp, saveData } = useContext(userContext)
+	const { loadingData, errorFetch, saveData,
+		cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, ie,
+		setCnpj, setRazao, setFantasia, setRua, setNumero, setComplemento, setBairro, setCep, setCidade, setEstado, setPais, setIe
+	} = useContext(userContext)
 	/*---------------- FNAME ----------------*/
 	const [errorFname, setErrorFname] = useState('')
 	const updateFname = ({ target: { value } }) => setFname(capitalize(value))
