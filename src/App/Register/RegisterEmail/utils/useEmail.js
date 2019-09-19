@@ -15,7 +15,7 @@ export const useEmail = (email, setErrorEmail, cnpj, razao, fantasia, rua, numer
 		}
 		else {
 			const { emailIsValid, errorMsgEmail, inputsAreValid, errorInputs } = validateInput(email,
-				cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, fname, lname, rg, cpf, birth, country, phone, pass, confirmPass)
+				cnpj, fname, lname, rg, cpf, birth, country, phone, pass, confirmPass)
 			setErrorEmail(errorMsgEmail)
 			setErrorSubmit(errorInputs)
 			if (emailIsValid && inputsAreValid) {

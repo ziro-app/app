@@ -46,7 +46,7 @@ export const Register = () => {
 		numero, complemento, bairro, cep, cidade, estado, pais, fname, lname, rg, cpf, birth,
 		country, phone, pass, confirmPass, goForward }
 	return (
-		<div style={container}>
+		<div style={{...container, overflow: 'auto' }}>
 			<TransitionRoute forward={forward} components={[
 				{ path: '/cadastrar/cnpj',
 				  children:
