@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import { userContext } from '../../appContext'
 import { validateInput } from '../validateInput'
 import { maskInput } from '../../utils/maskInput'
+import { capitalize } from '../../utils/capitalize'
 import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'
 import Badge from '@bit/vitorbarbosa19.ziro.badge'
 import { alertColor } from '../../../Theme/styleVariables'
@@ -24,20 +25,20 @@ export const BusinessData = () => {
 			{errorFetch && <Badge style={fetch} type='alert' color={alertColor} message={errorFetch} />}
 			<EditableData
 				name='Cnpj'
-				value={cnpj}
+				value={capitalize(cnpj)}
 				isLoading={loadingData}
 				isValidated={!!cnpj}
 				editable={false}
 			/>
 			<EditableData
 				name='Razão Social'
-				value={razao}
+				value={capitalize(razao)}
 				isLoading={loadingData}
 				editable={false}
 			/>
 			<EditableData
 				name='Fantasia'
-				value={fantasia}
+				value={capitalize(fantasia)}
 				isLoading={loadingData}
 				editable={false}
 			/>
@@ -54,7 +55,7 @@ export const BusinessData = () => {
 			/>
 			<EditableData
 				name='Rua'
-				value={rua}
+				value={capitalize(rua)}
 				isLoading={loadingData}
 				editable={false}
 			/>
@@ -66,13 +67,13 @@ export const BusinessData = () => {
 			/>
 			<EditableData
 				name='Complemento'
-				value={complemento}
+				value={capitalize(complemento)}
 				isLoading={loadingData}
 				editable={false}
 			/>
 			<EditableData
 				name='Bairro'
-				value={bairro}
+				value={capitalize(bairro)}
 				isLoading={loadingData}
 				editable={false}
 			/>
@@ -84,7 +85,7 @@ export const BusinessData = () => {
 			/>
 			<EditableData
 				name='Cidade'
-				value={cidade}
+				value={capitalize(cidade)}
 				isLoading={loadingData}
 				editable={false}
 			/>
