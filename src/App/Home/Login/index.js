@@ -19,7 +19,7 @@ export const Login = () => {
 			</div>
 			<div style={wrapper}>
 				<label style={label} htmlFor='password'><PasswordIcon size={13} />Senha<Errors message={errorPassword} /></label>
-				<input style={input} ref={password} disabled={submitting} placeholder='mínimo 8 caracteres' type='password' name='password' id='password' />
+				<input style={input} ref={password} disabled={submitting} placeholder='mínimo 6 caracteres' type='password' name='password' id='password' />
 			</div>
 			<Submit submitting={submitting} authError={authError} />
 		</form>
