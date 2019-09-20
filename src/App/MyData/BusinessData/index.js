@@ -50,6 +50,7 @@ export const BusinessData = () => {
 				submit={saveIe}
 				setError={setErrorIe}
 				error={errorIe}
+				placeholder='consulte pelo Sintegra'
 				isLoading={loadingData}
 				editable={!errorFetch}
 			/>
