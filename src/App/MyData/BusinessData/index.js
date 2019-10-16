@@ -3,7 +3,7 @@ import { userContext } from '../../appContext'
 import { validateInput } from '../validateInput'
 import { maskInput } from '../../utils/maskInput'
 import { capitalize } from '../../utils/capitalize'
-import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'
+import InputEdit from '@bit/vitorbarbosa19.ziro.input-edit'
 import Badge from '@bit/vitorbarbosa19.ziro.badge'
 import { alertColor } from '../../../Theme/styleVariables'
 import { container, fetch, update } from './styles'
@@ -23,26 +23,26 @@ export const BusinessData = () => {
 	return (
 		<div style={container}>
 			{errorFetch && <Badge style={fetch} type='alert' color={alertColor} message={errorFetch} />}
-			<EditableData
+			<InputEdit
 				name='Cnpj'
 				value={capitalize(cnpj)}
 				isLoading={loadingData}
 				isValidated={!!cnpj}
 				editable={false}
 			/>
-			<EditableData
+			<InputEdit
 				name='Razão Social'
 				value={capitalize(razao)}
 				isLoading={loadingData}
 				editable={false}
 			/>
-			<EditableData
+			<InputEdit
 				name='Fantasia'
 				value={capitalize(fantasia)}
 				isLoading={loadingData}
 				editable={false}
 			/>
-			<EditableData
+			<InputEdit
 				name='Inscrição Estadual'
 				value={ie}
 				onChange={updateIe}
@@ -54,43 +54,43 @@ export const BusinessData = () => {
 				isLoading={loadingData}
 				editable={!errorFetch}
 			/>
-			<EditableData
+			<InputEdit
 				name='Rua'
 				value={capitalize(rua)}
 				isLoading={loadingData}
 				editable={false}
 			/>
-			<EditableData
+			<InputEdit
 				name='Numero'
 				value={numero}
 				isLoading={loadingData}
 				editable={false}
 			/>
-			<EditableData
+			<InputEdit
 				name='Complemento'
 				value={capitalize(complemento)}
 				isLoading={loadingData}
 				editable={false}
 			/>
-			<EditableData
+			<InputEdit
 				name='Bairro'
 				value={capitalize(bairro)}
 				isLoading={loadingData}
 				editable={false}
 			/>
-			<EditableData
+			<InputEdit
 				name='Cep'
 				value={cep}
 				isLoading={loadingData}
 				editable={false}
 			/>
-			<EditableData
+			<InputEdit
 				name='Cidade'
 				value={capitalize(cidade)}
 				isLoading={loadingData}
 				editable={false}
 			/>
-			<EditableData
+			<InputEdit
 				name='Estado'
 				value={estado}
 				isLoading={loadingData}

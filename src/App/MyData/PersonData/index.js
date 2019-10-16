@@ -3,7 +3,7 @@ import { userContext } from '../../appContext'
 import { validateInput } from '../validateInput'
 import { maskInput } from '../../utils/maskInput'
 import { capitalize } from '../../utils/capitalize'
-import EditableData from '@bit/vitorbarbosa19.ziro.editable-data'
+import InputEdit from '@bit/vitorbarbosa19.ziro.input-edit'
 import Badge from '@bit/vitorbarbosa19.ziro.badge'
 import { alertColor } from '../../../Theme/styleVariables'
 import { container, fetch, update } from './styles'
@@ -49,7 +49,7 @@ export const PersonData = () => {
 	return (
 		<div style={container}>
 			{errorFetch && <Badge style={fetch} type='alert' color={alertColor} message={errorFetch} />}
-			<EditableData
+			<InputEdit
 				name='Nome'
 				value={fname}
 				onChange={updateFname}
@@ -60,7 +60,7 @@ export const PersonData = () => {
 				isLoading={loadingData}
 				editable={!errorFetch}
 			/>
-			<EditableData
+			<InputEdit
 				name='Sobrenome'
 				value={lname}
 				onChange={updateLname}
@@ -71,7 +71,7 @@ export const PersonData = () => {
 				isLoading={loadingData}
 				editable={!errorFetch}
 			/>
-			<EditableData
+			<InputEdit
 				name='RG'
 				value={rg}
 				onChange={updateRg}
@@ -84,7 +84,7 @@ export const PersonData = () => {
 				isLoading={loadingData}
 				editable={!errorFetch}
 			/>
-			<EditableData
+			<InputEdit
 				name='CPF'
 				value={cpf}
 				onChange={updateCpf}
@@ -97,7 +97,7 @@ export const PersonData = () => {
 				isLoading={loadingData}
 				editable={!errorFetch}
 			/>
-			<EditableData
+			<InputEdit
 				name='Nascimento'
 				value={birth}
 				onChange={updateBirth}
@@ -110,13 +110,13 @@ export const PersonData = () => {
 				isLoading={loadingData}
 				editable={!errorFetch}
 			/>
-			<EditableData
+			<InputEdit
 				name='Email'
 				value={email}
 				isValidated={true}
 				editable={false}
 			/>
-			<EditableData
+			<InputEdit
 				name='Whatsapp'
 				value={whatsapp}
 				isLoading={loadingData}
