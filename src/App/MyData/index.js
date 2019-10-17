@@ -15,7 +15,7 @@ export const MyData = () => {
 	const { fname, cnpj } = useContext(userContext)
 	return (
 		<div style={{...container, padding: padding }}>
-			<Header type='icon-' title='Meus Dados' icon='menu' setIsOpen={() => setIsOpen(true)} />
+			<Header type='icon' title='Meus Dados' icon='menu' setIsOpen={() => setIsOpen(true)} />
 			<Drawer isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
 				<DrawerPanel
 					username={fname}
