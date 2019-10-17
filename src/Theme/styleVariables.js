@@ -1,12 +1,22 @@
 export const
 
-/* STANDARD CONTAINER */
+/* STANDARD CONTAINERS */
 
 container = {
 	maxWidth: '500px',
 	height: '100vh',
 	boxSizing: 'border-box',
 	margin: '0 auto'
+},
+
+containerWithPadding = {
+	...container,
+	padding: '20px 5% 0'
+},
+
+containerWithPaddingAndOverflow = {
+	...containerWithPadding,
+	overflow: 'auto'
 },
 
 /* WIDTH, MARGIN, PADDING */

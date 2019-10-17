@@ -8,13 +8,13 @@ import Icon from '@bit/vitorbarbosa19.ziro.icon'
 import { Tabs } from './Tabs/index'
 import { PersonData } from './PersonData/index'
 import { BusinessData } from './BusinessData/index'
-import { container, padding } from '../../Theme/styleVariables'
+import { containerWithPaddingAndOverflow } from '../../Theme/styleVariables'
 
 export const MyData = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const { fname, cnpj } = useContext(userContext)
 	return (
-		<div style={{...container, padding: padding }}>
+		<div style={containerWithPaddingAndOverflow}>
 			<Header type='icon' title='Meus Dados' icon='menu' setIsOpen={() => setIsOpen(true)} />
 			<Drawer isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
 				<DrawerPanel
