@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Badge from '@bit/vitorbarbosa19.ziro.badge'
 import { BackButton } from './BackButton'
@@ -6,7 +6,7 @@ import { successColor } from '../../../Theme/styleVariables'
 import { container, step, wrapper, badge, sub, dot } from './styles'
 
 export const Header = ({ title, subtitle, message, backPath, goBack, children }) =>
-	<Fragment>
+	<>
 		<div style={container}>
 			<BackButton backPath={backPath} goBack={goBack} />
 			<h1 style={step}>
@@ -26,7 +26,7 @@ export const Header = ({ title, subtitle, message, backPath, goBack, children })
 			</h1>
 		</div>
 		{children}
-	</Fragment>
+	</>
 
 Header.propTypes = {
 	title: PropTypes.string.isRequired,
