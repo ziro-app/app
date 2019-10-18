@@ -5,6 +5,7 @@ import Checkout from '@bit/vitorbarbosa19.ziro.checkout'
 import { containerWithPadding } from '../../Theme/styleVariables'
 
 export const CardCheckout = () => {
+	const [isLoading, setIsLoading] = useState(true)
 	const [charge, setCharge] = useState('')
 	const [maxInstallments, setMaxInstallments] = useState('')
 	const [seller, setSeller] = useState('')
@@ -13,10 +14,15 @@ export const CardCheckout = () => {
 		const id = params.get('id')
 		const fetchPaymentFromDb = async () => {
 			const payment = await db.collection('credit-card-payments').doc(id).get()
-			const { charge, maxInstallments, seller } = payment.data()
-			setCharge(charge)
-			setMaxInstallments(maxInstallments)
-			setSeller(seller)
+			if (payment.exists) {
+				const { charge, maxInstallments, seller } = payment.data()
+				if (charge && maxInstallments && seller) {
+					setCharge(charge)
+					setMaxInstallments(maxInstallments)
+					setSeller(seller)
+					setIsLoading(false)
+				}
+			}
 		}
 		fetchPaymentFromDb()
 	}, [])
