@@ -19,10 +19,6 @@ containerWithPaddingAndOverflow = {
 	overflow: 'auto'
 },
 
-/* WIDTH, MARGIN, PADDING */
-maxWidth = '400px',
-standardMargin = '20px auto 0',
-standardPadding = '0 10%',
 padding = '20px 5% 0',
 
 /* COLORS */
