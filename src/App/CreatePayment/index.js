@@ -13,6 +13,7 @@ export const CreatePayment = () => {
 	const [seller, setSeller] = useState('')
 	const [charge, setCharge] = useState('')
 	const [maxInstallments, setMaxInstallments] = useState('')
+	const state = { seller, charge, maxInstallments }
 	const validations = [
 		{
 			name: 'seller',
@@ -34,49 +35,52 @@ export const CreatePayment = () => {
 		}
 	]
 	return (
-		<Form
-			buttonName='Enviar formulário'
-			validations={validations}
-			sendToBackend={sendToBackend}
-			inputs={[
-				<FormInput
-					name='seller'
-					label='Vendedor'
-					input={
-						<Dropdown
-							value={seller}
-							onChange={({ target: { value } }) => setSeller(value)}
-							list={['Crisfael']}
-							placeholder='Nome do fabricante'
-						/>
-					}
-				/>,
-				<FormInput
-					name='charge'
-					label='Valor a cobrar'
-					input={
-						<InputText
-							value={currencyFormat(charge)}
-							onChange={({ target: { value } }) => {
-								const toInteger = parseInt(value.replace(/[R$\.,]/g,''),10)
-								return setCharge(maskInput(toInteger,'#######',true))
-							}}
-							placeholder='R$1.299,99'
-						/>
-					}
-				/>,
-				<FormInput
-					name='maxInstallments'
-					label='Parcelamento máximo'
-					input={
-						<InputText
-							value={maxInstallments}
-							onChange={({ target: { value } }) => setMaxInstallments(maskInput(value, '#', true))}
-							placeholder='6'
-						/>
-					}
-				/>
-			]}
-		/>
+		<div style={containerWithPadding}>
+			<Header type='title-only' title='Nova cobrança' />
+			<Form
+				buttonName='Criar cobrança'
+				validations={validations}
+				sendToBackend={sendToBackend(state)}
+				inputs={[
+					<FormInput
+						name='seller'
+						label='Vendedor'
+						input={
+							<Dropdown
+								value={seller}
+								onChange={({ target: { value } }) => setSeller(value)}
+								list={['Crisfael']}
+								placeholder='Nome do fabricante'
+							/>
+						}
+					/>,
+					<FormInput
+						name='charge'
+						label='Valor a cobrar'
+						input={
+							<InputText
+								value={currencyFormat(charge)}
+								onChange={({ target: { value } }) => {
+									const toInteger = parseInt(value.replace(/[R$\.,]/g,''),10)
+									return setCharge(maskInput(toInteger,'#######',true))
+								}}
+								placeholder='R$1.299,99'
+							/>
+						}
+					/>,
+					<FormInput
+						name='maxInstallments'
+						label='Parcelamento máximo'
+						input={
+							<InputText
+								value={maxInstallments}
+								onChange={({ target: { value } }) => setMaxInstallments(maskInput(value, '#', true))}
+								placeholder='6'
+							/>
+						}
+					/>
+				]}
+			/>
+		</div>
 	)
 }
