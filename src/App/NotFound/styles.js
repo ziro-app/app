@@ -1,13 +1,8 @@
-import { maxWidth, standardMargin, standardPadding,
-	primaryColor, fontTitle, fontWeightTitle, gradient, shadow } from '../../Theme/styleVariables'
+import { primaryColor, fontTitle, fontWeightTitle } from '../../Theme/styleVariables'
 
 export const 
 
 container = {
-	display: 'grid',
-	maxWidth: maxWidth,
-	margin: standardMargin,
-	padding: standardPadding,
 	textAlign: 'center'
 },
 
@@ -23,21 +18,6 @@ title = {
 },
 
 body = {
-	margin: '12px 0'
-},
-
-button = {
-	marginTop: '12px',
-	WebkitAppearance: 'none',
-	WebkitTapHighlightColor: 'rgba(0,0,0,0)',
-	MozAppearance: 'none',
-	outline: 'none',
-	cursor: 'pointer',
-	padding: '10px 0px',
-	border: 'none',
-	borderRadius: '20px',
-	fontFamily: fontTitle,
-	color: '#FFF',
-	background: gradient,
-	boxShadow: `${shadow}`
+	margin: '0 0 12px',
+	color: primaryColor
 }

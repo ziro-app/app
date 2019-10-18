@@ -18,8 +18,8 @@ export const MyData = () => {
 			<Header type='icon' title='Meus Dados' icon='menu' setIsOpen={() => setIsOpen(true)} />
 			<Drawer isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
 				<DrawerPanel
-					username={fname}
-					usercnpj={cnpj || '28.026.371/0001-61'}
+					username={fname || 'Usuário'}
+					usercnpj={cnpj || 'nenhum cadastrado'}
 					options={[
 						{ path: null,
 						  onClick: null,
