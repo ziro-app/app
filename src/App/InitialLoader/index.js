@@ -1,10 +1,11 @@
 import React from 'react'
-import { Logo } from '../../Assets/Logo/index'
-import { Spinner } from '../../Assets/Spinner/index'
-import { loading, logo } from './styles'
+import Logo from '@bit/vitorbarbosa19.ziro.logo'
+import Spinner from '@bit/vitorbarbosa19.ziro.spinner'
+import { containerWithPadding } from '../../Theme/styleVariables'
+import { container, logo } from './styles'
 
 export const InitialLoader = () =>
-	<div style={loading}>
+	<div style={{...containerWithPadding, ...container}}>
 		<div style={logo}><Logo /></div>
 		<Spinner size={'6rem'} />
 	</div>

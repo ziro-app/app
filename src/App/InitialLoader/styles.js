@@ -1,14 +1,10 @@
-import { maxWidth, standardMargin, standardPadding } from '../../Theme/styleVariables'
-
 export const
 
-loading = {
+container = {
 	display: 'grid',
-	maxWidth: maxWidth,
-	margin: standardMargin,
-	padding: standardPadding
+	alignContent: 'start'
 },
 
 logo = {
-	placeSelf: 'end center'
+	justifySelf: 'center'
 }

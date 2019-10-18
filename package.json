@@ -23,6 +23,7 @@
     "@bit/vitorbarbosa19.ziro.input-edit": "^0.0.1",
     "@bit/vitorbarbosa19.ziro.input-text": "^0.0.15",
     "@bit/vitorbarbosa19.ziro.logo": "^0.0.4",
+    "@bit/vitorbarbosa19.ziro.spinner": "0.0.9",
     "@bit/vitorbarbosa19.ziro.tab-dual-header": "^0.0.5",
     "@bit/vitorbarbosa19.ziro.tab-dual-transition": "^0.0.3",
     "@bit/vitorbarbosa19.ziro.transition-route": "^0.0.1",
