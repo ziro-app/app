@@ -6,7 +6,6 @@ import InputText from '@bit/vitorbarbosa19.ziro.input-text'
 import Icon from '@bit/vitorbarbosa19.ziro.icon'
 import { Submit } from './Submit'
 import { Errors } from './Errors'
-import { PhoneIcon } from '../../../Assets/PhoneIcon/index'
 import { form, wrapper, label, input, wrapperPhone } from './styles'
 
 export const RegisterData = ({ fname, setFname, lname, setLname, rg, setRg, cpf, setCpf, birth, setBirth, country, setCountry, phone, setPhone, pass, setPass, confirmPass, setConfirmPass, goForward }) => {
@@ -93,7 +92,7 @@ export const RegisterData = ({ fname, setFname, lname, setLname, rg, setRg, cpf,
 			</div>
 			<div style={wrapper}>
 				<label style={label} htmlFor='phone'>
-					<PhoneIcon size={13} />Whatsapp<Errors message={errorPhone || errorCountry} />
+					<Icon type='whats' size={13} />Whatsapp<Errors message={errorPhone || errorCountry} />
 				</label>
 				<div style={wrapperPhone}>
 					<InputText

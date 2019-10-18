@@ -1,13 +1,12 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import { SuccessIcon } from '../../../Assets/SuccessIcon/index'
-import { AlertIcon } from '../../../Assets/AlertIcon/index'
-import { successColor } from '../../../Theme/styleVariables'
+import Icon from '@bit/vitorbarbosa19.ziro.icon'
+import { successColor, alertColor } from '../../../Theme/styleVariables'
 import { successMsg, errorMsg } from './styles'
 
 export const Message = ({ message, type }) => {
 	const style = type === 'success' ? successMsg : errorMsg
-	const component = type === 'success' ? <SuccessIcon size={12} color={successColor} /> : <AlertIcon size={12} />
+	const component = type === 'success' ? <Icon type='success' size={12} color={successColor} /> : <Icon type='alert' size={12} color={alerColor} />
 	return (
 		<label style={style}>
 			{message && component}&nbsp;{message}

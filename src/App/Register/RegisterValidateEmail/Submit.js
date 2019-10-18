@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { auth } from '../../../Firebase/index'
 import { Message } from './Message'
-import { Spinner } from '../../../Assets/Spinner/index'
+import Spinner from '@bit/vitorbarbosa19.ziro.spinner'
 import { buttonWrapper, loader, secondary, secondaryDisabled, scaleButton } from './styles'
 
 export const Submit = () => {

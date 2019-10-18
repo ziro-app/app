@@ -1,11 +1,12 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import { AlertIcon } from '../../../Assets/AlertIcon/index'
+import Icon from '@bit/vitorbarbosa19.ziro.icon'
+import { alertColor } from '../../../Theme/styleVariables'
 import { error } from './styles'
 
 export const Errors = ({ message }) =>
 	<label style={error}>
-		{message && <AlertIcon size={12} />}
+		{message && <Icon type='alert' color={alertColor} size={12} />}
 		&nbsp;
 		{message}
 	</label>
