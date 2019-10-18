@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { maskInput } from '../../../utils/maskInput'
+import maskInput from '@ziro/mask-input'
 
 export const useForm = (setCnpj, setCnpjIsValid) => {
 	const [errorCnpj, setErrorCnpj] = useState('')

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { userContext } from '../../appContext'
 import { validateInput } from '../validateInput'
-import { maskInput } from '../../utils/maskInput'
+import maskInput from '@ziro/mask-input'
 import { capitalize } from '../../utils/capitalize'
 import InputEdit from '@bit/vitorbarbosa19.ziro.input-edit'
 import Badge from '@bit/vitorbarbosa19.ziro.badge'
