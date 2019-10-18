@@ -1,12 +1,10 @@
-import { maxWidth, standardMargin, standardPadding, primaryColor, alertColor, fontTitle, fontWeightTitle } from '../../Theme/styleVariables'
+import { primaryColor, alertColor, fontTitle, fontWeightTitle } from '../../Theme/styleVariables'
+
 export const 
 
 container = {
-	maxWidth: maxWidth,
-	margin: standardMargin,
-	padding: standardPadding,
-	color: alertColor,
-	textAlign: 'center'
+	textAlign: 'center',
+	color: alertColor
 },
 
 title = {
