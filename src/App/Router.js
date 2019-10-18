@@ -5,6 +5,7 @@ import { MyData } from './MyData/index'
 import { Home } from './Home/index'
 import { Join } from './Join/index'
 import { Register } from './Register/index'
+import { CreatePayment } from './CreatePayment/index'
 import { NotFound } from './NotFound/index'
 
 export const Router = ({ isLogged }) => {
@@ -27,6 +28,7 @@ export const Router = ({ isLogged }) => {
 			case '/cadastrar/dados': return <Register />
 			case '/cadastrar/email': return <Register />
 			case '/cadastrar/validar-email': return <Register />
+			case '/criar-cobranca': return <CreatePayment />
 			case '/': setLocation(rootPublic)
 			case '/meus-dados/fisica': setLocation(rootPublic)
 			case '/meus-dados/juridica': setLocation(rootPublic)
