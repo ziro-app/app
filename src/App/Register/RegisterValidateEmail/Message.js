@@ -6,7 +6,7 @@ import { successMsg, errorMsg } from './styles'
 
 export const Message = ({ message, type }) => {
 	const style = type === 'success' ? successMsg : errorMsg
-	const component = type === 'success' ? <Icon type='success' size={12} color={successColor} /> : <Icon type='alert' size={12} color={alerColor} />
+	const component = type === 'success' ? <Icon type='success' size={12} color={successColor} /> : <Icon type='alert' size={12} color={alertColor} />
 	return (
 		<label style={style}>
 			{message && component}&nbsp;{message}
