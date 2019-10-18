@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { db } from '../../Firebase/index'
 import Header from '@bit/vitorbarbosa19.ziro.header'
 import Checkout from '@bit/vitorbarbosa19.ziro.checkout'
+import ErrorLoading from '@bit/vitorbarbosa19.ziro.error-loading'
 import Spinner from '@bit/vitorbarbosa19.ziro.spinner'
 import { containerWithPadding } from '../../Theme/styleVariables'
 
@@ -31,7 +32,7 @@ export const CardCheckout = () => {
 	return (
 		<div style={containerWithPadding}>
 			{isError
-				? <div>Error</div>
+				? <ErrorLoading />
 				: <>
 					<Header type='title-only' title='Pagamento' />
 					{isLoading
