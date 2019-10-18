@@ -10,12 +10,17 @@ export const sendToBackend = state => () => {
 				charge,
 				maxInstallments
 			})
-			const doc = await docRef.get()
-			if (doc) await navigator.clipboard.writeText(`${baseUrl}${doc.id}`)
+			try {
+				const doc = await docRef.get()
+				if (doc) await navigator.clipboard.writeText(`${baseUrl}${doc.id}`)
+			} catch (error) {
+				console.log(error)
+				reject('Error in clipboard API')
+			}
 			resolve('Link copiado')
 		} catch (error) {
 			console.log(error)
-			reject('NOK')
+			reject('Erro ao criar cobrança')
 		}
 	})
 }
