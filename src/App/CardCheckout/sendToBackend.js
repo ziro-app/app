@@ -2,26 +2,22 @@ import { useContext } from 'react'
 import { userContext } from '../appContext'
 import { db } from '../../Firebase/index'
 
-export const sendToBackend = (charge, seller) => state => {
+export const sendToBackend = (charge, seller, id) => state => {
 	const { uid } = useContext(userContext)
 	return new Promise(async (resolve, reject) => {
 		try {
-			const docRef = await db.collection('credit-card-payments').add({
-				seller,
-				charge,
-				maxInstallments,
-				status: 'unpaid'
-			})
+			const docRef = await db.collection('credit-card-payments').doc(id).update({ status: 'paid' })
 			try {
-				const doc = await docRef.get()
+				console.log(state)
+				// call Zoop API here
 			} catch (error) {
 				console.log(error)
-				reject('Error in clipboard API')
+				reject('Error in Zoop API')
 			}
-			resolve('Link copiado')
+			resolve('Ok')
 		} catch (error) {
 			console.log(error)
-			reject('Erro ao criar cobrança')
+			reject('Erro no pagamento')
 		}
 	})
 }

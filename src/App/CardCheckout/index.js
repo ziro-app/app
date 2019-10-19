@@ -16,6 +16,7 @@ export const CardCheckout = () => {
 	const [charge, setCharge] = useState('')
 	const [maxInstallments, setMaxInstallments] = useState('')
 	const [seller, setSeller] = useState('')
+	const [id, setId] = useState('')
 	const checkoutProps = { charge, maxInstallments, seller }
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search)
@@ -29,6 +30,7 @@ export const CardCheckout = () => {
 						setCharge(charge)
 						setMaxInstallments(maxInstallments)
 						setSeller(seller)
+						setId(id)
 						setIsLoading(false)
 					} else setIsError(true)	
 				} else setIsExpired(true)
@@ -45,7 +47,7 @@ export const CardCheckout = () => {
 					<Header type='title-only' title='Pagamento' />
 					{isLoading
 						? <div style={{ display: 'grid' }}><Spinner size={'6rem'} /></div>
-						: <Checkout {...checkoutProps} sendToBackend={sendToBackend(charge, seller)} />
+						: <Checkout {...checkoutProps} sendToBackend={sendToBackend(charge, seller, id)} />
 					}
 				  </>
 			}
