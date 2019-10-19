@@ -4,6 +4,7 @@ import { db } from '../../Firebase/index'
 import Header from '@bit/vitorbarbosa19.ziro.header'
 import Checkout from '@bit/vitorbarbosa19.ziro.checkout'
 import ErrorLoading from '@bit/vitorbarbosa19.ziro.error-loading'
+import ErrorExpired from '@bit/vitorbarbosa19.ziro.error-expired'
 import Spinner from '@bit/vitorbarbosa19.ziro.spinner'
 import { containerWithPadding } from '../../Theme/styleVariables'
 
@@ -35,7 +36,7 @@ export const CardCheckout = () => {
 		}
 		fetchPaymentFromDb()
 	}, [])
-	if (isExpired) return <div>Cobrança expirada</div>
+	if (isExpired) return <ErrorExpired />
 	return (
 		<div style={containerWithPadding}>
 			{isError
