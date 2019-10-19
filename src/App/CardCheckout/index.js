@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { userContext } from '../appContext'
 import { db } from '../../Firebase/index'
+import { sendToBackend } from './sendToBackend'
 import Header from '@bit/vitorbarbosa19.ziro.header'
 import Checkout from '@bit/vitorbarbosa19.ziro.checkout'
 import ErrorLoading from '@bit/vitorbarbosa19.ziro.error-loading'
@@ -15,7 +16,6 @@ export const CardCheckout = () => {
 	const [charge, setCharge] = useState('')
 	const [maxInstallments, setMaxInstallments] = useState('')
 	const [seller, setSeller] = useState('')
-	const { uid } = useContext(userContext)
 	const checkoutProps = { charge, maxInstallments, seller }
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search)
@@ -45,7 +45,7 @@ export const CardCheckout = () => {
 					<Header type='title-only' title='Pagamento' />
 					{isLoading
 						? <div style={{ display: 'grid' }}><Spinner size={'6rem'} /></div>
-						: <Checkout {...checkoutProps} />
+						: <Checkout {...checkoutProps} sendToBackend={sendToBackend(charge, seller)} />
 					}
 				  </>
 			}
