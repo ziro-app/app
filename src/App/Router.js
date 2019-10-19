@@ -7,7 +7,7 @@ import { Home } from './Home/index'
 import { Join } from './Join/index'
 import { Register } from './Register/index'
 import { CreatePayment } from './CreatePayment/index'
-import { NotFound } from './NotFound/index'
+import NotFound from '@bit/vitorbarbosa19.ziro.not-found'
 
 export const Router = ({ isLogged }) => {
 	const [location, setLocation] = useLocation()
