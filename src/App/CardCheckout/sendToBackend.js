@@ -6,18 +6,20 @@ export const sendToBackend = (charge, seller, id) => state => {
 	const { uid } = useContext(userContext)
 	return new Promise(async (resolve, reject) => {
 		try {
-			const docRef = await db.collection('credit-card-payments').doc(id).update({ status: 'paid' })
+			await db.collection('credit-card-payments').doc(id).update({ status: 'paid' })
 			try {
 				console.log(state)
 				// call Zoop API here
 			} catch (error) {
 				console.log(error)
+				// save error to firestore here
 				reject('Error in Zoop API')
 			}
 			resolve('Ok')
 		} catch (error) {
 			console.log(error)
-			reject('Erro no pagamento')
+			// save error to firestore here
+			reject('Error in Firestore API')
 		}
 	})
 }
