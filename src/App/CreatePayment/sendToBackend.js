@@ -8,7 +8,8 @@ export const sendToBackend = state => () => {
 			const docRef = await db.collection('credit-card-payments').add({
 				seller,
 				charge,
-				maxInstallments
+				maxInstallments,
+				status: 'unpaid'
 			})
 			try {
 				const doc = await docRef.get()

@@ -42,7 +42,6 @@ export const App = () => {
 				setEmail(user.email)
 				unsubscribe = db.collection('users').where('uid','==',user.uid).onSnapshot(
 					snapshot => {
-						console.log(snapshot.docs[0].data())
 						const { fname, lname, rg, cpf, birth, phone } = snapshot.docs[0].data()
 						/* person data */
 						setFname(fname ? fname : '')
@@ -93,7 +92,7 @@ export const App = () => {
 	})}, [])
 	/*== RENDER LOGIC ==*/
 	const saveData = saveUserData(uid)
-	const userData = { loadingData, errorFetch, saveData, 
+	const userData = { loadingData, errorFetch, saveData, uid,
 		fname, lname, rg, cpf, birth, email, whatsapp,
 		setFname, setLname, setRg, setCpf, setBirth, setWhatsapp,
 		cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, ie,

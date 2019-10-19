@@ -18,6 +18,7 @@ export const Router = ({ isLogged }) => {
 			case '/meus-dados/fisica': return <MyData />
 			case '/meus-dados/juridica': return <MyData />
 			case '/checkout': return <CardCheckout />
+			case '/criar-cobranca': return <CreatePayment />
 			case '/': setLocation(rootPrivate)
 			case '/login': setLocation(rootPrivate)
 			default: return <NotFound fallback={rootPrivate} />
@@ -30,7 +31,6 @@ export const Router = ({ isLogged }) => {
 			case '/cadastrar/dados': return <Register />
 			case '/cadastrar/email': return <Register />
 			case '/cadastrar/validar-email': return <Register />
-			case '/criar-cobranca': return <CreatePayment />
 			case '/': setLocation(rootPublic)
 			case '/meus-dados/fisica': setLocation(rootPublic)
 			case '/meus-dados/juridica': setLocation(rootPublic)
