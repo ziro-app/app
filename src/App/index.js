@@ -3,6 +3,7 @@ import { useLocation } from 'wouter'
 import { auth, db } from '../Firebase/index'
 import { userContext } from './appContext'
 import { saveUserData } from './utils/saveUserData'
+import ErrorLoading from '@bit/vitorbarbosa19.ziro.error-loading'
 import ErrorBoundary from './ErrorBoundary/index'
 import { InitialLoader } from './InitialLoader/index'
 import { Router } from './Router'
@@ -69,7 +70,7 @@ export const App = () => {
 							setPais(pais ? pais : '')
 							setIe(ie ? ie : '')
 							setErrorFetch('')
-						}
+						} else setErrorFetch('Erro. Recarregue a página')
 						if (loadingData) setLoadingData(false)
 					},
 					error => {
@@ -103,6 +104,7 @@ export const App = () => {
 		setCnpj, setRazao, setFantasia, setRua, setNumero, setComplemento, setBairro, setCep, setCidade, setEstado, setPais, setIe
 	}
 	if (loadingUser) return <InitialLoader />
+	if (errorFetch) return <ErrorLoading />
 	return (
 		<ErrorBoundary>
 			<userContext.Provider value={userData}>
