@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useLocation } from 'wouter'
 import { MyData } from './MyData/index'
+import { MyPayments } from './MyPayments/index'
 import { CardCheckout } from './CardCheckout/index'
 import { Home } from './Home/index'
 import { Join } from './Join/index'
@@ -17,6 +18,7 @@ export const Router = ({ isLogged }) => {
 		switch (location) {
 			case '/meus-dados/fisica': return <MyData />
 			case '/meus-dados/juridica': return <MyData />
+			case '/pagamentos': return <MyPayments />
 			case '/checkout': return <CardCheckout />
 			case '/criar-cobranca': return <CreatePayment />
 			case '/': setLocation(rootPrivate)
