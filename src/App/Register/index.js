@@ -92,7 +92,7 @@ export const Register = () => {
 					  	backPath='/cadastrar/email'
 					  	goBack={goBack}
 				  	>
-				  		<RegisterValidateEmail />
+				  		<RegisterValidateEmail email={email} />
 				  	</Header>
 				}
 			]}/>
