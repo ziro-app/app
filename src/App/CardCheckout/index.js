@@ -17,7 +17,7 @@ export const CardCheckout = () => {
 	const [maxInstallments, setMaxInstallments] = useState('')
 	const [seller, setSeller] = useState('')
 	const [id, setId] = useState('')
-	const { uid } = useContext(userContext)
+	const { docId } = useContext(userContext)
 	const checkoutProps = { charge, maxInstallments, seller }
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search)
@@ -48,7 +48,7 @@ export const CardCheckout = () => {
 					<Header type='title-only' title='Pagamento' />
 					{isLoading
 						? <div style={{ display: 'grid' }}><Spinner size={'6rem'} /></div>
-						: <Checkout {...checkoutProps} sendToBackend={sendToBackend(id, charge, seller, uid)} />
+						: <Checkout {...checkoutProps} sendToBackend={sendToBackend(id, charge, seller, docId)} />
 					}
 				  </>
 			}

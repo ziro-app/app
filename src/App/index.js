@@ -13,6 +13,7 @@ export const App = () => {
 	const [loadingUser, setLoadingUser] = useState(true)
 	const [loadingData, setLoadingData] = useState(true)
 	const [errorFetch, setErrorFetch] = useState('')
+	const [docId, setDocId] = useState('')
 	const [uid, setUid] = useState('')
 	const [fname, setFname] = useState('')
 	const [lname, setLname] = useState('')
@@ -42,30 +43,33 @@ export const App = () => {
 				setEmail(user.email)
 				unsubscribe = db.collection('users').where('uid','==',user.uid).onSnapshot(
 					snapshot => {
-						const { fname, lname, rg, cpf, birth, phone } = snapshot.docs[0].data()
-						/* person data */
-						setFname(fname ? fname : '')
-						setLname(lname ? lname : '')
-						setRg(rg ? rg : '')
-						setCpf(cpf ? cpf : '')
-						setBirth(birth ? birth : '')
-						setWhatsapp(phone ? phone : '')
-						const { cnpj, razao, fantasia, rua, numero, complemento, bairro,
-							cep, cidade, estado, pais, ie } = snapshot.docs[0].data()
-						/* business data */
-						setCnpj(cnpj ? cnpj : '')
-						setRazao(razao ? razao : '')
-						setFantasia(fantasia ? fantasia : '')
-						setRua(rua ? rua : '')
-						setNumero(numero ? numero : '')
-						setComplemento(complemento ? complemento : '')
-						setBairro(bairro ? bairro : '')
-						setCep(cep ? cep : '')
-						setCidade(cidade ? cidade : '')
-						setEstado(estado ? estado : '')
-						setPais(pais ? pais : '')
-						setIe(ie ? ie : '')
-						setErrorFetch('')
+						if (!snapshot.empty) {
+							setDocId(snapshot.docs[0].id)
+							const { fname, lname, rg, cpf, birth, phone } = snapshot.docs[0].data()
+							/* person data */
+							setFname(fname ? fname : '')
+							setLname(lname ? lname : '')
+							setRg(rg ? rg : '')
+							setCpf(cpf ? cpf : '')
+							setBirth(birth ? birth : '')
+							setWhatsapp(phone ? phone : '')
+							const { cnpj, razao, fantasia, rua, numero, complemento, bairro,
+								cep, cidade, estado, pais, ie } = snapshot.docs[0].data()
+							/* business data */
+							setCnpj(cnpj ? cnpj : '')
+							setRazao(razao ? razao : '')
+							setFantasia(fantasia ? fantasia : '')
+							setRua(rua ? rua : '')
+							setNumero(numero ? numero : '')
+							setComplemento(complemento ? complemento : '')
+							setBairro(bairro ? bairro : '')
+							setCep(cep ? cep : '')
+							setCidade(cidade ? cidade : '')
+							setEstado(estado ? estado : '')
+							setPais(pais ? pais : '')
+							setIe(ie ? ie : '')
+							setErrorFetch('')
+						}
 						if (loadingData) setLoadingData(false)
 					},
 					error => {
@@ -92,7 +96,7 @@ export const App = () => {
 	})}, [])
 	/*== RENDER LOGIC ==*/
 	const saveData = saveUserData(uid)
-	const userData = { loadingData, errorFetch, saveData, uid,
+	const userData = { loadingData, errorFetch, saveData, docId, uid,
 		fname, lname, rg, cpf, birth, email, whatsapp,
 		setFname, setLname, setRg, setCpf, setBirth, setWhatsapp,
 		cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, ie,

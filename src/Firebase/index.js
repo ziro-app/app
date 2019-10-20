@@ -5,4 +5,7 @@ import { firebaseConfig } from './firebase-config.js'
 
 const init = firebase.initializeApp(firebaseConfig)
 
-export const db = init.firestore(), auth = init.auth()
+export const
+db = init.firestore(),
+auth = init.auth(),
+fs = firebase.firestore
