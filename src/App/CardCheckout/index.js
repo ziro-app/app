@@ -23,19 +23,24 @@ export const CardCheckout = () => {
 		const params = new URLSearchParams(window.location.search)
 		const id = params.get('id')
 		const fetchPaymentFromDb = async () => {
-			const payment = await db.collection('credit-card-payments').doc(id).get()
-			if (payment.exists) {
-				const { charge, maxInstallments, seller, status } = payment.data()
-				if (status === 'unpaid') {
-					if (charge && maxInstallments && seller) {
-						setCharge(charge)
-						setMaxInstallments(maxInstallments)
-						setSeller(seller)
-						setId(id)
-						setIsLoading(false)
-					} else setIsError(true)	
-				} else setIsExpired(true)
-			} else setIsError(true)
+			try {
+				const payment = await db.collection('credit-card-payments').doc(id).get()
+				if (payment.exists) {
+					const { charge, maxInstallments, seller, status } = payment.data()
+					if (status === 'unpaid') {
+						if (charge && maxInstallments && seller) {
+							setCharge(charge)
+							setMaxInstallments(maxInstallments)
+							setSeller(seller)
+							setId(id)
+							setIsLoading(false)
+						} else setIsError(true)	
+					} else setIsExpired(true)
+				} else setIsError(true)
+			} catch (error) {
+				console.log(error)
+				setIsError(true)
+			}
 		}
 		fetchPaymentFromDb()
 	}, [])
@@ -43,7 +48,7 @@ export const CardCheckout = () => {
 	return (
 		<div style={containerWithPadding}>
 			{isError
-				? <ErrorLoading />
+				? <ErrorLoading message='Acesse o link recebido novamente. Em caso de dúvidas, contate seu assessor' />
 				: <>
 					<Header type='title-only' title='Pagamento' />
 					{isLoading
