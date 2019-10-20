@@ -2,7 +2,7 @@ import { db, fs } from '../../Firebase/index'
 
 export const sendToBackend = (id, charge, seller, docId) => state => () => new Promise(async (resolve, reject) => {
 	try {
-		await db.collection('users').doc(docId).update({ payments: fs.FieldValue.arrayUnion(id) })
+		await db.collection('buyers').doc(docId).update({ payments: fs.FieldValue.arrayUnion(id) })
 		try {
 			await db.collection('credit-card-payments').doc(id).update({ status: 'expired' })
 			try {

@@ -42,7 +42,7 @@ export const App = () => {
 			if (user && user.emailVerified) {
 				setUid(user.uid)
 				setEmail(user.email)
-				unsubscribe = db.collection('users').where('uid','==',user.uid).onSnapshot(
+				unsubscribe = db.collection('buyers').where('uid','==',user.uid).onSnapshot(
 					snapshot => {
 						if (!snapshot.empty) {
 							setDocId(snapshot.docs[0].id)
