@@ -6,12 +6,13 @@ import Header from  '@bit/vitorbarbosa19.ziro.header'
 import Drawer from '@bit/vitorbarbosa19.ziro.drawer'
 import DrawerPanel from '@bit/vitorbarbosa19.ziro.drawer-panel'
 import Icon from '@bit/vitorbarbosa19.ziro.icon'
+import { containerWithPaddingAndOverflow } from '../../Theme/styleVariables'
 
-export const Menu = ({ title }) => {
+export const Menu = ({ title, children }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const { fname, cnpj } = useContext(userContext)
 	return (
-		<>
+		<div style={containerWithPaddingAndOverflow}>
 			<Header type='icon' title={title} icon='menu' setIsOpen={() => setIsOpen(true)} />
 			<Drawer isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
 				<DrawerPanel
@@ -38,10 +39,15 @@ export const Menu = ({ title }) => {
 					]}
 				/>
 			</Drawer>
-		</>
+			{children}
+		</div>
 	)
 }
 
 Menu.propTypes = {
-	title: PropTypes.string.isRequired
+	title: PropTypes.string.isRequired,
+	children: PropTypes.oneOfType([
+		PropTypes.object,
+		PropTypes.arrayOf(PropTypes.element)
+	]).isRequired
 }
