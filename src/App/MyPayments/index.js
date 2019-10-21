@@ -1,5 +1,6 @@
 import React from 'react'
 import Timeline from '@bit/vitorbarbosa19.ziro.timeline'
+import Illustration from '@bit/vitorbarbosa19.ziro.illustration'
 import { container, transaction, transaction2, transaction3, circle, circle2, circle3, status, status2, status3, supplier, value, date, quantity } from './styles'
 
 export const MyPayments = () =>
@@ -18,4 +19,5 @@ export const MyPayments = () =>
 				date: '30/ago'
 			}
 		]} />
+		<Illustration type='errorLoading' />
 	</>
