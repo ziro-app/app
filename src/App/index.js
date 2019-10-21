@@ -35,6 +35,7 @@ export const App = () => {
 	const [estado, setEstado] = useState('')
 	const [pais, setPais] = useState('')
 	const [ie, setIe] = useState('')
+	const [payments, setPayments] = useState('')
 	/*== SET AUTH AND DB LISTENERS ==*/
 	useEffect(() => {
 		let unsubscribe = () => null
@@ -45,7 +46,10 @@ export const App = () => {
 				unsubscribe = db.collection('buyers').where('uid','==',user.uid).onSnapshot(
 					snapshot => {
 						if (!snapshot.empty) {
+							/* general data */
 							setDocId(snapshot.docs[0].id)
+							const { payments } = snapshot.docs[0].data()
+							setPayments(payments ? payments : [])
 							const { fname, lname, rg, cpf, birth, phone } = snapshot.docs[0].data()
 							/* person data */
 							setFname(fname ? fname : '')
@@ -97,7 +101,7 @@ export const App = () => {
 	})}, [])
 	/*== RENDER LOGIC ==*/
 	const saveData = saveUserData(uid)
-	const userData = { loadingData, errorFetch, saveData, docId, uid,
+	const userData = { loadingData, errorFetch, saveData, docId, uid, payments,
 		fname, lname, rg, cpf, birth, email, whatsapp,
 		setFname, setLname, setRg, setCpf, setBirth, setWhatsapp,
 		cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, ie,
