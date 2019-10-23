@@ -2,7 +2,11 @@ import { db } from '../../Firebase/index'
 
 export const sendToBackend = (id, charge, seller, docId) => state => () => new Promise(async (resolve, reject) => {
 	try {
-		await db.collection('credit-card-payments').doc(id).update({ status: 'expired', buyer: docId })
+		await db.collection('credit-card-payments').doc(id).update({
+			buyer: docId,
+			status: 'Pago',
+			date: new Date()
+		})
 		try {
 			console.log(state)
 			// call Zoop API here
