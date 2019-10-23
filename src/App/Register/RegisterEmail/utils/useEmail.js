@@ -25,7 +25,6 @@ export const useEmail = (email, setErrorEmail, cnpj, razao, fantasia, rua, numer
 					await auth.currentUser.sendEmailVerification({ url: process.env.CONTINUE_URL })
 					await db.collection('buyers').add({
 						uid: user.uid,
-						payments: [],
 						cnpj,
 						razao,
 						fantasia,

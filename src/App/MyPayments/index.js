@@ -1,11 +1,19 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { userContext } from '../appContext'
+import { db } from '../../Firebase/index'
 import Timeline from '@bit/vitorbarbosa19.ziro.timeline'
 import {} from './styles'
 
 export const MyPayments = () => {
-	const { payments } = useContext(userContext)
-	console.log(payments)
+	const { docId } = useContext(userContext)
+	useEffect(() => {
+		return db.collection('credit-card-payments').where('buyer','==',docId).onSnapshot(
+			snapshot => {
+				console.log(docId)
+				console.log(snapshot)
+			}
+		)
+	}, [docId])
 	return (
 		<Timeline transactions={[
 			{
