@@ -12,7 +12,7 @@ export const MyPayments = () => {
 	const [errorLoading, setErrorLoading] = useState(false)
 	const [payments, setPayments] = useState([])
 	const { docId: buyer } = useContext(userContext)
-	useEffect(() => db.collection('credit-card-payments').where('buyer','==',buyer).onSnapshot(
+	useEffect(() => db.collection('credit-card-payments').where('buyer','==',buyer).orderBy('date', 'desc').onSnapshot(
 		snapshot => {
 			if (!snapshot.empty) {
 				let payments = []

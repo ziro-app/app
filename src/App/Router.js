@@ -37,6 +37,9 @@ export const Router = ({ isLogged }) => {
 			case '/': setLocation(rootPublic)
 			case '/meus-dados/fisica': setLocation(rootPublic)
 			case '/meus-dados/juridica': setLocation(rootPublic)
+			case '/pagamentos': setLocation(rootPublic)
+			case '/checkout': setLocation(rootPublic)
+			case '/criar-cobranca': setLocation(rootPublic)
 			default: return <NotFound fallback={rootPublic} />
 		}
 	}
