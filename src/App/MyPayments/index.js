@@ -5,15 +5,18 @@ import Timeline from '@bit/vitorbarbosa19.ziro.timeline'
 import {} from './styles'
 
 export const MyPayments = () => {
-	const { docId } = useContext(userContext)
+	const { docId: buyer } = useContext(userContext)
 	useEffect(() => {
-		return db.collection('credit-card-payments').where('buyer','==',docId).onSnapshot(
+		return db.collection('credit-card-payments').where('buyer','==',buyer).onSnapshot(
 			snapshot => {
-				console.log(docId)
-				console.log(snapshot)
+				if (!snapshot.empty) {
+					let payments = []
+					snapshot.forEach(doc => payments.push(doc.data()))
+					console.log(payments)
+				}
 			}
 		)
-	}, [docId])
+	}, [buyer])
 	return (
 		<Timeline transactions={[
 			{
