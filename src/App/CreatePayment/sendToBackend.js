@@ -9,7 +9,7 @@ export const sendToBackend = state => () => {
 				seller,
 				charge,
 				maxInstallments,
-				status: 'unpaid'
+				status: 'pendente'
 			})
 			try {
 				const doc = await docRef.get()

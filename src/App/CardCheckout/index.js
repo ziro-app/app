@@ -27,7 +27,7 @@ export const CardCheckout = () => {
 				const payment = await db.collection('credit-card-payments').doc(id).get()
 				if (payment.exists) {
 					const { charge, maxInstallments, seller, status } = payment.data()
-					if (status === 'unpaid') {
+					if (status === 'pendente') {
 						if (charge && maxInstallments && seller) {
 							setCharge(charge)
 							setMaxInstallments(maxInstallments)
