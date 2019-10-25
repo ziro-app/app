@@ -44,7 +44,6 @@ export const App = () => {
 				setEmail(user.email)
 				const { empty } = await db.collection('admins').where('uid','==',user.uid).get()
 				const isAdmin = !empty
-				console.log(isAdmin)
 				if (!isAdmin) {
 					unsubscribe = db.collection('buyers').where('uid','==',user.uid).onSnapshot(
 						snapshot => {

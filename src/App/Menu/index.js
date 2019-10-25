@@ -16,7 +16,7 @@ export const Menu = ({ title, children }) => {
 			<Header type='icon' title={title} icon='menu' setIsOpen={() => setIsOpen(true)} />
 			<Drawer isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
 				<DrawerPanel
-					username={fname || 'Usuário'}
+					username={fname || 'Admin'}
 					usercnpj={cnpj || 'nenhum cadastrado'}
 					options={[
 						{ path: null,
