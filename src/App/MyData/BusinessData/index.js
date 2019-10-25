@@ -9,7 +9,7 @@ import { alertColor } from '../../../Theme/styleVariables'
 import { container, fetch, update } from './styles'
 
 export const BusinessData = () => {
-	const { loadingData, errorFetch, saveData,
+	const { loadingData, errorFetch, saveData, isAdmin,
 		cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, ie,
 		setCnpj, setRazao, setFantasia, setRua, setNumero, setComplemento, setBairro, setCep, setCidade, setEstado, setPais, setIe
 	} = useContext(userContext)
@@ -52,7 +52,7 @@ export const BusinessData = () => {
 				error={errorIe}
 				placeholder='consulte pelo Sintegra'
 				isLoading={loadingData}
-				editable={!errorFetch}
+				editable={!isAdmin && !errorFetch}
 			/>
 			<InputEdit
 				name='Rua'

@@ -10,7 +10,7 @@ import { container, fetch, update } from './styles'
 
 export const PersonData = () => {
 	const { loadingData, errorFetch, fname, lname, rg, cpf, birth, email, whatsapp,
-		setFname, setLname, setRg, setCpf, setBirth, setWhatsapp, saveData } = useContext(userContext)
+		setFname, setLname, setRg, setCpf, setBirth, setWhatsapp, saveData, isAdmin } = useContext(userContext)
 	/*---------------- FNAME ----------------*/
 	const [errorFname, setErrorFname] = useState('')
 	const updateFname = ({ target: { value } }) => setFname(capitalize(value))
@@ -58,7 +58,7 @@ export const PersonData = () => {
 				setError={setErrorFname}
 				error={errorFname}
 				isLoading={loadingData}
-				editable={!errorFetch}
+				editable={!isAdmin && !errorFetch}
 			/>
 			<InputEdit
 				name='Sobrenome'
@@ -69,7 +69,7 @@ export const PersonData = () => {
 				setError={setErrorLname}
 				error={errorLname}
 				isLoading={loadingData}
-				editable={!errorFetch}
+				editable={!isAdmin && !errorFetch}
 			/>
 			<InputEdit
 				name='RG'
@@ -82,7 +82,7 @@ export const PersonData = () => {
 				warning={conditionRg ? 'preencha p/ pagar pelo app' : ''}
 				placeholder='11.22.33.44-55'
 				isLoading={loadingData}
-				editable={!errorFetch}
+				editable={!isAdmin && !errorFetch}
 			/>
 			<InputEdit
 				name='CPF'
@@ -95,7 +95,7 @@ export const PersonData = () => {
 				warning={cpf === '' ? 'preencha p/ pagar pelo app' : ''}
 				placeholder='111.222.333-44'
 				isLoading={loadingData}
-				editable={!errorFetch}
+				editable={!isAdmin && !errorFetch}
 			/>
 			<InputEdit
 				name='Nascimento'
@@ -108,7 +108,7 @@ export const PersonData = () => {
 				warning={birth === '' ? 'preencha p/ pagar pelo app' : ''}
 				placeholder='01/01/1990'
 				isLoading={loadingData}
-				editable={!errorFetch}
+				editable={!isAdmin && !errorFetch}
 			/>
 			<InputEdit
 				name='Email'

@@ -14,6 +14,7 @@ export const App = () => {
 	const [loadingUser, setLoadingUser] = useState(true)
 	const [loadingData, setLoadingData] = useState(true)
 	const [errorFetch, setErrorFetch] = useState('')
+	const [isAdmin, setIsAdmin] = useState(false)
 	const [docId, setDocId] = useState('')
 	const [uid, setUid] = useState('')
 	const [fname, setFname] = useState('')
@@ -40,10 +41,11 @@ export const App = () => {
 		let unsubscribe = () => null
 		return auth.onAuthStateChanged(async user => {
 			if (user && user.emailVerified) {
-				setUid(user.uid)
-				setEmail(user.email)
 				const { empty } = await db.collection('admins').where('uid','==',user.uid).get()
 				const isAdmin = !empty
+				setUid(user.uid)
+				setEmail(user.email)
+				setIsAdmin(isAdmin)
 				if (!isAdmin) {
 					unsubscribe = db.collection('buyers').where('uid','==',user.uid).onSnapshot(
 						snapshot => {
@@ -114,7 +116,7 @@ export const App = () => {
 	})}, [])
 	/*== RENDER LOGIC ==*/
 	const saveData = saveUserData(uid)
-	const userData = { loadingData, errorFetch, saveData, docId, uid,
+	const userData = { loadingData, errorFetch, saveData, docId, uid, isAdmin,
 		fname, lname, rg, cpf, birth, email, whatsapp,
 		setFname, setLname, setRg, setCpf, setBirth, setWhatsapp,
 		cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, ie,
