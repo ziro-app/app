@@ -2,6 +2,7 @@ import { db } from '../../Firebase/index'
 
 export const sendToBackend = (id, charge, seller, docId) => state => () => new Promise(async (resolve, reject) => {
 	try {
+		if (!docId) throw 'Admins cannot submit payments'
 		await db.collection('credit-card-payments').doc(id).update({
 			buyer: docId,
 			status: 'Pago',
