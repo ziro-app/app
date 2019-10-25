@@ -38,47 +38,52 @@ export const App = () => {
 	/*== SET AUTH AND DB LISTENERS ==*/
 	useEffect(() => {
 		let unsubscribe = () => null
-		return auth.onAuthStateChanged(user => {
+		return auth.onAuthStateChanged(async user => {
 			if (user && user.emailVerified) {
 				setUid(user.uid)
 				setEmail(user.email)
-				unsubscribe = db.collection('buyers').where('uid','==',user.uid).onSnapshot(
-					snapshot => {
-						if (!snapshot.empty) {
-							setDocId(snapshot.docs[0].id)
-							const { fname, lname, rg, cpf, birth, phone } = snapshot.docs[0].data()
-							/* person data */
-							setFname(fname ? fname : '')
-							setLname(lname ? lname : '')
-							setRg(rg ? rg : '')
-							setCpf(cpf ? cpf : '')
-							setBirth(birth ? birth : '')
-							setWhatsapp(phone ? phone : '')
-							const { cnpj, razao, fantasia, rua, numero, complemento, bairro,
-								cep, cidade, estado, pais, ie } = snapshot.docs[0].data()
-							/* business data */
-							setCnpj(cnpj ? cnpj : '')
-							setRazao(razao ? razao : '')
-							setFantasia(fantasia ? fantasia : '')
-							setRua(rua ? rua : '')
-							setNumero(numero ? numero : '')
-							setComplemento(complemento ? complemento : '')
-							setBairro(bairro ? bairro : '')
-							setCep(cep ? cep : '')
-							setCidade(cidade ? cidade : '')
-							setEstado(estado ? estado : '')
-							setPais(pais ? pais : '')
-							setIe(ie ? ie : '')
-							setErrorFetch('')
-						} else setErrorFetch('Erro. Recarregue a página')
-						if (loadingData) setLoadingData(false)
-					},
-					error => {
-						console.log(error)
-						setErrorFetch('Erro. Recarregue a página')
-						if (loadingData) setLoadingData(false)
-					}
-				)
+				const { empty } = await db.collection('admins').where('uid','==',user.uid).get()
+				const isAdmin = !empty
+				console.log(isAdmin)
+				if (!isAdmin) {
+					unsubscribe = db.collection('buyers').where('uid','==',user.uid).onSnapshot(
+						snapshot => {
+							if (!snapshot.empty) {
+								setDocId(snapshot.docs[0].id)
+								const { fname, lname, rg, cpf, birth, phone } = snapshot.docs[0].data()
+								/* person data */
+								setFname(fname ? fname : '')
+								setLname(lname ? lname : '')
+								setRg(rg ? rg : '')
+								setCpf(cpf ? cpf : '')
+								setBirth(birth ? birth : '')
+								setWhatsapp(phone ? phone : '')
+								const { cnpj, razao, fantasia, rua, numero, complemento, bairro,
+									cep, cidade, estado, pais, ie } = snapshot.docs[0].data()
+								/* business data */
+								setCnpj(cnpj ? cnpj : '')
+								setRazao(razao ? razao : '')
+								setFantasia(fantasia ? fantasia : '')
+								setRua(rua ? rua : '')
+								setNumero(numero ? numero : '')
+								setComplemento(complemento ? complemento : '')
+								setBairro(bairro ? bairro : '')
+								setCep(cep ? cep : '')
+								setCidade(cidade ? cidade : '')
+								setEstado(estado ? estado : '')
+								setPais(pais ? pais : '')
+								setIe(ie ? ie : '')
+								setErrorFetch('')
+							} else setErrorFetch('Erro. Recarregue a página')
+							if (loadingData) setLoadingData(false)
+						},
+						error => {
+							console.log(error)
+							setErrorFetch('Erro. Recarregue a página')
+							if (loadingData) setLoadingData(false)
+						}
+					)
+				}
 				if (loadingData) setLoadingData(false)
 			} else {
 				unsubscribe()
