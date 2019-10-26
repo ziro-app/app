@@ -36,6 +36,12 @@ export const App = () => {
 	const [estado, setEstado] = useState('')
 	const [pais, setPais] = useState('')
 	const [ie, setIe] = useState('')
+	const [checkoutId, setCheckoutId] = useState('')
+	/*== GET CHECKOUT ID IF ANY ==*/
+	useEffect(() => {
+		const params = new URLSearchParams(window.location.search)
+		setCheckoutId(params.get('id'))
+	}, [])
 	/*== SET AUTH AND DB LISTENERS ==*/
 	useEffect(() => {
 		let unsubscribe = () => null
