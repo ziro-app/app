@@ -10,7 +10,7 @@ import { Router } from './Router'
 
 export const App = () => {
 	/*== APP STATE ==*/
-	const [location, setLocation] = useLocation()
+	const [location] = useLocation()
 	const [loadingUser, setLoadingUser] = useState(true)
 	const [loadingData, setLoadingData] = useState(true)
 	const [errorFetch, setErrorFetch] = useState('')
@@ -37,20 +37,20 @@ export const App = () => {
 	const [pais, setPais] = useState('')
 	const [ie, setIe] = useState('')
 	const [checkoutId, setCheckoutId] = useState('')
-	/*== GET CHECKOUT ID IF ANY ==*/
-	useEffect(() => {
-		const params = new URLSearchParams(window.location.search)
-		setCheckoutId(params.get('id') ? params.get('id') : '')
-	}, [])
 	/*== SET AUTH AND DB LISTENERS ==*/
 	useEffect(() => {
 		let unsubscribe = () => null
 		return auth.onAuthStateChanged(async user => {
+			const params = new URLSearchParams(window.location.search)
 			if (user && user.emailVerified) {
-				const { empty } = await db.collection('admins').where('uid','==',user.uid).get()
-				const isAdmin = !empty
+				/* set user */
 				setUid(user.uid)
 				setEmail(user.email)
+				/* determine if there is a checkout id */
+				if (location === '/checkout') setCheckoutId('')
+				/* determine if user is an admin */
+				const { empty } = await db.collection('admins').where('uid','==',user.uid).get()
+				const isAdmin = !empty
 				setIsAdmin(isAdmin)
 				if (!isAdmin) {
 					unsubscribe = db.collection('buyers').where('uid','==',user.uid).onSnapshot(
@@ -117,6 +117,7 @@ export const App = () => {
 				setEstado('')
 				setPais('')
 				setIe('')
+				setCheckoutId(params.get('id') ? params.get('id') : '')
 			}
 			if (loadingUser) setLoadingUser(false)
 	})}, [])
