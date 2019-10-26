@@ -7,9 +7,9 @@ import Icon from '@bit/vitorbarbosa19.ziro.icon'
 import { Submit } from './Submit'
 import { form, wrapper, label, input, instructions } from './styles'
 
-export const RegisterEmail = ({ email, setEmail, emailIsValid, setEmailIsValid, cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, fname, lname, rg, cpf, birth, country, phone, pass, confirmPass, goForward }) => {
+export const RegisterEmail = ({ email, setEmail, emailIsValid, setEmailIsValid, cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, fname, lname, rg, cpf, birth, country, phone, pass, confirmPass, checkoutId, goForward }) => {
 	const [errorEmail, setErrorEmail, handleEmail] = useForm(setEmail, setEmailIsValid)
-	const [submitting, errorSubmit, submitForm] = useEmail(email, setErrorEmail, cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, fname, lname, rg, cpf, birth, country, phone, pass, confirmPass, emailIsValid, setEmailIsValid, goForward)
+	const [submitting, errorSubmit, submitForm] = useEmail(email, setErrorEmail, cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, fname, lname, rg, cpf, birth, country, phone, pass, confirmPass, emailIsValid, setEmailIsValid, checkoutId, goForward)
 	return (
 		<form style={form} onSubmit={submitForm}>
 			<div style={wrapper}>
@@ -57,5 +57,6 @@ RegisterEmail.propTypes = {
 	phone: PropTypes.string.isRequired,
 	pass: PropTypes.string.isRequired,
 	confirmPass: PropTypes.string.isRequired,
+	checkoutId: PropTypes.string,
 	goForward: PropTypes.func.isRequired
 }

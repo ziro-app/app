@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 import { auth } from '../../../Firebase/index'
 import { Message } from './Message'
 import Spinner from '@bit/vitorbarbosa19.ziro.spinner'
 import { buttonWrapper, loader, secondary, secondaryDisabled, scaleButton } from './styles'
 
-export const Submit = () => {
+export const Submit = ({ checkoutId }) => {
 	const [submitting, setSubmitting] = useState(false)
 	const [message, setMessage] = useState({ content: '', type: '' })
 	const submitForm = async () => {
 			try {
 				setSubmitting(true)
-				await auth.currentUser.sendEmailVerification({ url: `${process.env.CONTINUE_URL}?id=${123}` })
+				await auth.currentUser.sendEmailVerification({ url: `${process.env.CONTINUE_URL}?id=${checkoutId}` })
 				setSubmitting(false)
 				setMessage({ content: 'Email reenviado com sucesso!', type: 'success' })
 			} catch (error) {
@@ -34,4 +35,8 @@ export const Submit = () => {
 			</div>
 		</div>
 	)
+}
+
+Submit.propTypes = {
+	checkoutId: PropTypes.string
 }

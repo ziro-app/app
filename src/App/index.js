@@ -123,7 +123,7 @@ export const App = () => {
 	})}, [])
 	/*== RENDER LOGIC ==*/
 	const saveData = saveUserData(uid)
-	const userData = { loadingData, errorFetch, saveData, docId, uid, isAdmin,
+	const userData = { loadingData, errorFetch, saveData, docId, uid, isAdmin, checkoutId,
 		fname, lname, rg, cpf, birth, email, whatsapp,
 		setFname, setLname, setRg, setCpf, setBirth, setWhatsapp,
 		cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, ie,

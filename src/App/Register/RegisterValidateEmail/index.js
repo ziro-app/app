@@ -4,7 +4,7 @@ import { Reload } from './Reload'
 import { Submit } from './Submit'
 import { container, instructions } from './styles'
 
-export const RegisterValidateEmail = ({ email }) => {
+export const RegisterValidateEmail = ({ email, checkoutId }) => {
 	if (!email) return null
 	return (
 		<div style={container}>
@@ -14,12 +14,13 @@ export const RegisterValidateEmail = ({ email }) => {
 				<label>Caso não tenha recebido, aperte o botão para reenviar</label>
 				<label>Caso tenha digitado errado, retorne e corrija o email</label>
 			</div>
-			<Reload />
-			<Submit />
+			<Reload checkoutId={checkoutId} />
+			<Submit checkoutId={checkoutId} />
 		</div>
 	)
 }
 
 RegisterValidateEmail.propTypes = {
-	email: PropTypes.string.isRequired
+	email: PropTypes.string.isRequired,
+	checkoutId: PropTypes.string
 }

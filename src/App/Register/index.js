@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { userContext } from '../appContext'
 import TransitionRoute from '@bit/vitorbarbosa19.ziro.transition-route'
 import { Header } from './Header/index'
 import { RegisterCnpj } from './RegisterCnpj/index'
@@ -8,6 +9,7 @@ import { RegisterValidateEmail } from './RegisterValidateEmail/index'
 import { container } from '../../Theme/styleVariables'
 
 export const Register = () => {
+	const { checkoutId } = useContext(userContext)
 	// Slide animation direction
 	const [forward, setForward] = useState(true)
 	const goForward = () => setForward(true)
@@ -44,7 +46,7 @@ export const Register = () => {
 	const [emailIsValid, setEmailIsValid] = useState(false)
 	const emailProps = { email, setEmail, emailIsValid, setEmailIsValid, cnpj, razao, fantasia, rua,
 		numero, complemento, bairro, cep, cidade, estado, pais, fname, lname, rg, cpf, birth,
-		country, phone, pass, confirmPass, goForward }
+		country, phone, pass, confirmPass, checkoutId, goForward }
 	return (
 		<div style={{...container, overflow: 'auto' }}>
 			<TransitionRoute forward={forward} components={[
@@ -92,7 +94,7 @@ export const Register = () => {
 					  	backPath='/cadastrar/email'
 					  	goBack={goBack}
 				  	>
-				  		<RegisterValidateEmail email={email} />
+				  		<RegisterValidateEmail email={email} checkoutId={checkoutId} />
 				  	</Header>
 				}
 			]}/>

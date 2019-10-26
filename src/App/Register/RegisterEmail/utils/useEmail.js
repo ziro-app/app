@@ -3,7 +3,7 @@ import { useLocation } from 'wouter'
 import { auth, db } from '../../../../Firebase/index'
 import { validateInput } from './validateInput'
 
-export const useEmail = (email, setErrorEmail, cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, fname, lname, rg, cpf, birth, country, phone, pass, confirmPass, pageIsValid, setPageIsValid, goForward) => {
+export const useEmail = (email, setErrorEmail, cnpj, razao, fantasia, rua, numero, complemento, bairro, cep, cidade, estado, pais, fname, lname, rg, cpf, birth, country, phone, pass, confirmPass, pageIsValid, setPageIsValid, checkoutId, goForward) => {
 	const [submitting, setSubmitting] = useState(false)
 	const [errorSubmit, setErrorSubmit] = useState('')
 	const [, setLocation] = useLocation()
@@ -22,7 +22,7 @@ export const useEmail = (email, setErrorEmail, cnpj, razao, fantasia, rua, numer
 				try {
 					setSubmitting(true)
 					const { user } = await auth.createUserWithEmailAndPassword(email, pass)
-					await auth.currentUser.sendEmailVerification({ url: `${process.env.CONTINUE_URL}?id=${123}` })
+					await auth.currentUser.sendEmailVerification({ url: `${process.env.CONTINUE_URL}?id=${checkoutId}` })
 					await db.collection('buyers').add({
 						uid: user.uid,
 						cnpj,
