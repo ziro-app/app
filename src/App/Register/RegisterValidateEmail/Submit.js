@@ -11,7 +11,7 @@ export const Submit = () => {
 	const submitForm = async () => {
 			try {
 				setSubmitting(true)
-				await auth.currentUser.sendEmailVerification({ url: process.env.CONTINUE_URL })
+				await auth.currentUser.sendEmailVerification({ url: `${process.env.CONTINUE_URL}?id=${123}` })
 				setSubmitting(false)
 				setMessage({ content: 'Email reenviado com sucesso!', type: 'success' })
 			} catch (error) {

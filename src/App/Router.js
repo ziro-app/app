@@ -11,10 +11,11 @@ import { Register } from './Register/index'
 import { CreatePayment } from './CreatePayment/index'
 import NotFound from '@bit/vitorbarbosa19.ziro.not-found'
 
-export const Router = ({ isLogged }) => {
+export const Router = ({ isLogged, checkoutId }) => {
 	const [location, setLocation] = useLocation()
 	const rootPrivate = 'meus-dados/fisica'
 	const rootPublic = '/login'
+	if (isLogged && checkoutId) setLocation(`/checkout?id=${checkoutId}`)
 	if (isLogged) {
 		switch (location) {
 			case '/meus-dados/fisica': return <Menu title='Meus dados'><MyData /></Menu>
@@ -46,5 +47,6 @@ export const Router = ({ isLogged }) => {
 }
 
 Router.propTypes = {
-	isLogged: PropTypes.bool.isRequired
+	isLogged: PropTypes.bool.isRequired,
+	checkoutId: PropTypes.string
 }

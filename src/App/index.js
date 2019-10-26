@@ -40,7 +40,7 @@ export const App = () => {
 	/*== GET CHECKOUT ID IF ANY ==*/
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search)
-		setCheckoutId(params.get('id'))
+		setCheckoutId(params.get('id') ? params.get('id') : '')
 	}, [])
 	/*== SET AUTH AND DB LISTENERS ==*/
 	useEffect(() => {
@@ -133,7 +133,7 @@ export const App = () => {
 	return (
 		<ErrorBoundary>
 			<userContext.Provider value={userData}>
-				<Router isLogged={!!uid} />
+				<Router isLogged={!!uid} checkoutId={checkoutId} />
 			</userContext.Provider>
 		</ErrorBoundary>
 	)

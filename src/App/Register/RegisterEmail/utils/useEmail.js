@@ -22,7 +22,7 @@ export const useEmail = (email, setErrorEmail, cnpj, razao, fantasia, rua, numer
 				try {
 					setSubmitting(true)
 					const { user } = await auth.createUserWithEmailAndPassword(email, pass)
-					await auth.currentUser.sendEmailVerification({ url: process.env.CONTINUE_URL })
+					await auth.currentUser.sendEmailVerification({ url: `${process.env.CONTINUE_URL}?id=${123}` })
 					await db.collection('buyers').add({
 						uid: user.uid,
 						cnpj,
