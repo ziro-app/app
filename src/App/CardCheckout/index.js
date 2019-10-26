@@ -50,7 +50,7 @@ export const CardCheckout = () => {
 			{isError
 				? <ErrorLoading message='Acesse o link recebido novamente. Em caso de dúvidas, contate seu assessor' />
 				: <>
-					<Header type='title-only' title='Pagamento' />
+					<Header type='icon-link' title='Pagamento' icon='back' navigateTo='/pagamentos' />
 					{isLoading
 						? <div style={{ display: 'grid' }}><Spinner size={'6rem'} /></div>
 						: <Checkout {...checkoutProps} sendToBackend={sendToBackend(id, charge, seller, docId)} />
