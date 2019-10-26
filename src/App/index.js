@@ -37,17 +37,21 @@ export const App = () => {
 	const [pais, setPais] = useState('')
 	const [ie, setIe] = useState('')
 	const [checkoutId, setCheckoutId] = useState('')
+	/*== SAVE CHECKOUT ID IF ANY ==*/
+	useEffect(() => {
+		const params = new URLSearchParams(window.location.search)
+		/* if user is in checkout page, clear checkoutId to allow back button to work */
+		if (location === '/checkout') setCheckoutId('')
+		if (!checkoutId) setCheckoutId(params.get('id') ? params.get('id') : '')
+	}, [uid, location])
 	/*== SET AUTH AND DB LISTENERS ==*/
 	useEffect(() => {
 		let unsubscribe = () => null
 		return auth.onAuthStateChanged(async user => {
-			const params = new URLSearchParams(window.location.search)
 			if (user && user.emailVerified) {
 				/* set user */
 				setUid(user.uid)
 				setEmail(user.email)
-				/* determine if there is a checkout id */
-				if (location === '/checkout') setCheckoutId('')
 				/* determine if user is an admin */
 				const { empty } = await db.collection('admins').where('uid','==',user.uid).get()
 				const isAdmin = !empty
@@ -117,7 +121,6 @@ export const App = () => {
 				setEstado('')
 				setPais('')
 				setIe('')
-				setCheckoutId(params.get('id') ? params.get('id') : '')
 			}
 			if (loadingUser) setLoadingUser(false)
 	})}, [])
