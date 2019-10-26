@@ -28,14 +28,15 @@ module.exports = (env, { mode }) => {
 		plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }) ]
 	}
 	if (mode === 'development') {
-		const { cnpj_api, continue_url } = require('./credentials')
+		const { cnpj_api, continue_url, zoop } = require('./credentials')
 		config.devtool = 'cheap-module-eval-source-map'
 		config.devServer = { historyApiFallback: true }
 		config.plugins.push(
 			new webpack.DefinePlugin({
 				'process.env': {
 					CNPJ_API: JSON.stringify(cnpj_api),
-					CONTINUE_URL: JSON.stringify(continue_url)
+					CONTINUE_URL: JSON.stringify(continue_url),
+					ZOOP: JSON.stringify(zoop)
 				}
 			})
 		)
@@ -60,7 +61,8 @@ module.exports = (env, { mode }) => {
 			new webpack.DefinePlugin({
 				'process.env': {
 					CNPJ_API: JSON.stringify(process.env.CNPJ_API),
-					CONTINUE_URL: JSON.stringify(process.env.CONTINUE_URL)
+					CONTINUE_URL: JSON.stringify(process.env.CONTINUE_URL),
+					ZOOP: JSON.stringify(process.env.ZOOP)
 				}
 			})
 		)
