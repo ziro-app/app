@@ -12,9 +12,6 @@ export const sendToBackend = (id, charge, seller, docId) => state => () => new P
 		try {
 			const { cardholder, expiry, number, cvv, installments } = state
 			const result = await post(`${process.env.PAY}`, {
-				amount: charge,
-				currency: 'BRL',
-				description: `Ziro por ${seller}`,
 				payment_type: 'credit',
 				capture: true,
 				on_behalf_of: '6e4b9db52193481ca2a345dfc3577c8e',
@@ -37,9 +34,10 @@ export const sendToBackend = (id, charge, seller, docId) => state => () => new P
 				},
 				'statement_descriptor': `Ziro por ${seller}`
 			})
-			console.log('result', result)
+			console.log(result.data)
 		} catch (error) {
 			console.log(error)
+			if (error.response) console.log(error.response)
 			// save error to firestore here
 			reject('Error in Zoop API')
 		}
