@@ -11,7 +11,7 @@ export const sendToBackend = (id, charge, seller, docId) => state => () => new P
 		})
 		try {
 			const { cardholder, expiry, number, cvv, installments } = state
-			const result = await post(`${process.env.ZOOP}transactions`, {
+			const result = await post(`${process.env.PAY}`, {
 				amount: charge,
 				currency: 'BRL',
 				description: `Ziro por ${seller}`,
@@ -36,8 +36,6 @@ export const sendToBackend = (id, charge, seller, docId) => state => () => new P
 					'number_installments': installments
 				},
 				'statement_descriptor': `Ziro por ${seller}`
-			}, {
-				headers: { Authorization: `Basic ${process.env.ZOOP_AUTH}` }
 			})
 			console.log('result', result)
 		} catch (error) {
