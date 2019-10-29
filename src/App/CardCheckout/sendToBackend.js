@@ -4,16 +4,11 @@ import { db } from '../../Firebase/index'
 export const sendToBackend = (id, charge, seller, docId) => state => () => new Promise(async (resolve, reject) => {
 	try {
 		if (!docId) throw 'Admins cannot submit payments'
-		await db.collection('credit-card-payments').doc(id).update({
-			buyer: docId,
-			status: 'Pago',
-			date: new Date()
-		})
 		try {
 			const { cardholder, expiry, number, cvv, installments } = state
-			const result = await post(`${process.env.PAY}`, {
+			const { data } = await post(`${process.env.PAY}`, {
 				payment_type: 'credit',
-				capture: true,
+				capture: false,
 				on_behalf_of: '6e4b9db52193481ca2a345dfc3577c8e',
 				source: {
 					usage: 'single_use',
@@ -34,7 +29,20 @@ export const sendToBackend = (id, charge, seller, docId) => state => () => new P
 				},
 				'statement_descriptor': `Ziro por ${seller}`
 			})
-			console.log(result.data)
+			console.log(data)
+			await db.collection('credit-card-payments').doc(id).update({
+				buyer: docId,
+				status: data.status,
+				installments: data.installment_plan.number_installments,
+				date: new Date(),
+				brand: data.payment_method.card_brand,
+				cardholder: data.payment_method.holder_name,
+				firstFour: data.payment_method.first4_digits,
+				lastFour: data.payment_method.last4_digits,
+				zoopId: data.id,
+				fees: data.fees * 100,
+				authorizer: data.gateway_authorizer
+			})
 		} catch (error) {
 			console.log(error)
 			if (error.response) console.log(error.response)
