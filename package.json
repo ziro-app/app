@@ -19,6 +19,7 @@
     "@bit/vitorbarbosa19.ziro.drawer": "^0.0.14",
     "@bit/vitorbarbosa19.ziro.drawer-panel": "^0.0.13",
     "@bit/vitorbarbosa19.ziro.dropdown": "^0.0.6",
+    "@bit/vitorbarbosa19.ziro.error-boundary": "0.0.1",
     "@bit/vitorbarbosa19.ziro.error-expired": "^0.0.12",
     "@bit/vitorbarbosa19.ziro.error-loading": "^0.0.13",
     "@bit/vitorbarbosa19.ziro.form": "^0.0.5",
@@ -50,7 +51,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",

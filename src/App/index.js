@@ -5,7 +5,7 @@ import { userContext } from './appContext'
 import { saveUserData } from './utils/saveUserData'
 import InitialLoader from '@bit/vitorbarbosa19.ziro.initial-loader'
 import ErrorLoading from '@bit/vitorbarbosa19.ziro.error-loading'
-import ErrorBoundary from './ErrorBoundary/index'
+import ErrorBoundary from '@bit/vitorbarbosa19.ziro.error-boundary'
 import { Router } from './Router'
 
 export const App = () => {
