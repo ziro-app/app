@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import maskInput from '@ziro/mask-input'
-import { capitalize } from '../../../utils/capitalize'
+import capitalize from '@ziro/capitalize'
 
 export const useForm = (setFname, setLname, setRg, setCpf, setBirth, setCountry, setPhone, setPass, setConfirmPass, country) => {
 	const [errorFname, setErrorFname] = useState('')

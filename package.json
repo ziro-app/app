@@ -38,6 +38,7 @@
     "@bit/vitorbarbosa19.ziro.tab-dual-transition": "^0.0.3",
     "@bit/vitorbarbosa19.ziro.timeline": "0.0.9",
     "@bit/vitorbarbosa19.ziro.transition-route": "^0.0.1",
+    "@ziro/capitalize": "^1.0.0",
     "@ziro/currency-format": "^1.0.0",
     "@ziro/mask-input": "^1.0.0",
     "axios": "^0.19.0",
