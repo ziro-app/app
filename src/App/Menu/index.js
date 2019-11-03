@@ -12,7 +12,7 @@ export const Menu = ({ title, children }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const { fname, cnpj } = useContext(userContext)
 	return (
-		<div style={{...containerWithPadding, overflow: 'hidden'}}>
+		<div style={containerWithPadding}>
 			<Header type='icon' title={title} icon='menu' setIsOpen={() => setIsOpen(true)} />
 			<Drawer isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
 				<DrawerPanel
@@ -32,6 +32,10 @@ export const Menu = ({ title, children }) => {
 						  onClick: () => setIsOpen(false),
 						  icon: <Icon type='user' size={15} strokeWidth={3} />,
 						  text: 'Meus Dados' },
+						{ path: '/sobre',
+						  onClick: () => setIsOpen(false),
+						  icon: <Icon type='user' size={15} strokeWidth={3} />,
+						  text: 'Sobre a Ziro' },
 						{ path: null,
 						  onClick: () => auth.signOut(),
 						  icon: <Icon type='logout' size={15} strokeWidth={3} />,
