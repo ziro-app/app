@@ -6,13 +6,13 @@ import Header from  '@bit/vitorbarbosa19.ziro.header'
 import Drawer from '@bit/vitorbarbosa19.ziro.drawer'
 import DrawerPanel from '@bit/vitorbarbosa19.ziro.drawer-panel'
 import Icon from '@bit/vitorbarbosa19.ziro.icon'
-import { containerWithPaddingAndOverflow } from '../../Theme/styleVariables'
+import { containerWithPadding } from '../../Theme/styleVariables'
 
 export const Menu = ({ title, children }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const { fname, cnpj } = useContext(userContext)
 	return (
-		<div style={containerWithPaddingAndOverflow}>
+		<div style={{...containerWithPadding, overflow: 'hidden'}}>
 			<Header type='icon' title={title} icon='menu' setIsOpen={() => setIsOpen(true)} />
 			<Drawer isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
 				<DrawerPanel
