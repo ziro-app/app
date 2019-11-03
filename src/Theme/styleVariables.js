@@ -14,11 +14,6 @@ containerWithPadding = {
 	padding: '20px 5% 0'
 },
 
-containerWithPaddingAndOverflow = {
-	...containerWithPadding,
-	overflow: 'auto'
-},
-
 padding = '20px 5% 0',
 
 /* COLORS */
