@@ -34,7 +34,7 @@ export const Menu = ({ title, children }) => {
 						  text: 'Meus Dados' },
 						{ path: '/sobre',
 						  onClick: () => setIsOpen(false),
-						  icon: <Icon type='user' size={15} strokeWidth={3} />,
+						  icon: <Icon type='location' size={15} strokeWidth={3} />,
 						  text: 'Sobre a Ziro' },
 						{ path: null,
 						  onClick: () => auth.signOut(),
