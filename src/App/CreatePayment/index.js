@@ -51,6 +51,7 @@ export const CreatePayment = () => {
 								onChange={({ target: { value } }) => setSeller(value)}
 								list={['Crisfael']}
 								placeholder='Nome do fabricante'
+								onChangeKeyboard={element => element ? setSeller(element.value) : null }
 							/>
 						}
 					/>,
