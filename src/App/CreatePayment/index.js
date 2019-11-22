@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { db } from '../../Firebase/index'
 import currencyFormat from '@ziro/currency-format'
 import maskInput from '@ziro/mask-input'
 import { sendToBackend } from './sendToBackend'
@@ -10,6 +11,7 @@ import InputText from '@bit/vitorbarbosa19.ziro.input-text'
 import { containerWithPadding } from '../../Theme/styleVariables'
 
 export const CreatePayment = () => {
+	const [isError, setIsError] = useState(false)
 	const [seller, setSeller] = useState('')
 	const [charge, setCharge] = useState('')
 	const [maxInstallments, setMaxInstallments] = useState('')
@@ -34,6 +36,35 @@ export const CreatePayment = () => {
 			message: 'Deve ser entre 1 e 6'
 		}
 	]
+	useEffect(() => {
+		const fetchSellers = async () => {
+			try {
+				const sellersList = await db.collection('sellers').get()
+				console.log(sellersList)
+				if (!sellersList.empty) {
+					sellersList.forEach(sellerDoc => {
+						console.log(sellerDoc.data())
+					})
+				} else setIsError(true)
+				// if (sellersList.exists) {
+				// 	const { name, sellerId } = sellersList.data()
+				// 	if (status === 'pendente') {
+				// 		if (charge && maxInstallments && seller) {
+				// 			setCharge(charge)
+				// 			setMaxInstallments(maxInstallments)
+				// 			setSeller(seller)
+				// 			setId(id)
+				// 			setIsLoading(false)
+				// 		} else setIsError(true)	
+				// 	} else setIsExpired(true)
+				// } else setIsError(true)
+			} catch (error) {
+				console.log(error)
+				setIsError(true)
+			}
+		}
+		fetchSellers()
+	}, [])
 	return (
 		<div style={containerWithPadding}>
 			<Header type='title-only' title='Nova cobrança' />
