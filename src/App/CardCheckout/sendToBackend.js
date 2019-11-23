@@ -1,5 +1,6 @@
 import { post } from 'axios'
 import { db } from '../../Firebase/index'
+import { translateStatus } from './translateStatus'
 
 export const sendToBackend = (id, charge, seller, sellerZoopId, docId) => state => () => new Promise(async (resolve, reject) => {
 	try {
@@ -32,7 +33,7 @@ export const sendToBackend = (id, charge, seller, sellerZoopId, docId) => state 
 			console.log(data)
 			await db.collection('credit-card-payments').doc(id).update({
 				buyer: docId,
-				status: data.status,
+				status: translateStatus(data.status),
 				installments: data.installment_plan.number_installments,
 				date: new Date(),
 				brand: data.payment_method.card_brand,
