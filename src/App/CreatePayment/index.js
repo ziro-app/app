@@ -3,6 +3,7 @@ import { db } from '../../Firebase/index'
 import currencyFormat from '@ziro/currency-format'
 import maskInput from '@ziro/mask-input'
 import { sendToBackend } from './sendToBackend'
+import capitalize from '@ziro/capitalize'
 import Header from '@bit/vitorbarbosa19.ziro.header'
 import Form from '@bit/vitorbarbosa19.ziro.form'
 import FormInput from '@bit/vitorbarbosa19.ziro.form-input'
@@ -48,8 +49,8 @@ export const CreatePayment = () => {
 					let sellersAndIdsArray = []
 					sellersList.forEach(sellerDoc => {
 						const { name, zoopid } = sellerDoc.data()
-						sellersArray.push(name)
-						sellersAndIdsArray.push([name, zoopid])
+						sellersArray.push(capitalize(name))
+						sellersAndIdsArray.push([capitalize(name), zoopid])
 					})
 					setSellers(sellersArray)
 					setSellersAndIds(sellersAndIdsArray)
