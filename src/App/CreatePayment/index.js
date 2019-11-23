@@ -52,25 +52,15 @@ export const CreatePayment = () => {
 					let sellersAndIdsArray = []
 					sellersList.forEach(sellerDoc => {
 						const { name, zoopid } = sellerDoc.data()
-						sellersArray.push(capitalize(name))
-						sellersAndIdsArray.push([capitalize(name), zoopid])
+						if (name && zoopid) {
+							sellersArray.push(capitalize(name))
+							sellersAndIdsArray.push([capitalize(name), zoopid])
+						} else setIsError(true)
 					})
 					setSellers(sellersArray)
 					setSellersAndIds(sellersAndIdsArray)
 					setIsLoading(false)
 				} else setIsError(true)
-				// if (sellersList.exists) {
-				// 	const { name, sellerId } = sellersList.data()
-				// 	if (status === 'pendente') {
-				// 		if (charge && maxInstallments && seller) {
-				// 			setCharge(charge)
-				// 			setMaxInstallments(maxInstallments)
-				// 			setSeller(seller)
-				// 			setId(id)
-				// 			setIsLoading(false)
-				// 		} else setIsError(true)	
-				// 	} else setIsExpired(true)
-				// } else setIsError(true)
 			} catch (error) {
 				console.log(error)
 				setIsError(true)
