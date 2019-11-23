@@ -1,7 +1,7 @@
 import { post } from 'axios'
 import { db } from '../../Firebase/index'
 
-export const sendToBackend = (id, charge, seller, docId) => state => () => new Promise(async (resolve, reject) => {
+export const sendToBackend = (id, charge, seller, sellerZoopId, docId) => state => () => new Promise(async (resolve, reject) => {
 	try {
 		if (!docId) throw 'Admins cannot submit payments'
 		try {
@@ -9,7 +9,7 @@ export const sendToBackend = (id, charge, seller, docId) => state => () => new P
 			const { data } = await post(`${process.env.PAY}`, {
 				payment_type: 'credit',
 				capture: false,
-				on_behalf_of: '13c09ab817014ae6843634493177afb2',
+				on_behalf_of: sellerZoopId,
 				source: {
 					usage: 'single_use',
 					amount: charge,

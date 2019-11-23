@@ -16,6 +16,7 @@ export const CardCheckout = () => {
 	const [charge, setCharge] = useState('')
 	const [maxInstallments, setMaxInstallments] = useState('')
 	const [seller, setSeller] = useState('')
+	const [sellerZoopId, setSellerZoopId] = useState('')
 	const [id, setId] = useState('')
 	const { docId } = useContext(userContext)
 	const checkoutProps = { charge, maxInstallments, seller }
@@ -26,12 +27,13 @@ export const CardCheckout = () => {
 			try {
 				const payment = await db.collection('credit-card-payments').doc(id).get()
 				if (payment.exists) {
-					const { charge, maxInstallments, seller, status } = payment.data()
+					const { charge, maxInstallments, seller, sellerZoopId, status } = payment.data()
 					if (status === 'pendente') {
-						if (charge && maxInstallments && seller) {
+						if (charge && maxInstallments && seller && sellerZoopId) {
 							setCharge(charge)
 							setMaxInstallments(maxInstallments)
 							setSeller(seller)
+							setSellerZoopId(sellerZoopId)
 							setId(id)
 							setIsLoading(false)
 						} else setIsError(true)	
@@ -53,7 +55,7 @@ export const CardCheckout = () => {
 					<Header type='icon-link' title='Pagamento' icon='back' navigateTo='/pagamentos' />
 					{isLoading
 						? <div style={{ display: 'grid' }}><Spinner size={'6rem'} /></div>
-						: <Checkout {...checkoutProps} sendToBackend={sendToBackend(id, charge, seller, docId)} />
+						: <Checkout {...checkoutProps} sendToBackend={sendToBackend(id, charge, seller, sellerZoopId, docId)} />
 					}
 				  </>
 			}
