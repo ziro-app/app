@@ -21,7 +21,7 @@ export const CreatePayment = () => {
 	const [sellersAndIds, setSellersAndIds] = useState([])
 	const [charge, setCharge] = useState('')
 	const [maxInstallments, setMaxInstallments] = useState('')
-	const state = { seller, charge, maxInstallments, sellersAndIds }
+	const state = { seller, charge, maxInstallments, sellersAndIds, setSeller, setCharge, setMaxInstallments }
 	const validations = [
 		{
 			name: 'seller',

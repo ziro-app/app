@@ -1,7 +1,7 @@
 import { db } from '../../Firebase/index'
 
 export const sendToBackend = state => () => {
-	const { seller, charge, maxInstallments, sellersAndIds } = state
+	const { seller, charge, maxInstallments, sellersAndIds, setSeller, setCharge, setMaxInstallments } = state
 	const sellerId = sellersAndIds.find(([name, id]) => name === seller)
 	const baseUrl = 'https://ziro.app/checkout?id='
 	return new Promise(async (resolve, reject) => {
@@ -14,6 +14,9 @@ export const sendToBackend = state => () => {
 					maxInstallments,
 					status: 'pendente'
 				})
+				setSeller('')
+				setCharge('')
+				setMaxInstallments('')
 				try {
 					const doc = await docRef.get()
 					if (doc) await navigator.clipboard.writeText(`${baseUrl}${doc.id}`)
