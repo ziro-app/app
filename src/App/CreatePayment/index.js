@@ -13,6 +13,8 @@ import { containerWithPadding } from '../../Theme/styleVariables'
 export const CreatePayment = () => {
 	const [isError, setIsError] = useState(false)
 	const [seller, setSeller] = useState('')
+	const [sellers, setSellers] = useState([])
+	const [sellersAndIds, setSellersAndIds] = useState([])
 	const [charge, setCharge] = useState('')
 	const [maxInstallments, setMaxInstallments] = useState('')
 	const state = { seller, charge, maxInstallments }
@@ -42,9 +44,15 @@ export const CreatePayment = () => {
 				const sellersList = await db.collection('sellers').get()
 				console.log(sellersList)
 				if (!sellersList.empty) {
+					let sellersArray = []
+					let sellersAndIdsArray = []
 					sellersList.forEach(sellerDoc => {
-						console.log(sellerDoc.data())
+						const { name, zoopid } = sellerDoc.data()
+						sellersArray.push(name)
+						sellersAndIdsArray.push([name, zoopid])
 					})
+					setSellers(sellersArray)
+					setSellersAndIds(sellersAndIdsArray)
 				} else setIsError(true)
 				// if (sellersList.exists) {
 				// 	const { name, sellerId } = sellersList.data()
@@ -80,7 +88,7 @@ export const CreatePayment = () => {
 							<Dropdown
 								value={seller}
 								onChange={({ target: { value } }) => setSeller(value)}
-								list={['Crisfael']}
+								list={sellers}
 								placeholder='Nome do fabricante'
 								onChangeKeyboard={element => element ? setSeller(element.value) : null }
 							/>
