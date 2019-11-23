@@ -21,7 +21,7 @@ export const CreatePayment = () => {
 	const [sellersAndIds, setSellersAndIds] = useState([])
 	const [charge, setCharge] = useState('')
 	const [maxInstallments, setMaxInstallments] = useState('')
-	const state = { seller, charge, maxInstallments }
+	const state = { seller, charge, maxInstallments, sellersAndIds }
 	const validations = [
 		{
 			name: 'seller',
@@ -46,7 +46,6 @@ export const CreatePayment = () => {
 		const fetchSellers = async () => {
 			try {
 				const sellersList = await db.collection('sellers').get()
-				console.log(sellersList)
 				if (!sellersList.empty) {
 					let sellersArray = []
 					let sellersAndIdsArray = []
