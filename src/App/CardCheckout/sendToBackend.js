@@ -29,7 +29,7 @@ export const sendToBackend = (id, charge, seller, sellerZoopId, docId) => state 
 					'number_installments': installments
 				},
 				'statement_descriptor': `Ziro por ${seller}`
-			})
+			}, { headers: { 'Authorization': `Basic ${process.env.PAY_TOKEN}` }})
 			console.log(data)
 			await db.collection('credit-card-payments').doc(id).update({
 				buyer: docId,
