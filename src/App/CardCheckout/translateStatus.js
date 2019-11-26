@@ -1,4 +1,4 @@
-const translateStatus = status => {
+export const translateStatus = status => {
 	switch (status) {
 		case 'pre_authorized': return 'Pré Autorizado'
 		case 'succeeded': return 'Pago'
