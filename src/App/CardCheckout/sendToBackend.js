@@ -31,23 +31,37 @@ export const sendToBackend = (id, charge, seller, sellerZoopId, docId) => state 
 				'statement_descriptor': `Ziro por ${seller}`
 			}, { headers: { 'Authorization': `Basic ${process.env.PAY_TOKEN}` }})
 			console.log(data)
-			await db.collection('credit-card-payments').doc(id).update({
-				buyer: docId,
-				status: translateStatus(data.status),
-				installments: data.installment_plan.number_installments,
-				date: new Date(),
-				brand: data.payment_method.card_brand,
-				cardholder: data.payment_method.holder_name,
-				firstFour: data.payment_method.first4_digits,
-				lastFour: data.payment_method.last4_digits,
-				zoopId: data.id,
-				fees: data.fees * 100,
-				authorizer: data.gateway_authorizer
-			})
+			try {
+				await db.collection('credit-card-payments').doc(id).update({
+					buyer: docId,
+					status: translateStatus(data.status),
+					installments: data.installment_plan.number_installments,
+					date: new Date(),
+					brand: data.payment_method.card_brand,
+					cardholder: data.payment_method.holder_name,
+					firstFour: data.payment_method.first4_digits,
+					lastFour: data.payment_method.last4_digits,
+					zoopId: data.id,
+					fees: data.fees * 100,
+					authorizer: data.gateway_authorizer
+				})
+			} catch (error) {
+				console.log(error)
+				// save error to firestore here
+				reject('Error updating to Firestore API')
+			}
 		} catch (error) {
 			console.log(error)
-			if (error.response) console.log(error.response)
-			// save error to firestore here
+			try {
+				await db.collection('credit-card-errors').add({
+					httpStatus: error.status,
+					description: error.data,
+					buyer: docId,
+					date: new Date()
+				})
+			} catch (error) {
+				console.log(error)
+			}
 			reject('Error in Zoop API')
 		}
 	} catch (error) {
