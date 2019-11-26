@@ -51,7 +51,7 @@ export const sendToBackend = (id, charge, seller, sellerZoopId, docId) => state 
 				reject('Error updating to Firestore API')
 			}
 		} catch (error) {
-			console.log(error)
+			console.log('error 1',error)
 			try {
 				await db.collection('credit-card-errors').add({
 					httpStatus: error.status,
@@ -60,7 +60,7 @@ export const sendToBackend = (id, charge, seller, sellerZoopId, docId) => state 
 					date: new Date()
 				})
 			} catch (error) {
-				console.log(error)
+				console.log('error 2',error)
 			}
 			reject('Error in Zoop API')
 		}
