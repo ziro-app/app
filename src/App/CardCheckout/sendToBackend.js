@@ -31,7 +31,7 @@ export const sendToBackend = (id, charge, seller, sellerZoopId, docId) => state 
 				'statement_descriptor': `Ziro por ${seller}`
 			}, { headers: { 'Authorization': `Basic ${process.env.PAY_TOKEN}` }})
 			console.log(data)
-			try {
+
 				await db.collection('credit-card-payments').doc(id).update({
 					buyer: docId,
 					status: translateStatus(data.status),
@@ -45,11 +45,11 @@ export const sendToBackend = (id, charge, seller, sellerZoopId, docId) => state 
 					fees: data.fees * 100,
 					authorizer: data.gateway_authorizer
 				})
-			} catch (error) {
-				console.log(error)
-				// save error to firestore here
-				reject('Error updating to Firestore API')
-			}
+			// } catch (error) {
+			// 	console.log(error)
+			// 	// save error to firestore here
+			// 	reject('Error updating to Firestore API')
+			// }
 		} catch (error) {
 			if (error.response) {
 				console.log(error.response)
