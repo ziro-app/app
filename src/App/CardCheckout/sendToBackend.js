@@ -2,7 +2,7 @@ import { post } from 'axios'
 import { db } from '../../Firebase/index'
 import { translateStatus } from './translateStatus'
 
-export const sendToBackend = (id, charge, seller, sellerZoopId, docId) => state => () => new Promise(async (resolve, reject) => {
+export const sendToBackend = (id, charge, seller, sellerZoopId, docId, razao) => state => () => new Promise(async (resolve, reject) => {
 	try {
 		if (!docId) throw 'Admins cannot submit payments'
 		try {
@@ -34,6 +34,7 @@ export const sendToBackend = (id, charge, seller, sellerZoopId, docId) => state 
 			try {
 				await db.collection('credit-card-payments').doc(id).update({
 					buyer: docId,
+					buyerRazao: razao,
 					status: translateStatus(data.status),
 					installments: data.installment_plan.number_installments,
 					date: new Date(),
@@ -58,6 +59,7 @@ export const sendToBackend = (id, charge, seller, sellerZoopId, docId) => state 
 						httpStatus: error.response.status,
 						description: error.response.data,
 						buyer: docId,
+						buyerRazao: razao,
 						date: new Date()
 					})
 					if (docRef) console.log('Error saved to database')

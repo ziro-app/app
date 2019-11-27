@@ -18,7 +18,7 @@ export const CardCheckout = () => {
 	const [seller, setSeller] = useState('')
 	const [sellerZoopId, setSellerZoopId] = useState('')
 	const [id, setId] = useState('')
-	const { docId } = useContext(userContext)
+	const { docId, razao } = useContext(userContext)
 	const checkoutProps = { charge, maxInstallments, seller }
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search)
@@ -55,7 +55,7 @@ export const CardCheckout = () => {
 					<Header type='icon-link' title='Pagamento' icon='back' navigateTo='/pagamentos' />
 					{isLoading
 						? <div style={{ display: 'grid' }}><Spinner size={'6rem'} /></div>
-						: <Checkout {...checkoutProps} sendToBackend={sendToBackend(id, charge, seller, sellerZoopId, docId)} />
+						: <Checkout {...checkoutProps} sendToBackend={sendToBackend(id, charge, seller, sellerZoopId, docId, razao)} />
 					}
 				  </>
 			}
