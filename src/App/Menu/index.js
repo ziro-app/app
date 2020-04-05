@@ -17,7 +17,7 @@ export const Menu = ({ title, children }) => {
 			<Drawer isOpen={isOpen} setIsOpen={() => setIsOpen(false)}>
 				<DrawerPanel
 					username={fname || 'Admin'}
-					usercnpj={cnpj || 'nenhum cadastrado'}
+					userdata={`CNPJ:${cnpj}` || 'nenhum CNPJ cadastrado'}
 					options={[
 						{ path: null,
 						  onClick: null,

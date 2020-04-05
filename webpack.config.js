@@ -28,13 +28,14 @@ module.exports = (env, { mode }) => {
 		plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }) ]
 	}
 	if (mode === 'development') {
-		const { cnpj_api, continue_url, pay, pay_token, mapbox_api } = require('./credentials')
+		const { cnpj_url, cnpj_token, continue_url, pay, pay_token, mapbox_api } = require('./credentials')
 		config.devtool = 'cheap-module-eval-source-map'
 		config.devServer = { historyApiFallback: true }
 		config.plugins.push(
 			new webpack.DefinePlugin({
 				'process.env': {
-					CNPJ_API: JSON.stringify(cnpj_api),
+					CNPJ_URL: JSON.stringify(cnpj_url),
+					CNPJ_TOKEN: JSON.stringify(cnpj_token),
 					CONTINUE_URL: JSON.stringify(continue_url),
 					PAY: JSON.stringify(pay),
 					PAY_TOKEN: JSON.stringify(pay_token),
@@ -62,7 +63,8 @@ module.exports = (env, { mode }) => {
 			}),
 			new webpack.DefinePlugin({
 				'process.env': {
-					CNPJ_API: JSON.stringify(process.env.CNPJ_API),
+					CNPJ_URL: JSON.stringify(process.env.CNPJ_URL),
+					CNPJ_TOKEN: JSON.stringify(process.env.CNPJ_TOKEN),
 					CONTINUE_URL: JSON.stringify(process.env.CONTINUE_URL),
 					PAY: JSON.stringify(process.env.PAY),
 					PAY_TOKEN: JSON.stringify(process.env.PAY_TOKEN),

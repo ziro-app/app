@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { post } from 'axios'
+import axios from 'axios'
 import { useLocation } from 'wouter'
 import { db } from '../../../../Firebase/index'
 import { validateInput } from './validateInput'
@@ -9,6 +9,14 @@ export const useCnpjApi = (cnpj, setRazao, setFantasia, setRua, setNumero, setCo
 	const [submitting, setSubmitting] = useState(false)
 	const [errorSubmit, setErrorSubmit] = useState('')
 	const [location, setLocation] = useLocation()
+	const config = {
+		method: 'POST',
+		url: process.env.CNPJ_URL,
+		data: { cnpj },
+		headers: {
+			'Authorization': process.env.CNPJ_TOKEN
+		}
+	}
 	const submitForm = async event => {
 		event.preventDefault()
 		if (cnpjIsValid) {
@@ -26,33 +34,27 @@ export const useCnpjApi = (cnpj, setRazao, setFantasia, setRua, setNumero, setCo
 						setSubmitting(false)
 						setErrorSubmit('CNPJ já cadastrado na base')
 					} else {
-						const { data: { message, data } } = await post(`${process.env.CNPJ_API}`, { cnpj })
+						const { data: { status, result } } = await axios(config)
+						const cnaes = [...result.atividades_secundarias, result.atividade_principal].map(({ code }) => code)
+						const cnaeIsValid = !!cnaes.filter(code => code === '47.81-4-00').pop()
+						if (!cnaeIsValid) setErrorSubmit('CNPJ não tem CNAE 4781-4/00')
+						const isActive = result.situacao === 'ATIVA'
+						if (!isActive) setErrorSubmit('CNPJ não está ativo')
+						// save company data
+						setRazao(result.nome)
+						setFantasia(result.fantasia)
+						setRua(result.logradouro)
+						setNumero(result.numero)
+						setComplemento(result.complemento)
+						setBairro(result.bairro)
+						setCep(result.cep)
+						setCidade(result.municipio)
+						setEstado(result.uf)
+						// resolve
+						setCnpjIsValid(true)
 						setSubmitting(false)
-						if (data.return !== 'OK')
-							setErrorSubmit('CNPJ não encontrado na Receita')
-						if (message !== 'Success') {
-							console.log(message)
-							setErrorSubmit('Erro no serviço. Tente mais tarde')					
-						}
-						if (data.return === 'OK' && message === 'Success') {
-							const { status, message } = validateCnpj(data)
-							setErrorSubmit(message)
-							if (status === 'Success') {
-								console.log(data.result)
-								setRazao(data.result.nome)
-								setFantasia(data.result.fantasia)
-								setRua(data.result.logradouro)
-								setNumero(data.result.numero)
-								setComplemento(data.result.complemento)
-								setBairro(data.result.bairro)
-								setCep(data.result.cep)
-								setCidade(data.result.municipio)
-								setEstado(data.result.uf)
-								setCnpjIsValid(true)
-								setLocation('/cadastrar/dados')
-								goForward()
-							}
-						}
+						setLocation('/cadastrar/dados')
+						goForward()
 					}
 				} catch (error) {
 					console.log(error)
