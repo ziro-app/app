@@ -12,6 +12,7 @@ export const sendToBackend = state => () => {
 					sellerZoopId: sellerId[1],
 					charge,
 					maxInstallments,
+					dateLinkCreated: new Date(),
 					status: 'Aguardando Pagamento'
 				})
 				setSeller('')
