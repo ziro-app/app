@@ -9,7 +9,6 @@ import { Home } from './Home/index'
 import { Join } from './Join/index'
 import { Register } from './Register/index'
 import { CreatePayment } from './CreatePayment/index'
-import About from '@bit/vitorbarbosa19.ziro.about'
 import NotFound from '@bit/vitorbarbosa19.ziro.not-found'
 
 export const Router = ({ isLogged, checkoutId }) => {
@@ -22,7 +21,6 @@ export const Router = ({ isLogged, checkoutId }) => {
 			case '/meus-dados/fisica': return <Menu title='Meus dados'><MyData /></Menu>
 			case '/meus-dados/juridica': return <Menu title='Meus dados'><MyData /></Menu>
 			case '/pagamentos': return <Menu title='Meus pagamentos'><MyPayments /></Menu>
-			case '/sobre': return <Menu title='Sobre a Ziro'><About /></Menu>
 			case '/checkout': return <CardCheckout />
 			case '/criar-cobranca': return <CreatePayment />
 			case '/': setLocation(rootPrivate)

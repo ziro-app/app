@@ -12,7 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.6.3",
-    "@bit/vitorbarbosa19.ziro.about": "0.0.7",
     "@bit/vitorbarbosa19.ziro.badge": "^0.0.22",
     "@bit/vitorbarbosa19.ziro.button": "^0.0.3",
     "@bit/vitorbarbosa19.ziro.call-to-action": "^0.1.12",
